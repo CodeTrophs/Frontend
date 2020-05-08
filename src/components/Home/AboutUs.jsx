@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from '../../css/home.module.css';
 
 export default function AboutUs() {
   return (
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="about-us-curve"
+        className={styles['about-us-curve']}
         viewBox="0 0 1440 320"
       >
         <path
@@ -14,11 +15,11 @@ export default function AboutUs() {
           d="M0,192L60,186.7C120,181,240,171,360,149.3C480,128,600,96,720,106.7C840,117,960,171,1080,181.3C1200,192,1320,160,1380,144L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
         />
       </svg>
-      <div className="about-us-container">
-        <div className="about-left-col">
+      <div className={styles['about-us-container']}>
+        <div className={styles['about-left-col']}>
           <img alt="about-left-svg" src="/images/about-left-SVG.png" />
         </div>
-        <div className="about-right-col">
+        <div className={styles['about-right-col']}>
           <h1>ABOUT OSC</h1>
           <br />
           <br />
