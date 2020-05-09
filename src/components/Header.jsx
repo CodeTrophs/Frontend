@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 import { useRouter } from 'next/router';
-import styles from '../../src/css/header.module.css';
+import styles from '../css/header.module.css';
 
 export default function Header() {
   const router = useRouter();
@@ -10,19 +10,24 @@ export default function Header() {
   const [profileDD, setProfileDD] = useState(false);
 
   const toggleDD = () => {
+    // eslint-disable-next-line no-unused-expressions
     profileDD === true ? setProfileDD(false) : setProfileDD(true);
   };
 
   return (
-    <div className={styles['header']}>
+    <div className={styles.header}>
       <div>
         <Link href="/">
-          <img className={styles['header-logo']} src="/logo/web_logo.png" />
+          <img
+            className={styles['header-logo']}
+            src="/logo/web_logo.png"
+            alt=""
+          />
         </Link>
       </div>
       {router.pathname !== '/' && (
-        <div className={styles['links']}>
-          <div className={styles['link']}>
+        <div className={styles.links}>
+          <div className={styles.link}>
             <Link href="/feed" className={styles['header-link']}>
               <p>Feed</p>
             </Link>
@@ -37,11 +42,11 @@ export default function Header() {
               />
             )}
           </div>
-          <div className={styles['link']}>
+          <div className={styles.link}>
             <Link href="/organizations" className={styles['header-link']}>
               <p>Organizations</p>
             </Link>
-            {router.pathname == '/organizations' && (
+            {router.pathname === '/organizations' && (
               <hr
                 style={{
                   width: '30%',
@@ -52,7 +57,7 @@ export default function Header() {
               />
             )}
           </div>
-          <div className={styles['link']}>
+          <div className={styles.link}>
             <Link href="/howToWork" className={styles['header-link']}>
               <p>How To Work</p>
             </Link>
@@ -70,29 +75,35 @@ export default function Header() {
         </div>
       )}
       {router.pathname !== '/' && (
-        <div className={styles['profile']}>
-          <div className={styles['profile-icon']} onClick={toggleDD}>
+        <div className={styles.profile}>
+          <div
+            role="button"
+            tabIndex="0"
+            className={styles['profile-icon']}
+            onClick={toggleDD}
+            onKeyDown={toggleDD}
+          >
             <img
               src="/icons/young-man.svg"
-              alt=""
+              alt=" "
               className={styles['header-profile-picture']}
             />
             <p>Ali Zahir</p>
             <img
               src="/SVG/Icon awesome-angle-down.svg"
               style={{ paddingLeft: '10px', width: '20px' }}
-              alt=""
+              alt=" "
             />
           </div>
           {profileDD && (
-            <div className={styles['dropdown']}>
+            <div className={styles.dropdown}>
               <div className={styles['top-row']}>
                 <div className={styles['top-left-col']}>
-                  <img src="/icons/young-man.png" alt="" />
+                  <img src="/icons/young-man.png" alt=" " />
                   <p>Ali Zahir</p>
                 </div>
                 <div className={styles['top-right-col']}>
-                  <img src="/icons/computer.png" alt="" />
+                  <img src="/icons/computer.png" alt=" " />
                 </div>
               </div>
               <div className={styles['bottom-row']}>
