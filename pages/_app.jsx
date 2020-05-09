@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps }) {
       </Head>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} />
-      )
     </>
   );
 }
