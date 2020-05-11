@@ -27,7 +27,7 @@ export default function Header() {
       </div>
       {router.pathname !== '/' && (
         <div className={styles.links}>
-          <div className={styles['link']}>
+          <div className={styles.link}>
             <Link href="/feed">
               <p>Feed</p>
             </Link>
@@ -42,7 +42,7 @@ export default function Header() {
               />
             )}
           </div>
-          <div className={styles['link']}>
+          <div className={styles.link}>
             <Link href="/organizations">
               <p>Organizations</p>
             </Link>
@@ -57,7 +57,7 @@ export default function Header() {
               />
             )}
           </div>
-          <div className={styles['link']}>
+          <div className={styles.link}>
             <Link href="/howToWork">
               <p>How To Work</p>
             </Link>

@@ -62,10 +62,10 @@ const SearchBar = ({ page }) => {
       <div className={styles['right-col']}>
         <div className={styles.filter}>
           <div
+            role="button"
             tabIndex={0}
             className={styles['filter-show']}
             onClick={dropdownToggleSort}
-            role="button"
             onKeyDown={dropdownToggleSort}
           >
             <p>{Sort}</p>

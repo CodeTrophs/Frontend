@@ -3,6 +3,7 @@ import Header from '../src/components/Header';
 import LandingContainer from '../src/components/LandingContainer';
 import SearchBar from '../src/components/SearchBar';
 import styles from '../src/css/organisations.module.css';
+
 import Organisation from '../src/components/organisation';
 
 const organizations = () => {
@@ -10,6 +11,7 @@ const organizations = () => {
     {
       organisation: 'Adobe',
       id: 1,
+      link: 'alizahir.github.io',
       orgDescription:
         'Description of organisation. Random texts coming here and there. Lets enter something to fill these spaces. This is just a sample of the text that  something to fill these spaces. This is just a sample of the text that  something to fill these spaces. This is just a sample of the text that  something to fill these spaces. This is just a sample of the text that  something to fill these spaces. This is just a sample of the text that is to be entered into the boxes.',
       langTags: ['React', 'Javascript'],
@@ -21,6 +23,7 @@ const organizations = () => {
     {
       organisation: 'Facebook',
       id: 2,
+      link: 'nandana.github.io',
 
       orgDescription:
         'Description of organisation. Random texts coming here and there. Lets enter something to fill these spaces. This is just a sample of the text that is to be entered into the boxes.',
@@ -33,6 +36,7 @@ const organizations = () => {
     {
       organisation: 'Mozilla',
       id: 3,
+      link: 'arya.github.io',
 
       orgDescription:
         'Description of organisation. Random texts coming here and there. Lets enter something to fill these spaces. This is just a sample of the text that is to be entered into the boxes.',
@@ -58,7 +62,7 @@ const organizations = () => {
       <div className={styles['organisations-grid']}>
         {Organisations.map((organisation) => (
           <Organisation
-            className={styles['card']}
+            className={styles.card}
             key={organisation.id}
             org={organisation}
           />
