@@ -1,0 +1,6 @@
+.organisations-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 120px;
+  margin: 20px 150px;
+}

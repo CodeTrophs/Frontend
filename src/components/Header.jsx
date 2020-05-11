@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-
 import { useRouter } from 'next/router';
+
 import styles from '../css/header.module.css';
 
 export default function Header() {
@@ -27,8 +27,8 @@ export default function Header() {
       </div>
       {router.pathname !== '/' && (
         <div className={styles.links}>
-          <div className={styles.link}>
-            <Link href="/feed" className={styles['header-link']}>
+          <div className={styles['link']}>
+            <Link href="/feed">
               <p>Feed</p>
             </Link>
             {router.pathname === '/feed' && (
@@ -42,8 +42,8 @@ export default function Header() {
               />
             )}
           </div>
-          <div className={styles.link}>
-            <Link href="/organizations" className={styles['header-link']}>
+          <div className={styles['link']}>
+            <Link href="/organizations">
               <p>Organizations</p>
             </Link>
             {router.pathname === '/organizations' && (
@@ -57,8 +57,8 @@ export default function Header() {
               />
             )}
           </div>
-          <div className={styles.link}>
-            <Link href="/howToWork" className={styles['header-link']}>
+          <div className={styles['link']}>
+            <Link href="/howToWork">
               <p>How To Work</p>
             </Link>
             {router.pathname === '/howToWork' && (

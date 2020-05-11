@@ -1,0 +1,25 @@
+.landing-container {
+  display: flex;
+  margin: 10px 50px;
+  align-items: center;
+  height: 350px;
+}
+.left-col {
+  width: 60%;
+}
+.left-col h1 {
+  font-size: 5.5vw;
+  color: black;
+}
+.left-col p {
+  margin-left: 10px;
+  color: #6d6d6d;
+}
+
+.right-col {
+  width: 40%;
+}
+.right-col img {
+  width: 85%;
+  margin-top: 10px;
+}

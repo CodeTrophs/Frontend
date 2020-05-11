@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
         />
         <title>OpenSourceCode</title>
       </Head>
+
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} />
     </>
