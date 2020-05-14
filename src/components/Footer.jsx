@@ -1,31 +1,36 @@
-import React from 'react';
+import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="Footer">
-      <h1>REACH OUT TO US ON.</h1>
-      <div className="reach-links">
-        <a href="https://github.com/OpenSouceCode">
-          <img
-            alt="../assets/images/footer-github.png"
-            src="/images/footer-github.png"
-          />
-        </a>
-        <a href="https://join.slack.com/t/opensourcecode/shared_invite/zt-dcirfg6f-IYydr1qUsAAYaq_ZA48jmg">
-          <img
-            alt="../assets/images/footer-slack.png"
-            src="/images/footer-slack.png"
-          />
-        </a>
-
-        <a href="https://www.linkedin.com/company/opensourcecode">
-          {' '}
-          <img
-            alt="../assets/images/footer-linkedin.png"
-            src="/images/footer-linkedin.png"
-          />
-        </a>
+    <div id="contact" className="contact-area ptb-80">
+      <div className="container">
+        <div className="section-title">
+          <h3>Get in touch.</h3>
+          <div className="container-part">
+            <a href=" # ">
+              <img
+                alt="../assets/images/Icon-simple-google.png"
+                src="/images/Icon-simple-google.png"
+              />
+            </a>
+            &nbsp;
+            <a href=" # ">
+              <img
+                alt="../assets/images/Icon awesome-slack-hash.png"
+                src="/images/Icon awesome-slack-hash.png"
+              />
+            </a>
+            &nbsp;
+            <a href=" # ">
+              {" "}
+              <img
+                alt="../assets/images/Icon simple-github.png"
+                src="/images/Icon simple-github.png"
+              />
+            </a>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
   );
 }

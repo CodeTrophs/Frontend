@@ -21,16 +21,27 @@ export default function Header() {
   };
 
   return (
-    <div className={styles.header}>
-      <div>
-        <Link href="/">
-          <img
-            className={styles['header-logo']}
-            src="/logo/web_logo.png"
-            alt=""
-          />
-        </Link>
-      </div>
+    // <div className={styles.header}>
+      
+      <div className='header'>
+        <div>
+          <Link href="/">
+            <img
+              className={styles['header-logo']}
+              src="/logo/web_logo.png"
+              alt=""
+            />
+          </Link>
+
+        </div>
+        {/* <span className='header-title'>
+          Open Source Code
+            </span>
+        <br /> */}
+        <span className="header-text">
+          We specialise in something ...
+            </span>
+      {/* </div> */}
       {router.pathname !== '/' && (
         <div className={styles.links}>
           <div className={styles.link}>
