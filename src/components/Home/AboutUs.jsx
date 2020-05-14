@@ -23,6 +23,9 @@ export default function AboutUs() {
           <h1>ABOUT OSC</h1>
           <br />
           <br />
+
+          <h3 className="about-part">Get to where you want to be.
+            It's in your hand.</h3>
           <p>
             No one rejects, dislikes, or avoids pleasure itself, because it is
             pleasure, but because those who do not know how to pursue pleasure
