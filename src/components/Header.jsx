@@ -21,7 +21,9 @@ export default function Header() {
   };
 
   return (
-    <div className={styles.header}>
+    // <div className={styles.header}>
+
+    <div className='header'>
       <div>
         <Link href="/">
           <img
@@ -30,7 +32,16 @@ export default function Header() {
             alt=""
           />
         </Link>
+
       </div>
+      {/* <span className='header-title'>
+          Open Source Code
+            </span>
+        <br /> */}
+      <span className="header-text">
+        We specialise in something ...
+            </span>
+      {/* </div> */}
       {router.pathname !== '/' && (
         <div className={styles.links}>
           <div className={styles.link}>

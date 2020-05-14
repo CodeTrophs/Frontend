@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import '../src/css/style.css';
+import '../src/css/style1.css'
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
