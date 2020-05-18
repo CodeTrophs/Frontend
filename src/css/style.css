@@ -2,9 +2,24 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+.header{
+  padding: 10px 30px;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Footer{
+ 
   font-family: 'Poppins', sans-serif;
   outline: none;
+  text-align-last: center;
 }
+
 
 .header-logo {
   width: 200px;
