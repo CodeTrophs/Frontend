@@ -1,4 +1,5 @@
 node_modules
 .next
 .vscode
+yarn.lock
 out
