@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "test": "eslint src/**/* pages/**/* --ext .jsx,.js  --fix"
+    "lint": "eslint src/**/* pages/**/* --ext .jsx,.js  --fix"
   },
   "author": "",
   "license": "ISC",
