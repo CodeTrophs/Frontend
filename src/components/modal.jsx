@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from '../css/modal.module.css';
 
 /* eslint-disable-next-line react/prop-types */
@@ -15,7 +16,7 @@ const Modal = ({ org, hideModal }) => (
           width: '40px',
           position: 'absolute',
           right: '10px',
-          cursor: 'pointer',
+          cursor: 'pointer'
         }}
       />
       <div className="heading" style={{ textAlign: 'center' }}>
@@ -30,8 +31,7 @@ const Modal = ({ org, hideModal }) => (
       </div>
       <div
         className={styles.description}
-        style={{ marginTop: '40px', display: 'flex' }}
-      >
+        style={{ marginTop: '40px', display: 'flex' }}>
         <div className={styles['left-col']} style={{ width: '100%' }}>
           <h3 style={{ fontSize: '22px', fontWeight: '500' }}>Description</h3>
           <p
@@ -41,9 +41,8 @@ const Modal = ({ org, hideModal }) => (
               display: '-webkit-box',
               WebkitLineClamp: '5',
               WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-            }}
-          >
+              overflow: 'hidden'
+            }}>
             {/* eslint-disable-next-line react/prop-types */}
             {org.orgDescription}
           </p>
@@ -71,9 +70,8 @@ const Modal = ({ org, hideModal }) => (
                 fontWeight: '400',
                 fontSize: '12px',
                 margin: ' 10px 5px',
-                cursor: 'pointer',
-              }}
-            >
+                cursor: 'pointer'
+              }}>
               {/* eslint-disable-next-line react/prop-types */}
               {tag}
             </p>
@@ -93,9 +91,8 @@ const Modal = ({ org, hideModal }) => (
                 fontWeight: '400',
                 fontSize: '12px',
                 margin: ' 10px 5px',
-                cursor: 'pointer',
-              }}
-            >
+                cursor: 'pointer'
+              }}>
               {/* eslint-disable-next-line react/prop-types */}
               {tag}
             </p>
@@ -111,7 +108,7 @@ const Modal = ({ org, hideModal }) => (
               alt={org.github}
               style={{
                 margin: ' 0 10px',
-                cursor: 'pointer',
+                cursor: 'pointer'
               }}
             />
           </a>
@@ -122,7 +119,7 @@ const Modal = ({ org, hideModal }) => (
               alt="slack"
               style={{
                 margin: ' 0 10px',
-                cursor: 'pointer',
+                cursor: 'pointer'
               }}
             />
           </a>

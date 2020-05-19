@@ -1,11 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 import styles from '../css/landingContainer.module.css';
 
-const LandingContainer = ({
-  title, imgsrc, line1, line2, line3,
-}) => (
+const LandingContainer = ({ title, imgsrc, line1, line2, line3 }) => (
   <div>
     <div className={styles['landing-container']}>
       <div className={styles['left-col']}>
@@ -27,7 +25,7 @@ LandingContainer.propTypes = {
   imgsrc: PropTypes.string.isRequired,
   line1: PropTypes.string.isRequired,
   line2: PropTypes.string.isRequired,
-  line3: PropTypes.string.isRequired,
+  line3: PropTypes.string.isRequired
 };
 
 export default LandingContainer;

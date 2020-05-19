@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from '../../css/settings.module.css';
 
 const Social = () => (
@@ -15,10 +16,7 @@ const Social = () => (
           <img src="SVG/Icon feather-globe.svg" alt="globe" />
         </div>
       </div>
-      <input
-        className={styles.input}
-        placeholder="https://your-website.com/"
-      />
+      <input className={styles.input} placeholder="https://your-website.com/" />
       <div className={styles.flexing}>
         <div>
           <p>Github</p>
@@ -36,10 +34,7 @@ const Social = () => (
           <img src="SVG/Icon awesome-linkedin.svg" alt="linkedin" />
         </div>
       </div>
-      <input
-        className={styles.input}
-        placeholder="https://linkedin.com/in/"
-      />
+      <input className={styles.input} placeholder="https://linkedin.com/in/" />
 
       <div className={styles.flexing}>
         <div>

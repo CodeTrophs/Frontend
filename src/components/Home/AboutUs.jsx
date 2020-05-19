@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from '../../css/home.module.css';
 
 export default function AboutUs() {
@@ -7,8 +8,7 @@ export default function AboutUs() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className={styles['about-us-curve']}
-        viewBox="0 0 1440 320"
-      >
+        viewBox="0 0 1440 320">
         <path
           fill="#F7F7F7"
           fillOpacity="1"

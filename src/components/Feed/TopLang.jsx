@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import styles from '../../css/feed.module.css';
 
 const FeedLang = () => {
@@ -18,7 +19,10 @@ const FeedLang = () => {
           <div className={styles['lang-space']}>
             <p>Top Languages</p>
           </div>
-          <button type="button" onClick={dropDown} className={styles['btn-drop']}>
+          <button
+            type="button"
+            onClick={dropDown}
+            className={styles['btn-drop']}>
             <img src="SVG/dropdown-icon.svg" alt="dropdown" />
           </button>
         </div>
@@ -33,7 +37,9 @@ const FeedLang = () => {
               <div>
                 <p>Javascript</p>
               </div>
-              <div className={styles['small-follow']}><p>Follow</p></div>
+              <div className={styles['small-follow']}>
+                <p>Follow</p>
+              </div>
             </div>
           </div>
           <div className={styles['disp-flex']}>
@@ -44,7 +50,9 @@ const FeedLang = () => {
               <div>
                 <p>CSS</p>
               </div>
-              <div className={styles['small-follow']}><p>Follow</p></div>
+              <div className={styles['small-follow']}>
+                <p>Follow</p>
+              </div>
             </div>
           </div>
           <div className={styles['disp-flex']}>
@@ -55,7 +63,9 @@ const FeedLang = () => {
               <div>
                 <p>Node</p>
               </div>
-              <div className={styles['small-follow']}><p>Follow</p></div>
+              <div className={styles['small-follow']}>
+                <p>Follow</p>
+              </div>
             </div>
           </div>
         </div>

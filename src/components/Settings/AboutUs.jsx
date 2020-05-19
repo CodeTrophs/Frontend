@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from '../../css/settings.module.css';
 
 const Aboutus = () => (
@@ -8,7 +9,10 @@ const Aboutus = () => (
     </div>
     <div className={styles.qns}>
       <p>Title</p>
-      <input className={styles.input} placeholder="Developer, Student, Programmer" />
+      <input
+        className={styles.input}
+        placeholder="Developer, Student, Programmer"
+      />
       <p>About</p>
       <input
         className={styles['input-bio']}

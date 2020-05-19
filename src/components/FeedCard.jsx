@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from '../css/card.module.css';
 
 export default function Card() {
@@ -22,10 +23,10 @@ export default function Card() {
                 <p>By Organisation | 08 May 2020</p>
               </div>
               <p>
-                There should be some content her. So I am filling this with random
-                content inorder to fill this space. Feel free to add on.We can add
-                more and more content here so that we can see what this is gonna
-                look like on the real website page
+                There should be some content her. So I am filling this with
+                random content inorder to fill this space. Feel free to add
+                on.We can add more and more content here so that we can see what
+                this is gonna look like on the real website page
               </p>
             </div>
             <div className={styles.flex}>
