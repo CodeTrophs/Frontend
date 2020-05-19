@@ -11,7 +11,7 @@ function Home() {
     <div className="Home">
       <Header />
       <WelcomeComponent />
-      <LandingContainer />
+     
       <AboutUs />
       <HowContainer />
       <Footer />

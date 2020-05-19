@@ -24,39 +24,56 @@
   padding-left: 3vw;
 }
 
-.welcome-title {
+.welcome-container {
+  margin:0 50px 20px 50px;
+  display: flex;
+  flex-direction: row;
   padding-top: 50px;
-  font-size: 45px;
-  font-weight: 600;
-  color: #333;
-  text-align: center;
+}
+
+.welcome-left {
+  max-width: 60%;
+}
+
+.welcome-title {
+
+  font-weight: 700;
+  font-size: 60px;
+  color: black;
+  text-align: left;
 }
 
 .landing-text {
   padding-top: 20px;
-  font-size: 25px;
-  font-weight: 200;
-  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: left;
 }
 
-.landing-text span {
-  color: #196598;
+.welcome-right {
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+}
 
-  font-weight: normal;
+.welcome-right img {
+  max-width: 80%;
+  float:right;
 }
 
 .sign-in-buttons {
   padding-top: 30px;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
 .sign-in-buttons button {
   display: flex;
   flex-direction: row;
   margin-top: 2vh;
-  border-radius: 5px;
+  border-radius: 1000px;
   border: none;
   width: 220px;
   min-height: 50px;
@@ -77,7 +94,7 @@
   background-color: #ce0707;
 }
 .google-button:hover {
-  background-color: #ebebeb;
+  opacity:0.7;
 }
 .github-button:hover {
   background-color: #3f3f3f;
@@ -98,6 +115,11 @@
 
 .github-button {
   background-color: black;
+  color: white;
+}
+
+.google-button{
+  background: linear-gradient(273deg, rgba(17,17,127,1) 0%, rgba(0,212,255,1) 100%);
   color: white;
 }
 
@@ -209,8 +231,7 @@
 /* ABOUT SECTION */
 
 .about-us-container {
-  margin-top: -1vh;
-  background-color: #f7f7f7;
+  margin-top: 5%;
   display: flex;
 }
 
@@ -225,14 +246,13 @@
 
 .about-right-col {
   max-width: 60%;
-  text-align: center;
+  text-align: right;
   margin: -30px auto 0 auto;
 }
 
 .about-right-col h1 {
   font-weight: 800;
-  font-size: 70px;
-  color: #1583cc;
+  font-size: 60px;
 }
 
 .about-right-col p {
@@ -252,13 +272,11 @@
 
 .how-top-left-col {
   max-width: 60%;
-  text-align: center;
 }
 
 .how-top-left-col h1 {
   font-weight: 800;
-  font-size: 70px;
-  color: #1583cc;
+  font-size: 60px;
   padding-bottom: 50px;
 }
 
@@ -269,6 +287,8 @@
 
 .how-top-right-col {
   max-width: 40%;
+  display: flex;
+  justify-content: center;
 }
 
 .how-top-right-col img {
@@ -285,8 +305,8 @@
 
 .how-card {
   max-width: 20%;
-  border-radius: 6px;
-  background-color: #f7f7f7;
+  border-radius: 15%;
+  box-shadow: 1px 1px 8px #888888;
   padding-top: 40px;
   padding-right: 20px;
   padding-left: 20px;
@@ -294,9 +314,19 @@
   padding-bottom: 40px;
 }
 
+.how-card-img-container{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 30px;
+}
+
 .how-card img {
   max-width: 35px;
-  padding-bottom: 30px;
+  filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(100%);
 }
 
 .how-card h3 {
@@ -371,9 +401,19 @@
     font-size: 35px;
     text-align: center;
   }
+.welcome-container{
+  flex-direction: column-reverse;
+}
+  .welcome-left{
+    max-width: 100%;
+  }
+
+  .welcome-right{
+    max-width: 100% ;
+  }
 
   .sign-in-buttons {
-    align-items: center;
+    flex-direction: column;
     padding-left: 0;
   }
 
@@ -390,6 +430,7 @@
   }
   .about-us-container div {
     max-width: 80%;
+    text-align: center;
   }
 
   .about-left-col {
