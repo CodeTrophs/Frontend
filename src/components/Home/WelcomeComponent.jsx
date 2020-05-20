@@ -7,9 +7,9 @@ export default function WelcomeComponent() {
     <div className={styles['welcome-container']}>
 
       <div className={styles['welcome-left']}>
-        <h5 className={styles['welcome-title']}>
+        <h1 className={styles['welcome-title']}>
           Welcome To <br /><u>Open</u> Source Code Platform
-        </h5>
+        </h1>
         <p className={styles['landing-text']}>
           Search and Contribute to Some of the Best
           <br />

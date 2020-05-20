@@ -37,7 +37,7 @@
 
 .welcome-title {
 
-  font-weight: 700;
+  font-weight: 800;
   font-size: 3.75rem;
   color: black;
   text-align: left;
@@ -404,6 +404,7 @@
   }
 .welcome-container{
   flex-direction: column-reverse;
+  margin:0 15px 0 15px;
 }
   .welcome-left{
     max-width: 100%;
@@ -454,6 +455,10 @@
     padding-top: -80px;
   }
 
+  .how-container{
+    margin:20px 15px 0 15px;
+  }
+
   .how-top-row {
     text-align: center;
     flex-direction: column-reverse;
@@ -474,6 +479,7 @@
     flex-direction: column;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 50px;
   }
 
   .how-card {
