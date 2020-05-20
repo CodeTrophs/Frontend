@@ -255,6 +255,7 @@
 .about-right-col h1 {
   font-weight: 800;
   font-size: 3.75rem;
+  margin-bottom: 30px;
 }
 
 .about-right-col p {
@@ -428,10 +429,11 @@
   }
 
   .about-us-container {
-    display: block;
+    flex-direction:column ;
+    margin: 0 15px 0 15px;
   }
   .about-us-container div {
-    max-width: 80%;
+    max-width: 100%;
     text-align: center;
   }
 
@@ -475,6 +477,10 @@
     font-size: 3.5rem;
   }
 
+  .how-top-right-col{
+    margin-bottom: 50px;
+  }
+
   .how-bottom-row {
     flex-direction: column;
     padding-left: 20px;
@@ -483,7 +489,7 @@
   }
 
   .how-card {
-    max-width: 220px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin: 20px;
