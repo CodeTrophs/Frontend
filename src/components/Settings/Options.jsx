@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+
 import styles from '../../css/settings.module.css';
-import Basicinfo from './BasicInfo';
 import Aboutus from './AboutUs';
+import Basicinfo from './BasicInfo';
 import Social from './SocialHandle';
 
 const SettingsFinal = () => {
@@ -35,10 +36,7 @@ const SettingsFinal = () => {
         <div className={styles.boxes}>
           <div className={styles.flexing}>
             <div className={styles['number-page']}>
-              <p>
-                0
-                {count}
-              </p>
+              <p>{`0${count}`}</p>
             </div>
             <div className={styles['number-page-small']}>
               <p>/03</p>
@@ -49,44 +47,38 @@ const SettingsFinal = () => {
               type="button"
               onClick={basic}
               style={{ background: state1 ? '#00CACA' : 'white' }}
-              className={styles.options}
-            >
+              className={styles.options}>
               Basic Information
             </button>
             <button
               type="button"
               onClick={about}
               style={{ background: state2 ? '#00CACA' : 'white' }}
-              className={styles.options}
-            >
+              className={styles.options}>
               About You
             </button>
             <button
               type="button"
               onClick={skill}
               style={{ background: state3 ? '#00CACA' : 'white' }}
-              className={styles.options}
-            >
+              className={styles.options}>
               Socials
             </button>
           </div>
         </div>
         <div
           className={styles.boxes2}
-          style={{ display: state1 ? 'block' : 'none' }}
-        >
+          style={{ display: state1 ? 'block' : 'none' }}>
           <Basicinfo />
         </div>
         <div
           className={styles.boxes2}
-          style={{ display: state2 ? 'block' : 'none' }}
-        >
+          style={{ display: state2 ? 'block' : 'none' }}>
           <Aboutus />
         </div>
         <div
           className={styles.boxes2}
-          style={{ display: state3 ? 'block' : 'none' }}
-        >
+          style={{ display: state3 ? 'block' : 'none' }}>
           <Social />
         </div>
       </div>

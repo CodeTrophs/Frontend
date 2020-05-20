@@ -1,10 +1,10 @@
 import React from 'react';
+
 import styles from '../../css/home.module.css';
 
 export default function AboutUs() {
   return (
     <div>
-      
       <div className={styles['about-us-container']}>
         <div className={styles['about-left-col']}>
           <img alt="about-left-svg" src="/images/about-left-svg.svg" />

@@ -1,74 +1,70 @@
-.big-box{
-    box-shadow: 0 0 0.3125rem #888888;
-    border-radius: 1rem;
-    padding-top:3rem;
-    padding-left:1.5rem;
-    padding-right:1.5rem;
-    padding-bottom: 1.5rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    margin-bottom: 2.5rem;
+.big-box {
+  box-shadow: 0 0 0.3125rem #888888;
+  border-radius: 1rem;
+  padding-top: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 2.5rem;
 }
-.flex{
-    display:flex;
+.flex {
+  display: flex;
 }
-.heading{
-    font-size:2rem;
-    font-weight:700;
-    
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
 }
-.date{
-    font-weight:500;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+.date {
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
-.heart{
-    margin-left: auto;
-    margin-right:auto;
-    width:2rem;
+.heart {
+  margin-left: auto;
+  margin-right: auto;
+  width: 2rem;
 }
 .langButton {
-    margin-left: 1.25rem;
-    margin-right: 1.25rem;
-    font-size: 0.9375rem;
-    font-weight: 450;
-    margin-top: 1.3rem;
-  }
-  .middle{
-      width:70%;
-  }
-  .smallbox-below {
-    font-weight: 600;
-    border-radius: 1.25rem;
-    padding-top: 0.2125rem;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    padding-bottom: 0.1275rem;
-    box-shadow: 0 0 0.3125rem #888888;
-    padding-bottom: 0.3125rem;
-    height: 1.875rem;
-    margin-right: 0.625rem;
-  }
-  .save{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .save-syntax{
-    width: fit-content;
-    padding-top: 0.3125rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    font-size: 0.9375rem;
-    font-weight: 400;
-    border-radius: 1.25rem;
-    cursor: pointer;
-    border: none;
-    height: 2.1875rem;
-    color: white;
-    background-color: black;
-    margin-left: auto;
-    
-    
-  }
-  
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 450;
+  margin-top: 1.3rem;
+}
+.middle {
+  width: 70%;
+}
+.smallbox-below {
+  font-weight: 600;
+  border-radius: 1.25rem;
+  padding-top: 0.2125rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.1275rem;
+  box-shadow: 0 0 0.3125rem #888888;
+  padding-bottom: 0.3125rem;
+  height: 1.875rem;
+  margin-right: 0.625rem;
+}
+.save {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.save-syntax {
+  width: fit-content;
+  padding-top: 0.3125rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  border: none;
+  height: 2.1875rem;
+  color: white;
+  background-color: black;
+  margin-left: auto;
+}

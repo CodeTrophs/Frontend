@@ -1,10 +1,12 @@
 import React from 'react';
+
 import styles from '../../css/feed.module.css';
+import Card from '../FeedCard';
+import FeedLang from './TopLang';
 import FeedOrg from './TopOrg';
 import FeedTag from './TopTags';
-import FeedLang from './TopLang';
 // import ProjectProfile from '../profile/projectProfile';
-import Card from '../FeedCard';
+
 
 export default function FeedFinal() {
   return (
