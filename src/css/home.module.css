@@ -38,14 +38,14 @@
 .welcome-title {
 
   font-weight: 700;
-  font-size: 60px;
+  font-size: 3.75rem;
   color: black;
   text-align: left;
 }
 
 .landing-text {
   padding-top: 20px;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 500;
   text-align: left;
 }
@@ -78,6 +78,7 @@
   width: 220px;
   min-height: 50px;
   justify-content: space-evenly;
+  align-items: center;
 
   box-shadow: 1px 1px 3px rgb(90, 90, 90);
 }
@@ -102,6 +103,7 @@
 
 .sign-in-buttons button img {
   width: 10%;
+  height:100%;
 }
 
 .sign-in-buttons button p {
@@ -145,7 +147,7 @@
 .email-section h3 {
   width: 100%;
   color: #125581;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 350;
 }
 
@@ -196,7 +198,7 @@
 .email-buttons button {
   width: fit-content;
   padding: 0 20px 0 20px;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 400;
   border-radius: none;
   cursor: pointer;
@@ -252,12 +254,12 @@
 
 .about-right-col h1 {
   font-weight: 800;
-  font-size: 60px;
+  font-size: 3.75rem;
 }
 
 .about-right-col p {
   font-weight: 250;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 /* HOW OSC WORKS SECTION */
@@ -276,13 +278,13 @@
 
 .how-top-left-col h1 {
   font-weight: 800;
-  font-size: 60px;
+  font-size: 3.75rem;
   padding-bottom: 50px;
 }
 
 .how-top-left-col p {
   font-weight: 250;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .how-top-right-col {
@@ -326,11 +328,10 @@
 
 .how-card img {
   max-width: 35px;
-  filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(100%);
 }
 
 .how-card h3 {
-  font-size: 25px;
+  font-size: 1.5rem;
   color: #1583cc;
   padding-bottom: 30px;
 }
@@ -387,7 +388,7 @@
   }
 
   .landing-text {
-    font-size: 18px;
+    font-size: 1.125rem;
     text-align: center;
   }
 
@@ -398,7 +399,7 @@
 
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 35px;
+    font-size: 2.2rem;
     text-align: center;
   }
 .welcome-container{
@@ -446,7 +447,7 @@
 
   .about-right-col h1 {
     line-height: 60px;
-    font-size: 55px;
+    font-size: 3.5rem;
   }
 
   .about-right-col p {
@@ -466,7 +467,7 @@
 
   .how-top-left-col h1 {
     line-height: 50px;
-    font-size: 55px;
+    font-size: 3.5rem;
   }
 
   .how-bottom-row {

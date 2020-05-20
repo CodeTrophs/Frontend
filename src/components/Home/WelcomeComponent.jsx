@@ -32,7 +32,7 @@ export default function WelcomeComponent() {
           <button className={styles['google-button']} type="submit">
             <img
               alt="Icon-simple-google"
-              src="/images/Icon-simple-google.png"
+              src="/images/google.svg"
             />
             <p>Sign in with Google</p>
             <img
