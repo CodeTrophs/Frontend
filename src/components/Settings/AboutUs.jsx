@@ -1,38 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from '../../css/settings.module.css';
 
-const Aboutus = () => (
-  <div>
-    <div className={styles['basic-head']}>
-      <p>What do you do?</p>
-    </div>
-    <div className={styles.qns}>
-      <p>Title</p>
-      <input
-        className={styles.input}
-        placeholder="Developer, Student, Programmer"
-      />
-      <p>About</p>
-      <input
-        className={styles['input-bio']}
-        placeholder="A short bio of less than 120 characters"
-      />
-      <p>Skills</p>
-      <input
-        className={styles.input}
-        id="myInput"
-        placeholder="Enter your skills"
-      />
-      <div className={styles.flexing}>
-        <div className={styles.skill1}>
-          <p>Node</p>
-        </div>
-        <div className={styles.skill2}>
-          <p>React</p>
-        </div>
+const Aboutus = () => {
+  const [tag, setTag] = useState('');
+  const [tags, setTags] = useState([]);
+
+  const onChange = (e) => {
+    setTag(e.target.value);
+  };
+
+  const removeTag = (indexToRemove) => {
+    setTags([...tags.filter((element, index) => index !== indexToRemove)]);
+  };
+
+  return (
+    <div>
+      <div className={styles['basic-head']}>
+        <h4 style={{ fontWeight: '500' }}>What do you do?</h4>
+      </div>
+      <div className={styles.qns}>
+        <p>Title</p>
+        <input
+          className={styles.input}
+          placeholder="Developer, Student, Programmer"
+        />
+        <p>About</p>
+        <input
+          className={styles['input-bio']}
+          placeholder="A short bio of less than 120 characters"
+        />
+        <p>Skills</p>
+        <form
+          className={styles.skills}
+          onSubmit={(e) => {
+            setTags([...tags, tag]);
+            setTag('');
+            e.target.reset();
+            e.preventDefault();
+          }}>
+          <input
+            required
+            className={styles.input}
+            id="myInput"
+            placeholder="Enter your skills"
+            onKeyUp={(e) => onChange(e)}
+          />
+          <input type="submit" className={styles.addButton} value="+" />
+        </form>
+        <ul className={styles.skillList}>
+          {tags.map((Tag, index) => (
+            <div key={Tag} className={styles.skill}>
+              <li>{Tag}</li>
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => removeTag(index)}
+                onKeyDown={() => removeTag(index)}>
+                x
+              </div>
+            </div>
+          ))}
+        </ul>
       </div>
     </div>
-  </div>
-);
+  );
+};
 export default Aboutus;

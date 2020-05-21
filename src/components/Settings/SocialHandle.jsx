@@ -5,10 +5,10 @@ import styles from '../../css/settings.module.css';
 const Social = () => (
   <div>
     <div className={styles['basic-head']}>
-      <p>Where can we find you online?</p>
+      <h4 style={{ fontWeight: '500' }}>Where can we find you online?</h4>
     </div>
     <div className={styles.qns}>
-      <div className={styles.flexing}>
+      <div className={styles['flexing-links']}>
         <div>
           <p>Website</p>
         </div>
@@ -17,7 +17,7 @@ const Social = () => (
         </div>
       </div>
       <input className={styles.input} placeholder="https://your-website.com/" />
-      <div className={styles.flexing}>
+      <div className={styles['flexing-links']}>
         <div>
           <p>Github</p>
         </div>
@@ -26,7 +26,7 @@ const Social = () => (
         </div>
       </div>
       <input className={styles.input} placeholder="https://github.com/" />
-      <div className={styles.flexing}>
+      <div className={styles['flexing-links']}>
         <div>
           <p>LinkedIn</p>
         </div>
@@ -36,7 +36,7 @@ const Social = () => (
       </div>
       <input className={styles.input} placeholder="https://linkedin.com/in/" />
 
-      <div className={styles.flexing}>
+      <div className={styles['flexing-links']}>
         <div>
           <p>Twitter</p>
         </div>

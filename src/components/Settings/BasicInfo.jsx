@@ -5,7 +5,7 @@ import styles from '../../css/settings.module.css';
 const Basicinfo = () => (
   <div>
     <div className={styles['basic-head']}>
-      <p>Lets Get Started</p>
+      <h4 style={{ fontWeight: '500' }}>Lets Get Started</h4>
     </div>
     <div className={styles.qns}>
       <p>Email</p>
