@@ -58,8 +58,8 @@ const Modal = ({ org, hideModal }) => (
       <div className={styles['tag-cards']}>
         <div className="lang-tags">
           <h3>Languages</h3>
-          {/* eslint-disable-next-line react/prop-types */}
           <div className={styles["tags"]}>
+          {/* eslint-disable-next-line react/prop-types */}
           {org.langTags.map((tag) => (
             <p
               key={tag}
@@ -80,8 +80,8 @@ const Modal = ({ org, hideModal }) => (
         </div>
         <div className="topic-tags">
           <h3>Topics</h3>
-          {/* eslint-disable-next-line react/prop-types */}
           <div className={styles["tags"]}>
+          {/* eslint-disable-next-line react/prop-types */}
           {org.topicTags.map((tag) => (
             <p
               key={tag}
@@ -102,8 +102,8 @@ const Modal = ({ org, hideModal }) => (
         </div>
         <div className="links">
           <h3>Links</h3>
-          {/* eslint-disable-next-line react/prop-types */}
           <div className={styles["tags"]}>
+          {/* eslint-disable-next-line react/prop-types */}
           <a href={org.github}>
             <img
               src="/SVG/org-github-icon.svg"
