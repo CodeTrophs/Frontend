@@ -1,31 +1,39 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import styles from '../css/modal.module.css';
 
-/* eslint-disable-next-line react/prop-types */
+
 const Modal = ({ org, hideModal }) => (
   <div className={styles.modal}>
     <div className={styles['modal-main']}>
-      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions  */}
-      <img
+      
+      <button
+        type="button" 
         onKeyDown={hideModal}
         onClick={hideModal}
-        src="/SVG/cross-icon.png"
-        alt="x"
         style={{
-          width: '40px',
+          backgroundColor:'transparent',
+          border:'none',
           position: 'absolute',
           right: '10px',
           cursor: 'pointer'
         }}
-      />
+      >
+        <img
+          src="/SVG/cross-icon.png"
+          alt="x"
+            style={{width: '40px'}}
+        />
+      </button>
+
       <div className="heading" style={{ textAlign: 'center' }}>
         <h1 style={{ fontWeight: '500', fontSize: '42px' }}>
-          {/* eslint-disable-next-line react/prop-types */}
+
           {org.organisation}
         </h1>
         <p style={{ fontWeight: '400', color: '#C6C6C6', paddingTop: '5px' }}>
-          {/* eslint-disable-next-line react/prop-types  */}
+
           {org.link}
         </p>
       </div>
@@ -43,7 +51,7 @@ const Modal = ({ org, hideModal }) => (
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden'
             }}>
-            {/* eslint-disable-next-line react/prop-types */}
+            
             {org.orgDescription}
           </p>
         </div>
@@ -58,8 +66,8 @@ const Modal = ({ org, hideModal }) => (
       <div className={styles['tag-cards']}>
         <div className="lang-tags">
           <h3>Languages</h3>
-          <div className={styles["tags"]}>
-          {/* eslint-disable-next-line react/prop-types */}
+          <div className={styles.tags}>
+          
           {org.langTags.map((tag) => (
             <p
               key={tag}
@@ -72,7 +80,7 @@ const Modal = ({ org, hideModal }) => (
                 margin: ' 10px 5px',
                 cursor: 'pointer'
               }}>
-              {/* eslint-disable-next-line react/prop-types */}
+              
               {tag}
             </p>
           ))}
@@ -80,8 +88,8 @@ const Modal = ({ org, hideModal }) => (
         </div>
         <div className="topic-tags">
           <h3>Topics</h3>
-          <div className={styles["tags"]}>
-          {/* eslint-disable-next-line react/prop-types */}
+          <div className={styles.tags}>
+          
           {org.topicTags.map((tag) => (
             <p
               key={tag}
@@ -94,7 +102,7 @@ const Modal = ({ org, hideModal }) => (
                 margin: ' 10px 5px',
                 cursor: 'pointer'
               }}>
-              {/* eslint-disable-next-line react/prop-types */}
+              
               {tag}
             </p>
           ))}
@@ -102,20 +110,20 @@ const Modal = ({ org, hideModal }) => (
         </div>
         <div className="links">
           <h3>Links</h3>
-          <div className={styles["tags"]}>
-          {/* eslint-disable-next-line react/prop-types */}
-          <a href={org.github}>
+          <div className={styles.tags}>
+          
+          <a href={org.gitHub}>
             <img
               src="/SVG/org-github-icon.svg"
-              /* eslint-disable-next-line react/prop-types */
-              alt={org.github}
+
+              alt={org.gitHub}
               style={{
                 margin: ' 0 10px',
                 cursor: 'pointer'
               }}
             />
           </a>
-          {/* eslint-disable-next-line react/prop-types */}
+          
           <a href={org.slack}>
             <img
               src="/SVG/org-slack-icon.svg"
@@ -137,5 +145,22 @@ const Modal = ({ org, hideModal }) => (
     </div>
   </div>
 );
+
+
+Modal.propTypes = {
+  org: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+        PropTypes.arrayOf(PropTypes.string)
+      ]).isRequired,
+  hideModal:PropTypes.func.isRequired,
+  organisation: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  orgDescription: PropTypes.string.isRequired,
+  langTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  topicTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  gitHub: PropTypes.string.isRequired,
+  slack: PropTypes.string.isRequired,
+};
 
 export default Modal;
