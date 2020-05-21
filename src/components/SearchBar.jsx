@@ -40,7 +40,7 @@ const SearchBar = ({ page }) => {
         <img
           src="/SVG/search-icon.svg"
           alt="search"
-          style={{ width: '20px', margin: '5px 5px auto 15px' }}
+          style={{ width: '20px'}}
         />
         <input
           type="search"
