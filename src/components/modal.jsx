@@ -59,6 +59,7 @@ const Modal = ({ org, hideModal }) => (
         <div className="lang-tags">
           <h3>Languages</h3>
           {/* eslint-disable-next-line react/prop-types */}
+          <div className={styles["tags"]}>
           {org.langTags.map((tag) => (
             <p
               key={tag}
@@ -68,7 +69,6 @@ const Modal = ({ org, hideModal }) => (
                 border: '1px black solid',
                 padding: '1px 5px',
                 fontWeight: '400',
-                fontSize: '12px',
                 margin: ' 10px 5px',
                 cursor: 'pointer'
               }}>
@@ -76,10 +76,12 @@ const Modal = ({ org, hideModal }) => (
               {tag}
             </p>
           ))}
+          </div>
         </div>
         <div className="topic-tags">
           <h3>Topics</h3>
           {/* eslint-disable-next-line react/prop-types */}
+          <div className={styles["tags"]}>
           {org.topicTags.map((tag) => (
             <p
               key={tag}
@@ -89,7 +91,6 @@ const Modal = ({ org, hideModal }) => (
                 border: '1px black solid',
                 padding: '1px 5px',
                 fontWeight: '400',
-                fontSize: '12px',
                 margin: ' 10px 5px',
                 cursor: 'pointer'
               }}>
@@ -97,10 +98,12 @@ const Modal = ({ org, hideModal }) => (
               {tag}
             </p>
           ))}
+          </div>
         </div>
         <div className="links">
           <h3>Links</h3>
           {/* eslint-disable-next-line react/prop-types */}
+          <div className={styles["tags"]}>
           <a href={org.github}>
             <img
               src="/SVG/org-github-icon.svg"
@@ -123,6 +126,7 @@ const Modal = ({ org, hideModal }) => (
               }}
             />
           </a>
+          </div>
         </div>
       </div>
       <div className="repos">

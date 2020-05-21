@@ -110,7 +110,6 @@ const organisation = ({ org }) => {
                 border: '1px black solid',
                 padding: '1px 5px',
                 fontWeight: '300',
-                fontSize: '10px',
                 margin: ' 10px 5px',
                 cursor: 'pointer'
               }}>

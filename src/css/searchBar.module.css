@@ -83,7 +83,7 @@
     font-size: 10px;
   }
   .left-col {
-    width: 80%;
+    width: 90%;
     margin: auto;
   }
 
@@ -92,6 +92,7 @@
   }
 
   .left-col input {
-    font-size: 13px !important;
+    font-size: 14px !important;
+    width: 200px !important;
   }
 }

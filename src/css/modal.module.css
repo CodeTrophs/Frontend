@@ -45,6 +45,12 @@
   text-align: center;
 }
 
+.tags {
+  display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 @media only screen and (max-width: 830px) {
   .modal-main {
     width: 90%;
@@ -53,13 +59,14 @@
 @media only screen and (max-width: 670px) {
   .modal-main {
     top: 50px;
+    padding: 20px 10px;
   }
   .tag-cards {
     flex-direction: column;
     align-items: center;
   }
   .tag-cards > div {
-    width: 70%;
+    width: 100%;
     margin: 20px;
   }
   .right-col img {
