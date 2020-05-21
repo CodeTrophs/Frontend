@@ -12,8 +12,19 @@
 @media only screen and (max-width: 800px) {
   .organisations-grid {
     grid-template-columns: auto;
-    width: 300px;
+    width: 70%;
     margin: auto;
     grid-gap: 5%;
   }
 }
+
+@media only screen and (max-width: 680px) {
+  .organisations-grid {
+    grid-template-columns: auto;
+    width: 90%;
+    margin: auto;
+    grid-gap: 5%;
+  }
+}
+
+

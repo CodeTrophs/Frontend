@@ -1,0 +1,101 @@
+.flex{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 48px;
+    padding-top: 48px;
+    padding-right: 48px;
+}
+.heading{
+    width:40%;
+    font-size: 1.8rem;
+    
+}
+.p-org{
+    font-size: 1.4rem;
+    margin-top: 8px;
+}
+.search-bar {
+    width: 70%;
+    background-color: black;
+    border-radius: 112px;
+    padding: 7.2px 7.2px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    
+  }
+  .left-col {
+    display: flex;
+  }
+  .input-bar{
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 1.15rem;
+    font-weight: 300;
+    width: 17rem;
+    margin-left: 1.3rem;
+    outline: none;
+  }
+  .search-icon{
+      min-width:7px;
+      margin:5px 5px auto 15px;
+      min-height:7px;
+  }
+  .flex-below{
+    display: flex;
+    justify-content: space-evenly;
+    
+    align-content: center;
+    margin-top: 40px;
+}
+  .orgs{
+      display: flex;
+      justify-content: space-between;
+      width:20%;
+      padding: 8px 16px 8px 16px;
+      border-radius: 8px;
+      height: 88px;
+      
+  }
+  .box-head{
+      color: white;
+      font-size: 1.5rem;
+      /* display: table-cell; */
+      /* height: 100%; */
+      vertical-align: middle;
+      /* padding-top: 1.4rem; */
+      line-height: 88px;
+      margin-left: 8px;
+  }
+  .follow{
+    
+    font-size: 1rem;
+    margin-top: 28.8px;
+    margin-bottom: 16px;
+    margin-left: 8px;
+    /* padding: 4.8px; */
+    padding-left:3px;
+    padding-right:3px;
+    border-radius: 8px;
+    background-color: white;
+    width: fit-content;
+    font-weight: 550;
+
+  }
+  .next{
+    position: relative;
+    float: right;
+    width:6.5%;
+    
+    background-color: #00CACA;
+    color:white;
+    padding: 8px 8px 8px 8px;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-right: 56px;
+    margin-top: 32px;
+    border-radius: 32px;
+    margin-bottom: 16px;
+
+}

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import DrawerToggleButton from './DrawerToggleButton';
+import React, { useState } from 'react';
+
 import styles from '../../css/sideDrawer.module.css';
+import DrawerToggleButton from './DrawerToggleButton';
 
 const SideDrawer = ({ handleClose, router }) => {
   const [profileDD, setProfileDD] = useState(false);
@@ -18,8 +19,7 @@ const SideDrawer = ({ handleClose, router }) => {
         tabIndex={0}
         onKeyDown={handleClose}
         onClick={handleClose}
-        className={styles['close-button']}
-      >
+        className={styles['close-button']}>
         <DrawerToggleButton />
       </div>
       <div className={styles.profile}>
@@ -28,8 +28,7 @@ const SideDrawer = ({ handleClose, router }) => {
           tabIndex="0"
           className={styles['profile-icon']}
           onClick={toggleDD}
-          onKeyDown={toggleDD}
-        >
+          onKeyDown={toggleDD}>
           <img
             src="/icons/young-man.svg"
             alt=" "
@@ -73,7 +72,7 @@ const SideDrawer = ({ handleClose, router }) => {
               style={{
                 height: '3px',
                 backgroundColor: '#333',
-                border: 'none',
+                border: 'none'
               }}
             />
           )}
@@ -87,7 +86,7 @@ const SideDrawer = ({ handleClose, router }) => {
               style={{
                 height: '3px',
                 backgroundColor: '#333',
-                border: 'none',
+                border: 'none'
               }}
             />
           )}
@@ -101,7 +100,7 @@ const SideDrawer = ({ handleClose, router }) => {
               style={{
                 height: '3px',
                 backgroundColor: '#333',
-                border: 'none',
+                border: 'none'
               }}
             />
           )}
@@ -114,7 +113,7 @@ const SideDrawer = ({ handleClose, router }) => {
 SideDrawer.propTypes = {
   handleClose: PropTypes.func.isRequired,
   /* eslint-disable-next-line react/forbid-prop-types */
-  router: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired
 };
 
 export default SideDrawer;

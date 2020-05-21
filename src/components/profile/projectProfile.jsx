@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from '../../css/profile.module.css';
 
 export default function ProjectProfile() {

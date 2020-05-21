@@ -12,6 +12,11 @@
   width: 40%;
   display: flex;
 }
+
+.left-col img{
+  margin:5px 5px auto 15px;
+}
+
 .right-col {
   display: flex;
 }
@@ -71,14 +76,23 @@
     align-items: center;
     justify-content: center;
   }
+  .filter{
+    min-width: 130px;
+  }
   .filter-show {
     font-size: 10px;
   }
   .left-col {
-    width: 80%;
+    width: 90%;
     margin: auto;
   }
+
+  .left-col img {
+    margin:0;
+  }
+
   .left-col input {
-    font-size: 12px;
+    font-size: 14px !important;
+    width: 200px !important;
   }
 }

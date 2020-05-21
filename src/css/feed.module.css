@@ -10,7 +10,7 @@
   font-weight: 500;
   font-size: 1.25rem;
 }
-.Languages js{
+.Languages js {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
   width: 8.125rem;
@@ -26,201 +26,192 @@
   border-color: red;
   margin-top: 0.625rem;
 }
-.Languages-js{
-    
-    width: 11.25rem;
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    border: none;
-    height: 2.1875rem;
-    display:flex;
-    justify-content: space-between;
-  
-    border-style: solid;
-    border-color: red;
-    margin-top: 0.625rem;
-  }
-  .small-follow{
-    font-size: 0.625rem;
-    padding-top: 0.3125rem;
-  }
-  .Languages-css{
-    
-    width: 11.25rem;
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    border: none;
-    height: 2.1875rem;
-    display:flex;
-    justify-content: space-between;
-  
-    border-style: solid;
-    border-color: yellow;
-    margin-top: 0.625rem;
-  }
-  .Languages-mozilla{
-    
-    width: 11.25rem;
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    display:flex;
-    justify-content: space-between;
-    border: none;
-    height: 2.1875rem;
-    background-color: aqua;
-    border-style: solid;
-    color: white;
-    margin-top: 0.625rem;
-  }
-  .Languages-google{
-    
-    width: 11.25rem;
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    display:flex;
-    justify-content: space-between;
-    border: none;
-    height: 2.1875rem;
-    background-color: blue;
-    border-style: solid;
-    color: white;
-    margin-top: 0.625rem;
-  }
-  .tag1{
-    
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    border: none;
-    height: 2.1875rem;
-    background-color: blue;
-    border-style: solid;
-    color: white;
-    margin-top: 0.625rem;
-    width: fit-content;
-  }
-  .btn-drop{
-    border: none;
-    background-color: white;
-  }
-  .tag2{
-    
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    border: none;
-    height: 2.1875rem;
-    background-color: magenta;
-    border-style: solid;
-    color: white;
-    margin-top: 0.625rem;
-    width: fit-content;
-  }
-  .tag3{
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    border: none;
-    height: 2.1875rem;
-    background-color: pink;
-    border-style: solid;
-    color: white;
-    margin-top: 0.625rem;
-  }
-  .Languages-facebook{
-    
-    width: 11.25rem;
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    display:flex;
-    justify-content: space-between;
-    border: none;
-    height: 2.1875rem;
-    background-color: red;
-    border-style: solid;
-    color: white;
-    margin-top: 0.625rem;
-    display:flex;
-    justify-content: space-between;
-  }
-  .lang-space{
-      margin-right: 0.3125rem;
-  }
-  .Languages-node{
-    
-    width: 11.25rem;
-    padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-    font-size:  0.9375rem;
-    font-weight: 400;
-    border-radius: 0.5rem;
-    font-weight: 450;
-    border: none;
-    height: 2.1875rem;
-    display:flex;
-    justify-content: space-between;
-  
-    border-style: solid;
-    border-color: green;
-    margin-top: 10px;
-  }
-  
-  .disp-flex{
-      display:flex;
-  }
-  .disp-flex-intro{
-    display:flex;
-  }
-.disp-flex-intro :first-child {
-  width:80%;
+.Languages-js {
+  width: 11.25rem;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  border: none;
+  height: 2.1875rem;
+  display: flex;
+  justify-content: space-between;
+
+  border-style: solid;
+  border-color: red;
+  margin-top: 0.625rem;
+}
+.small-follow {
+  font-size: 0.625rem;
+  padding-top: 0.3125rem;
+}
+.Languages-css {
+  width: 11.25rem;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  border: none;
+  height: 2.1875rem;
+  display: flex;
+  justify-content: space-between;
+
+  border-style: solid;
+  border-color: yellow;
+  margin-top: 0.625rem;
+}
+.Languages-mozilla {
+  width: 11.25rem;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  height: 2.1875rem;
+  background-color: aqua;
+  border-style: solid;
+  color: white;
+  margin-top: 0.625rem;
+}
+.Languages-google {
+  width: 11.25rem;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  height: 2.1875rem;
+  background-color: blue;
+  border-style: solid;
+  color: white;
+  margin-top: 0.625rem;
+}
+.tag1 {
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  border: none;
+  height: 2.1875rem;
+  background-color: blue;
+  border-style: solid;
+  color: white;
+  margin-top: 0.625rem;
+  width: fit-content;
+}
+.btn-drop {
+  border: none;
+  background-color: white;
+}
+.tag2 {
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  border: none;
+  height: 2.1875rem;
+  background-color: magenta;
+  border-style: solid;
+  color: white;
+  margin-top: 0.625rem;
+  width: fit-content;
+}
+.tag3 {
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  border: none;
+  height: 2.1875rem;
+  background-color: pink;
+  border-style: solid;
+  color: white;
+  margin-top: 0.625rem;
+}
+.Languages-facebook {
+  width: 11.25rem;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  height: 2.1875rem;
+  background-color: red;
+  border-style: solid;
+  color: white;
+  margin-top: 0.625rem;
+  display: flex;
+  justify-content: space-between;
+}
+.lang-space {
+  margin-right: 0.3125rem;
+}
+.Languages-node {
+  width: 11.25rem;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  border: none;
+  height: 2.1875rem;
+  display: flex;
+  justify-content: space-between;
+
+  border-style: solid;
+  border-color: green;
+  margin-top: 10px;
 }
 
-  .content{
-    margin-top:1.5625rem;
-  }
-  .intro-image{
-    margin-top:1.25rem;
-  }
-  .Languages-num{
-      margin-top:0.935rem;
-      font-weight: 450;
-      font-size: 1.25rem;
-      margin-right:0.625rem;
-      width:0.625rem;
-  }
-  .smallbox {
-    margin-left:3.125rem;
-    font-weight: 600;
-    border-radius: 1.25rem;
-    padding-top: 1.25rem;
-    padding-right: 1.25rem;
-    padding-left: 1.25rem;
-    width:16.5625rem;
-    margin-top: 3.125rem;
-    box-shadow: 0 0 0.3125rem #888888;
-    padding-bottom: 0.9375rem;
-    /* width:fit-content; */
+.disp-flex {
+  display: flex;
+}
+.disp-flex-intro {
+  display: flex;
+}
+.disp-flex-intro :first-child {
+  width: 80%;
+}
 
-    margin-right: 2.5rem;
-  }
-  
+.content {
+  margin-top: 1.5625rem;
+}
+.intro-image {
+  margin-top: 1.25rem;
+}
+.Languages-num {
+  margin-top: 0.935rem;
+  font-weight: 450;
+  font-size: 1.25rem;
+  margin-right: 0.625rem;
+  width: 0.625rem;
+}
+.smallbox {
+  margin-left: 3.125rem;
+  font-weight: 600;
+  border-radius: 1.25rem;
+  padding-top: 1.25rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  width: 16.5625rem;
+  margin-top: 3.125rem;
+  box-shadow: 0 0 0.3125rem #888888;
+  padding-bottom: 0.9375rem;
+  /* width:fit-content; */
+
+  margin-right: 2.5rem;
+}

@@ -1,44 +1,42 @@
 import React, { useState } from 'react';
+
 import styles from '../../css/settings.module.css';
-import Basicinfo from './BasicInfo';
 import Aboutus from './AboutUs';
+import Basicinfo from './BasicInfo';
 import Social from './SocialHandle';
 
 const SettingsFinal = () => {
-  const [state1, setState1] = useState(true);
-  const [state2, setState2] = useState(false);
-  const [state3, setState3] = useState(false);
+  const [showBasic, setShowBasic] = useState(true);
+  const [showAbout, setShowAbout] = useState(false);
+  const [showSocial, setShowSocial] = useState(false);
   const [count, setCount] = useState(1);
 
   const basic = () => {
-    setState1(true);
-    setState2(false);
-    setState3(false);
+    setShowBasic(true);
+    setShowAbout(false);
+    setShowSocial(false);
     setCount(1);
   };
   const about = () => {
-    setState1(false);
-    setState2(true);
-    setState3(false);
+    setShowBasic(false);
+    setShowAbout(true);
+    setShowSocial(false);
     setCount(2);
   };
   const skill = () => {
-    setState1(false);
-    setState2(false);
-    setState3(true);
+    setShowBasic(false);
+    setShowAbout(false);
+    setShowSocial(true);
     setCount(3);
   };
 
   return (
-    <div>
+    <div style={{ width: '95%', margin: '20px auto' }}>
       <div className={styles['flexing-first']}>
         <div className={styles.boxes}>
           <div className={styles.flexing}>
             <div className={styles['number-page']}>
-              <p>
-                0
-                {count}
-              </p>
+              <p>0{count}</p>
             </div>
             <div className={styles['number-page-small']}>
               <p>/03</p>
@@ -48,45 +46,49 @@ const SettingsFinal = () => {
             <button
               type="button"
               onClick={basic}
-              style={{ background: state1 ? '#00CACA' : 'white' }}
-              className={styles.options}
-            >
+              style={{
+                background: showBasic ? '#00CACA' : 'white',
+                color: showBasic ? 'white' : 'black'
+              }}
+              className={styles.options}>
               Basic Information
             </button>
             <button
               type="button"
               onClick={about}
-              style={{ background: state2 ? '#00CACA' : 'white' }}
-              className={styles.options}
-            >
+              style={{
+                background: showAbout ? '#00CACA' : 'white',
+                color: showAbout ? 'white' : 'black'
+              }}
+              className={styles.options}>
               About You
             </button>
             <button
               type="button"
               onClick={skill}
-              style={{ background: state3 ? '#00CACA' : 'white' }}
-              className={styles.options}
-            >
+              style={{
+                background: showSocial ? '#00CACA' : 'white',
+                color: showSocial ? 'white' : 'black'
+              }}
+              className={styles.options}>
               Socials
             </button>
           </div>
         </div>
+
         <div
           className={styles.boxes2}
-          style={{ display: state1 ? 'block' : 'none' }}
-        >
+          style={{ display: showBasic ? 'block' : 'none' }}>
           <Basicinfo />
         </div>
         <div
           className={styles.boxes2}
-          style={{ display: state2 ? 'block' : 'none' }}
-        >
+          style={{ display: showAbout ? 'block' : 'none' }}>
           <Aboutus />
         </div>
         <div
           className={styles.boxes2}
-          style={{ display: state3 ? 'block' : 'none' }}
-        >
+          style={{ display: showSocial ? 'block' : 'none' }}>
           <Social />
         </div>
       </div>

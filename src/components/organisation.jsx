@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Modal from './modal';
 
 // eslint-disable-next-line react/prop-types
@@ -21,9 +22,8 @@ const organisation = ({ org }) => {
         height: '350px',
         borderRadius: '20px',
         paddingTop: '20px',
-        boxShadow: '5px 5px 10px rgb(202, 202, 202)',
-      }}
-    >
+        boxShadow: '5px 5px 10px rgb(202, 202, 202)'
+      }}>
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <img
         onKeyDown={showModal}
@@ -34,7 +34,7 @@ const organisation = ({ org }) => {
           float: 'right',
           marginRight: '10px',
           width: '30px',
-          cursor: 'pointer',
+          cursor: 'pointer'
         }}
       />
 
@@ -44,9 +44,8 @@ const organisation = ({ org }) => {
           paddingTop: '55px',
           marginLeft: '10px',
           fontWeight: '500',
-          fontSize: '35px',
-        }}
-      >
+          fontSize: '35px'
+        }}>
         {/* eslint-disable-next-line react/prop-types */}
         {org.organisation}
       </h1>
@@ -56,9 +55,8 @@ const organisation = ({ org }) => {
           marginTop: '2px',
           width: '100%',
           height: '220px',
-          borderRadius: '20px',
-        }}
-      >
+          borderRadius: '20px'
+        }}>
         <p
           style={{
             color: '#6D6D6D',
@@ -68,9 +66,8 @@ const organisation = ({ org }) => {
             display: '-webkit-box',
             WebkitLineClamp: '3',
             WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }}
-        >
+            overflow: 'hidden'
+          }}>
           {/* eslint-disable-next-line react/prop-types */}
           {org.orgDescription}
         </p>
@@ -84,7 +81,7 @@ const organisation = ({ org }) => {
                 margin: ' 0 10px',
                 marginLeft: '25px',
                 marginTop: '20px',
-                cursor: 'pointer',
+                cursor: 'pointer'
               }}
             />
           </a>
@@ -96,7 +93,7 @@ const organisation = ({ org }) => {
               style={{
                 margin: ' 0 10px',
                 marginTop: '20px',
-                cursor: 'pointer',
+                cursor: 'pointer'
               }}
             />
           </a>
@@ -113,11 +110,9 @@ const organisation = ({ org }) => {
                 border: '1px black solid',
                 padding: '1px 5px',
                 fontWeight: '300',
-                fontSize: '10px',
                 margin: ' 10px 5px',
-                cursor: 'pointer',
-              }}
-            >
+                cursor: 'pointer'
+              }}>
               {/* eslint-disable-next-line react/prop-types */}
               {tag}
             </p>

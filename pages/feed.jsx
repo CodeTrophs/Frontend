@@ -1,9 +1,10 @@
 import React from 'react';
-import Header from '../src/components/Header';
+
+import FeedFinal from '../src/components/Feed/FeedFinal';
 import FeedIntroduction from '../src/components/Feed/FeedIntro';
+import Header from '../src/components/Header';
 
 import SearchBar from '../src/components/SearchBar';
-import FeedFinal from '../src/components/Feed/FeedFinal';
 
 const feed = () => (
   <div>
@@ -12,7 +13,6 @@ const feed = () => (
     <SearchBar page="feed" />
 
     <FeedFinal />
-
   </div>
 );
 

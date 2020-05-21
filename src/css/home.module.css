@@ -24,43 +24,61 @@
   padding-left: 3vw;
 }
 
-.welcome-title {
+.welcome-container {
+  margin:0 50px 20px 50px;
+  display: flex;
+  flex-direction: row;
   padding-top: 50px;
-  font-size: 45px;
-  font-weight: 600;
-  color: #333;
-  text-align: center;
+}
+
+.welcome-left {
+  max-width: 60%;
+}
+
+.welcome-title {
+
+  font-weight: 800;
+  font-size: 3.75rem;
+  color: black;
+  text-align: left;
 }
 
 .landing-text {
   padding-top: 20px;
-  font-size: 25px;
-  font-weight: 200;
-  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 500;
+  text-align: left;
 }
 
-.landing-text span {
-  color: #196598;
+.welcome-right {
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+}
 
-  font-weight: normal;
+.welcome-right img {
+  max-width: 80%;
+  float:right;
 }
 
 .sign-in-buttons {
   padding-top: 30px;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
 .sign-in-buttons button {
   display: flex;
   flex-direction: row;
   margin-top: 2vh;
-  border-radius: 5px;
+  border-radius: 1000px;
   border: none;
   width: 220px;
   min-height: 50px;
   justify-content: space-evenly;
+  align-items: center;
 
   box-shadow: 1px 1px 3px rgb(90, 90, 90);
 }
@@ -77,7 +95,7 @@
   background-color: #ce0707;
 }
 .google-button:hover {
-  background-color: #ebebeb;
+  opacity:0.7;
 }
 .github-button:hover {
   background-color: #3f3f3f;
@@ -85,6 +103,7 @@
 
 .sign-in-buttons button img {
   width: 10%;
+  height:100%;
 }
 
 .sign-in-buttons button p {
@@ -98,6 +117,11 @@
 
 .github-button {
   background-color: black;
+  color: white;
+}
+
+.google-button{
+  background: linear-gradient(273deg, rgba(17,17,127,1) 0%, rgba(0,212,255,1) 100%);
   color: white;
 }
 
@@ -123,7 +147,7 @@
 .email-section h3 {
   width: 100%;
   color: #125581;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 350;
 }
 
@@ -174,7 +198,7 @@
 .email-buttons button {
   width: fit-content;
   padding: 0 20px 0 20px;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 400;
   border-radius: none;
   cursor: pointer;
@@ -209,8 +233,7 @@
 /* ABOUT SECTION */
 
 .about-us-container {
-  margin-top: -1vh;
-  background-color: #f7f7f7;
+  margin-top: 5%;
   display: flex;
 }
 
@@ -225,19 +248,19 @@
 
 .about-right-col {
   max-width: 60%;
-  text-align: center;
+  text-align: right;
   margin: -30px auto 0 auto;
 }
 
 .about-right-col h1 {
   font-weight: 800;
-  font-size: 70px;
-  color: #1583cc;
+  font-size: 3.75rem;
+  margin-bottom: 30px;
 }
 
 .about-right-col p {
   font-weight: 250;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 /* HOW OSC WORKS SECTION */
@@ -252,23 +275,23 @@
 
 .how-top-left-col {
   max-width: 60%;
-  text-align: center;
 }
 
 .how-top-left-col h1 {
   font-weight: 800;
-  font-size: 70px;
-  color: #1583cc;
+  font-size: 3.75rem;
   padding-bottom: 50px;
 }
 
 .how-top-left-col p {
   font-weight: 250;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .how-top-right-col {
   max-width: 40%;
+  display: flex;
+  justify-content: center;
 }
 
 .how-top-right-col img {
@@ -285,8 +308,8 @@
 
 .how-card {
   max-width: 20%;
-  border-radius: 6px;
-  background-color: #f7f7f7;
+  border-radius: 15%;
+  box-shadow: 1px 1px 8px #888888;
   padding-top: 40px;
   padding-right: 20px;
   padding-left: 20px;
@@ -294,13 +317,22 @@
   padding-bottom: 40px;
 }
 
+.how-card-img-container{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 30px;
+}
+
 .how-card img {
   max-width: 35px;
-  padding-bottom: 30px;
 }
 
 .how-card h3 {
-  font-size: 25px;
+  font-size: 1.5rem;
   color: #1583cc;
   padding-bottom: 30px;
 }
@@ -357,7 +389,7 @@
   }
 
   .landing-text {
-    font-size: 18px;
+    font-size: 1.125rem;
     text-align: center;
   }
 
@@ -368,12 +400,23 @@
 
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 35px;
+    font-size: 2.2rem;
     text-align: center;
+  }
+.welcome-container{
+  flex-direction: column-reverse;
+  margin:0 15px 0 15px;
+}
+  .welcome-left{
+    max-width: 100%;
+  }
+
+  .welcome-right{
+    max-width: 100% ;
   }
 
   .sign-in-buttons {
-    align-items: center;
+    flex-direction: column;
     padding-left: 0;
   }
 
@@ -386,10 +429,12 @@
   }
 
   .about-us-container {
-    display: block;
+    flex-direction:column ;
+    margin: 0 15px 0 15px;
   }
   .about-us-container div {
-    max-width: 80%;
+    max-width: 100%;
+    text-align: center;
   }
 
   .about-left-col {
@@ -405,11 +450,15 @@
 
   .about-right-col h1 {
     line-height: 60px;
-    font-size: 55px;
+    font-size: 3.5rem;
   }
 
   .about-right-col p {
     padding-top: -80px;
+  }
+
+  .how-container{
+    margin:20px 15px 0 15px;
   }
 
   .how-top-row {
@@ -425,17 +474,22 @@
 
   .how-top-left-col h1 {
     line-height: 50px;
-    font-size: 55px;
+    font-size: 3.5rem;
+  }
+
+  .how-top-right-col{
+    margin-bottom: 50px;
   }
 
   .how-bottom-row {
     flex-direction: column;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 50px;
   }
 
   .how-card {
-    max-width: 220px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin: 20px;

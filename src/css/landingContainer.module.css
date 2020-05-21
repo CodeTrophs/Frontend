@@ -38,6 +38,7 @@
   .landing-container {
     align-items: center;
     text-align: center;
+    margin:0 15px 0 15px;
 
     flex-direction: column-reverse;
   }
@@ -45,12 +46,13 @@
     width: 100%;
     margin: unset;
     height: 4px;
+    margin-bottom: 10px;
   }
   .left-col {
-    width: 80%;
+    width: 100%;
   }
   .right-col {
-    width: 60%;
+    width: 90%;
     margin: auto;
   }
   .right-col img {

@@ -16,11 +16,11 @@ Contributing to open source can be a rewarding way to learn, teach, and build ex
 **Fork & Clone the repo**
 
 ```shell
- git clone https://github.com/OpenSouceCode/opensourcecode.git
+ git clone https://github.com/OpenSouceCode/Frontend.git opensourcecode/frontend
  ```
  **Install node dependencies**
  ```shell
-  cd opensourcecode/
+  cd opensourcecode/frontend
   npm install
   ```
    
