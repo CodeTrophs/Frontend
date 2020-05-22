@@ -3,8 +3,9 @@ import React from 'react';
 export default function Footer() {
   return (
     <footer className="Footer">
-      <h1>REACH OUT TO US ON.</h1>
+      
       <div className="reach-links">
+      <div className="centered"><h1>REACH OUT TO US ON </h1></div>
         <a href="https://github.com/OpenSouceCode">
           <img
             alt="../assets/images/footer-github.png"
