@@ -6,7 +6,7 @@ export default function FeedIntroduction() {
   return (
     <div className={styles['disp-flex-intro']}>
       <div className={styles.headAlign}>
-        <div className={styles.headFeed}>Feed</div>
+        <h1 className={styles.headFeed}>Feed</h1>
         <img src="SVG/feedline (2).svg" alt="line" />
         <div className={styles.content}>
           <p>Find an organisation to contribute to</p>
