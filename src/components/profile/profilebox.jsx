@@ -15,7 +15,7 @@ export default function BoxProfile() {
             />
 
             <div className={styles.boxcontent}>
-              <p className={styles['usersname-user']}>Arya Soni</p>
+              <h2 className={styles['usersname-user']}>Arya Soni</h2>
               <hr
                 className={styles.hr}
                 style={{ width: '20%', color: '#707070' }}
@@ -45,16 +45,12 @@ export default function BoxProfile() {
             Something about the user. User will give it later.Dont be scared of
             Something about the user. User will give it later.Dont be scared of
             Something about the user. User will give it later.Dont be scared of
-            Something about the user. User will give it later.Dont be scared of
-            Something about the user. User will give it later.Dont be scared of
-            Something about the user. User will give it later.Dont be scared of
-            Something about the user. User will give it later.Dont be scared of
           </p>
         </div>
 
         <div className={styles.langsec}>
           <div>
-            <p className={styles.userskills}>Skills</p>
+            <h3 className={styles.userskills}>Skills</h3>
           </div>
           <div className={styles.langButtonJS}>
             <p>Javascript</p>
@@ -67,7 +63,7 @@ export default function BoxProfile() {
         <div className={styles['langsec-centre']}>
           <div className={styles.smallbox}>
             <div className={styles.langsec}>
-              <div className={styles['smallboxwriting-follow']}>
+              <div className={styles.smallboxwriting}>
                 <p>Follow</p>
               </div>
               <div className={styles.count}>
@@ -97,7 +93,7 @@ export default function BoxProfile() {
           </div>
           <div className={styles.smallbox}>
             <div className={styles.langsec}>
-              <div className={styles['smallboxwriting-osp']}>
+              <div className={styles.smallboxwriting}>
                 <p>OSP</p>
               </div>
               <div className={styles.count}>

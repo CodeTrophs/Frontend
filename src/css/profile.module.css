@@ -1,6 +1,6 @@
 .usernamebox {
   max-width: 90%;
-  margin: 20px auto;
+  margin: 0px auto;
   border-radius: 20px;
   box-shadow: 0 5px 10px #cccccc;
   padding: 20px 30px;
@@ -10,7 +10,7 @@
 }
 .usernamebox-profile {
   max-width: 90%;
-  margin: 100px auto;
+  margin: 80px auto;
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 0 0.3125rem #bbbbbb;
@@ -67,17 +67,9 @@
   margin-right: 0.625rem;
 }
 .smallboxwriting {
-  margin-left: 0.9375rem;
-  margin-top: 0.5125rem;
+  margin: 5px auto;
 }
-.smallboxwriting-follow {
-  margin-left: 0.625rem;
-  margin-top: 0.5125rem;
-}
-.smallboxwriting-osp {
-  margin-left: 0.9375rem;
-  margin-top: 0.5125rem;
-}
+
 .user-flex {
   display: flex;
   justify-content: space-between;
@@ -105,9 +97,8 @@
 }
 .usercontent {
   color: #757a7a;
-  margin-left: 1.5rem;
-  font-weight: 500;
   font-weight: 300;
+  margin-bottom: 20px;
 }
 .userskills {
   font-size: 1.5625rem;
@@ -125,6 +116,7 @@
 }
 .langsec {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .links {
@@ -207,9 +199,9 @@
   font-weight: 300;
 }
 .count {
-  font-size: 1.4rem;
-  margin-top: 0.3125rem;
-  margin-left: 0.9375rem;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  margin: 5px 10px;
 }
 .langButtonCSS {
   margin-top: 0.625rem;
@@ -256,6 +248,9 @@
   .user-flex {
     flex-direction: column;
   }
+  .usercontent {
+    width: 95%;
+  }
   .boxcontent {
     width: 70%;
   }
@@ -272,6 +267,9 @@
   .imgabsolute {
     position: unset;
     margin-top: unset;
+  }
+  .usernamebox-profile {
+    margin-top: 50px;
   }
   .links {
     margin-left: 20px;
@@ -305,13 +303,13 @@
     font-size: 16px;
   }
   .langsec-centre {
-    display: grid;
-    grid-template-columns: auto auto;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 30px;
+    margin: 30px 10px;
+
     grid-gap: 30px 60px;
   }
   .smallbox {
-    margin: 0;
+    margin: 10px;
   }
 }

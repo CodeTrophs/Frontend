@@ -112,11 +112,11 @@ const Modal = ({ org, hideModal }) => (
           <h3>Links</h3>
           <div className={styles.tags}>
           
-          <a href={org.gitHub}>
+          <a href={org.github}>
             <img
               src="/SVG/org-github-icon.svg"
 
-              alt={org.gitHub}
+              alt={org.github}
               style={{
                 margin: ' 0 10px',
                 cursor: 'pointer'
@@ -159,7 +159,7 @@ Modal.propTypes = {
   orgDescription: PropTypes.string.isRequired,
   langTags: PropTypes.arrayOf(PropTypes.string).isRequired,
   topicTags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  gitHub: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
   slack: PropTypes.string.isRequired,
 };
 

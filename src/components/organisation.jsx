@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react';
 
 import Modal from './modal';
 
-// eslint-disable-next-line react/prop-types
 const organisation = ({ org }) => {
   const [ModalShow, setModalShow] = useState(false);
 
@@ -16,7 +16,7 @@ const organisation = ({ org }) => {
   return (
     <div
       style={{
-        // eslint-disable-next-line react/prop-types
+
         background: `url(${org.bgurl}) no-repeat center`,
         minWidth: '100%',
         height: '350px',
@@ -24,19 +24,25 @@ const organisation = ({ org }) => {
         paddingTop: '20px',
         boxShadow: '5px 5px 10px rgb(202, 202, 202)'
       }}>
-      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-      <img
+      
+      <button
+        type="button"
         onKeyDown={showModal}
         onClick={showModal}
-        src="/SVG/org-view.svg"
-        alt="view"
         style={{
+          backgroundColor: 'transparent',
+          border: 'none',
           float: 'right',
           marginRight: '10px',
-          width: '30px',
           cursor: 'pointer'
         }}
-      />
+      >
+        <img
+          src="/SVG/org-view.svg"
+          alt="view"
+          style={{ width: '30px' }}
+        />
+      </button>
 
       <h1
         style={{
@@ -46,7 +52,7 @@ const organisation = ({ org }) => {
           fontWeight: '500',
           fontSize: '35px'
         }}>
-        {/* eslint-disable-next-line react/prop-types */}
+        
         {org.organisation}
       </h1>
       <div
@@ -68,11 +74,11 @@ const organisation = ({ org }) => {
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden'
           }}>
-          {/* eslint-disable-next-line react/prop-types */}
+          
           {org.orgDescription}
         </p>
         <div>
-          {/* eslint-disable-next-line react/prop-types */}
+         
           <a href={org.github}>
             <img
               src="/SVG/org-github-icon.svg"
@@ -85,7 +91,7 @@ const organisation = ({ org }) => {
               }}
             />
           </a>
-          {/* eslint-disable-next-line react/prop-types */}
+          
           <a href={org.slack}>
             <img
               src="/SVG/org-slack-icon.svg"
@@ -100,7 +106,7 @@ const organisation = ({ org }) => {
         </div>
 
         <div className="Tags" style={{ marginLeft: '15px' }}>
-          {/* eslint-disable-next-line react/prop-types */}
+          
           {org.langTags.map((tag) => (
             <p
               key={tag}
@@ -113,7 +119,7 @@ const organisation = ({ org }) => {
                 margin: ' 10px 5px',
                 cursor: 'pointer'
               }}>
-              {/* eslint-disable-next-line react/prop-types */}
+              
               {tag}
             </p>
           ))}
@@ -123,4 +129,20 @@ const organisation = ({ org }) => {
     </div>
   );
 };
+
+
+organisation.propTypes = {
+  org: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.string)
+  ]).isRequired,
+  bgurl:PropTypes.string.isRequired,
+  organisation: PropTypes.string.isRequired,
+  orgDescription: PropTypes.string.isRequired,
+  langTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  github: PropTypes.string.isRequired,
+  slack: PropTypes.string.isRequired,
+};
+
 export default organisation;
