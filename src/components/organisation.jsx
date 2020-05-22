@@ -79,7 +79,7 @@ const organisation = ({ org }) => {
         </p>
         <div>
          
-          <a href={org.gitHub}>
+          <a href={org.github}>
             <img
               src="/SVG/org-github-icon.svg"
               alt="github"
@@ -141,7 +141,7 @@ organisation.propTypes = {
   organisation: PropTypes.string.isRequired,
   orgDescription: PropTypes.string.isRequired,
   langTags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  gitHub: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
   slack: PropTypes.string.isRequired,
 };
 
