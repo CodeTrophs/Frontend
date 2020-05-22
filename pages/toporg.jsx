@@ -1,6 +1,7 @@
 import React from 'react';
-import TopOrganisation from '../src/components/TopOrganisations';
+
 import Header from '../src/components/Header';
+import TopOrganisation from '../src/components/TopOrganisations';
 
 const org = () => (
   <div>
