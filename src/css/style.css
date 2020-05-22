@@ -19,14 +19,14 @@
   outline: none;
   text-align-last: center;
   background-color: black;
-  padding: 10px;
+ 
   
 }
 
 
 .centered {
   position: absolute;
-  top: 268%;
+  top: 220%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
