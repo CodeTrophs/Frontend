@@ -48,6 +48,13 @@
   height: 1.875rem;
   margin-right: 0.625rem;
 }
+
+.smallbox-below > .flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .save {
   display: flex;
   flex-direction: column;
@@ -66,5 +73,34 @@
   height: 2.1875rem;
   color: white;
   background-color: black;
-  margin-left: auto;
+  margin: 1rem auto;
+}
+
+@media only screen and (max-width:680px) {
+  .flex{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .big-box {
+  box-shadow: 0 0 0.3125rem #888888;
+  border-radius: 1rem;
+  margin:3rem 15px;
+  padding : 0;
+  padding-top: 3rem;
+ 
+}
+
+.middle{
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.smallbox-below {
+  margin: 1rem 0;
+  
+}
+
 }

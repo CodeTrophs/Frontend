@@ -1,6 +1,7 @@
 import React from 'react';
-import TopLanguage from '../src/components/TopLanguages';
+
 import Header from '../src/components/Header';
+import TopLanguage from '../src/components/TopLanguages';
 
 const lang = () => (
   <div>

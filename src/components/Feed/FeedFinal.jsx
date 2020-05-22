@@ -11,7 +11,7 @@ import FeedTag from './TopTags';
 export default function FeedFinal() {
   return (
     <div>
-      <div className={styles['disp-flex']}>
+      <div className={styles['disp-flex-bottom']}>
         <div>
           <FeedLang />
           <FeedOrg />
