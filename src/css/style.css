@@ -18,7 +18,17 @@
   font-family: 'Poppins', sans-serif;
   outline: none;
   text-align-last: center;
-  background-color:#93c5f3;
+  background-color: black;
+  padding: 10px;
+  
+}
+
+
+.centered {
+  position: absolute;
+  top: 268%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
