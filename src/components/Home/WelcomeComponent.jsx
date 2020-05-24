@@ -8,7 +8,6 @@ export default function WelcomeComponent() {
 
   const handleGoogleSignIn = (e)=>{
     e.preventDefault();
-    console.log("Google");
     const provider = new firebase.auth.GoogleAuthProvider();
 
     /*
@@ -22,8 +21,9 @@ export default function WelcomeComponent() {
       const token = result.credential.accessToken;
                                 //  Signed-in user info.
       const {user} = result;
-
+      // eslint-disable-next-line no-console
       console.log("Token : ",token);
+      // eslint-disable-next-line no-console
       console.log("User : ", user);
 
       /*
@@ -31,15 +31,16 @@ export default function WelcomeComponent() {
       */
 
     }).catch( (error)=> {
+      // eslint-disable-next-line no-console
       console.log(error);
     });
   }
 
   const handleGithubSignIn = (e) => {
     e.preventDefault();
-   console.log("Github");
     const provider = new firebase.auth.GithubAuthProvider();
    
+  
   /*
 
      Define Required  Scopes here
@@ -51,6 +52,7 @@ export default function WelcomeComponent() {
       const token = result.credential.accessToken;
       //  Signed-in user info.
       const {user} = result;
+      // eslint-disable-next-line no-console
       console.log(user,token);
 
       /*
@@ -59,6 +61,7 @@ export default function WelcomeComponent() {
 
       */
     }).catch( (error)=> {
+      // eslint-disable-next-line no-console
       console.log(error);
     });
   }
