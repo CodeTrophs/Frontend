@@ -25,7 +25,7 @@
 }
 
 .welcome-container {
-  margin:0 50px 20px 50px;
+  margin: 0 50px 20px 50px;
   display: flex;
   flex-direction: row;
   padding-top: 50px;
@@ -36,7 +36,6 @@
 }
 
 .welcome-title {
-
   font-weight: 800;
   font-size: 3.75rem;
   color: black;
@@ -58,7 +57,7 @@
 
 .welcome-right img {
   max-width: 80%;
-  float:right;
+  float: right;
 }
 
 .sign-in-buttons {
@@ -95,7 +94,7 @@
   background-color: #ce0707;
 }
 .google-button:hover {
-  opacity:0.7;
+  opacity: 0.7;
 }
 .github-button:hover {
   background-color: #3f3f3f;
@@ -103,7 +102,7 @@
 
 .sign-in-buttons button img {
   width: 10%;
-  height:100%;
+  height: 100%;
 }
 
 .sign-in-buttons button p {
@@ -120,8 +119,12 @@
   color: white;
 }
 
-.google-button{
-  background: linear-gradient(273deg, rgba(17,17,127,1) 0%, rgba(0,212,255,1) 100%);
+.google-button {
+  background: linear-gradient(
+    273deg,
+    rgba(17, 17, 127, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
   color: white;
 }
 
@@ -133,108 +136,14 @@
   width: 100%;
 }
 
-/* email input */
-
-.email-section {
-  display: none;
-  margin-top: 40px;
-  max-width: 100%;
-  padding: 10px 20px 20px 10px;
-  margin-bottom: 20px;
-  box-shadow: 0.5px 0.5px 6px #e6e6e6;
-}
-
-.email-section h3 {
-  width: 100%;
-  color: #125581;
-  font-size: 1.875rem;
-  font-weight: 350;
-}
-
-.sign-in-input {
-  display: block;
-  width: 100%;
-  border: none;
-  font-size: medium;
-  font-weight: 300;
-  padding-top: 15px;
-  padding-left: 5px;
-  margin-bottom: 20px;
-  border-bottom: 0.5px solid #c2c2c2;
-}
-
-.name {
-  display: flex;
-  flex-direction: row;
-}
-
-.name-fname {
-  display: none;
-  margin-right: 13px;
-}
-
-.name-lname {
-  display: none;
-  margin-left: 13px;
-}
-
-.password-input {
-  display: none;
-}
-
-.sign-in-input:focus {
-  outline: none;
-  border-bottom: 0.5px solid #3498db;
-}
-
-.email-buttons {
-  margin-top: 30px;
-
-  margin-right: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.email-buttons button {
-  width: fit-content;
-  padding: 0 20px 0 20px;
-  font-size: 1rem;
-  font-weight: 400;
-  border-radius: none;
-  cursor: pointer;
-  border: none;
-  height: 35px;
-}
-
-.email-next {
-  color: white;
-  background-color: #3498db;
-}
-
-.email-submit {
-  display: none;
-  color: white;
-  background-color: #3498db;
-}
-
-.email-next:hover,
-.email-submit:hover {
-  background-color: #1a6ea7;
-}
-
-.email-cancel:hover {
-  background-color: #ebebeb;
-}
-
-.email-buttons button:focus {
-  outline: none;
-}
-
 /* ABOUT SECTION */
 
 .about-us-container {
-  margin-top: 5%;
+  margin-top: 10vh;
+  padding: 60px 20px;
   display: flex;
+  margin-bottom: 10vh;
+  background-color: #f7f7f7;
 }
 
 .about-left-col {
@@ -266,7 +175,7 @@
 /* HOW OSC WORKS SECTION */
 
 .how-container {
-  margin: 30px 50px 0 50px;
+  margin: 10vh 50px 5vh 50px;
 }
 
 .how-top-row {
@@ -300,7 +209,7 @@
 }
 
 .how-bottom-row {
-  padding: 100px 40px 60px 40px;
+  padding: 80px 40px 60px 40px;
   justify-content: space-evenly;
   display: flex;
   text-align: center;
@@ -309,15 +218,15 @@
 .how-card {
   max-width: 20%;
   border-radius: 15%;
-  box-shadow: 1px 1px 8px #888888;
+  box-shadow: 0px 0px 8px #e6e6e6;
+
   padding-top: 40px;
   padding-right: 20px;
   padding-left: 20px;
-
   padding-bottom: 40px;
 }
 
-.how-card-img-container{
+.how-card-img-container {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -403,16 +312,16 @@
     font-size: 2.2rem;
     text-align: center;
   }
-.welcome-container{
-  flex-direction: column-reverse;
-  margin:0 15px 0 15px;
-}
-  .welcome-left{
+  .welcome-container {
+    flex-direction: column-reverse;
+    margin: 0 15px 0 15px;
+  }
+  .welcome-left {
     max-width: 100%;
   }
 
-  .welcome-right{
-    max-width: 100% ;
+  .welcome-right {
+    max-width: 100%;
   }
 
   .sign-in-buttons {
@@ -429,8 +338,7 @@
   }
 
   .about-us-container {
-    flex-direction:column ;
-    margin: 0 15px 0 15px;
+    flex-direction: column;
   }
   .about-us-container div {
     max-width: 100%;
@@ -455,10 +363,11 @@
 
   .about-right-col p {
     padding-top: -80px;
+    font-size: 1rem;
   }
 
-  .how-container{
-    margin:20px 15px 0 15px;
+  .how-container {
+    margin: 20px 15px 0 15px;
   }
 
   .how-top-row {
@@ -477,7 +386,7 @@
     font-size: 3.5rem;
   }
 
-  .how-top-right-col{
+  .how-top-right-col {
     margin-bottom: 50px;
   }
 

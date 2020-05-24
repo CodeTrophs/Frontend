@@ -10,8 +10,10 @@ export default function AboutUs() {
           <img alt="about-left-svg" src="/images/about-left-svg.svg" />
         </div>
         <div className={styles['about-right-col']}>
-          <h1>About O<u>SC</u></h1>
-          
+          <h1>
+            About <u>OSC</u>
+          </h1>
+
           <p>
             No one rejects, dislikes, or avoids pleasure itself, because it is
             pleasure, but because those who do not know how to pursue pleasure
@@ -22,7 +24,6 @@ export default function AboutUs() {
           </p>
         </div>
       </div>
-     
     </div>
   );
 }
