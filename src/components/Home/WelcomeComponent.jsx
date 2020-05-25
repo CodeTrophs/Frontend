@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import React from 'react';
 
 import styles from '../../css/home.module.css';
@@ -28,6 +29,8 @@ export default function WelcomeComponent() {
           Redirect to the required page here 
       */
 
+     Router.push('/feed');
+
     }).catch((error) => {
       // eslint-disable-next-line no-console
       console.log(error);
@@ -54,6 +57,7 @@ export default function WelcomeComponent() {
       /*
           Redirect to the required Page here 
       */
+      Router.push('/feed');
     }).catch((error) => {
       // eslint-disable-next-line no-console
       console.log(error);
