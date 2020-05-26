@@ -229,7 +229,7 @@
 
 /* Small screen devices */
 
-@media only screen and (max-width:680px) {
+@media only screen and (max-width:800px) {
 
   .disp-flex-intro {
     flex-direction: column-reverse;
