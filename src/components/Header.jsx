@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
-import styles from '../css/header.module.css';
+import styles from '../css/header.module.scss';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
 

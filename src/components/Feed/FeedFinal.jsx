@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../css/feed.module.css';
+import styles from '../../css/feed.module.scss';
 import Card from '../FeedCard';
 import FeedLang from './TopLang';
 import FeedOrg from './TopOrg';

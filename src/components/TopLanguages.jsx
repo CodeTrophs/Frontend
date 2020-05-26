@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../css/lang.module.css';
+import styles from '../css/lang.module.scss';
 
 export default function TopLanguage() {
   return (

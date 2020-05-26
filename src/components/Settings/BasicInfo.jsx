@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../css/settings.module.css';
+import styles from '../../css/settings.module.scss';
 
 const Basicinfo = () => (
   <div>

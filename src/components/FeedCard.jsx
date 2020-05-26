@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../css/card.module.css';
+import styles from '../css/card.module.scss';
 
 export default function Card() {
   return (
