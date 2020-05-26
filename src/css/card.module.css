@@ -76,8 +76,7 @@
   margin: 1rem auto;
 }
 
-
-@media only screen and (max-width:1150px) {
+@media only screen and (max-width: 1150px) {
   .flex{
     flex-direction: column;
     justify-content: center;
