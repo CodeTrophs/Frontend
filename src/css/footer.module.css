@@ -45,7 +45,7 @@
   width: auto;
 }
 
-.badges > div {
+.badges > a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,6 +57,8 @@
   margin: 8px 20px;
   cursor: pointer;
   border: 3px solid #000;
+  text-decoration: none;
+  color: #000
 }
 
 .badges img {
@@ -72,7 +74,9 @@
   padding-bottom: 0;
 }
 
-.bottom-row div {
+.bottom-row a {
+  text-decoration: none;
+  color: #000;
   padding: 1rem;
   text-align: center;
   display: inline-flex;
@@ -102,7 +106,11 @@
     font-size: 2rem;
   }
 
-  .badges > div {
+  .footer > h1 > hr {
+    height: 0.5rem;
+  }
+
+  .badges > a {
     padding: 2px 5px;
     margin: 8px 3px;
     cursor: pointer;
@@ -120,7 +128,7 @@
     height: 20px;
   }
 
-  .bottom-row div {
+  .bottom-row a {
     padding: 0.3rem;
     font-weight: 400;
   }

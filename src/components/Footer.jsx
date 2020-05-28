@@ -11,38 +11,38 @@ export default function Footer() {
       <h1>Contact Us<hr /></h1>
       <div className={styles['footer-content']}>
         <div className={styles.badges}>
-          <div>
+          <a href="/">
             <img src="/SVG/twitter.svg" alt="twitter" />
             @OPENSRCDESIGN
-          </div>
-          <div>
+          </a>
+          <a href="/">
             <img src="/SVG/Github.svg" alt="github" />
             Github
-          </div>
-          <div>
+          </a>
+          <a href="/">
             <img src="/SVG/open_collective.svg" alt="github" />
             Open Collective
-          </div>
+          </a>
         </div>
         <div className={styles.badges}>
-          <div>
+          <a href="/">
             <img src="/SVG/forum.svg" alt="forum" />
             Forum
-          </div>
-          <div>
+          </a>
+          <a href="/">
             <img src="/SVG/code-of-conduct.svg" alt="thumb" />
             Code of Conduct
-          </div>
+          </a>
         </div>
         <div className={styles['bottom-row']}>
-          <div>
+          <a href="/">
             <img src="/SVG/pencil.svg" alt="pencil" />
             Edit this page
-          </div>
-          <div>
+          </a>
+          <a href="/">
             <img src="/SVG/code.svg" alt="</>" />
             View Source Code
-          </div>
+          </a>
         </div>
 
       </div>
