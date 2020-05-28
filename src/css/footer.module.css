@@ -3,10 +3,10 @@
  /* background-image: url('../../public/images/bg-footer-c.png');
   background-position: center;
   background-size: 100% 100%;*/
-  background-image: url('../../public/SVG/footer-img.svg'),url('../../public/SVG/footer-bg-desktop.svg');
-  background-position:  5% 0,center;
-  background-size: 20%,cover;
-  background-repeat: no-repeat; 
+  background-image: url('../../public/SVG/footer-img.svg'), url('../../public/SVG/footer-bg-desktop.svg');
+  background-position: 5% 0, center;
+  background-size: 20%, cover;
+  background-repeat: no-repeat;
   padding: 200px 50px 20px 50px;
 }
 
@@ -14,7 +14,7 @@
   display: none;
 }
 
- .upper-row{
+.upper-row {
   display: flex;
   align-items: center;
   width: 100%;
@@ -40,7 +40,7 @@
   height: 0.5rem;
   border: none;
   width: 30%;
-  border-radius: 100px; 
+  border-radius: 100px;
 }
 
 .left-badges {
@@ -57,7 +57,7 @@
 
 .left-badges > div {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   border-radius: 10px;
   padding: 2px 10px;
   margin: 8px 20px;
@@ -113,9 +113,8 @@
   .footer {
     padding: 150px 15px 0 15px;
     height: auto;
-    background-image: url('../../public/SVG/footer-img.svg'),url('../../public/SVG/footer-bg-mobile.svg');
+    background-image: url('../../public/SVG/footer-img.svg'), url('../../public/SVG/footer-bg-mobile.svg');
     background-position: 10% 0%;
-    
   }
 
   .mobile-head {
@@ -136,7 +135,7 @@
     height: 0.25rem;
     background-color: black;
     border-radius: 1000px;
-    width:35%;
+    width: 35%;
   }
 
   .mobile-head img {
@@ -191,12 +190,12 @@
 
 @media only screen and (max-width: 800px) {
   .footer {
-    padding-top:75px;
-    background-size: 25%,cover;
+    padding-top: 75px;
+    background-size: 25%, cover;
   }
 }
 
-@media only screen and (max-width:480px) {
+@media only screen and (max-width: 480px) {
   .footer {
     padding-top: 25px;
   }
