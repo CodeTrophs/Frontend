@@ -1,8 +1,5 @@
 .footer {
   width: 100%;
- /* background-image: url('../../public/images/bg-footer-c.png');
-  background-position: center;
-  background-size: 100% 100%;*/
   background-image: url('../../public/SVG/footer-img.svg'), url('../../public/SVG/footer-bg-desktop.svg');
   background-position: 5% 0, center;
   background-size: 20%, cover;
