@@ -3,10 +3,10 @@
   background-image: url('../../public/SVG/footer-bg.svg');
   background-position: right;
   background-size: cover;
-  padding: 0px 50px;
+  padding: 0 50px;
 }
 
-.footer-image{
+.footer-image {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -28,7 +28,7 @@
   height: 1rem;
   width: 2em;
   border-radius: 100px;
-  background-color: #000000;
+  background-color: #000;
 }
 
 .footer-content {
@@ -101,7 +101,7 @@
     width: 100%;
     font-size: 2rem;
   }
-  
+
   .badges > div {
     padding: 2px 5px;
     margin: 8px 3px;
