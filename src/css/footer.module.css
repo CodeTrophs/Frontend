@@ -1,128 +1,203 @@
 .footer {
-  height: 240px;
-  background-color: #858585;
+  width: 100%;
+ /* background-image: url('../../public/images/bg-footer-c.png');
+  background-position: center;
+  background-size: 100% 100%;*/
+  background-image: url('../../public/SVG/footer-img.svg'),url('../../public/SVG/footer-bg-desktop.svg');
+  background-position:  5% 0,center;
+  background-size: 20%,cover;
+  background-repeat: no-repeat; 
+  padding: 200px 50px 20px 50px;
+}
+
+.mobile-head {
+  display: none;
+}
+
+ .upper-row{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  width: 100%;
 }
 
 /* left col */
 
 .left-col {
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.left-col > h2 {
-  font-size: 3rem;
-  font-weight: 600;
-  color: white;
+.left-col > h1 {
+  width: 30%;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.left-col > h1 > hr {
+  background-color: black;
+  height: 0.5rem;
+  border: none;
+  width: 30%;
+  border-radius: 100px; 
 }
 
 .left-badges {
   display: flex;
-  flex-direction: column;
-
-  width: 90%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 61%;
+  padding-top: 1rem;
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 .left-badges > div {
-  background-color: white;
+  display: flex;
+  justify-content: center; 
   border-radius: 10px;
-  padding: 0px 10px;
-  padding-bottom: 2px;
-  width: fit-content;
-  margin: 8px 0;
+  padding: 2px 10px;
+  margin: 8px 20px;
   cursor: pointer;
-  border: 3px solid #0efef1;
+  border: 3px solid #000;
 }
 
 .left-badges img {
   width: 1.3rem;
   margin-right: 8px;
   height: 23px;
-  padding-top: 7px;
+  padding-top: 3.5px;
   display: inline-block;
   vertical-align: baseline;
 }
 
-/* center col */
-
-.center-col {
-  display: flex;
-}
-
-.stripes {
-  margin: 0 25px;
-  width: 80px;
-  transform: skew(-15deg);
-  height: 240px;
-  padding-top: -20px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.stripes:hover {
-  transition-duration: 0.2s;
-  transition-timing-function: ease-out;
-  transform: skew(-10deg);
-}
-
-.stripes img {
-  transform: skew(15deg);
-  width: 30px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* right col */
 
-.right-col img {
-  width: 70%;
-
+.right-col {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  width: 20%;
 }
 
-@media (max-width: 1220px) {
-  .footer h2 {
-    font-size: 2rem;
-  }
-  .left-badges > div {
-    margin: unset auto;
-  }
+.right-col img {
+  width: 50%;
+}
+
+.bottom-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.bottom-row div {
+  padding: 1rem;
+  text-align: center;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.bottom-row img {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+@media (max-width: 1150px) {
+
   .footer {
-    flex-direction: column;
-    height: fit-content;
+    padding: 150px 15px 0 15px;
+    height: auto;
+    background-image: url('../../public/SVG/footer-img.svg'),url('../../public/SVG/footer-bg-mobile.svg');
+    background-position: 10% 0%;
+    
   }
-  .left-badges {
+
+  .mobile-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    padding: 1rem;
+    padding-bottom: 0;
+  }
+
+  .mobile-head h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .mobile-head hr {
+    height: 0.25rem;
+    background-color: black;
+    border-radius: 1000px;
+    width:35%;
+  }
+
+  .mobile-head img {
+    width: 30%;
+    max-width: 100px;
   }
 
   .left-col {
-    align-items: center;
+    width: 100%;
   }
-  .center-col {
-    flex-direction: column;
-    margin-top: 20px;
+
+  .left-col > h1 {
+    display: none;
+    font-size: 1.5rem;
+    width: 50%;
   }
-  .stripes {
-    transform: skew(0);
-    height: 50px;
-    margin: 10px 0;
-    width: 100vw;
+
+  .left-col > h1 > hr {
+    height: 0.25rem;
   }
-  .stripes:hover {
-    transform: skew(0deg);
+
+  .left-badges {
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 10px;
   }
-  .stripes img {
-    transform: skew(0);
+
+  .left-badges div {
+    margin: 8px 3px;
+    padding: 2px 5px;
   }
+
   .right-col {
     display: none;
+  }
+
+  .bottom-row {
+    font-size: 0.8rem;
+  }
+
+  .bottom-row img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .bottom-row div {
+    padding: 0.3rem;
+    margin-right: 0.3rem;
+  }
+
+}
+
+@media only screen and (max-width: 800px) {
+  .footer {
+    padding-top:75px;
+    background-size: 25%,cover;
+  }
+}
+
+@media only screen and (max-width:480px) {
+  .footer {
+    padding-top: 25px;
   }
 }
