@@ -1,60 +1,57 @@
 .footer {
   width: 100%;
-  background-image: url('../../public/SVG/footer-img.svg'), url('../../public/SVG/footer-bg-desktop.svg');
-  background-position: 5% 0, center;
-  background-size: 20%, cover;
-  background-repeat: no-repeat;
-  padding: 200px 50px 20px 50px;
+  background-image: url('../../public/SVG/footer-bg.svg');
+  background-position: right;
+  background-size: cover;
+  padding: 0px 50px;
 }
 
-.mobile-head {
-  display: none;
-}
-
-.upper-row {
-  display: flex;
-  align-items: center;
+.footer-image{
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* left col */
+.footer-image img {
+  width: 15%;
+}
 
-.left-col {
+.footer h1 {
   width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin: auto;
+  font-size: 3rem;
+  padding-top: 20px;
+  font-weight: 800;
 }
 
-.left-col > h1 {
-  width: 30%;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.left-col > h1 > hr {
-  background-color: black;
-  height: 0.5rem;
-  border: none;
-  width: 30%;
+.footer > h1 > hr {
+  height: 1rem;
+  width: 2em;
   border-radius: 100px;
+  background-color: #000000;
 }
 
-.left-badges {
+.footer-content {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  padding-top: 1rem;
+}
+
+.badges {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+.badges > div {
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  width: 61%;
-  padding-top: 1rem;
+  width: fit-content;
   font-size: 1rem;
-  font-weight: 400;
-}
-
-.left-badges > div {
-  display: flex;
-  justify-content: center;
+  font-weight: 500;
   border-radius: 10px;
   padding: 2px 10px;
   margin: 8px 20px;
@@ -62,40 +59,25 @@
   border: 3px solid #000;
 }
 
-.left-badges img {
+.badges img {
   width: 1.3rem;
   margin-right: 8px;
-  height: 23px;
-  padding-top: 3.5px;
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-/* right col */
-
-.right-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20%;
-}
-
-.right-col img {
-  width: 50%;
+  height: 25px;
 }
 
 .bottom-row {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
-  padding-bottom: 20px;
+  padding: 20px;
+  padding-bottom: 0;
 }
 
 .bottom-row div {
   padding: 1rem;
   text-align: center;
   display: inline-flex;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -105,72 +87,32 @@
   margin-right: 5px;
 }
 
-@media (max-width: 1150px) {
-
+@media only screen and (max-width: 800px) {
   .footer {
-    padding: 150px 15px 0 15px;
-    height: auto;
-    background-image: url('../../public/SVG/footer-img.svg'), url('../../public/SVG/footer-bg-mobile.svg');
-    background-position: 10% 0%;
+    padding: 0 15px;
+    background-image: url('../../public/SVG/footer-bg-mobile.svg');
   }
 
-  .mobile-head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    padding-bottom: 0;
+  .footer-image img {
+    width: 40%;
   }
 
-  .mobile-head h1 {
+  .footer h1 {
+    width: 100%;
     font-size: 2rem;
-    font-weight: 700;
   }
-
-  .mobile-head hr {
-    height: 0.25rem;
-    background-color: black;
-    border-radius: 1000px;
-    width: 35%;
-  }
-
-  .mobile-head img {
-    width: 30%;
-    max-width: 100px;
-  }
-
-  .left-col {
-    width: 100%;
-  }
-
-  .left-col > h1 {
-    display: none;
-    font-size: 1.5rem;
-    width: 50%;
-  }
-
-  .left-col > h1 > hr {
-    height: 0.25rem;
-  }
-
-  .left-badges {
-    width: 100%;
-    justify-content: space-around;
-    margin-bottom: 10px;
-  }
-
-  .left-badges div {
-    margin: 8px 3px;
+  
+  .badges > div {
     padding: 2px 5px;
-  }
-
-  .right-col {
-    display: none;
+    margin: 8px 3px;
+    cursor: pointer;
+    border: 3px solid #000;
+    justify-content: space-between;
+    font-weight: 400;
   }
 
   .bottom-row {
-    font-size: 0.8rem;
+    padding: 20px 0;
   }
 
   .bottom-row img {
@@ -180,20 +122,6 @@
 
   .bottom-row div {
     padding: 0.3rem;
-    margin-right: 0.3rem;
-  }
-
-}
-
-@media only screen and (max-width: 800px) {
-  .footer {
-    padding-top: 75px;
-    background-size: 25%, cover;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .footer {
-    padding-top: 25px;
+    font-weight: 400;
   }
 }
