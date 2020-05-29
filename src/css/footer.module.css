@@ -94,7 +94,8 @@
 @media only screen and (max-width: 800px) {
   .footer {
     padding: 0 15px;
-    background-image: url('../../public/SVG/footer-bg-mobile.svg');
+    background: url('../../public/SVG/footer-bg-mobile.svg');
+    background-size: contain;
   }
 
   .footer-image img {
@@ -131,5 +132,11 @@
   .bottom-row a {
     padding: 0.3rem;
     font-weight: 400;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    background-size: cover;
   }
 }
