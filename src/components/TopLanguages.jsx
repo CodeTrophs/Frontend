@@ -8,9 +8,8 @@ export default function TopLanguage() {
       <div className={styles.flex}>
         <div>
           <div className={styles.heading}>
-            <h1>Top 50 Languages</h1>
+            <h1>Top 50 Languages<hr /></h1>
           </div>
-          <img src="SVG/orgline.svg" alt="orgline" />
           <div className={styles['p-org']}>
             <p>Choose minimum 5 Languages</p>
           </div>
@@ -27,13 +26,11 @@ export default function TopLanguage() {
                 id=""
                 placeholder="Search for Languages"
                 className={styles['input-bar']}
-
-
               />
             </div>
           </div>
         </div>
-        <div>
+        <div className={styles['side-image']}>
           <img src="SVG/Group 111.svg" alt="imageside" />
         </div>
       </div>
