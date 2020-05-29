@@ -29,6 +29,9 @@
 }
 
 @media (max-width: 800px) {
+  html {
+    font-size: 12px;
+  }
   .toggle-button {
     position: absolute;
     display: flex;
