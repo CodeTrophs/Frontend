@@ -95,7 +95,7 @@
   .footer {
     padding: 0 15px;
     background: url('../../public/SVG/footer-bg-mobile.svg');
-    background-size: contain;
+    background-size: cover;
   }
 
   .footer-image img {
@@ -137,6 +137,6 @@
 
 @media only screen and (max-width: 600px) {
   .footer {
-    background-size: cover;
+    background-position: center;
   }
 }
