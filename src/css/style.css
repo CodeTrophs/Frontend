@@ -30,7 +30,7 @@
 
 @media (max-width: 800px) {
   html {
-    font-size: 12px;
+    font-size: 14px;
   }
   .toggle-button {
     position: absolute;

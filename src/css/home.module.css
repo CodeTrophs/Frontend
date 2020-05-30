@@ -25,7 +25,7 @@
 }
 
 .welcome-container {
-  height: 80vh;
+  min-height: 80vh;
   margin: 0 50px 20px 50px;
   display: flex;
   align-items: center;
@@ -47,7 +47,7 @@
 
 .landing-text {
   padding-top: 20px;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   font-weight: 500;
   text-align: left;
 }
@@ -172,7 +172,7 @@
 
 .about-right-col p {
   font-weight: 250;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 /* HOW OSC WORKS SECTION */
@@ -197,7 +197,7 @@
 
 .how-top-left-col p {
   font-weight: 250;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .how-top-right-col {
@@ -295,13 +295,15 @@
 
   .home-right-col img {
     width: 70%;
+    margin-top: 100px;
     padding-right: 0;
     margin-right: 15%;
     margin-left: 15%;
   }
 
   .landing-text {
-    font-size: 1.125rem;
+    font-size: 1rem;
+
     text-align: center;
   }
 
@@ -324,7 +326,7 @@
   }
 
   .welcome-right {
-    max-width: 100%;
+    max-width: 60%;
   }
 
   .sign-in-buttons {
