@@ -4,44 +4,51 @@ import styles from '../css/footer.module.css';
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles['left-col']}>
-        <h2>Contact Us</h2>
-        <div className={styles['left-badges']}>
-          <div>
-            <img src="/SVG/code-of-conduct.svg" alt="thumb" />
-            Code of Conduct
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
+        <path
+          fill="#f7f7f7"
+          fillOpacity="1"
+          d="M0,64L48,106.7C96,149,192,235,288,224C384,213,480,107,576,85.3C672,64,768,128,864,144C960,160,1056,128,1152,106.7C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+      </svg>
+      <footer className={styles.footer}>
+        <div className={styles['footer-content']}>
+          <div className={styles.badges}>
+            <a href="/">
+              <img src="/SVG/twitter.svg" alt="twitter" />
+              @OPENSRCDESIGN
+            </a>
+            <a href="/">
+              <img src="/SVG/Github.svg" alt="github" />
+              Github
+            </a>
+            <a href="/">
+              <img src="/SVG/open_collective.svg" alt="github" />
+              Open Collective
+            </a>
           </div>
-          <div>
-            <img src="/SVG/forum.svg" alt="forum" />
-            Forum
+          <div className={styles.badges}>
+            <a href="/">
+              <img src="/SVG/forum.svg" alt="forum" />
+              Forum
+            </a>
+            <a href="/">
+              <img src="/SVG/code-of-conduct.svg" alt="thumb" />
+              Code of Conduct
+            </a>
+          </div>
+          <div className={styles['bottom-row']}>
+            <a href="/">
+              <img src="/SVG/pencil.svg" alt="pencil" />
+              Edit this page
+            </a>
+            <a href="/">
+              <img src="/SVG/code.svg" alt="</>" />
+              View Source Code
+            </a>
           </div>
         </div>
-        <div
-          style={{
-            display: 'flex',
-            color: 'white',
-            fontWeight: '200',
-            cursor: 'pointer'
-          }}>
-          <img src="/SVG/pencil.svg" alt="pencil" />
-          <p>Edit this page</p>
-        </div>
-      </div>
-      <div className={styles['center-col']}>
-        <div className={styles.stripes} style={{ backgroundColor: '#00FFF2' }}>
-          <img src="/SVG/code.svg" alt="</>" />
-        </div>
-        <div className={styles.stripes} style={{ backgroundColor: '#797979' }}>
-          <img src="/SVG/Github.svg" alt="github" />
-        </div>
-        <div className={styles.stripes} style={{ backgroundColor: '#5B92AA' }}>
-          <img src="/SVG/twitter.svg" alt="twitter" />
-        </div>
-      </div>
-      <div className={styles['right-col']}>
-        <img src="/logo/monocolored-logo.png" alt="pen" />
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 }

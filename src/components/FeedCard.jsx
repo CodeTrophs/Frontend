@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 import styles from '../css/card.module.css';
@@ -15,9 +16,11 @@ export default function Card() {
             </div>
           </div>
           <div className={styles.middle}>
-            <div className={styles.heading}>
-              <p>Open Source Code</p>
-            </div>
+            <Link href="/project/[pid]" as="/project/pid">
+              <div className={styles.heading}>
+                <p>Open Source Code</p>
+              </div>
+            </Link>
             <div>
               <div className={styles.date}>
                 <p>By Organisation | 08 May 2020</p>
