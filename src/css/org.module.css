@@ -78,7 +78,10 @@
   margin-bottom: 1rem;
   margin-left: 1rem;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 1rem;
+  -webkit-box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
+  box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
 }
 
 .orgs > img {
@@ -91,7 +94,6 @@
   color: white;
   font-size: 1.5rem;
   vertical-align: middle;
-  line-height: 88px;
   padding-right: 8px;
 }
 
@@ -103,6 +105,7 @@
   background-color: white;
   width: fit-content;
   font-weight: 550;
+  border: none;
 }
 
 .next {
@@ -116,6 +119,7 @@
   font-size: 1.3rem;
   margin: 32px 56px 16px 0;
   border-radius: 32px;
+  border: none;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -166,7 +170,7 @@
   .orgs {
     min-width: 40%;
     margin-top: 1rem;
-    padding: 0 8px;
+    padding: 8px;
     justify-content: space-evenly;
     flex-wrap: nowrap;
   }
@@ -190,7 +194,7 @@
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   .input-bar {
     width: 60%;
   }

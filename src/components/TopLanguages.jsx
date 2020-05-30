@@ -8,7 +8,7 @@ export default function TopLanguage() {
       <div className={styles.flex}>
         <div>
           <div className={styles.heading}>
-            <h1>Top 50 Languages<hr /></h1>
+            <h1>Top Languages<hr /></h1>
           </div>
           <div className={styles['p-org']}>
             <p>Choose minimum 5 Languages</p>
