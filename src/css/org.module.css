@@ -70,12 +70,11 @@
   margin-top: 40px;
 }
 
- .orgs {
+.orgs {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  align-items: center;
   margin-bottom: 1rem;
   margin-left: 1rem;
   padding: 8px 16px;
@@ -83,9 +82,9 @@
 }
 
 .orgs > img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 
 .box-head {
@@ -120,10 +119,11 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .search-bar {
-        width: 90%;
-    }
+  .search-bar {
+    width: 90%;
+  }
 }
+
 @media only screen and  (max-width: 800px) {
   .flex {
     flex-direction: column-reverse;
@@ -192,15 +192,15 @@
 
 @media only screen and (max-width: 480px) {
   .input-bar {
-      width: 60%;
+    width: 60%;
   }
 
   .flex-below {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .orgs {
-      width: 75%;
-      margin: 0.5rem auto;
+    width: 75%;
+    margin: 0.5rem auto;
   }
 }
