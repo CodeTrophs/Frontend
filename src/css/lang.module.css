@@ -22,7 +22,7 @@
 }
 
 .search-bar {
-  width: 70%;
+  width: 100%;
   background-color: black;
   border-radius: 112px;
   padding: 7.2px 7.2px;
@@ -41,7 +41,7 @@
   background-color: black;
   font-size: 1.15rem;
   font-weight: 300;
-  width: 70%;
+  width: 100%;
   margin-left: 1.3rem;
   outline: none;
 }
@@ -76,14 +76,14 @@
   width: 20%;
   padding: 8px 16px;
   border-radius: 8px;
-  height: 88px;
+  -webkit-box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
+  box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
 }
 
 .box-head {
   color: white;
   font-size: 1.5rem;
-  vertical-align: middle;
-  line-height: 88px;
   padding-right: 8px;
 }
 
@@ -152,7 +152,7 @@
   .orgs {
     width: 40%;
     margin-top: 1rem;
-    padding: 0 8px;
+    padding: 16px;
   }
 
   .next {
@@ -175,7 +175,6 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .search-bar,
   .input-bar {
     width: 80%;
   }
