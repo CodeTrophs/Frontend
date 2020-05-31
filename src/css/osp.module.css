@@ -156,7 +156,7 @@
   }
 
   .bigBox {
-    padding: 10px;
+    padding: 10px 2rem;
     margin: 5px;
   }
 
@@ -167,6 +167,10 @@
 
   .input {
     width: 100%;
+  }
+
+  .qns {
+    margin-top: 1rem;
   }
 
   .skills > .input {
@@ -181,5 +185,19 @@
     width: auto;
     margin: auto;
     display: block;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .osp-heading {
+    font-size: 1.25rem;
+  }
+
+  .osp-desc > h2 {
+    font-size: 1.2rem;
+  }
+
+  .side-image {
+    width: 70%;
   }
 }
