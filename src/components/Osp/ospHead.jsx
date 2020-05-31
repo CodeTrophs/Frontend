@@ -15,7 +15,7 @@ export default function HeadOsp() {
             </h2>
           </div>
         </div>
-        <div>
+        <div className={styles['side-image']}>
           <img src="SVG/Group 137.svg" alt="gp" />
         </div>
       </div>

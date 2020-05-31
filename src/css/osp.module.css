@@ -1,9 +1,10 @@
 .flexing {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-left: 20px;
   margin-top: 20px;
-  padding-right: 50px;
+  padding-right: 20px;
 }
 
 .flexingskills {
@@ -17,7 +18,7 @@
 
 .flexingin {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .osp-heading {
@@ -49,7 +50,7 @@
 
 .input {
   display: block;
-  width: 40rem;
+  width: 20rem;
   border: none;
   font-size: medium;
   font-weight: 300;
@@ -61,15 +62,16 @@
 }
 
 .upload {
-  padding-left: 60px;
-  padding-top: 10px;
+  margin: auto;
+  display: block;
+  padding: 10px 0;
   cursor: pointer;
 }
 
 .enter-button {
   margin-left: 45%;
   margin-right: 45%;
-  width: 10%;
+  min-width: 10%;
   border: none;
   color: white;
   background-color: rgba(15, 194, 194, 0.911);
@@ -100,10 +102,17 @@
   margin-right: 20px;
 }
 
-.skill {
+.skillList {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.skillList > .skill {
   list-style: none;
-  float: left;
-  width: fit-content;
+  width: auto;
   padding: 5px 10px;
   border-radius: 10px;
   margin: 5px;
@@ -111,7 +120,6 @@
   font-weight: 400;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   border: solid;
 }
 
@@ -119,4 +127,59 @@
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 800px) {
+  .flexing {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 15px;
+    margin: 0;
+  }
+
+  .osp-heading {
+    width: 100%;
+    margin: 0;
+  }
+
+  .osp-heading > h1 {
+    text-align: center;
+  }
+
+  .side-image img {
+    width: 100%;
+  }
+
+  .osp-desc > h2 {
+    text-align: center;
+  }
+
+  .bigBox {
+    padding: 10px;
+    margin: 5px;
+  }
+
+  .flexingin {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .skills > .input {
+    width: 90%;
+  }
+
+  .skillList {
+    width: 100%;
+  }
+
+  .enter-button {
+    width: auto;
+    margin: auto;
+    display: block;
+  }
 }
