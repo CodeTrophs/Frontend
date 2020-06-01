@@ -105,6 +105,8 @@
   color: black;
 }
 .dd-button:nth-child(3) {
+  color: white;
+  border: none;
   background-color: #fe5e44;
 }
 

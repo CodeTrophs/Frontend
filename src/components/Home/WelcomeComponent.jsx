@@ -1,67 +1,41 @@
 import Router from 'next/router'
-import React from 'react';
+import React,{useContext} from 'react';
 
 import styles from '../../css/home.module.css';
-import firebase from '../../firebase'
+import * as FirebaseAuth from '../FirebaseAuth';
+import UserContext from '../UserContext';
 
 export default function WelcomeComponent() {
 
-
-  const handleGoogleSignIn = (e) => {
-    e.preventDefault();
-    const provider = new firebase.auth.GoogleAuthProvider();
-
-    /*
-        Define Required  Scopes here
-    */
-
-    firebase.auth().signInWithPopup(provider).then((result) => {
-      //  Access Token for using Google API's
-      const token = result.credential.accessToken;
-      //  Signed-in user info.
-      const { user } = result;
-      // eslint-disable-next-line no-console
-      console.log("Token : ", token);
-      // eslint-disable-next-line no-console
-      console.log("User : ", user);
-
-      /*
-          Redirect to the required page here 
-      */
-
-     Router.push('/feed');
-
-    }).catch((error) => {
-      // eslint-disable-next-line no-console
-      console.log(error);
+  const {setUser} = useContext(UserContext);
+  function changeUser(name,email) {
+    setUser({
+      name,
+      email
     });
   }
 
-  const handleGithubSignIn = (e) => {
+  async function handleGoogleSignIn(e) {
     e.preventDefault();
-    const provider = new firebase.auth.GithubAuthProvider();
-
-
-    /*
-       Define Required  Scopes here
-   */
-
-    firebase.auth().signInWithPopup(provider).then((result) => {
-      //  Access Token for using github api
-      const token = result.credential.accessToken;
-      //  Signed-in user info.
-      const { user } = result;
-      // eslint-disable-next-line no-console
-      console.log(user, token);
-
-      /*
-          Redirect to the required Page here 
-      */
+    const newUser = await FirebaseAuth.GoogleSignIn();
+    if(newUser.code === undefined) {
+      changeUser(newUser.user.displayName,newUser.user.email);
       Router.push('/feed');
-    }).catch((error) => {
-      // eslint-disable-next-line no-console
-      console.log(error);
-    });
+    }
+    else
+    Router.push('/');
+  }
+
+  async function handleGithubSignIn(e) {
+    e.preventDefault();
+    const newUser = await FirebaseAuth.GithubSignIn();
+    if(newUser.code === undefined) {
+      changeUser(newUser.user.displayName, newUser.user.email);
+      Router.push('/feed');
+    }
+    else {
+      Router.push('/');
+    }   
   }
 
   return (

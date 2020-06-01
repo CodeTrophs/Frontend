@@ -1,9 +1,18 @@
 import Head from 'next/head';
-import React from 'react';
+import React,{ useState } from 'react';
+
 import '../src/css/style.css';
+import UserContext from '../src/components/UserContext';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
+
+  /* eslint-disable-next-line no-unused-vars */
+  const [User, setUser] = useState({
+    name: 'Guest',
+    email: 'guest@osc'
+  });
+
   return (
     <>
       <Head>
@@ -14,8 +23,10 @@ function MyApp({ Component, pageProps }) {
         <title>OpenSourceCode</title>
       </Head>
 
+      <UserContext.Provider value={{User, setUser}} >
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} />
+      </UserContext.Provider>
     </>
   );
 }
