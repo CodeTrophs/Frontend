@@ -26,10 +26,7 @@ export default function Header() {
   async function handleLogout(e) {
     e.preventDefault();
     await FirebaseAuth.logout();
-    setUser({
-      name:"Guest",
-      email:"guest@osc"
-    });
+    setUser(null);
     router.push('/');
   }
 
@@ -112,7 +109,9 @@ export default function Header() {
               alt=" "
               className={styles['header-profile-picture']}
             />
-            <p>{User.name}</p>
+            { User !== null &&
+              <p> {User.name} </p>
+            }
             <img
               src="/SVG/Icon awesome-angle-down.svg"
               style={{ paddingLeft: '10px', width: '20px' }}
@@ -125,7 +124,9 @@ export default function Header() {
               <div className={styles['top-row']}>
                 <div className={styles['top-left-col']}>
                   <img src="/icons/young-man.png" alt=" " />
-                  <p>{User.name}</p>
+                    { User !== null && 
+                      <p> {User.name} </p>
+                    }
                 </div>
                 <div className={styles['top-right-col']}>
                   <Link href="/setting">

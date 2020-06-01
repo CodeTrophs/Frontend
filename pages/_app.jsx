@@ -7,10 +7,7 @@ import UserContext from '../src/components/UserContext';
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
   /* eslint-disable-next-line no-unused-vars */
-  const [User, setUser] = useState({
-    name: 'Guest',
-    email: 'guest@osc'
-  });
+  const [User, setUser] = useState(null);
 
   return (
     <>
