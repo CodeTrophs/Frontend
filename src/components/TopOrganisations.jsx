@@ -8,11 +8,10 @@ export default function TopOrganisation() {
       <div className={styles.flex}>
         <div>
           <div className={styles.heading}>
-            <h1>Top 100 Organisations</h1>
+            <h1>Top Organizations<hr /></h1>
           </div>
-          <img src="SVG/orgline.svg" alt="orgline" />
           <div className={styles['p-org']}>
-            <p>Choose minimum 5 Organisation</p>
+            <p>Choose minimum 5 Organizations</p>
           </div>
           <div className={styles['search-bar']}>
             <div className={styles['left-col']}>
@@ -26,13 +25,12 @@ export default function TopOrganisation() {
                 name="Search"
                 id=""
                 className={styles['input-bar']}
-                placeholder="Search for Organisation"
-
+                placeholder="Search for Organization"
               />
             </div>
           </div>
         </div>
-        <div>
+        <div className={styles['side-image']}>
           <img src="SVG/Group 122.svg" alt="imageside" />
         </div>
       </div>
