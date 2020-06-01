@@ -148,19 +148,18 @@ const Modal = ({ org, hideModal }) => (
 
 
 Modal.propTypes = {
-  org: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.arrayOf(PropTypes.string)
-      ]).isRequired,
-  hideModal:PropTypes.func.isRequired,
-  organisation: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  orgDescription: PropTypes.string.isRequired,
-  langTags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  topicTags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  github: PropTypes.string.isRequired,
-  slack: PropTypes.string.isRequired,
+  org: PropTypes.exact({
+    organisation: PropTypes.string,
+    id: PropTypes.number,
+    link: PropTypes.string,
+    orgDescription: PropTypes.string,
+    langTags: PropTypes.arrayOf(PropTypes.string),
+    topicTags: PropTypes.arrayOf(PropTypes.string),
+    github: PropTypes.string,
+    slack: PropTypes.string,
+    bgurl: PropTypes.string
+  }).isRequired,
+  hideModal:PropTypes.func.isRequired
 };
 
 export default Modal;
