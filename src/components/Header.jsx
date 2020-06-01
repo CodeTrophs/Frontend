@@ -10,7 +10,7 @@ import UserContext from './UserContext';
 
 export default function Header() {
   const router = useRouter();
-  const { User, setUser } = useContext(UserContext);
+  const { User, setUser } = useContext(UserContext);       
   const [profileDD, setProfileDD] = useState(false);
   const [sideDrawer, setSideDrawer] = useState(false);
 
