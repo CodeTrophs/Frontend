@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import React, { useState } from 'react';
+import Router from 'next/router';
+import React, { useState, useEffect } from 'react';
 
 import '../src/css/style.css';
 import UserContext from '../src/components/UserContext';
@@ -8,6 +9,25 @@ import UserContext from '../src/components/UserContext';
 function MyApp({ Component, pageProps }) {
   /* eslint-disable-next-line no-unused-vars */
   const [User, setUser] = useState(null);
+
+  useEffect(()=>{
+    let result = localStorage.getItem('User');
+    if (result !== null)
+    {
+      result = JSON.parse(result);
+      setUser({
+        name: result.Name,
+        email:result.Email
+      });
+
+      if(Router.pathname === '/' )
+        Router.push('/feed');
+    }
+    else
+    {
+      Router.replace('/');
+    }
+  },[]);
 
   return (
     <>

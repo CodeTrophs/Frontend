@@ -20,7 +20,7 @@ export default function WelcomeComponent() {
     const newUser = await FirebaseAuth.GoogleSignIn();
     if(newUser.code === undefined) {
       changeUser(newUser.user.displayName,newUser.user.email);
-      Router.push('/feed');
+      Router.replace('/feed');
     }
     else
     Router.push('/');
@@ -31,7 +31,7 @@ export default function WelcomeComponent() {
     const newUser = await FirebaseAuth.GithubSignIn();
     if(newUser.code === undefined) {
       changeUser(newUser.user.displayName, newUser.user.email);
-      Router.push('/feed');
+      Router.replace('/feed');
     }
     else {
       Router.push('/');
