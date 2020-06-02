@@ -2,31 +2,43 @@ import Head from 'next/head';
 import Router from 'next/router';
 import React, { useState, useEffect } from 'react';
 
+import * as FirebaseAuth from '../src/components/FirebaseAuth';
 import '../src/css/style.css';
 import UserContext from '../src/components/UserContext';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
-  /* eslint-disable-next-line no-unused-vars */
+
   const [User, setUser] = useState(null);
 
   useEffect(()=>{
-    let result = localStorage.getItem('User');
-    if (result !== null)
-    {
-      result = JSON.parse(result);
-      setUser({
-        name: result.Name,
-        email:result.Email
-      });
+    const token = localStorage.getItem('osc-app-token');
 
-      if(Router.pathname === '/' )
-        Router.replace('/feed');
+      async function updation() {
+        const verificationResult = await FirebaseAuth.verifySecuredToken(token);
+        if(verificationResult === true)
+         {
+           const userData = await FirebaseAuth.getUserData(token);
+           setUser({
+             name:userData.name,
+             email:userData.email
+           });
+           if(Router.pathname === '/') {
+             Router.replace('/feed');
+           }
+         }
+         else { 
+           Router.replace('/');
+          }
+      }
+    
+    if(token) {
+      updation();
     }
-    else
-    {
+    else {
       Router.replace('/');
     }
+
   },[]);
 
   return (

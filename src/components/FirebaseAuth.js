@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken'
+
 import firebase from '../firebase'
 
 export async function GoogleSignIn() {
@@ -7,7 +9,9 @@ export async function GoogleSignIn() {
   */
 
   return firebase.auth().signInWithPopup(provider).then((result)=>{
-    localStorage.setItem('User',JSON.stringify({Name : result.user.displayName, Email: result.user.email}));
+    const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid };
+    const newSecureToken = jwt.sign(resultData, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY);
+    localStorage.setItem('osc-app-token',newSecureToken);
     return result;
   }).catch((error) => {
     return error;
@@ -18,7 +22,9 @@ export async function GithubSignIn() {
 
   const provider = new firebase.auth.GithubAuthProvider();
   return firebase.auth().signInWithPopup(provider).then((result) =>{
-    localStorage.setItem('User', JSON.stringify({ Name: result.user.displayName, Email: result.user.email }));
+    const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid };
+    const newSecureToken = jwt.sign(resultData, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY);
+    localStorage.setItem('osc-app-token', newSecureToken);
     return result;
   }).catch((error) => {
     return error;
@@ -27,7 +33,7 @@ export async function GithubSignIn() {
 }
 
 export async function logout() {
-  localStorage.removeItem('User');
+  localStorage.removeItem('osc-app-token');
   return firebase.auth().signOut().then(()=>{
     return "Success";
   }).catch(()=>{
@@ -37,4 +43,18 @@ export async function logout() {
 
 export async function getCurrentUser() {
   return firebase.auth().currentUser;
+}
+
+export async function verifySecuredToken(token) {
+
+  return jwt.verify(token, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY, (err) => {
+    if (err)
+      return false;
+    return true;
+  });
+}
+
+export async function getUserData(token) {
+  const base64Url = token.split('.')[1];
+  return JSON.parse(window.atob(base64Url));
 }
