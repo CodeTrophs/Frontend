@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
       });
 
       if(Router.pathname === '/' )
-        Router.push('/feed');
+        Router.replace('/feed');
     }
     else
     {
