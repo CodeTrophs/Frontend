@@ -1,0 +1,126 @@
+$box-shadow-type1 :  5px 5px 5px rgb(223, 223, 223); 
+$box-shadow-type2 :  10px 10px 10px rgb(223, 223, 223); 
+
+@mixin disptype{
+    display: flex;
+    align-items: center;
+}
+
+
+.header {
+    @include disptype;
+    padding: 10px 30px;
+    background-color: #f7f7f7;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .header-logo {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+  }
+  
+  .links {
+    @include disptype;
+  }
+  .link {
+    padding: 0 30px;
+    font-weight: 500;
+  }
+  .link p {
+    cursor: pointer;
+  }
+  .header-profile-picture {
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    margin-right: 10px;
+    box-shadow: $box-shadow-type2;
+  }
+  .profile-icon {
+    @include disptype;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 60px;
+    border-radius: 20px;
+    right: 0;
+    margin: 10px;
+    background-color: #f7f7f7;
+    padding: 10px 20px;
+    width: 400px;
+    box-shadow: $box-shadow-type1;
+  }
+  
+  .top-right-col {
+    border-radius: 10px;
+  }
+  
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .top-left-col {
+    @include disptype;
+    font-size: 22px;
+  }
+  .top-left-col img {
+    width: 70px;
+    box-shadow: $box-shadow-type2;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 1px solid #333;
+  }
+  
+  .top-right-col img {
+    width: 35px;
+    box-shadow: $box-shadow-type1;
+    border: 1px solid #333;
+    cursor: pointer;
+  }
+  .bottom-row {
+    margin: 20px 0px;
+    display: flex;
+    color: white;
+    font-size: 14px;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  
+  .dd-button {
+    padding: 5px 10px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: $box-shadow-type1;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .dd-button:nth-child(1) {
+    background-color: #029843;
+  }
+  .dd-button:nth-child(2) {
+    background-color: white;
+    border: 1px solid #333;
+    color: black;
+  }
+  .dd-button:nth-child(3) {
+    color: white;
+    border: none;
+    background-color: #fe5e44;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .links {
+      display: none;
+    }
+  
+    .profile {
+      display: none;
+    }
+  }
+  

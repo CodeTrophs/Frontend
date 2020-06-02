@@ -9,7 +9,8 @@
     "start": "next start",
     "export": "next export",
     "lint": "eslint src/**/* pages/**/* --ext .jsx,.js --fix",
-    "format": "prettier --write src/**/* pages/**/*"
+    "format": "prettier --write src/**/* pages/**/*",
+    "scss": "node-sass -o css/ css/"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.3",
+    "node-sass": "^4.14.1",
     "prettier": "^2.0.5"
   },
   "husky": {

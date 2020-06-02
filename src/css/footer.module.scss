@@ -1,0 +1,105 @@
+@mixin disptype{
+    display: flex;
+    justify-content: center;
+}
+
+
+.footer {
+    width: 100%;
+    background-color: #f7f7f7;
+    margin-top: -10px;
+    padding: 0 50px;
+  }
+  
+  .footer-content {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    padding-top: 1rem;
+  }
+  
+  .badges {
+    @include disptype;
+    flex-wrap: wrap;
+    width: auto;
+    img {
+        width: 1.3rem;
+        margin-right: 8px;
+        height: 25px;
+      }
+      
+  }
+  
+  .badges > a {
+    @include disptype;
+    align-items: center;
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 2px 10px;
+    margin: 8px 20px;
+    cursor: pointer;
+    border: 3px solid #000;
+    text-decoration: none;
+    color: #000;
+  }
+    
+  
+  .bottom-row {
+    @include disptype;
+    padding: 20px;
+    padding-bottom: 0;  
+    a {
+        text-decoration: none;
+        color: #000;
+        padding: 1rem;
+        text-align: center;
+        display: inline-flex;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    
+    img {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+    }
+}
+  
+  @media only screen and (max-width: 800px) {
+    .footer {
+      padding: 0 15px;
+    }
+  
+    .badges > a {
+      padding: 2px 5px;
+      margin: 8px 3px;
+      cursor: pointer;
+      border: 3px solid #000;
+      justify-content: space-between;
+      font-weight: 400;
+    }
+  
+    .bottom-row {
+        padding: 20px 0;
+      }
+    
+      .bottom-row img {
+        width: 20px;
+        height: 20px;
+      }
+    
+      .bottom-row a {
+        padding: 0.3rem;
+        font-weight: 400;
+      }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .footer {
+      background-position: center;
+    }
+  }
+  

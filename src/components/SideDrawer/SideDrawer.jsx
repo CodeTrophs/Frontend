@@ -21,7 +21,7 @@ const SideDrawer = ({ handleClose, router }) => {
         onClick={handleClose}
         className={styles['close-button']}>
         <DrawerToggleButton />
-      </div>
+       </div>
       <div className={styles.profile}>
         <div
           role="button"
