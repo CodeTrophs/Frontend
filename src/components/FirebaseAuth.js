@@ -56,5 +56,10 @@ export async function verifySecuredToken(token) {
 
 export async function getUserData(token) {
   const base64Url = token.split('.')[1];
-  return JSON.parse(window.atob(base64Url));
+  try {
+    return JSON.parse(window.atob(base64Url));
+  }
+  catch(e) {
+    return null;
+  }
 }
