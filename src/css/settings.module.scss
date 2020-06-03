@@ -1,3 +1,4 @@
+/*
 $box-shadow-1: 0 0px 8px #e4e4e4;
 $box-shadow-2: 0 0 5px #e6e6e6;
 $border-bstyle: 0.7px solid #c4c4c4;
@@ -7,7 +8,9 @@ $border-bstyle: 0.7px solid #c4c4c4;
   padding-right: $pad-right;
   padding-left: $pad-left;
   padding-bottom: $pad-down;
-}
+} */
+
+@import 'variables/variables';
 
 .boxes {
   box-shadow: $box-shadow-1;
@@ -80,11 +83,10 @@ $border-bstyle: 0.7px solid #c4c4c4;
   font-weight: 500;
 }
 .flexing {
-  display: flex;
   width: 80%;
   margin: initial auto;
   justify-content: center;
-  align-items: center;
+  @include disptype;
 }
 .flexing-first {
   display: flex;

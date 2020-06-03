@@ -1,4 +1,4 @@
-$box-shadow1: 0 0 0.3125rem ; 
+/*$box-shadow1: 0 0 0.3125rem ; 
 
 @mixin fontstyle {
   font-size: 0.9375rem;
@@ -6,7 +6,9 @@ $box-shadow1: 0 0 0.3125rem ;
   font-weight: 450;
   border-radius: 0.5rem;
 }
+*/
 
+@import 'variables/variables';
 
 .usernamebox {
   max-width: 90%;

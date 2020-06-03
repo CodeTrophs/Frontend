@@ -1,10 +1,11 @@
-$box-shadow-type1 :  5px 5px 5px rgb(223, 223, 223); 
+/*$box-shadow-type1 :  5px 5px 5px rgb(223, 223, 223); 
 $box-shadow-type2 :  10px 10px 10px rgb(223, 223, 223); 
 
 @mixin disptype{
     display: flex;
     align-items: center;
-}
+}*/
+@import 'variables/variables';
 
 
 .header {
@@ -53,7 +54,7 @@ $box-shadow-type2 :  10px 10px 10px rgb(223, 223, 223);
     background-color: #f7f7f7;
     padding: 10px 20px;
     width: 400px;
-    box-shadow: $box-shadow-type1;
+    box-shadow: $box-shadow-type3;
   }
   
   .top-right-col {
@@ -78,7 +79,7 @@ $box-shadow-type2 :  10px 10px 10px rgb(223, 223, 223);
   
   .top-right-col img {
     width: 35px;
-    box-shadow: $box-shadow-type1;
+    box-shadow: $box-shadow-type3;
     border: 1px solid #333;
     cursor: pointer;
   }
@@ -95,7 +96,7 @@ $box-shadow-type2 :  10px 10px 10px rgb(223, 223, 223);
     padding: 5px 10px;
     border-radius: 8px;
     width: 30%;
-    box-shadow: $box-shadow-type1;
+    box-shadow: $box-shadow-type3;
     text-align: center;
     cursor: pointer;
   }

@@ -1,8 +1,9 @@
-@mixin disptype{
+/*@mixin disptype2{
     display: flex;
     justify-content: center;
-}
+}*/
 
+@import 'variables/variables';
 
 .footer {
     width: 100%;
@@ -19,7 +20,7 @@
   }
   
   .badges {
-    @include disptype;
+    @include disptype2;
     flex-wrap: wrap;
     width: auto;
     img {
@@ -31,7 +32,7 @@
   }
   
   .badges > a {
-    @include disptype;
+    @include disptype2;
     align-items: center;
     width: fit-content;
     font-size: 1rem;
@@ -47,7 +48,7 @@
     
   
   .bottom-row {
-    @include disptype;
+    @include disptype2;
     padding: 20px;
     padding-bottom: 0;  
     a {
