@@ -1,11 +1,11 @@
-$box-shadow-type1: 0 0 0.3125rem #888888;
-$box-shadow-type3 :  5px 5px 5px rgb(223, 223, 223); 
-$box-shadow-type2 :  10px 10px 10px rgb(223, 223, 223); 
+$box-shadow-type-dark: 0 0 0.3125rem #888888;
+$box-shadow-thin-light :  5px 5px 5px rgb(223, 223, 223); 
+$box-shadow-thick-light :  10px 10px 10px rgb(223, 223, 223); 
 
-$box-shadow1: 0 0 0.3125rem ; 
+$box-shadow-dimensions: 0 0 0.3125rem ; 
 
-$box-shadow-1: 0 0px 8px #e4e4e4;
-$box-shadow-2: 0 0 5px #e6e6e6;
+$box-shadow-light: 0 0px 8px #e4e4e4;
+$box-shadow-pale: 0 0 5px #e6e6e6;
 $border-bstyle: 0.7px solid #c4c4c4;
 
 @mixin padding-all($pad-up,$pad-right,$pad-down,$pad-left) {

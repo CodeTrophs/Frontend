@@ -22,7 +22,7 @@
     border-radius: 50%;
     border: 1px solid #333;
     margin-right: 10px;
-    box-shadow: $box-shadow-type2;
+    box-shadow: $box-shadow-thick-light;
   }
   .profile-icon {
     @include disptype;
@@ -40,7 +40,7 @@
     background-color: #f7f7f7;
     padding: 10px 20px;
     width: 100%;
-    box-shadow: $box-shadow-type3;
+    box-shadow: $box-shadow-thin-light;
   }
   
   .top-right-col {
@@ -55,7 +55,7 @@
   .top-right-col img {
     width: 35px;
     float: right;
-    box-shadow: $box-shadow-type3;
+    box-shadow: $box-shadow-thin-light;
     border: 1px solid #333;
     cursor: pointer;
     margin-bottom: 20px;
@@ -75,7 +75,7 @@
     border-radius: 8px;
     width: 80%;
     margin: 5px;
-    box-shadow: $box-shadow-type3;
+    box-shadow: $box-shadow-thin-light;
     text-align: center;
     cursor: pointer;
   }

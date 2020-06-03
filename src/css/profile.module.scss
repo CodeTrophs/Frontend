@@ -25,7 +25,7 @@
   margin: 80px auto;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: $box-shadow1 #bbbbbb;;
+  box-shadow: $box-shadow-dimensions #bbbbbb;;
 }
 
 .imgabsolute-lower {
@@ -53,7 +53,7 @@
   padding-right: 0.25rem;
   padding-left: 0.25rem;
   margin-top: 2rem;
-  box-shadow: $box-shadow1 #888888;
+  box-shadow: $box-shadow-type-dark;
   padding-bottom: 0.2rem;
   width: 6.875rem;
   margin-right: 2.5rem;
@@ -73,7 +73,7 @@
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   padding-bottom: 0.1275rem;
-  box-shadow: 0 0 0.3125rem #888888;
+  box-shadow: $box-shadow-type-dark;
   padding-bottom: 0.3125rem;
   height: 1.875rem;
   margin-right: 0.625rem;
