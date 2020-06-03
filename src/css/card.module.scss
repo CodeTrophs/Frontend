@@ -1,0 +1,106 @@
+$box-shadow-type1: 0 0 0.3125rem #888888;
+
+@mixin padding-all($pad-up,$pad-right,$pad-down,$pad-left) {
+  padding-top: $pad-up;
+  padding-right: $pad-right;
+  padding-left: $pad-left;
+  padding-bottom: $pad-down;
+}
+
+.big-box {
+  @include padding-all(3rem,1.5rem,1.5rem,1.5rem);
+  box-shadow: $box-shadow-type1;
+  border-radius: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 2.5rem;
+}
+.flex {
+  display: flex;
+}
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.date {
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.heart {
+  margin-left: auto;
+  margin-right: auto;
+  width: 2rem;
+}
+.langButton {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 450;
+  margin-top: 1.3rem;
+}
+.middle {
+  width: 70%;
+}
+.smallbox-below {
+  @include padding-all(0.2125rem,0.5rem,0.3125rem,0.5rem);
+  font-weight: 600;
+  border-radius: 1.25rem;
+  box-shadow: $box-shadow-type1;
+  height: 1.875rem;
+  margin-right: 0.625rem;
+}
+
+.smallbox-below > .flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.save {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.save-syntax {
+  width: fit-content;
+  @include padding-all(0.3125rem,0rem,1.5rem,1.25rem);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  border: none;
+  height: 2.1875rem;
+  color: white;
+  background-color: black;
+  margin: 1rem auto;
+}
+
+@media only screen and (max-width: 1150px) {
+  .flex{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .big-box {
+  box-shadow: $box-shadow-type1;
+  border-radius: 1rem;
+  margin:3rem 15px;
+  padding : 0;
+  padding-top: 3rem;
+ 
+}
+
+.middle{
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.smallbox-below {
+  margin: 1rem 0;
+  
+}
+
+}
