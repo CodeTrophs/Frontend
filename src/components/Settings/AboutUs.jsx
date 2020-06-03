@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import styles from '../../css/settings.module.css';
+import styles from '../../css/settings.module.scss';
 
 const Aboutus = () => {
   const [tag, setTag] = useState('');

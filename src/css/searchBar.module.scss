@@ -1,0 +1,98 @@
+.search-bar {
+  width: 60%;
+  background-color: black;
+  margin: 30px auto 50px auto;
+  border-radius: 100px;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left-col {
+  width: 40%;
+  display: flex;
+}
+
+.left-col img{
+  margin:5px 5px auto 15px;
+}
+
+.right-col {
+  display: flex;
+}
+.filter-show {
+  float: right;
+  display: flex;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.filter-show > p {
+  color: white;
+  font-size: 18px;
+}
+.filter-show > img {
+  width: 25px;
+  margin-left: 10px;
+}
+.filter-dropdown {
+  color: white;
+  position: absolute;
+  background-color: black;
+  margin-top: 35px;
+  margin-left: 20px;
+  padding: 20px 30px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+.dropdown-items {
+  padding-top: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.filter {
+  min-width: 150px;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+@media only screen and (max-width: 1000px) {
+  .search-bar {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 780px) {
+  .search-bar {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 680px) {
+  .search-bar {
+    width: 90%;
+    flex-direction: column;
+  }
+  .right-col {
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .filter{
+    min-width: 130px;
+  }
+  .filter-show {
+    font-size: 10px;
+  }
+  .left-col {
+    width: 90%;
+    margin: auto;
+  }
+
+  .left-col img {
+    margin:0;
+  }
+
+  .left-col input {
+    font-size: 14px !important;
+    width: 200px !important;
+  }
+}
