@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../css/osp.module.css';
+import styles from '../../css/osp.module.scss';
 
 export default function HeadOsp() {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import styles from '../../css/osp.module.css';
+import styles from '../../css/osp.module.scss';
 
 const FormOsp = () => {
   const [tag, setTag] = useState('');

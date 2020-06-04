@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import styles from '../css/landingContainer.module.css';
+import styles from '../css/landingContainer.module.scss';
 
 const LandingContainer = ({ title, imgsrc, line1, line2, line3 }) => (
   <div>

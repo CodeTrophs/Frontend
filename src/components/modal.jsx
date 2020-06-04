@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import styles from '../css/modal.module.css';
+import styles from '../css/modal.module.scss';
 
 
 const Modal = ({ org, hideModal }) => (
