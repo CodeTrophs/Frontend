@@ -76,7 +76,8 @@
   width: 80%;
   margin: initial auto;
   justify-content: center;
-  @include disptype;
+  display: flex;
+  align-items: center;
 }
 .flexing-first {
   display: flex;

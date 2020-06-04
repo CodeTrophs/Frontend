@@ -15,15 +15,6 @@ $border-bstyle: 0.7px solid #c4c4c4;
   padding-bottom: $pad-down;
 }
 
-@mixin disptype{
-    display: flex;
-    align-items: center;
-}
-
-@mixin disptype2{
-    display: flex;
-    justify-content: center;
-}
 
 @mixin button-fontstyle {
     font-size: 0.9375rem;

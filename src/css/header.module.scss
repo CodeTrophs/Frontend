@@ -3,7 +3,8 @@
 
 
 .header {
-    @include disptype;
+    display: flex;
+    align-items: center;
     padding: 10px 30px;
     background-color: #f7f7f7;
     flex-direction: row;
@@ -18,7 +19,8 @@
   }
   
   .links {
-    @include disptype;
+    display: flex;
+    align-items: center;
   }
   .link {
     padding: 0 30px;
@@ -35,7 +37,8 @@
     box-shadow: $box-shadow-thick-light;
   }
   .profile-icon {
-    @include disptype;
+    display: flex;
+    align-items: center;
     cursor: pointer;
   }
   
@@ -60,7 +63,8 @@
     justify-content: space-between;
   }
   .top-left-col {
-    @include disptype;
+    display: flex;
+    align-items: center;
     font-size: 22px;
   }
   .top-left-col img {

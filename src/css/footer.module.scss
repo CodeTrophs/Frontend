@@ -16,7 +16,8 @@
   }
   
   .badges {
-    @include disptype2;
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     width: auto;
     img {
@@ -28,7 +29,8 @@
   }
   
   .badges > a {
-    @include disptype2;
+    display: flex;
+    justify-content: center;
     align-items: center;
     width: fit-content;
     font-size: 1rem;
@@ -44,7 +46,8 @@
     
   
   .bottom-row {
-    @include disptype2;
+    display: flex;
+    justify-content: center;
     padding: 20px;
     padding-bottom: 0;  
     a {

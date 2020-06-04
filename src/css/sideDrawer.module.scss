@@ -24,7 +24,8 @@
     box-shadow: $box-shadow-thick-light;
   }
   .profile-icon {
-    @include disptype;
+    display: flex;
+    align-items: center;
     cursor: pointer;
   }
   
@@ -47,7 +48,8 @@
   }
   
   .top-left-col {
-    @include disptype;
+    display: flex;
+    align-items: center;
     font-size: 22px;
   }
   
@@ -66,7 +68,8 @@
     width: 100%;
     justify-content: space-evenly;
     flex-direction: column;
-    @include disptype;
+    display: flex;
+    align-items: center;
   }
   
   .dd-button {
