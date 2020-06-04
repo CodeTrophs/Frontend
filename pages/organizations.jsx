@@ -4,7 +4,7 @@ import Header from '../src/components/Header';
 import LandingContainer from '../src/components/LandingContainer';
 import Organisation from '../src/components/organisation';
 import SearchBar from '../src/components/SearchBar';
-import styles from '../src/css/organisations.module.css';
+import styles from '../src/css/organisations.module.scss';
 
 const organizations = () => {
   const Organisations = [
