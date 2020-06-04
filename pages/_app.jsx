@@ -1,13 +1,44 @@
 import Head from 'next/head';
-import React, { useState } from 'react';
+import Router from 'next/router';
+import React, { useState, useEffect } from 'react';
 
 import '../src/scss/style.scss';
 import UserContext from '../src/components/UserContext';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
-  /* eslint-disable-next-line no-unused-vars */
+
   const [User, setUser] = useState(null);
+
+  useEffect(()=>{
+    const token = localStorage.getItem('osc-app-token');
+
+      async function updation() {
+        const verificationResult = await FirebaseAuth.verifySecuredToken(token);
+        if(verificationResult !== null )
+         {
+           setUser({
+             name:verificationResult.name,
+             email:verificationResult.email,
+             uid:verificationResult.uid
+           });
+           if(Router.pathname === '/') {
+             Router.replace('/feed');
+           }
+         }
+         else { 
+           Router.replace('/');
+          }
+      }
+    
+    if(token) {
+      updation();
+    }
+    else {
+      Router.replace('/');
+    }
+
+  },[]);
 
   return (
     <>

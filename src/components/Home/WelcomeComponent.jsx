@@ -8,10 +8,11 @@ import UserContext from '../UserContext';
 export default function WelcomeComponent() {
 
   const {setUser} = useContext(UserContext);
-  function changeUser(name,email) {
+  function changeUser(name,email,uid) {
     setUser({
       name,
-      email
+      email,
+      uid
     });
   }
 
@@ -19,8 +20,8 @@ export default function WelcomeComponent() {
     e.preventDefault();
     const newUser = await FirebaseAuth.GoogleSignIn();
     if(newUser.code === undefined) {
-      changeUser(newUser.user.displayName,newUser.user.email);
-      Router.push('/feed');
+      changeUser(newUser.user.displayName,newUser.user.email,newUser.user.uid);
+      Router.replace('/feed');
     }
     else
     Router.push('/');
@@ -30,8 +31,8 @@ export default function WelcomeComponent() {
     e.preventDefault();
     const newUser = await FirebaseAuth.GithubSignIn();
     if(newUser.code === undefined) {
-      changeUser(newUser.user.displayName, newUser.user.email);
-      Router.push('/feed');
+      changeUser(newUser.user.displayName, newUser.user.email, newUser.user.uid);
+      Router.replace('/feed');
     }
     else {
       Router.push('/');

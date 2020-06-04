@@ -1,12 +1,22 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import styles from '../../scss/sideDrawer.module.scss';
+import * as FirebaseAuth from '../FirebaseAuth';
+import UserContext from '../UserContext';
 import DrawerToggleButton from './DrawerToggleButton';
 
 const SideDrawer = ({ handleClose, router }) => {
   const [profileDD, setProfileDD] = useState(false);
+  const {User,setUser}=useContext(UserContext);
+
+  async function handleLogout(e) {
+    e.preventDefault();
+    await FirebaseAuth.logout();
+    setUser(null);
+    router.push('/');
+  }
 
   const toggleDD = () => {
     // eslint-disable-next-line no-unused-expressions
@@ -34,7 +44,7 @@ const SideDrawer = ({ handleClose, router }) => {
             alt=" "
             className={styles['header-profile-picture']}
           />
-          <p>Ali Zahir</p>
+          <p>{User === null ? "" : User.name}</p>
           <img
             src="/SVG/Icon awesome-angle-down.svg"
             style={{ paddingLeft: '10px', width: '20px' }}
@@ -55,9 +65,9 @@ const SideDrawer = ({ handleClose, router }) => {
               <Link href="/createproject">
                 <div className={styles['dd-button']}>Create OSP</div>
               </Link>
-              <Link href="/">
-                <div className={styles['dd-button']}>Logout</div>
-              </Link>
+              <button onClick={handleLogout} type='button' className={styles['dd-button']}>
+                Logout
+              </button>
             </div>
           </div>
         )}
