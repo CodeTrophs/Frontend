@@ -1,7 +1,7 @@
 import Router from 'next/router'
 import React,{useContext} from 'react';
 
-import styles from '../../css/home.module.css';
+import styles from '../../css/home.module.scss';
 import * as FirebaseAuth from '../FirebaseAuth';
 import UserContext from '../UserContext';
 

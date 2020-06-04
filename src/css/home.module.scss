@@ -1,4 +1,4 @@
-/* main content */
+@import 'variables';
 
 .row {
   display: flex;
@@ -221,12 +221,8 @@
 .how-card {
   max-width: 20%;
   border-radius: 15%;
-  box-shadow: 0px 0px 8px #e6e6e6;
-
-  padding-top: 40px;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 40px;
+  box-shadow: $box-shadow-light;
+  @include padding-all(40px,20px,40px,20px);
 }
 
 .how-card-img-container {
