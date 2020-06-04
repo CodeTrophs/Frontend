@@ -47,19 +47,11 @@ export async function getCurrentUser() {
 
 export async function verifySecuredToken(token) {
 
-  return jwt.verify(token, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY, (err) => {
+  return jwt.verify(token, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY, (err,userData) => {
     if (err)
-      return false;
-    return true;
+      return null;
+    if (userData.name === (null || undefined) || userData.email === (null || undefined) || userData.uid === (null || undefined))
+    return null;  
+    return userData;
   });
-}
-
-export async function getUserData(token) {
-  const base64Url = token.split('.')[1];
-  try {
-    return JSON.parse(window.atob(base64Url));
-  }
-  catch(e) {
-    return null;
-  }
 }

@@ -90,6 +90,8 @@
 }
 .dd-button:nth-child(3) {
   background-color: #fe5e44;
+  border: none;
+  color: white;
 }
 .links {
   display: flex;

@@ -16,14 +16,12 @@ function MyApp({ Component, pageProps }) {
 
       async function updation() {
         const verificationResult = await FirebaseAuth.verifySecuredToken(token);
-        if(verificationResult === true)
+        if(verificationResult !== null )
          {
-           const userData = await FirebaseAuth.getUserData(token);
-          if (userData === (null || undefined) || userData.name === (null || undefined) || userData.email === (null || undefined))
-           Router.replace('/');
            setUser({
-             name:userData.name,
-             email:userData.email
+             name:verificationResult.name,
+             email:verificationResult.email,
+             uid:verificationResult.uid
            });
            if(Router.pathname === '/') {
              Router.replace('/feed');
