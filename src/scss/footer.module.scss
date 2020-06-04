@@ -20,13 +20,15 @@
     justify-content: center;
     flex-wrap: wrap;
     width: auto;
-    img {
+
+  }
+    .badges img {
         width: 1.3rem;
         margin-right: 8px;
         height: 25px;
       }
       
-  }
+  
   
   .badges > a {
     display: flex;
