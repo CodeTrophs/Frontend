@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import styles from '../../css/projectInfo.module.css';
+import styles from '../../css/projectInfo.module.scss';
 
 const ProjectInfo = ({ page }) => {
   const [Dropdown, setDropdown] = useState(false);

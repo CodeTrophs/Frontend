@@ -1,3 +1,5 @@
+@import 'variables';
+
 .headFeed {
   font-weight: 700;
   font-size: 3.125rem;
@@ -15,10 +17,7 @@
   margin-right: 1.25rem;
   width: 8.125rem;
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   border: none;
   height: 2.1875rem;
 
@@ -29,10 +28,7 @@
 .Languages-js {
   width: 11.25rem;
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   border: none;
   height: 2.1875rem;
   display: flex;
@@ -49,10 +45,7 @@
 .Languages-css {
   width: 11.25rem;
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   border: none;
   height: 2.1875rem;
   display: flex;
@@ -65,10 +58,7 @@
 .Languages-mozilla {
   width: 11.25rem;
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   display: flex;
   justify-content: space-between;
   border: none;
@@ -81,10 +71,7 @@
 .Languages-google {
   width: 11.25rem;
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   display: flex;
   justify-content: space-between;
   border: none;
@@ -96,10 +83,7 @@
 }
 .tag1 {
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   border: none;
   height: 2.1875rem;
   background-color: blue;
@@ -114,10 +98,7 @@
 }
 .tag2 {
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   border: none;
   height: 2.1875rem;
   background-color: magenta;
@@ -128,10 +109,7 @@
 }
 .tag3 {
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   border: none;
   height: 2.1875rem;
   background-color: pink;
@@ -142,10 +120,7 @@
 .Languages-facebook {
   width: 11.25rem;
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   display: flex;
   justify-content: space-between;
   border: none;
@@ -163,10 +138,7 @@
 .Languages-node {
   width: 11.25rem;
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 400;
-  border-radius: 0.5rem;
-  font-weight: 450;
+  @include button-fonstyle;
   border: none;
   height: 2.1875rem;
   display: flex;
@@ -215,13 +187,10 @@
   margin-left: 3.125rem;
   font-weight: 600;
   border-radius: 1.25rem;
-  padding-top: 1.25rem;
-  padding-right: 1.25rem;
-  padding-left: 1.25rem;
+  @include padding-all(1.25rem,1.25rem,0.9735rem,1.25rem);
   width: 16.5625rem;
   margin-top: 3.125rem;
-  box-shadow: 0 0 0.3125rem #888888;
-  padding-bottom: 0.9375rem;
+  box-shadow: $box-shadow-dark;
   /* width:fit-content; */
 
   margin-right: 2.5rem;
@@ -256,7 +225,7 @@
   border-radius: 1.25rem;
   padding:1rem 0;
   margin-top: 2rem;
-  box-shadow: 0 0 0.3125rem #888888;
+  box-shadow: $box-shadow-dark;
   width: auto;
   display: flex;
   justify-content: center;

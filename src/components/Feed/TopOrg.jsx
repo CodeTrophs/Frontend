@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import styles from '../../css/feed.module.css';
+import styles from '../../css/feed.module.scss';
 
 const FeedOrg = () => {
   const [state, setState] = useState(false);
