@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../css/home.module.scss';
+import styles from '../../scss/home.module.scss';
 
 export default function AboutUs() {
   return (

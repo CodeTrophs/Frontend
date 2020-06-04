@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../css/feed.module.scss';
+import styles from '../../scss/feed.module.scss';
 
 function FeedTag() {
   return (

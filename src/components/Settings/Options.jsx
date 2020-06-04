@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import styles from '../../css/settings.module.scss';
+import styles from '../../scss/settings.module.scss';
 import Aboutus from './AboutUs';
 import Basicinfo from './BasicInfo';
 import Social from './SocialHandle';

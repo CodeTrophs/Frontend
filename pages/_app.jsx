@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { useState } from 'react';
 
-import '../src/css/style.scss';
+import '../src/scss/style.scss';
 import UserContext from '../src/components/UserContext';
 
 // eslint-disable-next-line react/prop-types

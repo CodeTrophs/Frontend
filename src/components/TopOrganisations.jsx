@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../css/org.module.scss';
+import styles from '../scss/org.module.scss';
 
 export default function TopOrganisation() {
   return (

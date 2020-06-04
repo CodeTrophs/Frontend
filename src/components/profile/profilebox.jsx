@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../css/profile.module.scss';
+import styles from '../../scss/profile.module.scss';
 
 export default function BoxProfile() {
   return (

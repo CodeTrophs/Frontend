@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import styles from '../css/searchBar.module.scss';
+import styles from '../scss/searchBar.module.scss';
 
 const SearchBar = ({ page }) => {
   const [Filter, setFilter] = useState('Python');

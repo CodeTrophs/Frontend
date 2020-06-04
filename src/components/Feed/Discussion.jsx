@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../css/discussion.module.scss';
+import styles from '../../scss/discussion.module.scss';
 
 const Discussion = () => {
   return (

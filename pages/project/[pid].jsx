@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Discussion from '../../src/components/Feed/Discussion';
 import ProjectInfo from '../../src/components/Feed/ProjectInfo';
 import Header from '../../src/components/Header';
-import styles from '../../src/css/project.module.scss';
+import styles from '../../src/scss/project.module.scss';
 
 const project = () => {
   const [Tab, setTab] = useState('issues');
