@@ -1,14 +1,4 @@
-/*
-$box-shadow-1: 0 0px 8px #e4e4e4;
-$box-shadow-2: 0 0 5px #e6e6e6;
-$border-bstyle: 0.7px solid #c4c4c4;
 
-@mixin padding-all($pad-up,$pad-right,$pad-down,$pad-left) {
-  padding-top: $pad-up;
-  padding-right: $pad-right;
-  padding-left: $pad-left;
-  padding-bottom: $pad-down;
-} */
 
 @import 'variables';
 
@@ -110,7 +100,6 @@ $border-bstyle: 0.7px solid #c4c4c4;
   border: none;
   font-size: medium;
   font-weight: 200;
-  @include padding-all(0.5rem,0rem,0.4rem,0rem);
   padding-top: 0.5rem;
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
@@ -133,7 +122,8 @@ $border-bstyle: 0.7px solid #c4c4c4;
   border: none;
   font-size: medium;
   font-weight: 300;
-  @include padding-all(2.5rem,0rem,0.4rem,0rem);
+  padding-top: 2.5rem;
+  padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
   border-bottom: $border-bstyle;
 }

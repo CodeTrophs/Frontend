@@ -1,17 +1,9 @@
 @import 'variables';
-/*
-@mixin padding-all($pad-up,$pad-right,$pad-down,$pad-left) {
-  padding-top: $pad-up;
-  padding-right: $pad-right;
-  padding-left: $pad-left;
-  padding-bottom: $pad-down;
-}
-$box-shadow-type1: 0 0 0.3125rem #888888;
-*/
+
 
 .big-box {
   @include padding-all(3rem,1.5rem,1.5rem,1.5rem);
-  box-shadow: $box-shadow-type-dark;
+  box-shadow: $box-shadow-dark;
   border-radius: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
@@ -48,7 +40,7 @@ $box-shadow-type1: 0 0 0.3125rem #888888;
   //@include padding-all(0.2125rem,0.5rem,0.3125rem,0.5rem);
   font-weight: 600;
   border-radius: 1.25rem;
-  box-shadow: $box-shadow-type-dark;
+  box-shadow: $box-shadow-dark;
   height: 1.875rem;
   margin-right: 0.625rem;
 }
@@ -66,7 +58,9 @@ $box-shadow-type1: 0 0 0.3125rem #888888;
 }
 .save-syntax {
   width: fit-content;
-  @include padding-all(0.3125rem,0rem,1.5rem,1.25rem);
+  padding-top: 0.3125rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.25rem;
   font-size: 0.9375rem;
   font-weight: 400;
   border-radius: 1.25rem;
@@ -86,7 +80,7 @@ $box-shadow-type1: 0 0 0.3125rem #888888;
   }
 
   .big-box {
-  box-shadow: $box-shadow-type-dark;
+  box-shadow: $box-shadow-dark;
   border-radius: 1rem;
   margin:3rem 15px;
   padding : 0;
