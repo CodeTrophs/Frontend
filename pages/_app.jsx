@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Router from 'next/router';
 import React, { useState, useEffect } from 'react';
 
+import * as FirebaseAuth from '../src/components/FirebaseAuth';
 import '../src/scss/style.scss';
 import UserContext from '../src/components/UserContext';
 
