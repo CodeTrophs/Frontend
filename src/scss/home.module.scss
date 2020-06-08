@@ -1,5 +1,18 @@
 @import 'variables';
 
+.error {
+  width: 40%;
+  background-color: rgb(138, 13, 7);
+  color: white;
+  position: fixed;
+  top: 75px;
+  text-align: center;
+  right: 10px;
+  font-size: 0.8rem;
+  padding: 0.3rem;
+  border-radius: 1rem;
+}
+
 .row {
   display: flex;
 }
@@ -255,6 +268,10 @@
   .logo {
     display: flex;
     justify-content: space-between;
+  }
+
+  .error {
+    width: 60%;
   }
 
   .icon {
