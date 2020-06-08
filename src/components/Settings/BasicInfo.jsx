@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import {setBasicInfo, storedUserData} from '../../firestore/profileSettings';
 import styles from '../../scss/settings.module.scss';
+import UserContext from '../UserContext';
 
 const Basicinfo = () => {
 
@@ -11,11 +12,12 @@ const Basicinfo = () => {
   const [userName, setUserName] = useState('');
   const [status, setStatus] = useState(null);
   const [showStatus, setShowStatus] = useState(false);
+  const {User} = useContext(UserContext);
+
 
   useEffect(()=>{
-
     async function getBasicInfo() {
-      const result =await storedUserData();
+      const result =await storedUserData(User.uid);
       if(result !== null) {
         if(result.firstName !== undefined) setFirstName(result.firstName);
         if(result.lastName !== undefined) setlastName(result.lastName);
@@ -23,16 +25,19 @@ const Basicinfo = () => {
         if(result.userName !== undefined) setUserName(result.userName);
       }
     }
+    if(User)
     getBasicInfo();
-  },[]);
+  },[User]);
 
   async function handleFormSubmit(e) {
     e.preventDefault();
+    const {uid} = User;
     const formData = JSON.stringify({
       firstName,
       lastName,
       email,
-      userName
+      userName,
+      uid
     });
     const response = await setBasicInfo(formData);
     setStatus(response.status);

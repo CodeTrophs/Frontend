@@ -1,7 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect, useContext} from 'react';
 
 import { setSocialHandles, storedUserData } from '../../firestore/profileSettings';
 import styles from '../../scss/settings.module.scss';
+import UserContext from '../UserContext';
 
 const Social = () => {
 
@@ -11,10 +12,11 @@ const Social = () => {
   const [twitter, setTwitter] = useState('');
   const [status, setStatus] = useState(null);
   const [showStatus, setShowStatus] = useState(false);
+  const {User}=useContext(UserContext);
 
   useEffect(() => {
     async function getBasicInfo() {
-      const result = await storedUserData();
+      const result = await storedUserData(User.uid);
       if (result !== null) {
         if (result.website !== undefined) setWebsite(result.website);
         if (result.github !== undefined) setGithub(result.github); 
@@ -22,17 +24,20 @@ const Social = () => {
         if (result.twitter !== undefined) setTwitter(result.twitter);
       }
     }
+    if (User)
     getBasicInfo();
-  }, []);
+  }, [User]);
 
 
   async function handleFormSubmit(e) {
     e.preventDefault();
+    const {uid} = User;
     const formData = JSON.stringify({
       website,
       github,
       linkedIn,
-      twitter
+      twitter,
+      uid
     });
 
     const response = await setSocialHandles(formData);

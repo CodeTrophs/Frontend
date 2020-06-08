@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { setAboutInfo, storedUserData } from '../../firestore/profileSettings';
 import styles from '../../scss/settings.module.scss';
+import UserContext from '../UserContext';
 
 const Aboutus = () => {
   const [tag, setTag] = useState('');
@@ -10,25 +11,29 @@ const Aboutus = () => {
   const [about, setAbout] = useState('');
   const [status, setStatus] = useState(null);
   const [showStatus, setShowStatus] = useState(false);
+  const {User} = useContext(UserContext);
 
   useEffect(()=>{
     async function getBasicInfo() {
-      const result = await storedUserData();
+      const result = await storedUserData(User.uid);
       if (result !== null) {
         if (result.skills !== undefined) setTags(result.skills);
         if (result.title !== undefined) setTitle(result.title);
         if (result.about !== undefined) setAbout(result.about);
       }
     }
+    if (User)
     getBasicInfo();
-  },[]);
+  },[User]);
 
   async function handleFormSubmit(e) {
     e.preventDefault();
+    const {uid} = User;
     const formData = await JSON.stringify({
       title,
       about,
-      skills:tags
+      skills:tags,
+      uid
     });
     const result = await setAboutInfo(formData);
     setStatus(result.status);
