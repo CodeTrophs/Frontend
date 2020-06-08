@@ -222,7 +222,7 @@
   max-width: 20%;
   border-radius: 15%;
   box-shadow: $box-shadow-light;
-  @include padding-all(40px,20px,40px,20px);
+  @include padding-all(40px, 20px, 40px, 20px);
 }
 
 .how-card-img-container {
@@ -250,6 +250,11 @@
 }
 
 /* Adding media querries */
+@media screen and (max-width: 560px) {
+  .welcome-right {
+    max-width: 90% !important;
+  }
+}
 
 @media screen and (max-width: 990px) {
   .logo {
