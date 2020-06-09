@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps }) {
           newestOnTop
           closeOnClick={false}
           rtl={false}
-          pauseOnFocusLoss={false}
+          pauseOnFocusLoss
           draggable={false}
           pauseOnHover
         />

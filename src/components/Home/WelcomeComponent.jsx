@@ -28,7 +28,13 @@ export default function WelcomeComponent() {
     }
     else
     if (newUser.code !== 'auth/popup-closed-by-user') { 
-        toast.error(newUser.message);
+      
+      if (newUser.code === 'auth/network-request-failed')
+        toast.error('Could not connect to the server. Please check your internet connection.');
+      else if (newUser.code === 'auth/user-disabled')
+        toast.error('This account has been disabled by the administrator.');
+      else
+        toast.error('An error occurred while logging in.');
       }
     return null;
   }
@@ -41,7 +47,12 @@ export default function WelcomeComponent() {
       Router.replace('/feed');
     }
     else if (newUser.code !== 'auth/popup-closed-by-user') {
-          toast.error(newUser.message);
+      if (newUser.code === 'auth/network-request-failed')
+        toast.error('Could not connect to the server. Please check your internet connection.');
+      else if (newUser.code === 'auth/user-disabled')
+        toast.error('This account has been disabled by the administrator.');
+      else
+        toast.error('An error occurred while logging in.');
       }
        return null;
   }
