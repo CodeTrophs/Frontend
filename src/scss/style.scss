@@ -28,6 +28,13 @@
   background: black;
 }
 
+
+.Toastify__toast {
+  border-radius: 1rem;
+  cursor: context-menu;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 800px) {
   html {
     font-size: 14px;
