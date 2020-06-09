@@ -2,6 +2,9 @@ import Head from 'next/head';
 import Router from 'next/router';
 import React, { useState, useEffect } from 'react';
 
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import * as FirebaseAuth from '../src/components/FirebaseAuth';
 import '../src/scss/style.scss';
 import UserContext from '../src/components/UserContext';
@@ -51,6 +54,17 @@ function MyApp({ Component, pageProps }) {
           User,
           setUser
         }}>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+        />
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />
       </UserContext.Provider>
