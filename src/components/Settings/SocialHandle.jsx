@@ -1,5 +1,7 @@
 import React,{useState,useEffect, useContext} from 'react';
 
+import {toast} from 'react-toastify'
+
 import { setSocialHandles, storedUserData } from '../../firestore/profileSettings';
 import styles from '../../scss/settings.module.scss';
 import UserContext from '../UserContext';
@@ -10,8 +12,6 @@ const Social = () => {
   const [github, setGithub] = useState('');
   const [linkedIn, setLinkedIn] = useState('');
   const [twitter, setTwitter] = useState('');
-  const [status, setStatus] = useState(null);
-  const [showStatus, setShowStatus] = useState(false);
   const {User}=useContext(UserContext);
 
   useEffect(() => {
@@ -41,12 +41,10 @@ const Social = () => {
     });
 
     const response = await setSocialHandles(formData);
-    setStatus(response.status);
-    setShowStatus(true);
-    const timer = setTimeout(() => {
-      setShowStatus(false);
-    }, 5000);
-    return () => clearTimeout(timer);
+    if (response.status === 'success')
+      toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> Social Handles Updated Successfully </div>);
+    if (response.status === 'error')
+      toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
   }
 
 return(
@@ -95,13 +93,7 @@ return(
         <input className={styles.input} value={twitter} placeholder="https://twitter.com/" onChange={(e) => setTwitter(e.currentTarget.value)}/>
     </div>
       <button type="submit" className={styles.submitButton}>Save</button>
-      {
-        showStatus === true &&
-        <div className={styles.status}>
-          <p>{status}</p>
-          <button className={styles.statusCancelButton} type="button" onClick={() => setShowStatus(false)}> X </button>
-        </div>
-      } 
+
     </form>
   </div>
 )

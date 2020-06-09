@@ -10,7 +10,7 @@ export async function storedUserData(uid) {
         }
         return null;
     }).catch(() => {
-        return "Error";
+        return "error";
     });
 }
 
@@ -24,9 +24,9 @@ export async function setBasicInfo(receivedFormData) {
       db.collection('users').doc(uid).update({lastName: firebase.firestore.FieldValue.delete()}); 
     }
     return db.collection('users').doc(uid).set(formData,{merge:true}).then(()=>{
-        return {status:'Basic Information Updated Successfully'};
+        return {status:'success'};
     }).catch(()=>{
-        return {status:'An error occurred while performing updation! Please try again later. '};
+        return {status:'error'};
     });
 }
 
@@ -35,25 +35,28 @@ export async function setAboutInfo(receivedFormData) {
     const formData = await JSON.parse(receivedFormData);
     const { uid } = formData;
     delete formData.uid;
+    const deleteFields = {};
     if (formData.title === '') {
         delete formData.title;
-        db.collection('users').doc(uid).update({ title: firebase.firestore.FieldValue.delete() });
+        deleteFields.title = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.about === '') {
         delete formData.about;
-        db.collection('users').doc(uid).update({ about: firebase.firestore.FieldValue.delete() });
+        deleteFields.about = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.skills.length === 0) {
         delete formData.skills;
-        db.collection('users').doc(uid).update({ skills: firebase.firestore.FieldValue.delete() });
+        deleteFields.skills = firebase.firestore.FieldValue.delete();
     }
 
+    db.collection('users').doc(uid).update(deleteFields);
+    
     return db.collection('users').doc(uid).set(formData, { merge: true }).then(() => {
-        return { status: 'Data Updated Successfully' };
+        return { status: 'success' };
     }).catch(() => {
-        return { status: 'An error occurred while performing updation! Please try again later. ' };
+        return { status: 'error' };
     });
 }
 
@@ -62,29 +65,31 @@ export async function setSocialHandles(receivedFormData) {
     const formData = await JSON.parse(receivedFormData);  
     const { uid } = formData;
     delete formData.uid;
+    const deleteFields={};
     if (formData.website === '') {
         delete formData.website;
-        db.collection('users').doc(uid).update({ website: firebase.firestore.FieldValue.delete() });
+        deleteFields.website = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.github === '') {
         delete formData.github;
-        db.collection('users').doc(uid).update({ github: firebase.firestore.FieldValue.delete() });
+        deleteFields.github = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.linkedIn === '') {
         delete formData.linkedIn;
-        db.collection('users').doc(uid).update({ linkedIn: firebase.firestore.FieldValue.delete() });
+        deleteFields.linkedIn = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.twitter === '') {
         delete formData.twitter;
-        db.collection('users').doc(uid).update({ twitter: firebase.firestore.FieldValue.delete() });
+        deleteFields.twitter = firebase.firestore.FieldValue.delete();
     }
+    db.collection('users').doc(uid).update(deleteFields);
 
     return db.collection('users').doc(uid).set(formData,{merge:true}).then(() => {
-        return { status: 'Social Handles Updated Successfully' };
+        return { status: 'success' };
     }).catch(() => {
-        return { status: 'An error occurred while performing updation! Please try again later. ' };
+        return { status: 'error' };
     });
 }

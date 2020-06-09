@@ -109,36 +109,6 @@
   cursor: pointer;
 }
 
-.status {
-  border-radius: 0.5rem;
-  width: fit-content;
-  display: flex;
-  color: #000;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 5px 10px;
-  margin-top: 1.5rem;
-  margin-right: auto;
-  border: 2px solid #000;
-  margin-left: auto;
-
-  p {
-    width: 100%;
-    text-align: center;
-     font-weight: 500;
-  }
-}
-
-.statusCancelButton {
-  padding: 0.2rem;
-  margin-left: 1em;
-  border: none;
-  background-color: transparent;
-  color: rgb(255, 0, 0);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-}
 
 .input {
   display: block;

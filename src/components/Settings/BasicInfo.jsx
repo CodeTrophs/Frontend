@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 
+import { toast } from 'react-toastify';
+
 import {setBasicInfo, storedUserData} from '../../firestore/profileSettings';
 import styles from '../../scss/settings.module.scss';
 import UserContext from '../UserContext';
@@ -10,8 +12,6 @@ const Basicinfo = () => {
   const [lastName, setlastName] = useState('');
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
-  const [status, setStatus] = useState(null);
-  const [showStatus, setShowStatus] = useState(false);
   const {User} = useContext(UserContext);
 
 
@@ -40,13 +40,10 @@ const Basicinfo = () => {
       uid
     });
     const response = await setBasicInfo(formData);
-    setStatus(response.status);
-    setShowStatus(true);
-    const timer = setTimeout(() => {
-      setShowStatus(false);
-    }, 5000);
-    return () => clearTimeout(timer);
-
+    if(response.status === 'success')
+      toast.success(<div><img src='/icons/save-icon.svg' alt="save"/> Basic Information Updated Successfully </div>);
+    if(response.status === 'error')
+      toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
   }
 
 return(
@@ -63,15 +60,9 @@ return(
         <p>Last Name</p>
         <input className={styles.input} value={lastName} type="text" placeholder="Last Name" onChange={e => setlastName(e.currentTarget.value)} />
         <p>Username</p>
-        <input className={styles.input} value={userName} placeholder="Username" onChange={e => setUserName(e.currentTarget.value)} />
+        <input className={styles.input} value={userName} placeholder="Username" onChange={e => setUserName(e.currentTarget.value)} required/>
         <button type="submit" className={styles.submitButton}>Save</button>
-        {
-          showStatus === true &&
-            <div className={styles.status}>
-              <p>{status}</p>
-              <button className={styles.statusCancelButton} type="button" onClick={()=>setShowStatus(false)}> X </button>
-            </div>
-        } 
+
       </div> 
     </form>
   </div>

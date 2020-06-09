@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 
+import { toast } from 'react-toastify';
+
 import { setAboutInfo, storedUserData } from '../../firestore/profileSettings';
 import styles from '../../scss/settings.module.scss';
 import UserContext from '../UserContext';
@@ -9,8 +11,6 @@ const Aboutus = () => {
   const [tags, setTags] = useState([]);
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
-  const [status, setStatus] = useState(null);
-  const [showStatus, setShowStatus] = useState(false);
   const {User} = useContext(UserContext);
 
   useEffect(()=>{
@@ -35,13 +35,11 @@ const Aboutus = () => {
       skills:tags,
       uid
     });
-    const result = await setAboutInfo(formData);
-    setStatus(result.status);
-    setShowStatus(true);
-    const timer = setTimeout(() => {
-      setShowStatus(false);
-    }, 5000);
-    return () => clearTimeout(timer);
+    const response = await setAboutInfo(formData);
+    if (response.status === 'success')
+      toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> About Information Updated Successfully </div>);
+    if (response.status === 'error')
+      toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
   }
 
   const onChange = (e) => {
@@ -107,13 +105,7 @@ const Aboutus = () => {
       </div>
       <br />
       <button type="button" className={styles.submitButton} onClick={handleFormSubmit}>Save</button>
-      {
-        showStatus === true &&
-        <div className={styles.status}>
-          <p>{status}</p>
-          <button className={styles.statusCancelButton} type="button" onClick={() => setShowStatus(false)}> X </button>
-        </div>
-      }
+
     </div>
   );
 };
