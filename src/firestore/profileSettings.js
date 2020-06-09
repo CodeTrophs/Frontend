@@ -14,9 +14,9 @@ export async function storedUserData(uid) {
     });
 }
 
-export async function setBasicInfo(receivedFormData) {
+export async function setBasicInfo(ReceivedFormData) {
     const db = firebase.firestore();
-    const formData = await JSON.parse(receivedFormData);
+    const formData = ReceivedFormData;
     const {uid} = formData;
     delete formData.uid;
     if(formData.lastName === '') { 
@@ -29,9 +29,9 @@ export async function setBasicInfo(receivedFormData) {
     });
 }
 
-export async function setAboutInfo(receivedFormData) {
+export async function setAboutInfo(ReceivedFormData) {
     const db = firebase.firestore();
-    const formData = await JSON.parse(receivedFormData);
+    const formData = ReceivedFormData;
     const { uid } = formData;
     delete formData.uid;
     if (formData.title === '') {
@@ -53,9 +53,9 @@ export async function setAboutInfo(receivedFormData) {
     });
 }
 
-export async function setSocialHandles(receivedFormData) {
+export async function setSocialHandles(ReceivedFormData) {
     const db = firebase.firestore();
-    const formData = await JSON.parse(receivedFormData);  
+    const formData = ReceivedFormData;
     const { uid } = formData;
     delete formData.uid;
     if (formData.website === '') {

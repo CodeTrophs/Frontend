@@ -32,13 +32,13 @@ const Basicinfo = () => {
   async function handleFormSubmit(e) {
     e.preventDefault();
     const {uid} = User;
-    const formData = JSON.stringify({
+    const formData = {
       firstName,
       lastName,
       email,
       userName,
       uid
-    });
+    };
     const response = await setBasicInfo(formData);
     if(response.status === 'success')
       toast.success(<div><img src='/icons/save-icon.svg' alt="save"/> Basic Information Updated Successfully </div>);

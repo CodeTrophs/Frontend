@@ -32,13 +32,13 @@ const Social = () => {
   async function handleFormSubmit(e) {
     e.preventDefault();
     const {uid} = User;
-    const formData = JSON.stringify({
+    const formData = {
       website,
       github,
       linkedIn,
       twitter,
       uid
-    });
+    };
 
     const response = await setSocialHandles(formData);
     if (response.status === 'success')

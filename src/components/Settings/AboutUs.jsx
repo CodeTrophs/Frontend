@@ -29,12 +29,12 @@ const Aboutus = () => {
   async function handleFormSubmit(e) {
     e.preventDefault();
     const {uid} = User;
-    const formData = await JSON.stringify({
+    const formData = {
       title,
       about,
       skills:tags,
       uid
-    });
+    };
     const response = await setAboutInfo(formData);
     if (response.status === 'success')
       toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> About Information Updated Successfully </div>);
