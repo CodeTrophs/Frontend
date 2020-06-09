@@ -19,11 +19,10 @@ export async function setBasicInfo(receivedFormData) {
     const formData = await JSON.parse(receivedFormData);
     const {uid} = formData;
     delete formData.uid;
-    if(formData.lastName === '') {
-      delete formData.lastName; 
-      db.collection('users').doc(uid).update({lastName: firebase.firestore.FieldValue.delete()}); 
+    if(formData.lastName === '') { 
+      formData.lastName = firebase.firestore.FieldValue.delete(); 
     }
-    return db.collection('users').doc(uid).set(formData,{merge:true}).then(()=>{
+    return db.collection('users').doc(uid).update(formData).then(()=>{
         return {status:'success'};
     }).catch(()=>{
         return {status:'error'};
@@ -35,25 +34,19 @@ export async function setAboutInfo(receivedFormData) {
     const formData = await JSON.parse(receivedFormData);
     const { uid } = formData;
     delete formData.uid;
-    const deleteFields = {};
     if (formData.title === '') {
-        delete formData.title;
-        deleteFields.title = firebase.firestore.FieldValue.delete();
+        formData.title = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.about === '') {
-        delete formData.about;
-        deleteFields.about = firebase.firestore.FieldValue.delete();
+        formData.about = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.skills.length === 0) {
-        delete formData.skills;
-        deleteFields.skills = firebase.firestore.FieldValue.delete();
+        formData.skills = firebase.firestore.FieldValue.delete();
     }
-
-    db.collection('users').doc(uid).update(deleteFields);
     
-    return db.collection('users').doc(uid).set(formData, { merge: true }).then(() => {
+    return db.collection('users').doc(uid).update(formData).then(() => {
         return { status: 'success' };
     }).catch(() => {
         return { status: 'error' };
@@ -65,29 +58,23 @@ export async function setSocialHandles(receivedFormData) {
     const formData = await JSON.parse(receivedFormData);  
     const { uid } = formData;
     delete formData.uid;
-    const deleteFields={};
     if (formData.website === '') {
-        delete formData.website;
-        deleteFields.website = firebase.firestore.FieldValue.delete();
+        formData.website = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.github === '') {
-        delete formData.github;
-        deleteFields.github = firebase.firestore.FieldValue.delete();
+        formData.github = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.linkedIn === '') {
-        delete formData.linkedIn;
-        deleteFields.linkedIn = firebase.firestore.FieldValue.delete();
+        formData.linkedIn = firebase.firestore.FieldValue.delete();
     }
 
     if (formData.twitter === '') {
-        delete formData.twitter;
-        deleteFields.twitter = firebase.firestore.FieldValue.delete();
+        formData.twitter = firebase.firestore.FieldValue.delete();
     }
-    db.collection('users').doc(uid).update(deleteFields);
 
-    return db.collection('users').doc(uid).set(formData,{merge:true}).then(() => {
+    return db.collection('users').doc(uid).update(formData).then(() => {
         return { status: 'success' };
     }).catch(() => {
         return { status: 'error' };
