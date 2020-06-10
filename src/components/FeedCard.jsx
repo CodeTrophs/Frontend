@@ -45,26 +45,18 @@ export default function Card() {
             <div className={styles.flex}>
               <div className={styles['smallbox-below']}>
                 <div className={styles.flex}>
-                  <div>
                     <img
                       src="SVG/Icon awesome-exclamation-circle.svg"
                       alt="issue"
                     />
-                  </div>
-                  <div>
                     <p>Issues:13</p>
-                  </div>
                 </div>
               </div>
               <div>
                 <div className={styles['smallbox-below']}>
                   <div className={styles.flex}>
-                    <div>
                       <img src="SVG/pr.svg" alt="pr" />
-                    </div>
-                    <div>
                       <p>PR:1233</p>
-                    </div>
                   </div>
                 </div>
               </div>
