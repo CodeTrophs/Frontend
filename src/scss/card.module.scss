@@ -51,6 +51,9 @@
   justify-content: center;
   align-items: center;
 }
+.smallbox-below > .flex > img {
+  margin-right: 0.2rem;
+}
 .save {
   display: flex;
   flex-direction: column;
