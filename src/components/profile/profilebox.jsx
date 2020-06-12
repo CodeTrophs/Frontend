@@ -36,7 +36,7 @@ export default function BoxProfile() {
             <div className={styles['imgabsolute-border']}>
               <img
                 className={styles.imgabsolute}
-                src="SVG/Rectangle 60.svg"
+                src={UserData.profileImageUrl}
                 alt="Profile pic"
               />
             </div>
