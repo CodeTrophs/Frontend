@@ -80,3 +80,19 @@ export async function setSocialHandles(ReceivedFormData) {
         return { status: 'error' };
     });
 }
+
+export async function checkUnique(property, data, uid) {
+    const db = firebase.firestore();
+    return db.collection("users").where(property, '==', `${data}`).get().then(result => {
+        
+        if(result.size > 1)
+          return false;
+        
+        if (result.size === 1 && result.docs[0].id !== uid)
+          {
+              return false;
+          }
+        
+        return true;
+    });
+}
