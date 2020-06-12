@@ -15,6 +15,10 @@ const Basicinfo = () => {
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [Loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState(null);
+  const [firstNameError, setFirstNameError] = useState(null);
+  const [lastNameError, setLastNameError] = useState(null);
+  const [userNameError, setUserNameError] = useState('');
   const {User} = useContext(UserContext);
 
 
@@ -48,11 +52,8 @@ let uid = null;
       uid
     };
 
-  const FormValidationResult = await FormValidation.checkEmail('EmailError', email) &&
-                               await FormValidation.checkLimit50('firstNameError', firstName.length) &&
-                               await FormValidation.checkLimit50('lastNameError', lastName.length) &&
-                               await FormValidation.checkUserName('userNameError', userName, uid);
-  if(FormValidationResult === true) {
+
+  if(emailError === null && firstNameError === null && lastNameError === null && userNameError === null) {
     const response = await setBasicInfo(formData);
     if(response.status === 'success')
       toast.success(<div><img src='/icons/save-icon.svg' alt="save"/> Basic Information Updated Successfully </div>);
@@ -76,10 +77,10 @@ return(
           placeholder="Email" 
           onChange={e=>{
             setEmail(e.currentTarget.value);
-            FormValidation.checkEmail('EmailError',e.currentTarget.value);
+            setEmailError(FormValidation.checkEmail(e.currentTarget.value));
           }}
         />
-        <p id='EmailError' className='input-field-error' />
+        <p id='EmailError' className='input-field-error'>{emailError}</p>
         <p>First Name</p>
         <input 
           className={styles.input} 
@@ -88,10 +89,10 @@ return(
           placeholder="First Name" 
           onChange={e => {
             setFirstName(e.currentTarget.value);
-            FormValidation.checkLimit50('firstNameError',e.currentTarget.value.length);
+            setFirstNameError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50, 1));
             }}
         />
-        <p id='firstNameError' className='input-field-error' />
+        <p id='firstNameError' className='input-field-error'>{firstNameError}</p>
         <p>Last Name</p>
         <input 
           className={styles.input} 
@@ -100,21 +101,21 @@ return(
           placeholder="Last Name" 
           onChange={e => {
             setlastName(e.currentTarget.value);
-            FormValidation.checkLimit50('lastNameError', e.currentTarget.value.length);
+            setLastNameError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50));
           }} 
         />
-        <p id="lastNameError" className='input-field-error' />
+        <p id="lastNameError" className='input-field-error'>{lastNameError}</p>
         <p>Username</p>
         <input 
           className={styles.input} 
           value={userName} 
           placeholder="Username" 
-          onChange={e => {
+          onChange={async (e) =>  {
             setUserName(e.currentTarget.value);
-            FormValidation.checkUserName('userNameError', e.currentTarget.value, uid);
+            setUserNameError(await FormValidation.checkUserName(e.currentTarget.value, uid));
           }} 
         />
-        <p id='userNameError' className='input-field-error' />
+        <p id='userNameError' className='input-field-error'>{userNameError}</p>
         {
           !Loading &&
           <button type="submit" className={styles.submitButton}>Save</button>

@@ -14,6 +14,8 @@ const Aboutus = () => {
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [Loading, setLoading] = useState(false);
+  const [titleError, setTitleError] = useState(null);
+  const [aboutError, setAboutError] = useState(null);
   const {User} = useContext(UserContext);
 
   useEffect(()=>{
@@ -39,9 +41,8 @@ const Aboutus = () => {
       skills:tags,
       uid
     };
-
-  const formValdiationResponse =  (await FormValidation.checkLimit120('aboutInfoError',about.length) && await FormValidation.checkLimit50('titleError', title.length));
-    if(formValdiationResponse === true) {
+    
+    if (titleError === null && aboutError === null) {
     const response = await setAboutInfo(formData);
     if (response.status === 'success')
       toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> About Information Updated Successfully </div>);
@@ -71,22 +72,22 @@ const Aboutus = () => {
           value={title}
           onChange={(e) => { 
             setTitle(e.currentTarget.value); 
-            FormValidation.checkLimit50('titleError', e.currentTarget.value.length);
+            setTitleError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50));
           }}
           placeholder="Developer, Student, Programmer"
         />
-        <p id='titleError' className='input-field-error' />
+        <p id='titleError' className='input-field-error'>{titleError}</p>
         <p>About</p>
         <input
           className={styles['input-bio']}
           value={about}
           onChange={(e) => {
             setAbout(e.currentTarget.value); 
-            FormValidation.checkLimit120('aboutInfoError', e.currentTarget.value.length);
+            setAboutError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 200));
           }}
-          placeholder="A short bio of less than 120 characters"
+          placeholder="A short bio of less than 200 characters"
         />
-        <p id='aboutInfoError' className='input-field-error' />
+        <p id='aboutInfoError' className='input-field-error'>{aboutError}</p>
         <p>Skills</p>
         <form
           className={styles.skills}

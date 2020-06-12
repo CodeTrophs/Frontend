@@ -15,6 +15,10 @@ const Social = () => {
   const [linkedIn, setLinkedIn] = useState('');
   const [twitter, setTwitter] = useState('');
   const [Loading, setLoading] = useState(false);
+  const [websiteError, setWebsiteError] = useState(null);
+  const [githubError, setGithubError] = useState(null);
+  const [linkedInError, setLinkedInError] = useState(null);
+  const [twitterError, setTwitterError] = useState(null);
   const {User}=useContext(UserContext);
 
   useEffect(() => {
@@ -43,12 +47,8 @@ const Social = () => {
       twitter,
       uid
     };
-    const FormValidationResult = await FormValidation.checkUrl('websiteUrlError', website) &&
-                                 await FormValidation.checkUrl('githubUrlError', github) &&
-                                 await FormValidation.checkUrl('linkedInUrlError', linkedIn) &&
-                                 await FormValidation.checkUrl('twitterUrlError', twitter);
     
-    if (FormValidationResult === true) {
+    if ((websiteError === null) &&  (githubError === null ) && (linkedInError === null ) && (twitterError === null)) {
       const response = await setSocialHandles(formData);
       if (response.status === 'success')
         toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> Social Handles Updated Successfully </div>);
@@ -79,10 +79,10 @@ return(
           placeholder="https://your-website.com/"
           onChange={(e) => {
             setWebsite(e.currentTarget.value);
-            FormValidation.checkUrl('websiteUrlError', e.currentTarget.value);
+            setWebsiteError(FormValidation.checkUrl(e.currentTarget.value));
           }}
         />
-        <p id='websiteUrlError' className='input-field-error' />
+        <p id='websiteUrlError' className='input-field-error' >{websiteError}</p>
       <div className={styles['flexing-links']}>
         <div>
           <p>Github</p>
@@ -97,10 +97,10 @@ return(
           placeholder="https://github.com/"
           onChange={(e) => {
             setGithub(e.currentTarget.value);
-            FormValidation.checkUrl('githubUrlError', e.currentTarget.value);
+            setGithubError(FormValidation.checkUrl(e.currentTarget.value));
           }}
         />
-        <p id='githubUrlError' className='input-field-error' />
+        <p id='githubUrlError' className='input-field-error'>{githubError}</p>
       <div className={styles['flexing-links']}>
         <div>
           <p>LinkedIn</p>
@@ -115,10 +115,10 @@ return(
           placeholder="https://linkedin.com/in/"
           onChange={(e) => {
             setLinkedIn(e.currentTarget.value);
-            FormValidation.checkUrl('linkedInUrlError', e.currentTarget.value);
+            setLinkedInError(FormValidation.checkUrl(e.currentTarget.value));
           }}
         />
-        <p id='linkedInUrlError' className='input-field-error' />
+        <p id='linkedInUrlError' className='input-field-error'>{linkedInError}</p> 
       <div className={styles['flexing-links']}>
         <div>
           <p>Twitter</p>
@@ -133,10 +133,10 @@ return(
           placeholder="https://twitter.com/"
           onChange={(e) => {
             setTwitter(e.currentTarget.value);
-            FormValidation.checkUrl('twitterUrlError', e.currentTarget.value);
+            setTwitterError(FormValidation.checkUrl(e.currentTarget.value));
           }}
         />
-        <p id='twitterUrlError' className='input-field-error' />
+        <p id='twitterUrlError' className='input-field-error'>{twitterError}</p>
       </div>
       {
         !Loading &&
