@@ -16,6 +16,7 @@ const Aboutus = () => {
   const [Loading, setLoading] = useState(false);
   const [titleError, setTitleError] = useState(null);
   const [aboutError, setAboutError] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
   const {User} = useContext(UserContext);
 
   useEffect(()=>{
@@ -29,7 +30,17 @@ const Aboutus = () => {
     }
     if (User)
     getBasicInfo();
-  },[User]);
+  }, [User]);
+  
+  useEffect(() => {
+    if ((aboutError === null) && (titleError === null)) {
+      setIsDisabled(false);
+    }
+    else {
+      setIsDisabled(true);
+    }
+  }, [titleError, aboutError]);
+
 
   async function handleFormSubmit(e) {
     e.preventDefault();
@@ -42,13 +53,13 @@ const Aboutus = () => {
       uid
     };
     
-    if (titleError === null && aboutError === null) {
+
     const response = await setAboutInfo(formData);
     if (response.status === 'success')
       toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> About Information Updated Successfully </div>);
     if (response.status === 'error')
       toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
-    }
+
     setLoading(false);
   }
 
@@ -77,7 +88,7 @@ const Aboutus = () => {
           placeholder="Developer, Student, Programmer"
         />
         <p id='titleError' className='input-field-error'>{titleError}</p>
-        <p>About</p>
+        <p id={styles['about-info']}>About <span>{about.length} / 200</span></p>
         <input
           className={styles['input-bio']}
           value={about}
@@ -123,7 +134,7 @@ const Aboutus = () => {
       </div>
       <br />
       { !Loading &&
-        <button type="button" className={styles.submitButton} onClick={handleFormSubmit}>Save</button>
+        <button type="button" className={styles.submitButton} onClick={handleFormSubmit} disabled={isDisabled}>Save</button>
       }
       { Loading &&
         <LinearLoader />

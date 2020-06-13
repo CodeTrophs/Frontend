@@ -18,7 +18,8 @@ const Basicinfo = () => {
   const [emailError, setEmailError] = useState(null);
   const [firstNameError, setFirstNameError] = useState(null);
   const [lastNameError, setLastNameError] = useState(null);
-  const [userNameError, setUserNameError] = useState('');
+  const [userNameError, setUserNameError] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
   const {User} = useContext(UserContext);
 
 
@@ -34,7 +35,16 @@ const Basicinfo = () => {
     }
     if(User)
     getBasicInfo();
-  },[User]);
+  }, [User]);
+  
+  useEffect(() => {
+    if ((emailError === null) && (firstNameError === null) && (lastNameError === null) && (userNameError === null)) {
+      setIsDisabled(false);
+    }
+    else {
+      setIsDisabled(true);
+    }
+  }, [emailError, firstNameError, lastNameError, userNameError]);
 
 let uid = null;
   if(User) {
@@ -53,13 +63,12 @@ let uid = null;
     };
 
 
-  if(emailError === null && firstNameError === null && lastNameError === null && userNameError === null) {
     const response = await setBasicInfo(formData);
     if(response.status === 'success')
       toast.success(<div><img src='/icons/save-icon.svg' alt="save"/> Basic Information Updated Successfully </div>);
     if(response.status === 'error')
       toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
-  }
+
   setLoading(false);
 }
 
@@ -118,7 +127,7 @@ return(
         <p id='userNameError' className='input-field-error'>{userNameError}</p>
         {
           !Loading &&
-          <button type="submit" className={styles.submitButton}>Save</button>
+          <button type="submit" disabled={isDisabled} className={styles.submitButton}>Save</button>
         }
         {
           Loading &&

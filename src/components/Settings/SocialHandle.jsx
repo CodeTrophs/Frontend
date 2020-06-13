@@ -19,6 +19,7 @@ const Social = () => {
   const [githubError, setGithubError] = useState(null);
   const [linkedInError, setLinkedInError] = useState(null);
   const [twitterError, setTwitterError] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
   const {User}=useContext(UserContext);
 
   useEffect(() => {
@@ -35,6 +36,14 @@ const Social = () => {
     getBasicInfo();
   }, [User]);
 
+  useEffect(() => {
+    if ((websiteError === null) && (githubError === null) && (linkedInError === null) && (twitterError === null)) {
+      setIsDisabled(false);
+    }
+    else {
+      setIsDisabled(true);
+    }
+  }, [websiteError, githubError, linkedInError, twitterError]);
 
   async function handleFormSubmit(e) {
     e.preventDefault();
@@ -48,13 +57,11 @@ const Social = () => {
       uid
     };
     
-    if ((websiteError === null) &&  (githubError === null ) && (linkedInError === null ) && (twitterError === null)) {
-      const response = await setSocialHandles(formData);
-      if (response.status === 'success')
-        toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> Social Handles Updated Successfully </div>);
-      if (response.status === 'error')
-        toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
-    }
+    const response = await setSocialHandles(formData);
+    if (response.status === 'success')
+      toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> Social Handles Updated Successfully </div>);
+    if (response.status === 'error')
+      toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
     setLoading(false);
   }
 
@@ -140,7 +147,7 @@ return(
       </div>
       {
         !Loading &&
-        <button type="submit" className={styles.submitButton}>Save</button>
+        <button type="submit" className={styles.submitButton} disabled={isDisabled}>Save</button>
       }
 
       {

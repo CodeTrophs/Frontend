@@ -109,6 +109,11 @@
   cursor: pointer;
 }
 
+.submitButton:disabled {
+    cursor: initial;
+    opacity: 0.5;
+    background-color: #333; 
+  }
 
 .input {
   display: block;
@@ -120,6 +125,15 @@
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
   border-bottom: $border-bstyle;
+}
+
+#about-info {
+display: flex;
+justify-content: space-between;
+  span {
+    color: red;
+    font-size: 0.8rem;
+  }
 }
 
 .input:focus,
