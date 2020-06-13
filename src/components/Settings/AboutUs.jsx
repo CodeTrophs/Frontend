@@ -79,7 +79,7 @@ const Aboutus = () => {
       <div className={styles.qns}>
         <p>Title</p>
         <input
-          className={styles.input}
+          className={`${styles.input} ${titleError !== null ? styles.invalid : ''} `}
           value={title}
           onChange={(e) => { 
             setTitle(e.currentTarget.value); 
@@ -90,7 +90,7 @@ const Aboutus = () => {
         <p id='titleError' className='input-field-error'>{titleError}</p>
         <p id={styles['about-info']}>About <span>{about.length} / 200</span></p>
         <input
-          className={styles['input-bio']}
+          className={`${styles['input-bio']} ${aboutError !== null ? styles.invalid : ''} `}
           value={about}
           onChange={(e) => {
             setAbout(e.currentTarget.value); 

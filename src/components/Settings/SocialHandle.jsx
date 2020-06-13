@@ -81,7 +81,7 @@ return(
         </div>
       </div>
         <input
-          className={styles.input}
+          className={`${styles.input} ${websiteError !== null ? styles.invalid : ''} `}
           value={website}
           placeholder="https://your-website.com/"
           onChange={(e) => {
@@ -99,7 +99,7 @@ return(
         </div>
       </div>
         <input
-          className={styles.input}
+          className={`${styles.input} ${githubError !== null ? styles.invalid : ''} `}
           value={github}
           placeholder="https://github.com/"
           onChange={(e) => {
@@ -117,7 +117,7 @@ return(
         </div>
       </div>
         <input
-          className={styles.input}
+          className={`${styles.input} ${linkedInError !== null ? styles.invalid : ''} `}
           value={linkedIn}
           placeholder="https://linkedin.com/in/"
           onChange={(e) => {
@@ -135,7 +135,8 @@ return(
         </div>
       </div>
         <input
-          className={styles.input}
+
+          className={`${styles.input} ${twitterError !== null ? styles.invalid : ''} `}
           value={twitter}
           placeholder="https://twitter.com/"
           onChange={(e) => {

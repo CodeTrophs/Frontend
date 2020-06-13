@@ -130,10 +130,18 @@
 #about-info {
 display: flex;
 justify-content: space-between;
+width: 85%;
   span {
-    color: red;
+    color: #333;
     font-size: 0.8rem;
   }
+}
+
+.invalid {
+  border-style: solid !important;
+  border-radius: 0.5rem !important;
+  border-width: 0.1rem !important;
+  border-color: red !important;
 }
 
 .input:focus,
