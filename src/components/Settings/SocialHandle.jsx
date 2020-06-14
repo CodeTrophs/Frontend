@@ -68,7 +68,7 @@ const Social = () => {
 return(
   <div>
     <div className={styles['basic-head']}>
-      <h4 style={{ fontWeight: '500' }}>Where can we find you online?</h4>
+      <h4 style={{ fontWeight: '500' }}>Where can others find you online?</h4>
     </div>
     <form onSubmit={handleFormSubmit}>
     <div className={styles.qns}>

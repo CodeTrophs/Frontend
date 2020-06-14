@@ -127,14 +127,9 @@
   border-bottom: $border-bstyle;
 }
 
-#about-info {
-display: flex;
-justify-content: space-between;
-width: 85%;
-  span {
-    color: #333;
+#about-info-count {
+    color: #424040;
     font-size: 0.8rem;
-  }
 }
 
 .invalid {

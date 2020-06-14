@@ -88,7 +88,8 @@ const Aboutus = () => {
           placeholder="Developer, Student, Programmer"
         />
         <p id='titleError' className='input-field-error'>{titleError}</p>
-        <p id={styles['about-info']}>About <span>{about.length} / 200</span></p>
+        <p>About</p>
+        <span id={styles['about-info-count']}>{about.length} / 200</span>
         <input
           className={`${styles['input-bio']} ${aboutError !== null ? styles.invalid : ''} `}
           value={about}
