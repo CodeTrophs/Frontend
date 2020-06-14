@@ -6,6 +6,7 @@ import {setBasicInfo, storedUserData} from '../../firestore/profileSettings';
 import * as FormValidation from '../../FormValidation';
 import styles from '../../scss/settings.module.scss';
 import LinearLoader from '../LinearLoader';
+import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 
 const Basicinfo = () => {
@@ -19,6 +20,7 @@ const Basicinfo = () => {
   const [firstNameError, setFirstNameError] = useState(null);
   const [lastNameError, setLastNameError] = useState(null);
   const [userNameError, setUserNameError] = useState(null);
+  const [PageLoading, setPageLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
   const {User} = useContext(UserContext);
 
@@ -32,6 +34,7 @@ const Basicinfo = () => {
         if(result.email !== undefined)  setEmail(result.email);
         if(result.userName !== undefined) setUserName(result.userName);
       }
+      setPageLoading(false);
     }
     if(User)
     getBasicInfo();
@@ -72,6 +75,7 @@ let uid = null;
   setLoading(false);
 }
 
+  if (PageLoading) return <div className={styles['initial-loader']}> <Spinner /> </div>
 return(
   <div>
     <div className={styles['basic-head']}>

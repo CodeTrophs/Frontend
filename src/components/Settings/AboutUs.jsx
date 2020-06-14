@@ -6,7 +6,9 @@ import { setAboutInfo, storedUserData } from '../../firestore/profileSettings';
 import * as FormValidation from '../../FormValidation';
 import styles from '../../scss/settings.module.scss';
 import LinearLoader from '../LinearLoader';
+import Spinner from '../Spinner';
 import UserContext from '../UserContext';
+
 
 const Aboutus = () => {
   const [tag, setTag] = useState('');
@@ -17,6 +19,7 @@ const Aboutus = () => {
   const [titleError, setTitleError] = useState(null);
   const [aboutError, setAboutError] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [PageLoading, setPageLoading] = useState(true);
   const {User} = useContext(UserContext);
 
   useEffect(()=>{
@@ -27,6 +30,7 @@ const Aboutus = () => {
         if (result.title !== undefined) setTitle(result.title);
         if (result.about !== undefined) setAbout(result.about);
       }
+      setPageLoading(false);
     }
     if (User)
     getBasicInfo();
@@ -70,6 +74,8 @@ const Aboutus = () => {
   const removeTag = (indexToRemove) => {
     setTags([...tags.filter((element, index) => index !== indexToRemove)]);
   };
+
+  if (PageLoading) return <div className={styles['initial-loader']}> <Spinner /> </div>
 
   return (
     <div>

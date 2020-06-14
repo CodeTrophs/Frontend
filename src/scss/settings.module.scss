@@ -2,6 +2,18 @@
 
 @import 'variables';
 
+.initial-loader {
+  height: 100% !important;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    height: 100px !important;
+    width: 100px !important; 
+  }
+}
+
 .boxes {
   box-shadow: $box-shadow-light;
   margin-top: 4rem;

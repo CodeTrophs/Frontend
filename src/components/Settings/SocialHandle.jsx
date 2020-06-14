@@ -6,6 +6,7 @@ import { setSocialHandles, storedUserData } from '../../firestore/profileSetting
 import * as FormValidation from '../../FormValidation';
 import styles from '../../scss/settings.module.scss';
 import LinearLoader from '../LinearLoader';
+import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 
 const Social = () => {
@@ -20,6 +21,7 @@ const Social = () => {
   const [linkedInError, setLinkedInError] = useState(null);
   const [twitterError, setTwitterError] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [PageLoading, setPageLoading] = useState(true);
   const {User}=useContext(UserContext);
 
   useEffect(() => {
@@ -31,6 +33,7 @@ const Social = () => {
         if (result.linkedIn !== undefined) setLinkedIn(result.linkedIn);
         if (result.twitter !== undefined) setTwitter(result.twitter);
       }
+      setPageLoading(false);
     }
     if (User)
     getBasicInfo();
@@ -64,6 +67,9 @@ const Social = () => {
       toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
     setLoading(false);
   }
+
+
+  if (PageLoading) return <div className={styles['initial-loader']}> <Spinner /> </div>
 
 return(
   <div>
