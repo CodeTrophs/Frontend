@@ -17,12 +17,12 @@
 }
 
 .loader {
-  border: 9px solid #f3f3f3;
+  border: 8px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 12px solid #1bf0f0;
+  border-top: 8px solid #1bf0f0;
   width: 80px;
   height: 80px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
+  -webkit-animation: spin 1.5s linear infinite; /* Safari */
   animation: spin 1.5s linear infinite;
 }
 

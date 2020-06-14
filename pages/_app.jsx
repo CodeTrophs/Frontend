@@ -1,24 +1,25 @@
 import Head from 'next/head';
 import Router from 'next/router';
 import React, { useState, useEffect } from 'react';
-
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 import * as FirebaseAuth from '../src/components/FirebaseAuth';
-import 'react-toastify/dist/ReactToastify.css';
-
 import '../src/scss/style.scss';
+import Spinner from '../src/components/Spinner';
 import UserContext from '../src/components/UserContext';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
   const [User, setUser] = useState(null);
+  const [Loading, setLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('osc-app-token');
-
     async function updation() {
+      setLoading(true);
       const verificationResult = await FirebaseAuth.verifySecuredToken(token);
+
       if (verificationResult !== null) {
         setUser({
           name: verificationResult.name,
@@ -39,6 +40,12 @@ function MyApp({ Component, pageProps }) {
       Router.replace('/');
     }
   }, []);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 400);
+
+  if (Loading) return <Spinner />;
 
   return (
     <>

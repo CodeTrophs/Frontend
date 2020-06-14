@@ -1,14 +1,14 @@
 import Router from 'next/router';
-import React, { useContext } from 'react';
-
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import styles from '../../scss/home.module.scss';
 import * as FirebaseAuth from '../FirebaseAuth';
+import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 
 export default function WelcomeComponent() {
-
+  const [Loading, setLoading] = useState(false);
   const { setUser } = useContext(UserContext);
   function changeUser(name, email, uid) {
     setUser({
@@ -19,6 +19,7 @@ export default function WelcomeComponent() {
   }
 
   async function handleGoogleSignIn(e) {
+    setLoading(true);
     e.preventDefault();
     const newUser = await FirebaseAuth.GoogleSignIn();
     if (newUser.code === undefined) {
@@ -32,23 +33,23 @@ export default function WelcomeComponent() {
       } else {
         Router.replace('/feed');
       }
-    } else     if (newUser.code !== 'auth/popup-closed-by-user') { 
-      
+    } else if (newUser.code !== 'auth/popup-closed-by-user') {
       if (newUser.code === 'auth/network-request-failed')
-        toast.error('Could not connect to the server. Please check your internet connection.');
+        toast.error(
+          'Could not connect to the server. Please check your internet connection.'
+        );
       else if (newUser.code === 'auth/user-disabled')
         toast.error('This account has been disabled by the administrator.');
-      else
-        toast.error('An error occurred while logging in.');
-      }
+      else toast.error('An error occurred while logging in.');
+    }
+    setLoading(false);
     return null;
-
   }
 
   async function handleGithubSignIn(e) {
+    setLoading(true);
     e.preventDefault();
     const newUser = await FirebaseAuth.GithubSignIn();
-
     if (newUser.code === undefined) {
       changeUser(
         newUser.user.displayName,
@@ -62,19 +63,21 @@ export default function WelcomeComponent() {
       }
     } else if (newUser.code !== 'auth/popup-closed-by-user') {
       if (newUser.code === 'auth/network-request-failed')
-        toast.error('Could not connect to the server. Please check your internet connection.');
+        toast.error(
+          'Could not connect to the server. Please check your internet connection.'
+        );
       else if (newUser.code === 'auth/user-disabled')
         toast.error('This account has been disabled by the administrator.');
-      else
-        toast.error('An error occurred while logging in.');
-      }
-       return null;
-
+      else toast.error('An error occurred while logging in.');
+    }
+    setLoading(false);
+    return null;
   }
+
+  if (Loading) return <Spinner />;
 
   return (
     <div className={styles['welcome-container']}>
-
       <div className={styles['welcome-left']}>
         <h1 className={styles['welcome-title']}>
           Welcome To <br />
