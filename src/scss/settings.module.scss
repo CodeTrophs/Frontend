@@ -135,6 +135,7 @@
 .invalid {
   border-style: solid !important;
   border-radius: 0.5rem !important;
+  padding: 0.5rem;
   border-width: 0.1rem !important;
   border-color: red !important;
 }
@@ -155,7 +156,7 @@
   border: none;
   font-size: medium;
   font-weight: 300;
-  padding-top: 2.5rem;
+  padding-top: 0.5rem;
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
   border-bottom: $border-bstyle;
