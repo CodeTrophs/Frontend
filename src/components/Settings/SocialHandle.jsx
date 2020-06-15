@@ -1,15 +1,16 @@
-import React,{useState,useEffect, useContext} from 'react';
+import PropTypes from 'prop-types';
+import React, { useState, useEffect, useContext } from 'react';
 
 import {toast} from 'react-toastify'
 
-import { setSocialHandles, storedUserData } from '../../firestore/profileSettings';
+import { setSocialHandles } from '../../firestore/profileSettings';
 import * as FormValidation from '../../FormValidation';
 import styles from '../../scss/settings.module.scss';
 import LinearLoader from '../LinearLoader';
-import Spinner from '../Spinner';
+
 import UserContext from '../UserContext';
 
-const Social = () => {
+const Social = ({UserData}) => {
 
   const [website, setWebsite] = useState('');
   const [github, setGithub] = useState('');
@@ -21,19 +22,19 @@ const Social = () => {
   const [linkedInError, setLinkedInError] = useState(null);
   const [twitterError, setTwitterError] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [PageLoading, setPageLoading] = useState(true);
+  
   const {User}=useContext(UserContext);
 
   useEffect(() => {
     async function getBasicInfo() {
-      const result = await storedUserData(User.uid);
-      if (result !== null) {
-        if (result.website !== undefined) setWebsite(result.website);
-        if (result.github !== undefined) setGithub(result.github); 
-        if (result.linkedIn !== undefined) setLinkedIn(result.linkedIn);
-        if (result.twitter !== undefined) setTwitter(result.twitter);
+
+      if (UserData !== undefined) {
+        if (UserData.website !== undefined) setWebsite(UserData.website);
+        if (UserData.github !== undefined) setGithub(UserData.github); 
+        if (UserData.linkedIn !== undefined) setLinkedIn(UserData.linkedIn);
+        if (UserData.twitter !== undefined) setTwitter(UserData.twitter);
       }
-      setPageLoading(false);
+     
     }
     if (User)
     getBasicInfo();
@@ -69,7 +70,7 @@ const Social = () => {
   }
 
 
-  if (PageLoading) return <div className={styles['initial-loader']}> <Spinner /> </div>
+
 
 return(
   <div>
@@ -165,4 +166,16 @@ return(
   </div>
 )
 };
+
+Social.propTypes = {
+  
+  UserData: PropTypes.shape({
+    website: PropTypes.string,
+    github: PropTypes.string,
+    linkedIn: PropTypes.string,
+    twitter: PropTypes.string
+  }).isRequired
+};
+
+
 export default Social;

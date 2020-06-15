@@ -1,16 +1,17 @@
+import PropTypes from 'prop-types';
 import React, { useState, useEffect, useContext } from 'react';
 
 import { toast } from 'react-toastify';
 
-import { setAboutInfo, storedUserData } from '../../firestore/profileSettings';
+import { setAboutInfo } from '../../firestore/profileSettings';
 import * as FormValidation from '../../FormValidation';
 import styles from '../../scss/settings.module.scss';
 import LinearLoader from '../LinearLoader';
-import Spinner from '../Spinner';
+
 import UserContext from '../UserContext';
 
 
-const Aboutus = () => {
+const Aboutus = ({UserData}) => {
   const [tag, setTag] = useState('');
   const [tags, setTags] = useState([]);
   const [title, setTitle] = useState('');
@@ -19,18 +20,18 @@ const Aboutus = () => {
   const [titleError, setTitleError] = useState(null);
   const [aboutError, setAboutError] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [PageLoading, setPageLoading] = useState(true);
+
   const {User} = useContext(UserContext);
 
   useEffect(()=>{
     async function getBasicInfo() {
-      const result = await storedUserData(User.uid);
-      if (result !== null) {
-        if (result.skills !== undefined) setTags(result.skills);
-        if (result.title !== undefined) setTitle(result.title);
-        if (result.about !== undefined) setAbout(result.about);
+
+      if (UserData !== undefined) {
+        if (UserData.skills !== undefined) setTags(UserData.skills);
+        if (UserData.title !== undefined) setTitle(UserData.title);
+        if (UserData.about !== undefined) setAbout(UserData.about);
       }
-      setPageLoading(false);
+
     }
     if (User)
     getBasicInfo();
@@ -75,7 +76,7 @@ const Aboutus = () => {
     setTags([...tags.filter((element, index) => index !== indexToRemove)]);
   };
 
-  if (PageLoading) return <div className={styles['initial-loader']}> <Spinner /> </div>
+  
 
   return (
     <div>
@@ -149,4 +150,13 @@ const Aboutus = () => {
     </div>
   );
 };
+
+Aboutus.propTypes = {
+  UserData: PropTypes.shape({
+    title: PropTypes.string,
+    about: PropTypes.string,
+    skills: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
+};
+
 export default Aboutus;

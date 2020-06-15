@@ -1,15 +1,16 @@
+import PropTypes from 'prop-types';
 import React, { useState, useEffect, useContext } from 'react';
 
 import { toast } from 'react-toastify';
 
-import {setBasicInfo, storedUserData} from '../../firestore/profileSettings';
+import {setBasicInfo} from '../../firestore/profileSettings';
 import * as FormValidation from '../../FormValidation';
 import styles from '../../scss/settings.module.scss';
 import LinearLoader from '../LinearLoader';
-import Spinner from '../Spinner';
+
 import UserContext from '../UserContext';
 
-const Basicinfo = () => {
+const Basicinfo = ({UserData}) => {
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setlastName] = useState('');
@@ -20,21 +21,19 @@ const Basicinfo = () => {
   const [firstNameError, setFirstNameError] = useState(null);
   const [lastNameError, setLastNameError] = useState(null);
   const [userNameError, setUserNameError] = useState(null);
-  const [PageLoading, setPageLoading] = useState(true);
   const [isDisabled, setIsDisabled] = useState(false);
   const {User} = useContext(UserContext);
 
 
   useEffect(()=>{
     async function getBasicInfo() {
-      const result =await storedUserData(User.uid);
-      if(result !== null) {
-        if(result.firstName !== undefined) setFirstName(result.firstName);
-        if(result.lastName !== undefined) setlastName(result.lastName);
-        if(result.email !== undefined)  setEmail(result.email);
-        if(result.userName !== undefined) setUserName(result.userName);
+
+      if(UserData !== undefined) {
+        if(UserData.firstName !== undefined) setFirstName(UserData.firstName);
+        if(UserData.lastName !== undefined) setlastName(UserData.lastName);
+        if(UserData.email !== undefined)  setEmail(UserData.email);
+        if(UserData.userName !== undefined) setUserName(UserData.userName);
       }
-      setPageLoading(false);
     }
     if(User)
     getBasicInfo();
@@ -75,7 +74,6 @@ let uid = null;
   setLoading(false);
 }
 
-  if (PageLoading) return <div className={styles['initial-loader']}> <Spinner /> </div>
 return(
   <div>
     <div className={styles['basic-head']}>
@@ -142,4 +140,16 @@ return(
   </div>
 )
 };
+
+
+Basicinfo.propTypes = {
+
+  UserData: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    email: PropTypes.string,
+    userName: PropTypes.string
+  }).isRequired
+};
+
 export default Basicinfo;
