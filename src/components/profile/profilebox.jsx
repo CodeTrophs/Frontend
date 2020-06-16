@@ -20,16 +20,16 @@ export default function BoxProfile() {
         .get()
         .then((data) => {
           setUserData(data.data());
-          setLoading(false);
-          let Follows = 0;
+          let totalFollows = 0;
           if (data.data().followingLanguages !== undefined) {
-            Follows += data.data().followingLanguages.length;
+            totalFollows += data.data().followingLanguages.length;
           }
 
           if (data.data().followingOrganisations !== undefined) {
-            Follows += data.data().followingOrganisations.length;
+            totalFollows += data.data().followingOrganisations.length;
           }
-          setFollows(Follows);
+          setFollows(totalFollows);
+          setLoading(false);
         });
   }, [User]);
 
