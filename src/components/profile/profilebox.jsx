@@ -10,6 +10,7 @@ export default function BoxProfile() {
   const { User } = useContext(UserContext);
   const [Loading, setLoading] = useState(true);
   const [UserData, setUserData] = useState({});
+  const [follows, setFollows] = useState(0);
   // const [MissingData, setMissingData] = useState(false);
 
   useEffect(() => {
@@ -20,6 +21,15 @@ export default function BoxProfile() {
         .then((data) => {
           setUserData(data.data());
           setLoading(false);
+          let Follows = 0;
+          if (data.data().followingLanguages !== undefined) {
+            Follows += data.data().followingLanguages.length;
+          }
+
+          if (data.data().followingOrganisations !== undefined) {
+            Follows += data.data().followingOrganisations.length;
+          }
+          setFollows(Follows);
         });
   }, [User]);
 
@@ -63,8 +73,8 @@ export default function BoxProfile() {
                     );
                   })
                 ) : (
-                  <p style={{ color: 'rgb(138, 138, 138)' }}>No skills...</p>
-                )}
+                    <p style={{ color: 'rgb(138, 138, 138)' }}>No skills...</p>
+                  )}
               </div>
             </div>
           </div>
@@ -106,11 +116,7 @@ export default function BoxProfile() {
               </div>
               <div className={styles.count}>
                 <p>
-                  {UserData.followingOrganisations !== undefined ||
-                  UserData.followingLanguages !== undefined
-                    ? UserData.followingOrganisations.length +
-                      UserData.followingLanguages.length
-                    : 0}
+                  {follows}
                 </p>
               </div>
             </div>
