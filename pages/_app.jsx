@@ -17,7 +17,6 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const token = localStorage.getItem('osc-app-token');
     async function updation() {
-      setLoading(true);
       const verificationResult = await FirebaseAuth.verifySecuredToken(token);
 
       if (verificationResult !== null) {
@@ -40,11 +39,9 @@ function MyApp({ Component, pageProps }) {
     } else {
       Router.replace('/');
     }
+    setLoading(false);
   }, []);
 
-  setTimeout(() => {
-    setLoading(false);
-  }, 400);
 
   if (Loading) return <Spinner />;
 

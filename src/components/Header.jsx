@@ -21,8 +21,9 @@ export default function Header() {
 
   useEffect(() => {
     if (User) {
-      setLoading(false);
+      setUser(User);
     }
+    setLoading(false);
   }, [User]);
 
   if (Loading) return <Spinner />;
@@ -124,7 +125,7 @@ export default function Header() {
             onKeyDown={toggleDD}>
             <img
               src={
-                User.profileImageUrl ? User.profileImageUrl : '/SVG/user.svg'
+                User !== null ? User.profileImageUrl : '/SVG/user.svg'
               }
               alt="me"
               className={styles['header-profile-picture']}
@@ -143,7 +144,7 @@ export default function Header() {
                 <div className={styles['top-left-col']}>
                   <img
                     src={
-                      User.profileImageUrl
+                        User !== null
                         ? User.profileImageUrl
                         : '/SVG/user.svg'
                     }

@@ -9,7 +9,7 @@ import DrawerToggleButton from './DrawerToggleButton';
 
 const SideDrawer = ({ handleClose, router }) => {
   const [profileDD, setProfileDD] = useState(false);
-  const {User,setUser}=useContext(UserContext);
+  const { User, setUser } = useContext(UserContext);
 
   async function handleLogout(e) {
     e.preventDefault();
@@ -40,8 +40,8 @@ const SideDrawer = ({ handleClose, router }) => {
           onClick={toggleDD}
           onKeyDown={toggleDD}>
           <img
-            src="/icons/young-man.svg"
-            alt=" "
+            src={User !== null ? User.profileImageUrl : "/icons.young-man.svg"}
+            alt="me"
             className={styles['header-profile-picture']}
           />
           <p>{User === null ? "" : User.name}</p>
@@ -55,7 +55,11 @@ const SideDrawer = ({ handleClose, router }) => {
           <div className={styles.dropdown}>
             <div className={styles['top-row']}>
               <div className={styles['top-right-col']}>
-                <img src="/icons/computer.png" alt=" " />
+                <Link href="/setting">
+                  <div>
+                  <img src="/icons/computer.png" alt="Settings" />
+                  </div>
+                </Link>
               </div>
             </div>
             <div className={styles['bottom-row']}>

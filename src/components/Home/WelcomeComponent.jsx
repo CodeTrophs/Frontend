@@ -10,11 +10,12 @@ import UserContext from '../UserContext';
 export default function WelcomeComponent() {
   const [Loading, setLoading] = useState(false);
   const { setUser } = useContext(UserContext);
-  function changeUser(name, email, uid) {
+  function changeUser(name, email, uid, profileImageUrl) {
     setUser({
       name,
       email,
-      uid
+      uid,
+      profileImageUrl
     });
   }
 
@@ -26,7 +27,8 @@ export default function WelcomeComponent() {
       changeUser(
         newUser.user.displayName,
         newUser.user.email,
-        newUser.user.uid
+        newUser.user.uid,
+        newUser.user.photoURL
       );
       if (newUser.additionalUserInfo.isNewUser) {
         Router.replace('/toporg');
@@ -54,7 +56,8 @@ export default function WelcomeComponent() {
       changeUser(
         newUser.user.displayName,
         newUser.user.email,
-        newUser.user.uid
+        newUser.user.uid,
+        newUser.user.photoURL
       );
       if (newUser.additionalUserInfo.isNewUser) {
         Router.replace('/toporg');
