@@ -47,7 +47,7 @@ export default function BoxProfile() {
               <img
                 className={styles.imgabsolute}
                 src={
-                  UserData.profileImageUrl
+                  UserData.profileImageUrl !== null && UserData.profileImageUrl !== undefined
                     ? UserData.profileImageUrl
                     : '/SVG/user.svg'
                 }
