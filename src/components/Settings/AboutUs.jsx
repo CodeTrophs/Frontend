@@ -19,6 +19,8 @@ const Aboutus = ({UserData}) => {
   const [Loading, setLoading] = useState(false);
   const [titleError, setTitleError] = useState(null);
   const [aboutError, setAboutError] = useState(null);
+  const [skillError, setSkillError] = useState(null);
+  const [addSkillButtonDisabled,setAddSkillButtonDisabled] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
   const {User} = useContext(UserContext);
@@ -46,6 +48,12 @@ const Aboutus = ({UserData}) => {
     }
   }, [titleError, aboutError]);
 
+  useEffect(() => {
+    if (skillError === null)
+      setAddSkillButtonDisabled(false);
+    else
+      setAddSkillButtonDisabled(true);
+  },[skillError]);
 
   async function handleFormSubmit(e) {
     e.preventDefault();
@@ -69,6 +77,12 @@ const Aboutus = ({UserData}) => {
   }
 
   const onChange = (e) => {
+    const found = tags.find(el => el.toUpperCase() === e.target.value.toUpperCase());
+    if (found !== undefined) {
+      setSkillError("This skill is already present. Duplications not allowed!");
+    }
+    else
+      setSkillError(null);
     setTag(e.target.value);
   };
 
@@ -113,22 +127,24 @@ const Aboutus = ({UserData}) => {
         <form
           className={styles.skills}
           onSubmit={(e) => {
+            e.preventDefault();
             setTags([...tags, tag]);
             setTag('');
             e.target.reset();
-            e.preventDefault();
 
           }}>
           <input
             required
 
-            className={styles.input}
+            className={`${styles.input} ${skillError !== null ? styles.invalid : ''} `}
             id="myInput"
             placeholder="Enter your skills"
             onKeyUp={(e) => onChange(e)}
+            autoComplete="off"
           />
-          <input type="submit" className={styles.addButton} value="+" />
+          <input type="submit" className={styles.addButton} disabled={addSkillButtonDisabled} value="+" />
         </form>
+        <p id='skillError' className='input-field-error'>{skillError}</p>
         <div className={styles.skillList}>
           {tags.map((Tag, index) => (
             <div key={Tag} className={styles.skill}>
