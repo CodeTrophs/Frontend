@@ -79,7 +79,7 @@ const Aboutus = ({UserData}) => {
   const onChange = (e) => {
     const found = tags.find(el => el.toUpperCase() === e.target.value.toUpperCase());
     if (found !== undefined) {
-      setSkillError("This skill is already present. Duplications not allowed!");
+      setSkillError("This skill is already present.");
     }
     else
       setSkillError(null);
