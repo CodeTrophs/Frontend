@@ -10,9 +10,9 @@ export default function HowContainer() {
           <h1><u>How</u> OSC Works?</h1>
           <p>
             Some random text about how we function. What all things we do and
-            how It will benefit ou.t. Below are a few processes on how we
+            how It will benefit out. Below are a few processes on how we
             function.Some random text about how we function. What all things we
-            do and how It will benefit ou.t. Below are a few processes on how we
+            do and how It will benefit out. Below are a few processes on how we
             function.Some random text about how we function.
           </p>
         </div>
