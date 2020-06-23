@@ -77,7 +77,7 @@ const FormOsp = () => {
             <div style={{ color: '#00CACA' }}>
               <p>Description<sup> * </sup></p>
             </div>
-            <input
+            <textarea
               className={`${styles.input} ${descriptionError !== null ? styles.invalid : ''} `}
               placeholder="About your project"
               style={{ borderBottomColor: '#00CACA' }}
