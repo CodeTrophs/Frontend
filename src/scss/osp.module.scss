@@ -82,7 +82,14 @@
   font-weight: 500;
   margin-top: 10px;
   border-radius: 15px;
+  cursor: pointer;
 }
+
+.enter-button:disabled {
+    cursor: initial;
+    opacity: 0.5;
+    background-color: #333; 
+  }
 
 .skills {
   display: flex;
@@ -92,6 +99,7 @@
 .addButton {
   width: 40px;
   height: 40px;
+  margin-left: 5px;
   background-color: #0ba293;
   border: none;
   border-radius: 10px;
@@ -100,15 +108,29 @@
   cursor: pointer;
 }
 
+.addButton:disabled {
+    cursor: initial;
+    opacity: 0.5;
+    background-color: #333; 
+  }
+
+  
+.invalid {
+  border-style: solid !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem;
+  border-width: 0.1rem !important;
+  border-color: red !important;
+}
+
 .skill > li {
   margin-right: 20px;
 }
 
 .skillList {
-  width: 50%;
+  width: 20rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
 }
 
@@ -119,10 +141,11 @@
   border-radius: 10px;
   margin: 5px;
   color: black;
+  font-size: 1rem;
+  background-color: #f7f7f7;
   font-weight: 400;
   display: flex;
   flex-direction: row;
-  border: solid;
 }
 
 .skill > div {
