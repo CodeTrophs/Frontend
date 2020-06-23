@@ -18,9 +18,9 @@ const Basicinfo = ({UserData}) => {
   const [userName, setUserName] = useState('');
   const [Loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState(null);
-  const [firstNameError, setFirstNameError] = useState(null);
+  const [firstNameError, setFirstNameError] = useState('This field is required.');
   const [lastNameError, setLastNameError] = useState(null);
-  const [userNameError, setUserNameError] = useState(null);
+  const [userNameError, setUserNameError] = useState('This field is required.');
   const [isDisabled, setIsDisabled] = useState(false);
   const {User} = useContext(UserContext);
 
