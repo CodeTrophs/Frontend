@@ -10,16 +10,17 @@ const FormOsp = () => {
   const [description, setDescription] = useState('');
   const [github, setGithub] = useState('');
   const [hostedUrl, setHostedUrl] = useState('');
-  const [titleError, setTitleError] = useState('This field is required.');
-  const [descriptionError, setDescriptionError] = useState('This field is required.');
-  const [githubError, setGithubError] = useState('This field is required.');
+  const [titleError, setTitleError] = useState(null);
+  const [descriptionError, setDescriptionError] = useState(null);
+  const [githubError, setGithubError] = useState(null);
   const [hostedUrlError, setHostedUrlError] = useState(null);
   const [skillError, setSkillError] = useState(null);
   const [addSkillButtonDisabled, setAddSkillButtonDisabled] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(true);      // Submit Button Disabled
+  const [isDisabled, setIsDisabled] = useState(false);      // Submit Button Disabled
 
   useEffect(() => {
-    if ((titleError === null) && (descriptionError === null) && (githubError === null) && (hostedUrlError === null)) {
+    if ((titleError === null) && (descriptionError === null) && (githubError === null) && (hostedUrlError === null) &&
+        (title.length>0) && (description.length>0) && (github.length>0)) {
       setIsDisabled(false);
     }
     else {
