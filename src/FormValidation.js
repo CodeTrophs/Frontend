@@ -1,5 +1,6 @@
 import { checkUnique } from './firestore/profileSettings';
 
+
 export function checkLengthLimit(length, allowedLength, minLength = 0) {
   if (minLength === 1 && length < minLength) {
     return `This field is required.`;
@@ -39,7 +40,9 @@ export function checkEmail(email) {
 export async function checkUserName(userName, uid) {
 
   const limitCheck = checkLengthLimit(userName.length, 50, 1);
-  if(limitCheck === null) {
+  
+  if (limitCheck === null) {
+    
     const uniqueStatus = await checkUnique('userName', userName, uid);
     if(uniqueStatus === false)
       return "This username is already taken.";

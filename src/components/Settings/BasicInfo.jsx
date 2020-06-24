@@ -40,13 +40,13 @@ const Basicinfo = ({UserData}) => {
   }, [User]);
   
   useEffect(() => {
-    if ((emailError === null) && (firstNameError === null) && (lastNameError === null) && (userNameError === null)) {
+    if ((emailError === null) && (firstNameError === null) && (lastNameError === null) && (userNameError === null) && (firstName.length>0) && (userName.length>0)) {
       setIsDisabled(false);
     }
     else {
       setIsDisabled(true);
     }
-  }, [emailError, firstNameError, lastNameError, userNameError]);
+  }, [emailError, firstNameError, lastNameError, userNameError, firstName, userName]);
 
 let uid = null;
   if(User) {
@@ -81,7 +81,7 @@ return(
     </div>
     <form onSubmit={handleFormSubmit}>
       <div className={styles.qns}>
-        <p>Email</p>
+        <p>Email<sup> * </sup></p>
         <input 
           className={`${styles.input} ${emailError !== null ? styles.invalid : ''} `} 
           value={email} 
@@ -92,7 +92,7 @@ return(
           }}
         />
         <p id='EmailError' className='input-field-error'>{emailError}</p>
-        <p>First Name</p>
+        <p>First Name<sup> * </sup></p>
         <input 
           className={`${styles.input} ${firstNameError !== null ? styles.invalid : ''} `}
           value={firstName} 
@@ -116,7 +116,7 @@ return(
           }} 
         />
         <p id="lastNameError" className='input-field-error'>{lastNameError}</p>
-        <p>Username</p>
+        <p>Username<sup> * </sup></p>
         <input 
           className={`${styles.input} ${userNameError !== null ? styles.invalid : ''} `}
           value={userName} 
