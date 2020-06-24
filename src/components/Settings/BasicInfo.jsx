@@ -18,9 +18,9 @@ const Basicinfo = ({UserData}) => {
   const [userName, setUserName] = useState('');
   const [Loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState(null);
-  const [firstNameError, setFirstNameError] = useState('This field is required.');
+  const [firstNameError, setFirstNameError] = useState(null);
   const [lastNameError, setLastNameError] = useState(null);
-  const [userNameError, setUserNameError] = useState('This field is required.');
+  const [userNameError, setUserNameError] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
   const {User} = useContext(UserContext);
 
@@ -40,13 +40,13 @@ const Basicinfo = ({UserData}) => {
   }, [User]);
   
   useEffect(() => {
-    if ((emailError === null) && (firstNameError === null) && (lastNameError === null) && (userNameError === null)) {
+    if ((emailError === null) && (firstNameError === null) && (lastNameError === null) && (userNameError === null) && (firstName.length>0) && (userName.length>0)) {
       setIsDisabled(false);
     }
     else {
       setIsDisabled(true);
     }
-  }, [emailError, firstNameError, lastNameError, userNameError]);
+  }, [emailError, firstNameError, lastNameError, userNameError, firstName, userName]);
 
 let uid = null;
   if(User) {
@@ -100,6 +100,9 @@ return(
           placeholder="First Name" 
           onChange={e => {
             setFirstName(e.currentTarget.value);
+            const spaceCheck = FormValidation.noWhiteSpaceAtBeginEnd(e.currentTarget.value);
+            setFirstNameError(spaceCheck);
+            if (spaceCheck === null)
             setFirstNameError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50, 1));
             }}
         />
@@ -112,6 +115,9 @@ return(
           placeholder="Last Name" 
           onChange={e => {
             setlastName(e.currentTarget.value);
+            const spaceCheck = FormValidation.noWhiteSpaceAtBeginEnd(e.currentTarget.value);
+            setLastNameError(spaceCheck);
+            if(spaceCheck === null)
             setLastNameError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50));
           }} 
         />
