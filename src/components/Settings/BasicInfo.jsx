@@ -100,9 +100,6 @@ return(
           placeholder="First Name" 
           onChange={e => {
             setFirstName(e.currentTarget.value);
-            const spaceCheck = FormValidation.noWhiteSpaceAtBeginEnd(e.currentTarget.value);
-            setFirstNameError(spaceCheck);
-            if (spaceCheck === null)
             setFirstNameError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50, 1));
             }}
         />
@@ -115,9 +112,6 @@ return(
           placeholder="Last Name" 
           onChange={e => {
             setlastName(e.currentTarget.value);
-            const spaceCheck = FormValidation.noWhiteSpaceAtBeginEnd(e.currentTarget.value);
-            setLastNameError(spaceCheck);
-            if(spaceCheck === null)
             setLastNameError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50));
           }} 
         />

@@ -1,13 +1,5 @@
 import { checkUnique } from './firestore/profileSettings';
 
-export function noWhiteSpaceAtBeginEnd(data) {
-  const dataFormat = new RegExp(/^[^\s]+(\s+[^\s]+)*$/);
-  if (data.match(dataFormat) || data.length === 0) {
-    return null;
-  }
-
-  return 'No whitespaces allowed at Beginning and End.';
-}
 
 export function checkLengthLimit(length, allowedLength, minLength = 0) {
   if (minLength === 1 && length < minLength) {
@@ -48,12 +40,9 @@ export function checkEmail(email) {
 export async function checkUserName(userName, uid) {
 
   const limitCheck = checkLengthLimit(userName.length, 50, 1);
-  const whiteSpaceCheck = noWhiteSpaceAtBeginEnd(userName);
-
+  
   if (limitCheck === null) {
-    if (whiteSpaceCheck !== null) {
-      return whiteSpaceCheck;
-    }
+    
     const uniqueStatus = await checkUnique('userName', userName, uid);
     if(uniqueStatus === false)
       return "This username is already taken.";
