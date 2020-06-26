@@ -37,6 +37,10 @@ const FormOsp = () => {
 
   const onChange = (e) => {
     const found = tags.find(el => el.toUpperCase() === e.target.value.toUpperCase());
+    if (e.target.value.trim().length < 1 && e.target.value.length > 0) {
+      setSkillError("This field is required.");
+      return;
+    }
     if (found !== undefined) {
       setSkillError("This skill is already present.");
     }
@@ -71,7 +75,7 @@ const FormOsp = () => {
               style={{ borderBottomColor: 'blue' }}
               onChange={(e) => {
                 setTitle(e.currentTarget.value);
-                setTitleError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50, 1));
+                setTitleError(FormValidation.checkLengthLimit((e.currentTarget.value.trim()).length, 50, 1));
               }}
             />
             <p id='titleError' className='input-field-error'>{titleError}</p>
@@ -79,13 +83,13 @@ const FormOsp = () => {
               <p>Description<sup> * </sup></p>
             </div>
             <textarea
-              className={`${styles.input} ${descriptionError !== null ? styles.invalid : ''} `}
+              className={`${styles.inputArea} ${descriptionError !== null ? styles.invalid : ''} `}
               placeholder="About your project"
               style={{ borderBottomColor: '#00CACA' }}
               rows="4"
               onChange={(e) => {
                 setDescription(e.currentTarget.value);
-                setDescriptionError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 250, 25));
+                setDescriptionError(FormValidation.checkLengthLimit((e.currentTarget.value.trim()).length, 250, 25));
               }}
             />
             <p id='descriptionError' className='input-field-error'>{descriptionError}</p>
@@ -144,7 +148,7 @@ const FormOsp = () => {
               placeholder="www.github.com/username"
               style={{ borderBottomColor: 'black' }}
               onChange={(e) => {
-                if (e.currentTarget.value.length === 0) {
+                if ((e.currentTarget.value.trim()).length === 0) {
                   setGithubError('This field is required.');
                   return;
                 }

@@ -63,6 +63,20 @@
   border-width: medium;
 }
 
+.inputArea {
+  display: block;
+  width: 20rem;
+  font-size: medium;
+  font-weight: 300;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  resize: none;
+  border: 0.1rem solid;
+  border-width: medium;
+  border-color: rgb(0, 202, 202);
+}
+
 .upload {
   margin: auto;
   display: block;
@@ -191,6 +205,11 @@
   }
 
   .input {
+    width: 100%;
+  }
+
+
+  .inputArea {
     width: 100%;
   }
 

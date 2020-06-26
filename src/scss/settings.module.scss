@@ -154,14 +154,16 @@
 }
 .input-bio {
   display: block;
-  width: 90%;
-  border: none;
+  width: 70%;
   font-size: medium;
   font-weight: 300;
-  padding-top: 0.5rem;
-  padding-bottom: 0.4rem;
+  padding: 0.5rem;
+  resize: none;
+  border: 0.1rem solid;
+  border-width: medium;
+  border-color: rgb(0, 202, 202);
   margin-bottom: 1.5rem;
-  border-bottom: $border-bstyle;
+  border-radius: 0.5rem;
 }
 
 .icon-padding {
@@ -273,6 +275,9 @@
     padding: 10px 20px;
   }
   .input {
+    width: 90%;
+  }
+  .input-bio {
     width: 90%;
   }
   .submitButton {

@@ -60,8 +60,8 @@ const Aboutus = ({UserData}) => {
     setLoading(true);
     const {uid} = User;
     const formData = {
-      title,
-      about,
+      title: title.trim(),
+      about: about.trim(),
       skills:tags,
       uid
     };
@@ -78,6 +78,13 @@ const Aboutus = ({UserData}) => {
 
   const onChange = (e) => {
     const found = tags.find(el => el.toUpperCase() === e.target.value.toUpperCase());
+
+    if (e.target.value.trim().length < 1 && e.target.value.length > 0)
+    {
+      setSkillError("This field is required.");
+      return;
+    }
+
     if (found !== undefined) {
       setSkillError("This skill is already present.");
     }
@@ -106,16 +113,17 @@ const Aboutus = ({UserData}) => {
           value={title}
           onChange={(e) => { 
             setTitle(e.currentTarget.value); 
-            setTitleError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50));
+            setTitleError(FormValidation.checkLengthLimit((e.currentTarget.value.trim()).length, 50));
           }}
           placeholder="Developer, Student, Programmer"
         />
         <p id='titleError' className='input-field-error'>{titleError}</p>
         <p>About</p>
         <span id={styles['about-info-count']}>{about.length} / 200</span>
-        <input
+        <textarea
           className={`${styles['input-bio']} ${aboutError !== null ? styles.invalid : ''} `}
           value={about}
+          rows={4}
           onChange={(e) => {
             setAbout(e.currentTarget.value); 
             setAboutError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 200));

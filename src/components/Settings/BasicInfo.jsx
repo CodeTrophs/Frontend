@@ -57,8 +57,8 @@ let uid = null;
     e.preventDefault();
     setLoading(true);
     const formData = {
-      firstName,
-      lastName,
+      firstName : firstName.trim(),
+      lastName : lastName.trim(),
       email,
       userName,
       uid
@@ -100,7 +100,7 @@ return(
           placeholder="First Name" 
           onChange={e => {
             setFirstName(e.currentTarget.value);
-            setFirstNameError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50, 1));
+            setFirstNameError(FormValidation.checkLengthLimit((e.currentTarget.value.trim()).length, 50, 1));
             }}
         />
         <p id='firstNameError' className='input-field-error'>{firstNameError}</p>
@@ -112,7 +112,7 @@ return(
           placeholder="Last Name" 
           onChange={e => {
             setlastName(e.currentTarget.value);
-            setLastNameError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50));
+            setLastNameError(FormValidation.checkLengthLimit((e.currentTarget.value.trim()).length, 50));
           }} 
         />
         <p id="lastNameError" className='input-field-error'>{lastNameError}</p>
