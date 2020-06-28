@@ -20,6 +20,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-infinite-scroll-component": "^5.0.5",
     "react-toastify": "^6.0.5",
     "react-toasty": "0.0.4",
     "sass": "^1.26.7"
