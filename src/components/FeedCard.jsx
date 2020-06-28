@@ -32,7 +32,7 @@ export default function Card({repo}) {
             </div>
             <div className={styles.flex}>
               <div className={styles.langButton}>
-                <p>{repo.language}</p>
+                <p className={styles['language-tag']}>{repo.language}</p>
               </div>
             </div>
           </div>
