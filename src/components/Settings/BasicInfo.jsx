@@ -1,5 +1,7 @@
+import Router, { useRouter } from 'next/router'
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, useContext } from 'react';
+
 
 import { toast } from 'react-toastify';
 
@@ -11,6 +13,7 @@ import LinearLoader from '../LinearLoader';
 import UserContext from '../UserContext';
 
 const Basicinfo = ({UserData}) => {
+  const router = useRouter()
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setlastName] = useState('');
@@ -66,8 +69,12 @@ let uid = null;
 
 
     const response = await setBasicInfo(formData);
-    if(response.status === 'success')
+    if(response.status === 'success'){
       toast.success(<div><img src='/icons/save-icon.svg' alt="save"/> Basic Information Updated Successfully </div>);
+
+      if(router.query.firstTime) 
+        Router.replace('/feed')
+    }
     if(response.status === 'error')
       toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
 

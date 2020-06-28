@@ -50,7 +50,10 @@ export default function TopOrganisation() {
     db.collection('users').doc(User.uid).update({
       followingLanguages: followed
     });
-    Router.replace('/feed');
+    Router.replace({
+      pathname: '/setting',
+      query: { firstTime: true },
+    });
   };
 
   // Search bar function
