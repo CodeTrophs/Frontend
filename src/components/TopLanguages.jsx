@@ -1,7 +1,7 @@
 import Router from 'next/router';
 import React, { useState, useContext } from 'react';
 
-import firebase from '../firebase';
+import {db} from '../firebase';
 import styles from '../scss/org.module.scss';
 import UserContext from './UserContext';
 
@@ -42,7 +42,7 @@ export default function TopOrganisation() {
   ];
   const [list, setList] = useState(Langs);
   const [followed, setFollowed] = useState([]);
-  const db = firebase.firestore();
+
 
   // SUBMITTING ORGANISATIONS
 

@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import firebase from '../../firebase';
+import {db} from '../../firebase';
 import styles from '../../scss/profile.module.scss';
 import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 
 export default function BoxProfile() {
-  const db = firebase.firestore();
+
   const { User } = useContext(UserContext);
   const [Loading, setLoading] = useState(true);
   const [UserData, setUserData] = useState({});

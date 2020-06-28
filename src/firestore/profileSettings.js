@@ -1,7 +1,7 @@
-import firebase from '../firebase';
+import firebase,{ db } from '../firebase';
 
 export async function storedUserData(uid) {
-    const db = firebase.firestore();
+    
     return db.collection('users').doc(uid).get().then((res) => {
         const storedData = res.data();
 
@@ -15,7 +15,7 @@ export async function storedUserData(uid) {
 }
 
 export async function setBasicInfo(ReceivedFormData) {
-    const db = firebase.firestore();
+    
     const formData = ReceivedFormData;
     const {uid} = formData;
     delete formData.uid;
@@ -30,7 +30,7 @@ export async function setBasicInfo(ReceivedFormData) {
 }
 
 export async function setAboutInfo(ReceivedFormData) {
-    const db = firebase.firestore();
+    
     const formData = ReceivedFormData;
     const { uid } = formData;
     delete formData.uid;
@@ -54,7 +54,7 @@ export async function setAboutInfo(ReceivedFormData) {
 }
 
 export async function setSocialHandles(ReceivedFormData) {
-    const db = firebase.firestore();
+    
     const formData = ReceivedFormData;
     const { uid } = formData;
     delete formData.uid;
@@ -82,7 +82,7 @@ export async function setSocialHandles(ReceivedFormData) {
 }
 
 export async function checkUnique(property, data, uid) {
-    const db = firebase.firestore();
+    
     return db.collection("users").where(property, '==', `${data}`).get().then(result => {
         
         if(result.size > 1)
