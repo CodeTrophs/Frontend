@@ -1,26 +1,20 @@
 import {db} from '../firebase';
 // get repositories without any filter
-export async function getRepos(nodeId, searchRepo, filterLanguage) {
+export async function getRepos(nodeId, searchRepo, filterLanguage, sortMethod, sortOrder) {
 
-  let firstPage = db.collection('repositories').orderBy('node_id').limit(10).startAfter(nodeId);
-  
-  if (filterLanguage !== 'All')
-    firstPage = db.collection('repositories').orderBy('node_id').where('language', '==', filterLanguage).limit(10).startAfter(nodeId);
-  
-  if (searchRepo !== '')
-    firstPage = db.collection('repositories').orderBy('node_id').where('full_name','==',searchRepo).limit(10).startAfter(nodeId);
-    // firstPage = db.collection('repositories').orderBy('node_id').where('full_name', '>=', + '\uf8ff' + searchRepo).where('full_name', '<=', searchRepo).limit(10).startAfter(nodeId);
+  let firstPage = db.collection('repositories').orderBy(sortMethod,sortOrder).limit(20).startAfter(nodeId);
 
   if (filterLanguage !== 'All' && searchRepo !== '')
-    firstPage = db.collection('repositories').orderBy('node_id').where('full_name', '==', searchRepo)
-      .where('language', '==', filterLanguage).limit(10).startAfter(nodeId);
+    firstPage = db.collection('repositories').orderBy(sortMethod, sortOrder).where('full_name', '==', searchRepo)
+      .where('language', '==', filterLanguage).limit(20).startAfter(nodeId);
+  else if (filterLanguage !== 'All')
+    firstPage = db.collection('repositories').orderBy(sortMethod, sortOrder).where('language', '==', filterLanguage).limit(20).startAfter(nodeId);
+  else if (searchRepo !== '')
+    firstPage = db.collection('repositories').orderBy(sortMethod, sortOrder).where('full_name', '==', searchRepo).limit(20).startAfter(nodeId);
+    // firstPage = db.collection('repositories').orderBy(sortMethod).where('full_name', '>=', + '\uf8ff' + searchRepo).where('full_name', '<=', searchRepo).limit(20).startAfter(nodeId);
 
-  const data = [];
   return firstPage.get().then(snapshot => {
-    snapshot.docs.forEach(doc => {
-      data.push(doc.data());
-    });
-    return data;
+    return snapshot;
   }).catch(() => {
     return null;
   });

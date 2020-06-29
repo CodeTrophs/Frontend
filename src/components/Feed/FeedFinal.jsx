@@ -27,32 +27,41 @@ export default function FeedFinal() {
   const [paramsChanged, setParamsChanged] = useState(false);                // To call getNextRepos() after state has been changed when filters are set
   const [reposLoading, setReposLoading] = useState(false);
   const [languageList, setLanguageList] = useState([]);
+  const [sortMethod, setSortMethod] = useState('node_id');
+  const [sortOrder, setSortOrder] = useState('asc');
     // Fetch the Repositories
 
   async function getNextRepos() {
-    setTimeout(() => {
-      getRepos(currentLastNodeId, searchRepoQuery, filterLanguage).then(res => {
+
+    getRepos(currentLastNodeId, searchRepoQuery, filterLanguage, sortMethod, sortOrder).then(resp => {
+      const res = [];
+      let lastDoc = null;
+      if (resp === null) {
+        toast.error('Some Error Occurred! Please Refresh the Page.');
+        setReachedEnd(true);
+      }
+      else {
+        resp.docs.forEach(doc => {
+          res.push(doc.data());
+          lastDoc = doc;
+        });
         if (res !== null && res.length > 0) {
-          if (res.length < 10) {
+          if (res.length < 20) {
             setReachedEnd(true);
           }
           else
             setReachedEnd(false);
           setRepoList([...repoList, res].flat());
-          setCurrentLastNodeId(res[res.length - 1].node_id);
+          setCurrentLastNodeId(lastDoc);
         }
         if (res !== null && res.length === 0) {
           setReachedEnd(true);
         }
-        if (res === null) {
-          toast.error('Some Error Occurred! Please Refresh the Page.');
-          setReachedEnd(true);
-        }
+      }
         setPageLoading(false);
         setReposLoading(false);
       });
-    }, 1000);
-    return clearTimeout();
+
   }
 
   async function getLanguages() {
@@ -68,11 +77,18 @@ export default function FeedFinal() {
   }, []);
 
   useEffect(() => {
-    setCurrentLastNodeId(null);
+    if (sortOrder === 'asc') {
+      setCurrentLastNodeId(null);
+    }
+    else
+    setCurrentLastNodeId({});
     setRepoList([]);
     setReposLoading(true);
+    if (searchRepoQuery !== '' && sortMethod === 'full_name') {
+      setSortMethod('node_id');
+    }
     setParamsChanged(!paramsChanged);
-  }, [filterLanguage, searchRepoQuery]);
+  }, [filterLanguage, searchRepoQuery, sortMethod, sortOrder]);
 
   useEffect(() => {
     getNextRepos();
@@ -90,6 +106,10 @@ export default function FeedFinal() {
         languageList={languageList}
         languageFilter={(language) => { setFilterLanguage(language); }}
         searchFilter={(repoName) => setSearchRepoQuery(repoName)}
+        sortMethod={(method) => setSortMethod(method)}
+        sortOrder={(order)=>setSortOrder(order)}
+        actualSortMethodsList={['node_id','full_name','forks','open_issues','watchers','pushed_at']}
+        duplicateSortMethodsList={['None','Full Name', 'Forks', 'Open Issues', 'Watchers', 'Creation Date']}
       />
       <div className={styles['disp-flex-bottom']}>
         <div>

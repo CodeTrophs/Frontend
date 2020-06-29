@@ -3,14 +3,15 @@ import React, { useState } from 'react';
 
 import styles from '../scss/searchBar.module.scss';
 
-const SearchBar = ({ page, languageFilter, searchFilter, languageList}) => {
+const SearchBar = ({ page, languageFilter, searchFilter, languageList, sortMethod, actualSortMethodsList, duplicateSortMethodsList, sortOrder}) => {
   
   const [searchValue, setSearchValue] = useState('');
   const [Filter, setFilter] = useState('All');
-  const [Sort, setSort] = useState('Explore');
-
+  const [Sort, setSort] = useState('None');
   const [FilterShow, setFilterShow] = useState(false);
   const [SortShow, setSortShow] = useState(false);
+  const [orderShow, setOrderShow] = useState(false);
+  const [order, setOrder] = useState('Ascending');
 
   const dropdownToggleFilter = () => {
     if (FilterShow) {
@@ -27,15 +28,26 @@ const SearchBar = ({ page, languageFilter, searchFilter, languageList}) => {
       setSortShow(true);
     }
   };
+
+  const dropdownToggleOrder = () => {
+    setOrderShow(!orderShow);
+  }
   const selectFilter = (e) => {
     setFilter(e.target.innerText);
     languageFilter(e.target.innerText);
     dropdownToggleFilter();
   };
-  const selectSort = (e) => {
-    setSort(e.target.innerText);
+  const selectSort = (index) => {
+    setSort(duplicateSortMethodsList[index]);
+    sortMethod(actualSortMethodsList[index]);
     dropdownToggleSort();
   };
+
+  const selectOrder = (o, hiddenOrder) => {
+    setOrder(o);
+    sortOrder(hiddenOrder);
+    dropdownToggleOrder();
+  }
 
   return (
     <div className={styles['search-bar']}>
@@ -85,46 +97,75 @@ const SearchBar = ({ page, languageFilter, searchFilter, languageList}) => {
           {SortShow && (
             <div>
               <div className={styles['filter-dropdown']}>
-                <div
-                  className={styles['dropdown-items']}
-                  style={{
-                    backgroundColor:
-                      Sort === 'Explore' ? 'rgb(95, 95, 95)' : 'black'
-                  }}
-                  tabIndex={0}
-                  onClick={selectSort}
-                  role="button"
-                  onKeyDown={selectSort}>
-                  Explore
-                </div>
-                <div
-                  className={styles['dropdown-items']}
-                  style={{
-                    backgroundColor:
-                      Sort === 'Trending' ? 'rgb(95, 95, 95)' : 'black'
-                  }}
-                  tabIndex={0}
-                  onClick={selectSort}
-                  role="button"
-                  onKeyDown={selectSort}>
-                  Trending
-                </div>
-                <div
-                  className={styles['dropdown-items']}
-                  style={{
-                    backgroundColor:
-                      Sort === 'GSOC' ? 'rgb(95, 95, 95)' : 'black'
-                  }}
-                  tabIndex={0}
-                  onClick={selectSort}
-                  role="button"
-                  onKeyDown={selectSort}>
-                  GSOC
-                </div>
+                {
+                  actualSortMethodsList.map((method, index) => {
+                    return (
+                      <div
+                        className={styles['dropdown-items']}
+                        key={method}
+                        style={{
+                          backgroundColor:
+                            Sort === duplicateSortMethodsList[index] ? 'rgb(95, 95, 95)' : 'black'
+                        }}
+                        tabIndex={0}
+                        onClick={()=>selectSort(index)}
+                        role="button"
+                        onKeyDown={()=>selectSort(index)}>
+                        {duplicateSortMethodsList[index]}
+                      </div>
+                    )
+                  })
+                }
               </div>
             </div>
           )}
         </div>                      {/* Show sorting methods ends here */}
+                      
+                                    {/* Show sorting Order */}
+        <div className={styles.filter}>
+          <div
+            role="button"
+            tabIndex={0}
+            className={styles['filter-show']}
+            onClick={dropdownToggleOrder}
+            onKeyDown={dropdownToggleOrder}>
+            <p>{order}</p>
+            <img src="/SVG/filter-icon.svg" alt="filter-icon" />
+          </div>
+          {orderShow && (
+            <div>
+              <div className={styles['filter-dropdown']}>
+                
+                <div
+                  className={styles['dropdown-items']}
+                  style={{
+                    backgroundColor:
+                      order === 'Ascending' ? 'rgb(95, 95, 95)' : 'black'
+                  }}
+                  tabIndex={0}
+                  onClick={(e) => selectOrder(e.target.innerText, 'asc')}
+                  role="button"
+                  onKeyDown={(e) => selectOrder(e.target.innerText, 'asc')}
+                >
+                  Ascending
+                </div>
+                <div
+                  className={styles['dropdown-items']}
+                  style={{
+                    backgroundColor:
+                      order === 'Descending' ? 'rgb(95, 95, 95)' : 'black'
+                  }}
+                  tabIndex={0}
+                  onClick={(e) => selectOrder(e.target.innerText, 'desc')}
+                  role="button"
+                  onKeyDown={(e) => selectOrder(e.target.innerText, 'desc')}
+                >
+                  Descending
+                </div>
+              </div>
+            </div>
+          )}
+        </div>  
                                     {/* Show Languages Filter only on feed Page */}
         {
           page === 'feed' &&
@@ -186,10 +227,16 @@ SearchBar.propTypes = {
   page: PropTypes.string.isRequired,
   languageFilter: PropTypes.func,
   languageList: PropTypes.arrayOf(PropTypes.string),
-  searchFilter: PropTypes.func.isRequired
+  searchFilter: PropTypes.func.isRequired,
+  sortMethod: PropTypes.func.isRequired,
+  sortOrder: PropTypes.func.isRequired,
+  actualSortMethodsList: PropTypes.arrayOf(PropTypes.string),
+  duplicateSortMethodsList: PropTypes.arrayOf(PropTypes.string)
 };
 SearchBar.defaultProps = {
   languageFilter: null,
-  languageList: []
+  languageList: [],
+  actualSortMethodsList: [],
+  duplicateSortMethodsList: []
 }
 export default SearchBar;
