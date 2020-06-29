@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 
+import { toast } from 'react-toastify';
+
 import { storedUserData } from '../../firestore/profileSettings';
 import styles from '../../scss/settings.module.scss';
 import Spinner from '../Spinner';
@@ -22,6 +24,10 @@ const SettingsFinal = () => {
       const result = await storedUserData(User.uid);
       if (result !== null) {
         setLoggedInUser(result);
+      }
+      else
+      {
+        toast.error('Some error Occurred ! Please try again later.');
       }
       setPageLoading(false);
     }
