@@ -40,7 +40,10 @@ export function checkEmail(email) {
 export async function checkUserName(userName, uid) {
 
   const limitCheck = checkLengthLimit(userName.length, 50, 1);
-  
+  const userNamePattern = new RegExp(/^[a-z0-9_]{1,50}$/);
+  if ((userName.match(userNamePattern) === null) && limitCheck === null) {                // Pattern validation to include only Alphabets , Numbers and underscore(_)
+    return "Username can only contain alphabets, numbers and underscore(_).";
+  }
   if (limitCheck === null) {
     
     const uniqueStatus = await checkUnique('userName', userName, uid);
