@@ -45,7 +45,7 @@ export default function FeedFinal() {
           res.push(doc.data());
           lastDoc = doc;
         });
-        if (res !== null && res.length > 0) {
+        if (res.length > 0) {
           if (res.length < 20) {
             setReachedEnd(true);
           }
@@ -54,7 +54,7 @@ export default function FeedFinal() {
           setRepoList([...repoList, res].flat());
           setCurrentLastNodeId(lastDoc);
         }
-        if (res !== null && res.length === 0) {
+        if (res.length === 0) {
           setReachedEnd(true);
         }
       }
