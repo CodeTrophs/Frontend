@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-import firebase from '../firebase'
+import firebase,{db} from '../firebase'
 
 export async function GoogleSignIn() {
 
@@ -9,7 +9,6 @@ export async function GoogleSignIn() {
       Define Required  Scopes here
   */
   return firebase.auth().signInWithPopup(provider).then((result) => {
-    const db = firebase.firestore();
     db.collection('users').doc(result.user.uid).set({
       name: result.user.displayName,
       email: result.user.email,
@@ -31,7 +30,6 @@ export async function GithubSignIn() {
   const provider = new firebase.auth.GithubAuthProvider();
   return firebase.auth().signInWithPopup(provider).then((result) => {
 
-    const db = firebase.firestore();
     db.collection('users').doc(result.user.uid).set({
       name: result.user.displayName,
       email: result.user.email,

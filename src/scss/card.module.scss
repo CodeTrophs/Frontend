@@ -13,18 +13,27 @@
   display: flex;
 }
 .heading {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
+  cursor: pointer;
+  color: rgba(29, 89, 168, 0.685);
 }
 .date {
   font-weight: 500;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.heart {
+.stars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
-  width: 2rem;
+  img {
+    height:35px;
+    width:35px;
+  }
 }
 .langButton {
   margin-left: 1.25rem;
@@ -32,6 +41,15 @@
   font-size: 0.9375rem;
   font-weight: 450;
   margin-top: 1.3rem;
+  .language-tag {
+    border-radius: 0.5rem;
+    border-style: solid;
+    background-color: whitesmoke;
+    border-color: #000;
+    font-weight: normal;
+    border-width: 0.1rem;
+    padding: 0 0.25rem;
+  }
 }
 .middle {
   width: 70%;
@@ -103,4 +121,17 @@
   
 }
 
+}
+
+
+.repoOwnerImage {
+  height: 100px !important;
+  width: 100px !important;
+  border-radius: 1rem;
+}
+
+.left-col {
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
 }

@@ -37,6 +37,8 @@
 .filter-dropdown {
   color: white;
   position: absolute;
+  max-height: 20rem;
+  overflow:auto;
   background-color: black;
   margin-top: 35px;
   margin-left: 20px;
@@ -44,6 +46,19 @@
   padding-left: 10px;
   border-radius: 10px;
 }
+.filter-dropdown::-webkit-scrollbar {
+  background-color: initial;  
+  width: 0.5rem;
+}
+
+.filter-dropdown::-webkit-scrollbar-thumb {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
 .dropdown-items {
   padding-top: 5px;
   cursor: pointer;

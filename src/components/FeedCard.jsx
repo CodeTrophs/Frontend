@@ -1,43 +1,38 @@
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import styles from '../scss/card.module.scss';
 
-export default function Card() {
+export default function Card({repo}) {
   return (
     <div>
       <div className={styles['big-box']}>
         <div className={styles.flex}>
-          <div>
-            <img src="SVG/Rectangle 217.svg" alt="project" />
-            <div className={styles.heart}>
-              <img src="SVG/heart (1).svg" alt="like" />
-              <p>213</p>
+          <div className={styles['left-col']}>
+            <img src={repo.owner.avatar_url} className={styles.repoOwnerImage} alt="Organisation Logo" />
+            <div className={styles.stars}>
+              <img src="images/star.png" alt="stars" />
+              <p>{repo.watchers}</p>
             </div>
           </div>
           <div className={styles.middle}>
-            <Link href="/project/[pid]" as="/project/pid">
+            <Link href={`/project/${repo.id}`} as="/project/pid">
               <div className={styles.heading}>
-                <p>Open Source Code</p>
+                <p>{repo.full_name.split('/')[1]}</p>
               </div>
             </Link>
             <div>
               <div className={styles.date}>
-                <p>By Organisation | 08 May 2020</p>
+                <p>By <em style={{color:"green"}}>{repo.full_name.split('/')[0]}</em> | {repo.pushed_at.slice(0,10)}</p>
               </div>
               <p>
-                There should be some content her. So I am filling this with
-                random content inorder to fill this space. Feel free to add
-                on.We can add more and more content here so that we can see what
-                this is gonna look like on the real website page
+               {repo.description}
               </p>
             </div>
             <div className={styles.flex}>
               <div className={styles.langButton}>
-                <p>Javascript</p>
-              </div>
-              <div className={styles.langButton}>
-                <p>CSS</p>
+                <p className={styles['language-tag']}>{repo.language}</p>
               </div>
             </div>
           </div>
@@ -49,14 +44,14 @@ export default function Card() {
                       src="SVG/Icon awesome-exclamation-circle.svg"
                       alt="issue"
                     />
-                    <p>Issues:13</p>
+                  <p>Issues:{repo.open_issues}</p>
                 </div>
               </div>
               <div>
                 <div className={styles['smallbox-below']}>
                   <div className={styles.flex}>
-                      <img src="SVG/pr.svg" alt="pr" />
-                      <p>PR:1233</p>
+                      <img src="SVG/pr.svg" alt="fork" />
+                    <p>Forks:{repo.forks}</p>
                   </div>
                 </div>
               </div>
@@ -70,3 +65,20 @@ export default function Card() {
     </div>
   );
 }
+
+Card.propTypes = {
+  repo: PropTypes.shape({
+    full_name: PropTypes.string,
+    pushed_at: PropTypes.string,
+    description: PropTypes.string,
+    language: PropTypes.string,
+    open_issues: PropTypes.number,
+    forks: PropTypes.number,
+    watchers: PropTypes.number,
+    id: PropTypes.number,
+    owner: PropTypes.shape({
+      name: PropTypes.string,
+      avatar_url: PropTypes.string
+    }),
+  }).isRequired
+};
