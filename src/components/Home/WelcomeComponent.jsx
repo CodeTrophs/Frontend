@@ -1,14 +1,13 @@
 import Router from 'next/router';
-import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import styles from '../../scss/home.module.scss';
 import * as FirebaseAuth from '../FirebaseAuth';
-import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 
-export default function WelcomeComponent() {
-  const [Loading, setLoading] = useState(false);
+export default function WelcomeComponent({setLoading}) {
   const { setUser } = useContext(UserContext);
   function changeUser(name, email, uid, profileImageUrl) {
     setUser({
@@ -77,7 +76,6 @@ export default function WelcomeComponent() {
     return null;
   }
 
-  if (Loading) return <Spinner />;
 
   return (
     <div className={styles['welcome-container']}>
@@ -121,4 +119,8 @@ export default function WelcomeComponent() {
       </div>
     </div>
   );
+}
+
+WelcomeComponent.propTypes = {
+  setLoading: PropTypes.func.isRequired,
 }
