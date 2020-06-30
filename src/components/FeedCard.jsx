@@ -4,10 +4,11 @@ import React from 'react';
 
 import styles from '../scss/card.module.scss';
 
-export default function Card({repo}) {
+export default function Card({ repo, isSaved, changeSaveOption }) {
+
   return (
     <div>
-      <div className={styles['big-box']}>
+      <div className={isSaved ? styles.savedRepo : styles['big-box']}>
         <div className={styles.flex}>
           <div className={styles['left-col']}>
             <img src={repo.owner.avatar_url} className={styles.repoOwnerImage} alt="Organisation Logo" />
@@ -56,9 +57,18 @@ export default function Card({repo}) {
                 </div>
               </div>
             </div>
-            <div className={styles['save-syntax']}>
-              <p>Save</p>
-            </div>
+              <button
+                type="button"
+                className={isSaved === true ? styles.savedButton : styles.unSavedButton}
+                onClick={() => {
+                if (isSaved === true) {
+                  changeSaveOption('remove');
+                }
+                else
+                    changeSaveOption('add');
+              }}>
+                {isSaved ? 'Saved' : 'Save'}
+              </button>
           </div>
         </div>
       </div>
@@ -80,5 +90,7 @@ Card.propTypes = {
       name: PropTypes.string,
       avatar_url: PropTypes.string
     }),
-  }).isRequired
+  }).isRequired,
+  isSaved: PropTypes.bool.isRequired,
+  changeSaveOption: PropTypes.func.isRequired
 };

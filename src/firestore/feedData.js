@@ -25,3 +25,15 @@ export async function getLanguageList() {
     return res.data().language.sort();
   });
 }
+
+export async function getSavedRepoList(user) {
+  return db.collection('users').doc(user).get().then(res => {
+    const result = res.data().followingRepositories;
+    if (result === undefined) return [];
+    return result;
+  });
+}
+
+export async function setSavedRepoList(user,list) {
+  return db.collection('users').doc(user).update({ followingRepositories: list });
+}

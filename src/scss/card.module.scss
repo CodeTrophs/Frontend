@@ -1,7 +1,7 @@
 @import 'variables';
 
 
-.big-box {
+.big-box {                    // Unsaved Repo Card
   @include padding-all(3rem,1.5rem,1.5rem,1.5rem);
   box-shadow: $box-shadow-dark;
   border-radius: 1rem;
@@ -9,6 +9,17 @@
   margin-right: 3rem;
   margin-bottom: 2.5rem;
 }
+
+.savedRepo {            // Saved Repo Card
+   @include padding-all(3rem,1.5rem,1.5rem,1.5rem);
+  box-shadow: $box-shadow-dark;
+  border-radius: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-bottom: 2.5rem;
+  background-color: rgb(202, 185, 185);
+}
+
 .flex {
   display: flex;
 }
@@ -134,4 +145,38 @@
   justify-content: center;
   align-items: center;
   margin-right: 0.5rem;
+}
+
+.savedButton {  
+  width: fit-content;
+  padding-top: 0.3125rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  border: 0.1rem solid black;
+  height: 2.1875rem;
+  color: black;
+  background-color: white;
+  margin: 1rem auto;
+}
+
+.unSavedButton {
+  width: fit-content;
+  padding-top: 0.3125rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  border: none;
+  height: 2.1875rem;
+  color: white;
+  background-color: black;
+  margin: 1rem auto;
 }

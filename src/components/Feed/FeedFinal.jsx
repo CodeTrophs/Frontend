@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { toast } from 'react-toastify';
 
-import { getRepos, getLanguageList } from '../../firestore/feedData';
+import { getRepos, getLanguageList, getSavedRepoList,setSavedRepoList } from '../../firestore/feedData';
 import styles from '../../scss/feed.module.scss';
 import Card from '../FeedCard';
 import LinearLoader from '../LinearLoader';
 import SearchBar from '../SearchBar';
 import Spinner from '../Spinner';
+import UserContext from '../UserContext';
 import FeedIntroduction from './FeedIntro';
 import FeedLang from './TopLang';
 import FeedOrg from './TopOrg';
@@ -18,9 +19,10 @@ import FeedTag from './TopTags';
 
 export default function FeedFinal() {
 
+  const { User } = useContext(UserContext);
   const [pageLoading, setPageLoading] = useState(true);
   const [currentLastNodeId, setCurrentLastNodeId] = useState(null);         // Node id to start after
-  const [repoList, setRepoList] = useState([]);
+  const [repoList, setRepoList] = useState([]);                             // All Repositories List
   const [reachedEnd, setReachedEnd] = useState(false);                      // Infinite Scrolling : End Reached
   const [filterLanguage, setFilterLanguage] = useState('All');
   const [searchRepoQuery, setSearchRepoQuery] = useState('');
@@ -29,6 +31,8 @@ export default function FeedFinal() {
   const [languageList, setLanguageList] = useState([]);
   const [sortMethod, setSortMethod] = useState('node_id');
   const [sortOrder, setSortOrder] = useState('asc');
+  const [savedRepos, setSavedRepos] = useState([]);                         // Saved Repos List
+  const [savedRepoListChanged, setSavedRepoListChanged] = useState(false);  // For calling functions that need savedRepos to be changed first
     // Fetch the Repositories
 
   async function getNextRepos() {
@@ -64,17 +68,30 @@ export default function FeedFinal() {
 
   }
 
+          // Get Available Languages
+
   async function getLanguages() {
     getLanguageList().then(res => {
       setLanguageList(res);
     });
   }
-
+                  // Call Required functions
+  async function InitialLoad() {
+     getSavedRepoList(User.uid).then(res => {
+       setSavedRepos(res);
+       getNextRepos();
+       getLanguages();
+     });
+  }
+                // Initial Rendering
   useEffect(() => {
-    getNextRepos();
-    getLanguages();
+    if (User) {
+      InitialLoad();
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+  }, [User]);
+
+                  // Detect and Change sortOrder, search Bar text, sort Method, language filter
 
   useEffect(() => {
     if (sortOrder === 'asc') {
@@ -94,6 +111,23 @@ export default function FeedFinal() {
     getNextRepos();
   }, [paramsChanged]);
 
+                                    // Change Saved Repo List depending on method either to remove or to add
+  const changeSavedList = (nodeId, method) => {
+    if (method === 'remove') {
+      setSavedRepos([...savedRepos.filter(id => id !== nodeId)]);
+    }
+    else
+    {
+      setSavedRepos([...savedRepos, nodeId]);  
+    }
+    setSavedRepoListChanged(!savedRepoListChanged);
+  }
+                              // Update database once savedRepos state has been changed 
+  useEffect(() => {
+    if (User && repoList.length > 0) {
+      setSavedRepoList(User.uid, savedRepos);
+    }
+  },[savedRepoListChanged]);
 
   if (pageLoading)
     return (<Spinner />);
@@ -132,7 +166,14 @@ export default function FeedFinal() {
             }
           >
             {repoList.map(repo => {
-              return <Card key={repo.id} repo={repo} />
+              return (
+                <Card
+                  key={repo.id}
+                  repo={repo}
+                  isSaved={savedRepos.find(id => id === repo.node_id) !== undefined}
+                  changeSaveOption = {(method)=> changeSavedList(repo.node_id, method)}
+                />
+              )
             })}
           </InfiniteScroll>}
         {reposLoading === true && <LinearLoader />}
