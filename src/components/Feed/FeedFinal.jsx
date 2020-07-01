@@ -32,8 +32,8 @@ export default function FeedFinal() {
   const [sortMethod, setSortMethod] = useState('node_id');
   const [sortOrder, setSortOrder] = useState('asc');
   const [savedRepos, setSavedRepos] = useState([]);                         // Saved Repos List
-  const [savedRepoListChanged, setSavedRepoListChanged] = useState(false);  // For calling functions that need savedRepos to be changed first
-    // Fetch the Repositories
+
+  // Fetch the Repositories
 
   async function getNextRepos() {
 
@@ -112,22 +112,15 @@ export default function FeedFinal() {
   }, [paramsChanged]);
 
                                     // Change Saved Repo List depending on method either to remove or to add
-  const changeSavedList = (nodeId, method) => {
-    if (method === 'remove') {
-      setSavedRepos([...savedRepos.filter(id => id !== nodeId)]);
+  const changeSavedList = async(nodeId, method) => {
+    if (User) {
+      return setSavedRepoList(User.uid, method, nodeId).then((res) => {
+        setSavedRepos(res);
+        return "complete";
+      });
     }
-    else
-    {
-      setSavedRepos([...savedRepos, nodeId]);  
-    }
-    setSavedRepoListChanged(!savedRepoListChanged);
+    return "complete";
   }
-                              // Update database once savedRepos state has been changed 
-  useEffect(() => {
-    if (User && repoList.length > 0) {
-      setSavedRepoList(User.uid, savedRepos);
-    }
-  },[savedRepoListChanged]);
 
   if (pageLoading)
     return (<Spinner />);
@@ -171,7 +164,7 @@ export default function FeedFinal() {
                   key={repo.id}
                   repo={repo}
                   isSaved={savedRepos.find(id => id === repo.node_id) !== undefined}
-                  changeSaveOption = {(method)=> changeSavedList(repo.node_id, method)}
+                  changeSaveOption={async (method) => { return changeSavedList(repo.node_id, method); }}
                 />
               )
             })}

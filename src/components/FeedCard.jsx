@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from '../scss/card.module.scss';
+import LinearLoader from './LinearLoader';
 
 export default function Card({ repo, isSaved, changeSaveOption }) {
-
+  const [saving, setSaving] = useState(false);
   return (
     <div>
       <div className={isSaved ? styles.savedRepo : styles['big-box']}>
@@ -57,18 +58,26 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
                 </div>
               </div>
             </div>
+            {saving === true && <LinearLoader />}
+            {saving === false &&
               <button
                 type="button"
                 className={isSaved === true ? styles.savedButton : styles.unSavedButton}
                 onClick={() => {
-                if (isSaved === true) {
-                  changeSaveOption('remove');
-                }
-                else
-                    changeSaveOption('add');
-              }}>
+                  setSaving(true);
+                  if (isSaved === true) {
+                    changeSaveOption('remove').then(() => {
+                      setSaving(false);
+                    });
+                  }
+                  else
+                    changeSaveOption('add').then(() => {
+                      setSaving(false);
+                    });
+                }}>
                 {isSaved ? 'Saved' : 'Save'}
               </button>
+            }
           </div>
         </div>
       </div>
