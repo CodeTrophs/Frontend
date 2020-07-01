@@ -160,7 +160,7 @@ export default function BoxProfile() {
                 <p>Save</p>
               </div>
               <div className={styles.count}>
-                <p>0</p>
+                <p>{UserData.followingRepositories ? UserData.followingRepositories.length : 0}</p>
               </div>
             </div>
           </div>

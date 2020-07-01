@@ -35,19 +35,13 @@ export async function getSavedRepoList(user) {
 }
 
 export async function setSavedRepoList(user, method, value) {
-  if (method === 'remove')
-  {
+  if (method === 'remove') {
     return db.collection('users').doc(user).update({
       followingRepositories: firebase.firestore.FieldValue.arrayRemove(value)
-    }).then(() => {
-      return getSavedRepoList(user);    
     });
   }
-  
-    return db.collection('users').doc(user).update({
+  return db.collection('users').doc(user).update({
       followingRepositories: firebase.firestore.FieldValue.arrayUnion(value)
-    }).then(() => {
-      return getSavedRepoList(user);
     });
   
 }

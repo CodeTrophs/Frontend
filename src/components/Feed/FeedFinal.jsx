@@ -114,8 +114,12 @@ export default function FeedFinal() {
                                     // Change Saved Repo List depending on method either to remove or to add
   const changeSavedList = async(nodeId, method) => {
     if (User) {
-      return setSavedRepoList(User.uid, method, nodeId).then((res) => {
-        setSavedRepos(res);
+      if (method === 'remove')
+        setSavedRepos([...savedRepos.filter(id => id !== nodeId)]);
+      else
+        setSavedRepos([...savedRepos, nodeId]);
+
+      return setSavedRepoList(User.uid, method, nodeId).then(() => {
         return "complete";
       });
     }
