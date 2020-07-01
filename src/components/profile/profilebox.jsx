@@ -56,7 +56,7 @@ export default function BoxProfile() {
             </div>
             <div className={styles.boxcontent}>
               <h2 className={styles['usersname-user']}>
-                {UserData.name && UserData.name}
+                {UserData.firstName && UserData.firstName} {UserData.lastName && UserData.lastName}
               </h2>
               <hr
                 className={styles.hr}

@@ -14,7 +14,17 @@ export async function GoogleSignIn() {
       email: result.user.email,
       uid: result.user.uid,
       profileImageUrl: result.user.photoURL
-    }, { merge: true });
+    }, { merge: true }).then(() => {
+      if (result.additionalUserInfo.isNewUser === true) {
+        const firstName = result.additionalUserInfo.profile.given_name;
+        if (result.additionalUserInfo.profile.family_name !== undefined) {
+          const lastName = result.additionalUserInfo.profile.family_name;
+          db.collection('users').doc(result.user.uid).update({ firstName, lastName });
+        }
+        else
+          db.collection('users').doc(result.user.uid).update({ firstName });
+      }
+    });
     const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid, profileImageUrl: result.user.photoURL };
 
     const newSecureToken = jwt.sign(resultData, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY);
@@ -35,8 +45,17 @@ export async function GithubSignIn() {
       email: result.user.email,
       uid: result.user.uid,
       profileImageUrl: result.user.photoURL, 
-    }, { merge: true });
-
+    }, { merge: true }).then(() => {
+      if (result.additionalUserInfo.isNewUser === true) {
+        const firstName = result.additionalUserInfo.profile.given_name;
+        if (result.additionalUserInfo.profile.family_name !== undefined) {
+          const lastName = result.additionalUserInfo.profile.family_name;
+          db.collection('users').doc(result.user.uid).update({ firstName, lastName });
+        }
+        else
+          db.collection('users').doc(result.user.uid).update({ firstName });
+      }
+    });
 
     const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid, profileImageUrl: result.user.photoURL };
     const newSecureToken = jwt.sign(resultData, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY);
