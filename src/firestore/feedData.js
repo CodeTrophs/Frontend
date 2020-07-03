@@ -45,3 +45,19 @@ export async function setSavedRepoList(user, method, value) {
     });
   
 }
+
+export async function getSavedRepoData(user, index) {
+  const list = await getSavedRepoList(user);
+  list.sort();
+  const data = [];
+  let count = 0;
+  for (let i = index; i < list.length && count < 20;) {
+     // eslint-disable-next-line
+    await db.collection('repositories').doc(list[i]).get().then(res => {
+      data.push(res.data());
+    });
+     i+=1;
+     count+=1;
+  }
+  return data;
+}

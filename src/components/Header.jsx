@@ -104,7 +104,22 @@ export default function Header() {
                 }}
               />
             )}
-          </div>
+            </div>
+            <div className={styles.link}>
+              <Link href="/saved">
+                <p>Saved Repositories</p>
+              </Link>
+              {router.pathname === '/saved' && (
+                <hr
+                  style={{
+                    width: '30%',
+                    height: '3px',
+                    backgroundColor: '#333',
+                    border: 'none'
+                  }}
+                />
+              )}
+            </div>
         </div>
       ) : null}
       <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>

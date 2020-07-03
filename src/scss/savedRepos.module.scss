@@ -1,0 +1,30 @@
+@import 'variables';
+
+
+.savedReposDiv {
+  display: block;
+  margin: auto;
+  width: 100%;
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    hr {
+        width: 2.5em;
+        height: 0.5rem;
+        background-color: #000;
+        // display: block;
+        margin: auto;
+      }
+  }
+}
+
+
+@media only screen and (min-width : 800px ) {
+  .savedReposDiv {
+    width: 75%;
+    h1 {
+      margin: 2rem auto;
+    }
+  }
+}

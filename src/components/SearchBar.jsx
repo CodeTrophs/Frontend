@@ -168,7 +168,7 @@ const SearchBar = ({ page, languageFilter, searchFilter, languageList, sortMetho
         </div>  
                                     {/* Show Languages Filter only on feed Page */}
         {
-          page === 'feed' &&
+          page !== 'organizations' &&
           <div className={styles.filter}>
             <div
               className={styles['filter-show']}

@@ -119,6 +119,20 @@ const SideDrawer = ({ handleClose, router }) => {
             />
           )}
         </div>
+        <div className={styles.link}>
+          <Link href="/saved">
+            <p>Saved Repositories</p>
+          </Link>
+          {router.pathname === '/saved' && (
+            <hr
+              style={{
+                height: '3px',
+                backgroundColor: '#333',
+                border: 'none'
+              }}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
