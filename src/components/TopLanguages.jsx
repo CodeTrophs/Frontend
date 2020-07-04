@@ -1,48 +1,33 @@
 import Router from 'next/router';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import {db} from '../firebase';
+import { getLanguageList } from '../firestore/feedData';
 import styles from '../scss/org.module.scss';
+import Spinner from './Spinner';
 import UserContext from './UserContext';
 
 export default function TopOrganisation() {
   const { User } = useContext(UserContext);
   const [searchInput, setSearchInput] = useState('');
-  const Langs = [
-    'javascript1',
-    'javascript2',
-    'javascript3',
-    'javascript4',
-    'javascript5',
-    'javascript6',
-    'javascript7',
-    'javascript8',
-    'javascript9',
-    'javascript10',
-    'javascript11',
-    'javascript12',
-    'javascript13',
-    'javascript14',
-    'javascript15',
-    'javascript16',
-    'javascript17',
-    'javascript18',
-    'javascript19',
-    'javascript20',
-    'javascript21',
-    'javascript22',
-    'javascript23',
-    'javascript24',
-    'javascript25',
-    'javascript26',
-    'javascript27',
-    'javascript28',
-    'javascript29',
-    'javascript30'
-  ];
-  const [list, setList] = useState(Langs);
+  const [langs, setLangs] = useState([]);
+  const [list, setList] = useState([]);
   const [followed, setFollowed] = useState([]);
-
+  const [pageLoading, setPageLoading] = useState(true);
+  async function getLanguages() {
+    getLanguageList().then(res => {
+      if (res != null) {
+        setLangs(res);
+        setList(res);
+      }
+      setPageLoading(false);
+    });
+  }
+  
+  useEffect(() => {
+    getLanguages();
+  }, []);
+  
 
   // SUBMITTING ORGANISATIONS
 
@@ -57,12 +42,12 @@ export default function TopOrganisation() {
 
   const search = (e) => {
     if (e.target.value !== '') {
-      const newList = Langs.filter((lang) => {
-        return lang.includes(e.target.value.toLowerCase());
+      const newList = langs.filter((lang) => {
+        return lang.toLowerCase().includes(e.target.value.toLowerCase());
       });
       setList(newList);
     } else {
-      setList(Langs);
+      setList(langs);
     }
   };
 
@@ -85,6 +70,8 @@ export default function TopOrganisation() {
   //   };
   //   getData();
   // }, []);
+
+  if (pageLoading) { return <Spinner /> }
 
   return (
     <div>

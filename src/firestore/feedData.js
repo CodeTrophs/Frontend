@@ -23,6 +23,8 @@ export async function getRepos(nodeId, searchRepo, filterLanguage, sortMethod, s
 export async function getLanguageList() {
   return db.collection('languages').doc('languages').get().then(res => {
     return res.data().language.sort();
+  }).catch(() => {
+    return null;
   });
 }
 
