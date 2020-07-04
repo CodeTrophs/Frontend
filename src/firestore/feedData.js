@@ -48,7 +48,7 @@ export async function setSavedRepoList(user, method, value) {
 
 export async function getSavedRepoData(user, index) {
   const list = await getSavedRepoList(user);
- // list.sort();
+  list.sort();
   const data = [];
   const listCalled = [];
   let count = 0;
