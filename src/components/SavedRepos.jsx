@@ -30,7 +30,7 @@ export default function SavedRepos() {
       }
       else
         if (res.length > 0) {
-          if (res.length < 20) {
+          if (res.length < 10) {
             setReachedEnd(true);
           }
           else
