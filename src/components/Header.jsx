@@ -142,6 +142,7 @@ export default function Header() {
               src={
                 User !== null && User.profileImageUrl ? User.profileImageUrl : '/SVG/user.svg'
               }
+              onError = {(e)=>{e.target.onerror = null;e.target.src = '/SVG/user.svg'}}
               alt="me"
               className={styles['header-profile-picture']}
             />
@@ -161,7 +162,7 @@ export default function Header() {
                     src={
                       User !== null && User.profileImageUrl ? User.profileImageUrl : '/SVG/user.svg'
                     }
-                    onError='/SVG/user.svg'
+                    onError = {(e)=>{e.target.onerror = null;e.target.src = '/SVG/user.svg'}}
                     alt="me"
                   />
                   {User !== null && <p> {User.name} </p>}
