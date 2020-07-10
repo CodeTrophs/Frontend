@@ -196,6 +196,98 @@
   margin-right: 2.5rem;
 }
 
+.filterbox {
+  margin: 2rem 0 0 2rem;
+  @include padding-all(1rem,1rem,1rem,1rem);
+  width: 20rem;
+  height: min-content;
+  background-color: hsl(0, 5%, 92%);
+  border-right:0.1rem solid rgb(82, 69, 69);
+  h1{
+    text-align: center;
+  }
+
+  h3{
+    color: rgb(61, 61, 61);
+  }
+  
+}
+
+.data-list {
+  max-height: 12rem;
+  overflow-y: auto;
+  margin: 1rem 0;
+}
+
+.filter-tags{
+  max-width: 75%;
+  background-color: #f7f7f7;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.filter-tag {
+  width: fit-content;
+  padding: 2px 10px;
+  background-color: #cecccc;
+  border-radius: 10px;
+  margin: 5px;
+  color: black;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border:0.1rem solid rgb(31, 31, 31);
+}
+
+.clear-button {
+  cursor: pointer;
+  border: none;
+  color: #ff0000;
+  padding: 2px 10px;
+  background-color: #e9e7e7;
+  font-weight: 600;
+  border:0.1rem solid #ff0000;
+  border-radius: 1rem;
+  font-size: 1rem;
+  margin: 5px;
+}
+
+.clear-button:hover {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.apply-filter-button {
+  cursor: pointer;
+  border: none;
+  color: #04a704;
+  padding: 2px 10px;
+  background-color: #e9e7e7;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+.apply-filter-button:hover {
+   background-color: #04a704;
+   color: white; 
+  }
+.apply-filter-button:disabled {
+  display: none;
+}
+
+.error-list {
+  border: 0.25rem solid #ff0000;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+
 /* Small screen devices */
 
 @media only screen and (max-width: 800px) {
@@ -231,6 +323,23 @@
   justify-content: center;
   align-items:center;
   flex-direction: column;
+}
+
+.filterbox {
+  margin: 0 15px;
+  font-weight: 600;
+  padding: 1rem 1rem;
+  margin-top: 2rem;
+  width: auto;
+  background-color: hsl(0, 5%, 92%);
+  border-right:0.1rem solid rgb(82, 69, 69);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.filter-tags {
+  max-width: 90%;
 }
 
 }
