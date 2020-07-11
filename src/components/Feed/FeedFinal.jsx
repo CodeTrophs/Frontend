@@ -36,6 +36,7 @@ export default function FeedFinal() {
   const [appliedLanguagesList, setAppliedLanguagesList] = useState([]);       // This will be sent for extracting from database
   const [applyLangFilterDisabled, setApplyLangFilterDisabled] = useState(false); // Apply Language filter button (Disabled ?)
   const firstResult = useRef(null);                             // For scrolling to the first repo on initial render and applying filters
+  const [showFilters, setShowFilters] = useState(false);
   const sortList = [
     {actual:'node_id',display:'Best Match',order:'asc'},
     {actual:'full_name',display:'Full Name (A to Z)',order:'asc'},
@@ -177,10 +178,19 @@ async function getOrganisations() {
   return (
     <div>
       <FeedIntroduction />
-      <SearchBar
-        page="feed"
-        searchFilter={(repoName) => setSearchRepoQuery(repoName)}
-      />
+      <div className={styles.search}>
+        <SearchBar
+          page="feed"
+          searchFilter={(repoName) => setSearchRepoQuery(repoName)}
+        />
+        <button
+          type="button"
+          className={styles['filter-icon']}
+          onClick={() => { setShowFilters(!showFilters); document.body.style.overflow = 'hidden'; }}
+        >
+          <img src='/SVG/filter-icon-black.svg' alt="Filters" />
+        </button>
+      </div>
 {/* ==================================================================================================================================== */}
                                                             {/** Applied Filters Tags */}
       <div className={styles['filter-tags']}>
@@ -278,7 +288,118 @@ async function getOrganisations() {
               );})
           }
         </div>
-      </div>
+        </div>
+{/* ==================================================================================================================================== */}
+                                                        {/* Display Mobile Filters here */}
+        {showFilters &&
+          <div className={styles['mobile-view-filters-outer']}>
+          <div className={styles['mobile-view-filters']}>
+          <h1> Filters
+          <button
+              type="button"
+                onClick={() => { setSelectedLanguagesList(appliedLanguagesList); setShowFilters(false); document.body.style.overflow = 'auto'; }}
+              style={{
+                backgroundColor: 'transparent',
+                border: 'none',
+                position: 'absolute',
+                right: '10%',
+                cursor: 'pointer'
+              }}
+            >
+              <img
+                src="/SVG/cross-icon.png"
+                alt="x"
+                style={{ width: '20px' }}
+              />
+            </button> 
+          </h1>
+            {/* Languages */}
+            <h3> Languages </h3>
+            {applyLangFilterDisabled === true &&
+              <span style={{ color: `#ff0000` }}>Select Max. 5 languages</span>
+            }
+            <div
+              id="languages"
+              className={`${styles['data-list']} ${applyLangFilterDisabled ? styles['error-list'] : ''} `}
+            >
+              {
+                languageList.map(lang => {
+                  return (
+                    <div key={lang}>
+                      <input type="checkbox" value={lang} name="language"
+                        defaultChecked={selectedLanguagesList.find(el=>el === lang) !== undefined}
+                        onChange={(e) => {
+                          if (selectedLanguagesList.find(el => el === e.target.value) !== undefined) {
+                            setSelectedLanguagesList([...selectedLanguagesList.filter(el => el !== e.target.value)]);
+                          }
+                          else
+                            setSelectedLanguagesList([...selectedLanguagesList, e.target.value]);
+                        }}
+                      />
+                      {'  '} {lang}
+                    </div>
+                  );
+                })
+              }
+            </div>
+            {/* Organisations */}
+            <h3>Organisations</h3>
+            <div
+              id="organisations"
+              className={styles['data-list']}
+              onChange={(e) => {
+                setSelectedOrganisation(e.target.value);
+              }}
+            >
+              <div key='All'>
+                <input type="radio" value='All' defaultChecked={selectedOrganisation === 'All'} name="Organisation" /> All
+        </div>
+              {
+                organisationList.map(org => {
+                  return (
+                    <div key={org}>
+                      <input type="radio" value={org} defaultChecked={selectedOrganisation === org} name="Organisation" /> {org[0].toUpperCase() + org.slice(1).toLowerCase()}
+                    </div>
+                  );
+                })
+              }
+            </div>
+            {/* Sort Methods */}
+            <h3>Sort By</h3>
+            <div
+              id="sortMethods"
+              className={styles['data-list']}
+              onChange={(e) => {
+                setSortMethod(e.target.value.split(',')[0]);
+                setSortOrder(e.target.value.split(',')[1]);
+                setSelectedSortMethod(e.target.id);
+              }}
+            >
+              {
+                sortList.map(method => {
+                  return (
+                    <div key={method.display}>
+                      <input type="radio" defaultChecked={method.actual === 'node_id'} id={method.display} value={[method.actual, method.order]} name="sortMethod" /> {method.display}
+                    </div>
+                  );
+                })
+              }
+          </div>
+          <button
+            type='button'
+            className={styles['apply-filter-button']}
+            onClick={() => {
+              applyLanguagesFilter();
+              setShowFilters(false);
+              document.body.style.overflow = 'auto';
+            }}
+            disabled={applyLangFilterDisabled}
+          > Apply Filters
+            </button>
+          </div>
+          </div>
+        }
+
 {/* ==================================================================================================================================== */}
                                                         {/* Display the repos/ projects here */}
       <div ref={firstResult} />
