@@ -266,16 +266,17 @@
 .apply-filter-button {
   cursor: pointer;
   border: none;
-  color: #04a704;
+  color: #e9e7e7;
   padding: 2px 10px;
-  background-color: #e9e7e7;
+  background-color: #04a704;
   border-radius: 1rem;
   font-size: 1rem;
 }
 
 .apply-filter-button:hover {
-   background-color: #04a704;
-   color: white; 
+   background-color: #fff;
+   font-weight: 600;
+   color: #04a704; 
   }
 .apply-filter-button:disabled {
   display: none;

@@ -216,13 +216,15 @@ async function getOrganisations() {
         <h1> Filters </h1>
                                                               {/* Languages */}
           <h3> Languages
-            <button
-              type='button'
-              className={styles['apply-filter-button']}
-              onClick={applyLanguagesFilter}
-              disabled={applyLangFilterDisabled}
-            > Apply filter
+          {JSON.stringify(selectedLanguagesList) !== JSON.stringify(appliedLanguagesList) &&
+              <button
+                type='button'
+                className={styles['apply-filter-button']}
+                onClick={applyLanguagesFilter}
+                disabled={applyLangFilterDisabled}
+              > Apply filter
             </button>
+            }
           </h3>
           { applyLangFilterDisabled === true &&
             <span style={{ color: `#ff0000` }}>Select Max. 5 languages</span>
