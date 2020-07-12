@@ -22,8 +22,13 @@ export async function setBasicInfo(ReceivedFormData) {
     if(formData.lastName === '') { 
       formData.lastName = firebase.firestore.FieldValue.delete(); 
     }
-    return db.collection('users').doc(uid).update(formData).then(()=>{
-        return {status:'success'};
+    return db.collection('users').doc(uid).update(formData).then(() => {
+        return db.collection('usernames').doc(uid).set({ userName: formData.userName }).then(() => {
+            return { status: 'success' };
+        }).catch((err) => {
+            console.log(err);
+            return { status: 'error' };
+        })
     }).catch(()=>{
         return {status:'error'};
     });
@@ -81,14 +86,14 @@ export async function setSocialHandles(ReceivedFormData) {
     });
 }
 
-export async function checkUnique(property, data, uid) {
+export async function checkUnique(collection, property, data, uid) {
     
-    return db.collection("users").where(property, '==', `${data}`).get().then(result => {
-        
-        if(result.size > 1)
+    return db.collection(collection).where(property , '==', data).get().then(result => {
+
+        if(result.docs.length > 1)
           return false;
         
-        if (result.size === 1 && result.docs[0].id !== uid)
+        if (result.docs.length === 1 && result.docs[0].id !== uid)
           {
               return false;
           }

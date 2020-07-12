@@ -46,7 +46,7 @@ export async function checkUserName(userName, uid) {
   }
   if (limitCheck === null) {
     
-    const uniqueStatus = await checkUnique('userName', userName, uid);
+    const uniqueStatus = await checkUnique('usernames','userName', userName, uid);
     if(uniqueStatus === false)
       return "This username is already taken.";
     return null;
