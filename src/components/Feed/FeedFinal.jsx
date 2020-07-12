@@ -203,7 +203,9 @@ async function getOrganisations() {
         {selectedOrganisation &&
         <div className={styles['filter-tag']} ><strong>Organisation :</strong> {selectedOrganisation[0].toUpperCase() + selectedOrganisation.slice(1).toLowerCase()} </div> }
         <div className={styles['filter-tag']} ><strong>Sort By :</strong> {selectedSortMethod}</div>
-        <button onClick={clearAllFilters} className={styles['clear-button']} type='button'>Clear All</button>
+        {(selectedOrganisation !== 'All' || selectedLanguagesList.length !== 0 || sortMethod !== 'node_id') &&
+          <button onClick={clearAllFilters} className={styles['clear-button']} type='button'>Clear All</button>
+        }
 
       </div>
       
