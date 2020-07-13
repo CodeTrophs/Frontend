@@ -9,8 +9,8 @@ export default function FeedIntroduction() {
         <h1 className={styles.headFeed}>Feed</h1>
         <img src="SVG/feedline (2).svg" alt="line" />
         <div className={styles.content}>
-          <p>Find an organisation to contribute to</p>
-          <p>Cant Find the organisation you are searching for?</p>
+          <p>Find a project to contribute to</p>
+          <p>Cant Find the project you are searching for?</p>
           <p>Search below and narrow down your results</p>
         </div>
       </div>
