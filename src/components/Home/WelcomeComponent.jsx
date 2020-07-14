@@ -77,6 +77,8 @@ export default function WelcomeComponent() {
     return null;
   }
 
+  const isLoggedIn = localStorage.getItem('osc-app-token');
+
   if (Loading) return <Spinner />;
 
   return (
@@ -93,26 +95,47 @@ export default function WelcomeComponent() {
         </p>
 
         <div className={styles['sign-in-buttons']}>
-          <button
-            className={styles['github-button']}
-            type="submit"
-            onClick={handleGithubSignIn}>
-            <img
-              alt="Icon-awesome-github.png"
-              src="/images/Iconawesome-github.png"
-            />
-            <p>Sign in with Github</p>
-            <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
-          </button>
+          {isLoggedIn ? (
+            <>
+              <button
+                className={styles['github-button']}
+                type="button"
+                onClick={() => Router.replace('/feed')}>
+                <p>Open Feed</p>
+                <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
+              </button>
+              <button
+                className={styles['google-button']}
+                type="button"
+                onClick={() => Router.replace('/organizations')}>
+                <p>Organizations</p>
+                <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className={styles['github-button']}
+                type="submit"
+                onClick={handleGithubSignIn}>
+                <img
+                  alt="Icon-awesome-github.png"
+                  src="/images/Iconawesome-github.png"
+                />
+                <p>Sign in with Github</p>
+                <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
+              </button>
 
-          <button
-            className={styles['google-button']}
-            type="submit"
-            onClick={handleGoogleSignIn}>
-            <img alt="Icon-simple-google" src="/images/google.svg" />
-            <p>Sign in with Google</p>
-            <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
-          </button>
+              <button
+                className={styles['google-button']}
+                type="submit"
+                onClick={handleGoogleSignIn}>
+                <img alt="Icon-simple-google" src="/images/google.svg" />
+                <p>Sign in with Google</p>
+                <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
+              </button>
+            </>
+          )}
         </div>
       </div>
 
