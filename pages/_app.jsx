@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 import * as FirebaseAuth from '../src/components/FirebaseAuth';
+import { initGA, logPageView } from '../src/components/googleAnalytics';
 import '../src/scss/style.scss';
 import Spinner from '../src/components/Spinner';
 import UserContext from '../src/components/UserContext';
@@ -15,6 +16,12 @@ function MyApp({ Component, pageProps }) {
   const [Loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
+
     const token = localStorage.getItem('osc-app-token');
     async function updation() {
       const verificationResult = await FirebaseAuth.verifySecuredToken(token);
@@ -41,7 +48,6 @@ function MyApp({ Component, pageProps }) {
     }
     setLoading(false);
   }, []);
-
 
   if (Loading) return <Spinner />;
 
