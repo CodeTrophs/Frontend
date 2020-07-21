@@ -1,11 +1,45 @@
-import React, { useState } from 'react';
+import Router from 'next/router';
+import React, { useEffect, useState } from 'react';
 
 import Discussion from '../../src/components/Feed/Discussion';
 import ProjectInfo from '../../src/components/Feed/ProjectInfo';
 import Header from '../../src/components/Header';
+import { getIssues, getPulls } from '../../src/firestore/projectData';
 import styles from '../../src/scss/project.module.scss';
 
 const project = () => {
+
+  const [issueList, setIssueList] = useState([]);
+  const [pullsList, setPullsList] = useState([]);
+  const [dataList, setDataList] = useState(null);
+
+  async function getIssuesForRepo() {
+    getIssues(Router.query.id).then((res) => {
+      setIssueList(res);
+    });
+  }
+
+  async function getPullsforRepo() {
+    getPulls(Router.query.id).then((res) => {
+      setPullsList(res);
+    });
+  }
+
+  useEffect(() => {
+    const data = {
+      issues: issueList,
+      pulls: pullsList,
+    };
+    setDataList(data);
+  },[issueList, pullsList]);
+
+  useEffect(() => {
+    if (Router.query.id) {
+      getIssuesForRepo();
+      getPullsforRepo();
+    }
+  }, []);
+
   const [Tab, setTab] = useState('issues');
 
   const changeTab = (tab) => {
@@ -53,7 +87,7 @@ const project = () => {
               CONTRIBUTION
             </div>
           </div>
-          <ProjectInfo page={Tab} />
+          <ProjectInfo page={Tab} data={dataList} url={Router.query.url ? Router.query.url : "#"} />
         </div>
         <Discussion className={styles['right-col']} />
       </div>

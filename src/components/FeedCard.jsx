@@ -19,7 +19,7 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
             </div>
           </div>
           <div className={styles.middle}>
-            <Link href={`/project/${repo.id}`} as="/project/pid">
+            <Link href={{ pathname: `/project/[pid]`, query: {id: repo.node_id, url:repo.html_url} }} as='/project/pid'>
               <div className={styles.heading}>
                 <p>{repo.full_name.split('/')[1]}</p>
               </div>
@@ -95,6 +95,8 @@ Card.propTypes = {
     forks: PropTypes.number,
     watchers: PropTypes.number,
     id: PropTypes.number,
+    node_id: PropTypes.string,
+    html_url: PropTypes.string,
     owner: PropTypes.shape({
       name: PropTypes.string,
       avatar_url: PropTypes.string

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import styles from '../../scss/projectInfo.module.scss';
 
-const ProjectInfo = ({ page }) => {
+const ProjectInfo = ({ page, data, url }) => {
   const [Dropdown, setDropdown] = useState(false);
 
   const toggleDropdown = () => {
@@ -58,174 +58,60 @@ const ProjectInfo = ({ page }) => {
       </div>
       {page === 'issues' && (
         <div className={styles.data}>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
+          {data!=null && data.issues && data.issues.map((issue) => {
+            return (
+              <div className={styles['data-item']} key={issue.node_id}>
+                <div className={styles['data-left-col']}>
+                  <h3 className={styles['issue-name']}>
+                    {issue.title}
+                   
+                  </h3>
+                  <p>#{issue.number} Opened on {issue.created_at.slice(0, 10)} by {issue.user.login}</p>
+                </div>
+                <div className={styles['data-right-col']}>
+                  {issue.labels.map(label => {
+                    return (
+                      <p key={label.node_id} className={styles.tags} style={{ backgroundColor: (`#${label.color}`)}}>{label.name}</p>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })
+          }
+          <div className={styles['all-button']}>
+            <a href={`${url}/issues`} target='_blank' rel="noopener noreferrer">
+              <button type="button">All Issues</button>
+            </a>
           </div>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
-          </div>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
-          </div>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
-          </div>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
-          </div>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
-          </div>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
-          </div>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
-          </div>
-          <div className={styles['data-item']}>
-            <div className={styles['data-left-col']}>
-              <h3 className={styles['issue-name']}>Issue#1</h3>
-              <p>#23 Opened on 10 May by John</p>
-            </div>
-            <div className={styles['data-right-col']}>
-              <p className={styles.tags}>Bug</p>
-            </div>
-          </div>
-        </div>
+         </div>
       )}
       {page === 'pull-requests' && (
         <div>
           {' '}
           <div className={styles.data}>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
-            <div className={styles['data-item']}>
-              <div className={styles['data-left-col']}>
-                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
-                <p>#23 Opened on 10 May by John</p>
-              </div>
-              <div className={styles['data-right-col']}>
-                <p className={styles.tags}>Bug</p>
-              </div>
-            </div>
+            {data && data.pulls && data.pulls.map(pull => {
+              return (
+                <div className={styles['data-item']} key={pull.node_id}>
+                  <div className={styles['data-left-col']}>
+                    <h3 className={styles['issue-name']}>{pull.title}</h3>
+                    <p>#{pull.number} Opened on {pull.created_at.slice(0, 10)} by {pull.user.login}</p>
+                  </div>
+                  <div className={styles['data-right-col']}>
+                    {pull.labels.map(label => {
+                      return (
+                        <p key={label.node_id} className={styles.tags} style={{ backgroundColor: `#${label.color}`}}>{label.name}</p>
+                      );
+                    })}
+                  </div>
+                </div>
+             );
+           })}
+          </div>
+          <div className={styles['all-button']}>
+            <a href={`${url}/pulls`} target='_blank' rel="noopener noreferrer">
+              <button type="button">All Pulls</button>
+            </a>
           </div>
         </div>
       )}
@@ -234,8 +120,17 @@ const ProjectInfo = ({ page }) => {
   );
 };
 
+ProjectInfo.defaultProps = {
+  data:{}
+}
+
 ProjectInfo.propTypes = {
-  page: PropTypes.string.isRequired
+  page: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    issues: PropTypes.array,
+    pulls:PropTypes.array
+  })
 };
 
 export default ProjectInfo;

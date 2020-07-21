@@ -25,8 +25,7 @@ export async function setBasicInfo(ReceivedFormData) {
     return db.collection('users').doc(uid).update(formData).then(() => {
         return db.collection('usernames').doc(uid).set({ userName: formData.userName }).then(() => {
             return { status: 'success' };
-        }).catch((err) => {
-            console.log(err);
+        }).catch(() => {
             return { status: 'error' };
         })
     }).catch(()=>{
