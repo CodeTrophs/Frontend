@@ -28,3 +28,11 @@ export async function getPulls(id) {
   });
   return pullsList;
 }
+
+export async function getRepo(id) {
+  return db.collection('repositories').doc(id).get().then(res => {
+    return res.data().html_url;
+  }).catch(() => {
+    return null;
+  });
+}

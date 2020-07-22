@@ -19,7 +19,7 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
             </div>
           </div>
           <div className={styles.middle}>
-            <Link href={{ pathname: `/project/[pid]`, query: {id: repo.node_id, url:repo.html_url} }} as='/project/pid'>
+            <Link href={{ pathname: `/project/[pid]`, query: { url: repo.html_url } }} as={`/project/${repo.node_id}`}>
               <div className={styles.heading}>
                 <p>{repo.full_name.split('/')[1]}</p>
               </div>

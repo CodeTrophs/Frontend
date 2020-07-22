@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Discussion from '../../src/components/Feed/Discussion';
 import ProjectInfo from '../../src/components/Feed/ProjectInfo';
 import Header from '../../src/components/Header';
-import { getIssues, getPulls } from '../../src/firestore/projectData';
+import Spinner from '../../src/components/Spinner';
+import { getIssues, getPulls, getRepo } from '../../src/firestore/projectData';
 import styles from '../../src/scss/project.module.scss';
 
 const project = () => {
@@ -12,16 +13,19 @@ const project = () => {
   const [issueList, setIssueList] = useState([]);
   const [pullsList, setPullsList] = useState([]);
   const [dataList, setDataList] = useState(null);
+  const [repoUrl, setRepoUrl] = useState(null);
+  const [pageLoading, setPageLoading] = useState(true);
 
   async function getIssuesForRepo() {
-    getIssues(Router.query.id).then((res) => {
+    getIssues(Router.query.pid).then((res) => {
       setIssueList(res);
     });
   }
 
   async function getPullsforRepo() {
-    getPulls(Router.query.id).then((res) => {
+    getPulls(Router.query.pid).then((res) => {
       setPullsList(res);
+      setPageLoading(false);
     });
   }
 
@@ -34,9 +38,12 @@ const project = () => {
   },[issueList, pullsList]);
 
   useEffect(() => {
-    if (Router.query.id) {
+    if (Router.query.pid) {
       getIssuesForRepo();
       getPullsforRepo();
+      getRepo(Router.query.pid).then(res => {
+        setRepoUrl(res);
+      });
     }
   }, []);
 
@@ -45,6 +52,8 @@ const project = () => {
   const changeTab = (tab) => {
     setTab(tab);
   };
+
+  if(pageLoading) return <Spinner />
 
   return (
     <div>
@@ -87,7 +96,7 @@ const project = () => {
               CONTRIBUTION
             </div>
           </div>
-          <ProjectInfo page={Tab} data={dataList} url={Router.query.url ? Router.query.url : "#"} />
+          <ProjectInfo page={Tab} data={dataList} url={repoUrl} />
         </div>
         <Discussion className={styles['right-col']} />
       </div>

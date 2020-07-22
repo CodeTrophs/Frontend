@@ -129,6 +129,10 @@
   background-color: white;
   border-bottom: 0.3px solid rgb(192, 192, 192);
   align-items: center;
+  a{
+  text-decoration: none;
+  color: inherit;
+}
 }
 
 .data-item:last-child {
@@ -161,7 +165,7 @@
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 1rem;
 }
@@ -180,8 +184,23 @@
     background-color: #731280;
     color: #f7f7f7;
   }
+  button:disabled {
+    cursor: context-menu;
+    opacity: 0.5;
+    background-color: #333;
+   }
   
 }
+
+.not-found {
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(238, 28, 28);
+}
+
 @media (max-width: 1100px) {
   .top-row {
     flex-direction: column;
