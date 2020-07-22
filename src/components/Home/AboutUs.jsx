@@ -24,7 +24,7 @@ export default function AboutUs() {
           The idea of open source excites you but not sure where to begin or which project to choose? 
           Often feel confused and uncomfortable while using GitHub, and can’t think of any available alternative? Well, 
           you have arrived at the correct place! 
-          "Open Source Code" is an open source platform targeted solely for beginners to help them contribute to real life projects, 
+          &#34; Open Source Code &#34; is an open source platform targeted solely for beginners to help them contribute to real life projects, 
           from developing new ideas and approaches, to exploring the world of open sourcing.
           </p>
         </div>
