@@ -9,11 +9,8 @@ export default function HowContainer() {
         <div className={styles['how-top-left-col']}>
           <h1><u>How</u> OSC Works?</h1>
           <p>
-            Some random text about how we function. What all things we do and
-            how It will benefit out. Below are a few processes on how we
-            function.Some random text about how we function. What all things we
-            do and how It will benefit out. Below are a few processes on how we
-            function.Some random text about how we function.
+          At OSC, the contributors can choose their level of difficulty and also their field of expertise to start contributing accordingly,
+          the amazing feature which saves your time and effort!
           </p>
         </div>
         <div className={styles['how-top-right-col']}>

@@ -17,16 +17,15 @@ export default function AboutUs() {
         </div>
         <div className={styles['about-right-col']}>
           <h1>
-            About <u>OSC</u>
+            About <u> Open Source Code </u>
           </h1>
 
           <p>
-            No one rejects, dislikes, or avoids pleasure itself, because it is
-            pleasure, but because those who do not know how to pursue pleasure
-            rationally encounter consequences that are extremely painful. Nor
-            again is there anyone who loves or pursues or desires to obtain pain
-            of itself, because it is pain, but because occasionally
-            circumstances occur in which toil and pain can procure.
+          The idea of open source excites you but not sure where to begin or which project to choose? 
+          Often feel confused and uncomfortable while using GitHub, and can’t think of any available alternative? Well, 
+          you have arrived at the correct place! 
+          "Open Source Code" is an open source platform targeted solely for beginners to help them contribute to real life projects, 
+          from developing new ideas and approaches, to exploring the world of open sourcing.
           </p>
         </div>
       </div>
