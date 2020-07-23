@@ -83,7 +83,7 @@ const project = () => {
               onClick={() => changeTab('pull-requests')}>
               PULL REQUESTS
             </div>
-            <div
+            {/* <div
               tabIndex={0}
               role="button"
               onKeyDown={() => {
@@ -94,7 +94,7 @@ const project = () => {
               }
               onClick={() => changeTab('contribution')}>
               CONTRIBUTION
-            </div>
+            </div> */}
           </div>
           <ProjectInfo page={Tab} data={dataList} url={repoUrl} />
         </div>

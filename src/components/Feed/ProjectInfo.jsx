@@ -61,7 +61,7 @@ const ProjectInfo = ({ page, data, url }) => {
           {data!=null && data.issues && data.issues.map((issue) => {
             return (
               <div className={styles['data-item']} key={issue.node_id}>
-                <a href={issue.html_url}>
+                <a href={issue.html_url} target='_blank' rel="noopener noreferrer">
                 <div className={styles['data-left-col']}>
                   <h3 className={styles['issue-name']}>
                     {issue.title}
@@ -99,7 +99,7 @@ const ProjectInfo = ({ page, data, url }) => {
             {data && data.pulls && data.pulls.map(pull => {
               return (
                 <div className={styles['data-item']} key={pull.node_id}>
-                  <a href={pull.html_url}>
+                  <a href={pull.html_url} target='_blank' rel="noopener noreferrer">
                   <div className={styles['data-left-col']}>
                     <h3 className={styles['issue-name']}>{pull.title}</h3>
                     <p>#{pull.number} Opened on {pull.created_at.slice(0, 10)} by {pull.user.login}</p>
@@ -133,12 +133,13 @@ const ProjectInfo = ({ page, data, url }) => {
 };
 
 ProjectInfo.defaultProps = {
-  data:{}
+  data: {},
+  url: null
 }
 
 ProjectInfo.propTypes = {
   page: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   data: PropTypes.shape({
     issues: PropTypes.array,
     pulls:PropTypes.array
