@@ -48,7 +48,7 @@ export default function Header() {
     <div className={styles.header}>
       <ToTop />
       <div>
-        <Link href="/">
+        <Link href={User ? '/feed' : '/'}>
           <img
             className={styles['header-logo']}
             src="/logo/web_logo.png"
@@ -90,21 +90,6 @@ export default function Header() {
               />
             )}
           </div>
-          <div className={styles.link}>
-            <Link href="/howtowork">
-              <p>How To Work</p>
-            </Link>
-            {router.pathname === '/howtowork' && (
-              <hr
-                style={{
-                  width: '30%',
-                  height: '3px',
-                  backgroundColor: '#333',
-                  border: 'none'
-                }}
-              />
-            )}
-            </div>
             <div className={styles.link}>
               <Link href="/saved">
                 <p>Saved Repositories</p>

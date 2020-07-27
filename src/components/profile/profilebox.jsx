@@ -10,7 +10,7 @@ export default function BoxProfile() {
   const { User } = useContext(UserContext);
   const [Loading, setLoading] = useState(true);
   const [UserData, setUserData] = useState({});
-  const [follows, setFollows] = useState(0);
+  // const [follows, setFollows] = useState(0);
   // const [MissingData, setMissingData] = useState(false);
 
   useEffect(() => {
@@ -20,15 +20,15 @@ export default function BoxProfile() {
         .get()
         .then((data) => {
           setUserData(data.data());
-          let totalFollows = 0;
-          if (data.data().followingLanguages !== undefined) {
-            totalFollows += data.data().followingLanguages.length;
-          }
+          // let totalFollows = 0;
+          // if (data.data().followingLanguages !== undefined) {
+          //   totalFollows += data.data().followingLanguages.length;
+          // }
 
-          if (data.data().followingOrganisations !== undefined) {
-            totalFollows += data.data().followingOrganisations.length;
-          }
-          setFollows(totalFollows);
+          // if (data.data().followingOrganisations !== undefined) {
+          //   totalFollows += data.data().followingOrganisations.length;
+          // }
+          // setFollows(totalFollows);
           setLoading(false);
         });
   }, [User]);
@@ -130,7 +130,7 @@ export default function BoxProfile() {
         <div className={styles.usercontent}>
           {UserData.about ? <p>{UserData.about}</p> : <p>No about...</p>}
         </div>
-
+{/* 
         <div className={styles['langsec-centre']}>
           <div className={styles.smallbox}>
             <div className={styles.langsec}>
@@ -174,7 +174,7 @@ export default function BoxProfile() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
