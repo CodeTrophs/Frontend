@@ -3,37 +3,28 @@ import React from 'react';
 
 import styles from '../scss/modal.module.scss';
 
-
 const Modal = ({ org, hideModal }) => (
   <div className={styles.modal}>
     <div className={styles['modal-main']}>
-      
       <button
-        type="button" 
+        type="button"
         onKeyDown={hideModal}
         onClick={hideModal}
         style={{
-          backgroundColor:'transparent',
-          border:'none',
+          backgroundColor: 'transparent',
+          border: 'none',
           position: 'absolute',
           right: '10px',
           cursor: 'pointer'
-        }}
-      >
-        <img
-          src="/SVG/cross-icon.png"
-          alt="x"
-            style={{width: '40px'}}
-        />
+        }}>
+        <img src="/SVG/cross-icon.png" alt="x" style={{ width: '40px' }} />
       </button>
 
       <div className="heading" style={{ textAlign: 'center' }}>
         <h1 style={{ fontWeight: '500', fontSize: '42px' }}>
-
           {org.organisation}
         </h1>
         <p style={{ fontWeight: '400', color: '#C6C6C6', paddingTop: '5px' }}>
-
           {org.link}
         </p>
       </div>
@@ -51,7 +42,6 @@ const Modal = ({ org, hideModal }) => (
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden'
             }}>
-            
             {org.orgDescription}
           </p>
         </div>
@@ -67,73 +57,67 @@ const Modal = ({ org, hideModal }) => (
         <div className="lang-tags">
           <h3>Languages</h3>
           <div className={styles.tags}>
-          
-          {org.langTags.map((tag) => (
-            <p
-              key={tag}
-              style={{
-                display: 'inline-block',
-                borderRadius: '10px',
-                border: '1px black solid',
-                padding: '1px 5px',
-                fontWeight: '400',
-                margin: ' 10px 5px',
-                cursor: 'pointer'
-              }}>
-              
-              {tag}
-            </p>
-          ))}
+            {org.langTags.map((tag) => (
+              <p
+                key={tag}
+                style={{
+                  display: 'inline-block',
+                  borderRadius: '10px',
+                  border: '1px black solid',
+                  padding: '1px 5px',
+                  fontWeight: '400',
+                  margin: ' 10px 5px',
+                  cursor: 'pointer'
+                }}>
+                {tag}
+              </p>
+            ))}
           </div>
         </div>
         <div className="topic-tags">
           <h3>Topics</h3>
           <div className={styles.tags}>
-          
-          {org.topicTags.map((tag) => (
-            <p
-              key={tag}
-              style={{
-                display: 'inline-block',
-                borderRadius: '10px',
-                border: '1px black solid',
-                padding: '1px 5px',
-                fontWeight: '400',
-                margin: ' 10px 5px',
-                cursor: 'pointer'
-              }}>
-              
-              {tag}
-            </p>
-          ))}
+            {org.topicTags.map((tag) => (
+              <p
+                key={tag}
+                style={{
+                  display: 'inline-block',
+                  borderRadius: '10px',
+                  border: '1px black solid',
+                  padding: '1px 5px',
+                  fontWeight: '400',
+                  margin: ' 10px 5px',
+                  cursor: 'pointer'
+                }}>
+                {tag}
+              </p>
+            ))}
           </div>
         </div>
         <div className="links">
           <h3>Links</h3>
           <div className={styles.tags}>
-          
-          <a href={org.github}>
-            <img
-              src="/SVG/org-github-icon.svg"
+            <a href={org.github}>
+              <img
+                src="/SVG/org-github-icon.svg"
+                alt={org.github}
+                style={{
+                  margin: ' 0 10px',
+                  cursor: 'pointer'
+                }}
+              />
+            </a>
 
-              alt={org.github}
-              style={{
-                margin: ' 0 10px',
-                cursor: 'pointer'
-              }}
-            />
-          </a>
-          
-          <a href={org.slack}>
-            <img
-              src="/SVG/org-slack-icon.svg"
-              alt="slack"
-              style={{
-                margin: ' 0 10px',
-                cursor: 'pointer'
-              }}
-            />
-          </a>
+            <a href={org.slack}>
+              <img
+                src="/SVG/org-slack-icon.svg"
+                alt="slack"
+                style={{
+                  margin: ' 0 10px',
+                  cursor: 'pointer'
+                }}
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -145,7 +129,6 @@ const Modal = ({ org, hideModal }) => (
     </div>
   </div>
 );
-
 
 Modal.propTypes = {
   org: PropTypes.exact({
@@ -159,7 +142,7 @@ Modal.propTypes = {
     slack: PropTypes.string,
     bgurl: PropTypes.string
   }).isRequired,
-  hideModal:PropTypes.func.isRequired
+  hideModal: PropTypes.func.isRequired
 };
 
 export default Modal;

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import Modal from './modal';
@@ -16,7 +16,6 @@ const organisation = ({ org }) => {
   return (
     <div
       style={{
-
         background: `url(${org.bgurl}) no-repeat center`,
         minWidth: '100%',
         height: '350px',
@@ -24,7 +23,6 @@ const organisation = ({ org }) => {
         paddingTop: '20px',
         boxShadow: '5px 5px 10px rgb(202, 202, 202)'
       }}>
-      
       <button
         type="button"
         onKeyDown={showModal}
@@ -35,13 +33,8 @@ const organisation = ({ org }) => {
           float: 'right',
           marginRight: '10px',
           cursor: 'pointer'
-        }}
-      >
-        <img
-          src="/SVG/org-view.svg"
-          alt="view"
-          style={{ width: '30px' }}
-        />
+        }}>
+        <img src="/SVG/org-view.svg" alt="view" style={{ width: '30px' }} />
       </button>
 
       <h1
@@ -52,7 +45,6 @@ const organisation = ({ org }) => {
           fontWeight: '500',
           fontSize: '35px'
         }}>
-        
         {org.organisation}
       </h1>
       <div
@@ -74,11 +66,9 @@ const organisation = ({ org }) => {
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden'
           }}>
-          
           {org.orgDescription}
         </p>
         <div>
-         
           <a href={org.github}>
             <img
               src="/SVG/org-github-icon.svg"
@@ -91,7 +81,7 @@ const organisation = ({ org }) => {
               }}
             />
           </a>
-          
+
           <a href={org.slack}>
             <img
               src="/SVG/org-slack-icon.svg"
@@ -106,7 +96,6 @@ const organisation = ({ org }) => {
         </div>
 
         <div className="Tags" style={{ marginLeft: '15px' }}>
-          
           {org.langTags.map((tag) => (
             <p
               key={tag}
@@ -119,7 +108,6 @@ const organisation = ({ org }) => {
                 margin: ' 10px 5px',
                 cursor: 'pointer'
               }}>
-              
               {tag}
             </p>
           ))}
@@ -129,7 +117,6 @@ const organisation = ({ org }) => {
     </div>
   );
 };
-
 
 organisation.propTypes = {
   org: PropTypes.exact({
@@ -142,8 +129,7 @@ organisation.propTypes = {
     github: PropTypes.string,
     slack: PropTypes.string,
     bgurl: PropTypes.string
-  }).isRequired,
-
+  }).isRequired
 };
 
 export default organisation;

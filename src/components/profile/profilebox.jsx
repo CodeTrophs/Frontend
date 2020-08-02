@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import {db} from '../../firebase';
+import { db } from '../../firebase';
 import styles from '../../scss/profile.module.scss';
 import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 
 export default function BoxProfile() {
-
   const { User } = useContext(UserContext);
   const [Loading, setLoading] = useState(true);
   const [UserData, setUserData] = useState({});
@@ -47,7 +46,8 @@ export default function BoxProfile() {
               <img
                 className={styles.imgabsolute}
                 src={
-                  UserData.profileImageUrl !== null && UserData.profileImageUrl !== undefined
+                  UserData.profileImageUrl !== null &&
+                  UserData.profileImageUrl !== undefined
                     ? UserData.profileImageUrl
                     : '/SVG/user.svg'
                 }
@@ -56,7 +56,8 @@ export default function BoxProfile() {
             </div>
             <div className={styles.boxcontent}>
               <h2 className={styles['usersname-user']}>
-                {UserData.firstName && UserData.firstName} {UserData.lastName && UserData.lastName}
+                {UserData.firstName && UserData.firstName}{' '}
+                {UserData.lastName && UserData.lastName}
               </h2>
               <hr
                 className={styles.hr}
@@ -77,8 +78,8 @@ export default function BoxProfile() {
                     );
                   })
                 ) : (
-                    <p style={{ color: 'rgb(138, 138, 138)' }}>No skills...</p>
-                  )}
+                  <p style={{ color: 'rgb(138, 138, 138)' }}>No skills...</p>
+                )}
               </div>
             </div>
           </div>
@@ -130,7 +131,7 @@ export default function BoxProfile() {
         <div className={styles.usercontent}>
           {UserData.about ? <p>{UserData.about}</p> : <p>No about...</p>}
         </div>
-{/* 
+        {/* 
         <div className={styles['langsec-centre']}>
           <div className={styles.smallbox}>
             <div className={styles.langsec}>

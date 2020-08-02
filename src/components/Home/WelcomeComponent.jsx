@@ -7,7 +7,7 @@ import styles from '../../scss/home.module.scss';
 import * as FirebaseAuth from '../FirebaseAuth';
 import UserContext from '../UserContext';
 
-export default function WelcomeComponent({setLoading}) {
+export default function WelcomeComponent({ setLoading }) {
   const { setUser } = useContext(UserContext);
   function changeUser(name, email, uid, profileImageUrl) {
     setUser({
@@ -29,11 +29,11 @@ export default function WelcomeComponent({setLoading}) {
         newUser.user.uid,
         newUser.user.photoURL
       );
-      if (newUser.additionalUserInfo.isNewUser) {
-        Router.replace('/toporg');
-      } else {
-        Router.replace('/feed');
-      }
+      // if (newUser.additionalUserInfo.isNewUser) {
+      // Router.replace('/toporg');
+      // } else {
+      Router.replace('/feed');
+      // }
     } else if (newUser.code !== 'auth/popup-closed-by-user') {
       if (newUser.code === 'auth/network-request-failed')
         toast.error(
@@ -75,7 +75,6 @@ export default function WelcomeComponent({setLoading}) {
     setLoading(false);
     return null;
   }
-
 
   return (
     <div className={styles['welcome-container']}>
@@ -122,5 +121,5 @@ export default function WelcomeComponent({setLoading}) {
 }
 
 WelcomeComponent.propTypes = {
-  setLoading: PropTypes.func.isRequired,
-}
+  setLoading: PropTypes.func.isRequired
+};

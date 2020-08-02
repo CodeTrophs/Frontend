@@ -129,10 +129,10 @@
   background-color: white;
   border-bottom: 0.3px solid rgb(192, 192, 192);
   align-items: center;
-  a{
-  text-decoration: none;
-  color: inherit;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .data-item:last-child {
@@ -188,8 +188,7 @@
     cursor: context-menu;
     opacity: 0.5;
     background-color: #333;
-   }
-  
+  }
 }
 
 .not-found {
@@ -223,11 +222,11 @@
     width: 95%;
   }
 }
-@media (max-width:800px) {
+@media (max-width: 800px) {
   .data-item {
     display: flex;
     flex-direction: column;
-    padding:7.5px 5px;
+    padding: 7.5px 5px;
     margin: 0.5rem 0;
     justify-content: center;
     align-items: center;

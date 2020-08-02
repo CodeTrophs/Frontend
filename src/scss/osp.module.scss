@@ -100,10 +100,10 @@
 }
 
 .enter-button:disabled {
-    cursor: initial;
-    opacity: 0.5;
-    background-color: #333; 
-  }
+  cursor: initial;
+  opacity: 0.5;
+  background-color: #333;
+}
 
 .skills {
   display: flex;
@@ -123,12 +123,11 @@
 }
 
 .addButton:disabled {
-    cursor: initial;
-    opacity: 0.5;
-    background-color: #333; 
-  }
+  cursor: initial;
+  opacity: 0.5;
+  background-color: #333;
+}
 
-  
 .invalid {
   border-style: solid !important;
   border-radius: 0.5rem !important;
@@ -207,7 +206,6 @@
   .input {
     width: 100%;
   }
-
 
   .inputArea {
     width: 100%;

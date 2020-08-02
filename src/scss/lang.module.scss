@@ -76,9 +76,9 @@
   width: 20%;
   padding: 8px 16px;
   border-radius: 8px;
-  -webkit-box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
-  box-shadow: -2px -2px 40px -6px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -2px -2px 40px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px -2px 40px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: -2px -2px 40px -6px rgba(0, 0, 0, 0.75);
 }
 
 .box-head {
@@ -110,7 +110,7 @@
   border-radius: 32px;
 }
 
-@media only screen and  (max-width: 800px) {
+@media only screen and (max-width: 800px) {
   .flex {
     flex-direction: column-reverse;
     justify-content: center;
@@ -139,7 +139,7 @@
   .p-org {
     text-align: center;
   }
-  
+
   .side-image {
     width: 70%;
   }

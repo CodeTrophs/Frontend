@@ -31,7 +31,7 @@ const SideDrawer = ({ handleClose, router }) => {
         onClick={handleClose}
         className={styles['close-button']}>
         <DrawerToggleButton />
-       </div>
+      </div>
       <div className={styles.profile}>
         <div
           role="button"
@@ -40,11 +40,11 @@ const SideDrawer = ({ handleClose, router }) => {
           onClick={toggleDD}
           onKeyDown={toggleDD}>
           <img
-            src={User !== null ? User.profileImageUrl : "/icons.young-man.svg"}
+            src={User !== null ? User.profileImageUrl : '/icons.young-man.svg'}
             alt="me"
             className={styles['header-profile-picture']}
           />
-          <p>{User === null ? "" : User.name}</p>
+          <p>{User === null ? '' : User.name}</p>
           <img
             src="/SVG/Icon awesome-angle-down.svg"
             style={{ paddingLeft: '10px', width: '20px' }}
@@ -57,7 +57,7 @@ const SideDrawer = ({ handleClose, router }) => {
               <div className={styles['top-right-col']}>
                 <Link href="/setting">
                   <div>
-                  <img src="/icons/computer.png" alt="Settings" />
+                    <img src="/icons/computer.png" alt="Settings" />
                   </div>
                 </Link>
               </div>
@@ -69,7 +69,10 @@ const SideDrawer = ({ handleClose, router }) => {
               <Link href="/createproject">
                 <div className={styles['dd-button']}>Create OSP</div>
               </Link>
-              <button onClick={handleLogout} type='button' className={styles['dd-button']}>
+              <button
+                onClick={handleLogout}
+                type="button"
+                className={styles['dd-button']}>
                 Logout
               </button>
             </div>

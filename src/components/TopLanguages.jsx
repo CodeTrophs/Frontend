@@ -1,7 +1,7 @@
 import Router from 'next/router';
 import React, { useState, useContext, useEffect } from 'react';
 
-import {db} from '../firebase';
+import { db } from '../firebase';
 import { getLanguageList } from '../firestore/feedData';
 import styles from '../scss/org.module.scss';
 import Spinner from './Spinner';
@@ -15,7 +15,7 @@ export default function TopOrganisation() {
   const [followed, setFollowed] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
   async function getLanguages() {
-    getLanguageList().then(res => {
+    getLanguageList().then((res) => {
       if (res != null) {
         setLangs(res);
         setList(res);
@@ -23,11 +23,10 @@ export default function TopOrganisation() {
       setPageLoading(false);
     });
   }
-  
+
   useEffect(() => {
     getLanguages();
   }, []);
-  
 
   // SUBMITTING ORGANISATIONS
 
@@ -71,7 +70,9 @@ export default function TopOrganisation() {
   //   getData();
   // }, []);
 
-  if (pageLoading) { return <Spinner /> }
+  if (pageLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div>

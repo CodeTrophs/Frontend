@@ -75,6 +75,7 @@ export default function Header() {
               />
             )}
           </div>
+          {/*
           <div className={styles.link}>
             <Link href="/organizations">
               <p>Organizations</p>
@@ -90,21 +91,22 @@ export default function Header() {
               />
             )}
           </div>
-            <div className={styles.link}>
-              <Link href="/saved">
-                <p>Saved Repositories</p>
-              </Link>
-              {router.pathname === '/saved' && (
-                <hr
-                  style={{
-                    width: '30%',
-                    height: '3px',
-                    backgroundColor: '#333',
-                    border: 'none'
-                  }}
-                />
-              )}
-            </div>
+          */}
+          <div className={styles.link}>
+            <Link href="/saved">
+              <p>Saved Repositories</p>
+            </Link>
+            {router.pathname === '/saved' && (
+              <hr
+                style={{
+                  width: '30%',
+                  height: '3px',
+                  backgroundColor: '#333',
+                  border: 'none'
+                }}
+              />
+            )}
+          </div>
         </div>
       ) : null}
       <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>
@@ -125,9 +127,14 @@ export default function Header() {
             onKeyDown={toggleDD}>
             <img
               src={
-                User !== null && User.profileImageUrl ? User.profileImageUrl : '/SVG/user.svg'
+                User !== null && User.profileImageUrl
+                  ? User.profileImageUrl
+                  : '/SVG/user.svg'
               }
-              onError = {(e)=>{e.target.onerror = null;e.target.src = '/SVG/user.svg'}}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = '/SVG/user.svg';
+              }}
               alt="me"
               className={styles['header-profile-picture']}
             />
@@ -145,9 +152,14 @@ export default function Header() {
                 <div className={styles['top-left-col']}>
                   <img
                     src={
-                      User !== null && User.profileImageUrl ? User.profileImageUrl : '/SVG/user.svg'
+                      User !== null && User.profileImageUrl
+                        ? User.profileImageUrl
+                        : '/SVG/user.svg'
                     }
-                    onError = {(e)=>{e.target.onerror = null;e.target.src = '/SVG/user.svg'}}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/SVG/user.svg';
+                    }}
                     alt="me"
                   />
                   {User !== null && <p> {User.name} </p>}
@@ -162,9 +174,11 @@ export default function Header() {
                 <Link href="/profile">
                   <div className={styles['dd-button']}>My Profile</div>
                 </Link>
+                {/*
                 <Link href="/createproject">
                   <div className={styles['dd-button']}>Create OSP</div>
                 </Link>
+                */}
                 <button
                   type="button"
                   onClick={handleLogout}

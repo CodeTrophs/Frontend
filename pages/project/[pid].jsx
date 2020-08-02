@@ -10,7 +10,6 @@ import { getIssues, getPulls, getRepo } from '../../src/firestore/projectData';
 import styles from '../../src/scss/project.module.scss';
 
 const project = () => {
-
   const [issueList, setIssueList] = useState([]);
   const [pullsList, setPullsList] = useState([]);
   const [dataList, setDataList] = useState(null);
@@ -33,16 +32,16 @@ const project = () => {
   useEffect(() => {
     const data = {
       issues: issueList,
-      pulls: pullsList,
+      pulls: pullsList
     };
     setDataList(data);
-  },[issueList, pullsList]);
+  }, [issueList, pullsList]);
 
   useEffect(() => {
     if (Router.query.pid) {
       getIssuesForRepo();
       getPullsforRepo();
-      getRepo(Router.query.pid).then(res => {
+      getRepo(Router.query.pid).then((res) => {
         setRepoUrl(res);
       });
     }
@@ -54,7 +53,7 @@ const project = () => {
     setTab(tab);
   };
 
-  if(pageLoading) return <Spinner />
+  if (pageLoading) return <Spinner />;
 
   return (
     <div>

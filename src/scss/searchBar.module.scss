@@ -13,8 +13,8 @@
   display: flex;
 }
 
-.left-col img{
-  margin:5px 5px auto 15px;
+.left-col img {
+  margin: 5px 5px auto 15px;
 }
 
 .right-col {
@@ -38,7 +38,7 @@
   color: white;
   position: absolute;
   max-height: 20rem;
-  overflow:auto;
+  overflow: auto;
   background-color: black;
   margin-top: 35px;
   margin-left: 20px;
@@ -47,14 +47,14 @@
   border-radius: 10px;
 }
 .filter-dropdown::-webkit-scrollbar {
-  background-color: initial;  
+  background-color: initial;
   width: 0.5rem;
 }
 
 .filter-dropdown::-webkit-scrollbar-thumb {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  
+
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
@@ -91,7 +91,7 @@
     align-items: center;
     justify-content: center;
   }
-  .filter{
+  .filter {
     min-width: 130px;
   }
   .filter-show {
@@ -103,7 +103,7 @@
   }
 
   .left-col img {
-    margin:0;
+    margin: 0;
   }
 
   .left-col input {

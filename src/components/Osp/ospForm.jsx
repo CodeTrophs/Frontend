@@ -16,39 +16,42 @@ const FormOsp = () => {
   const [hostedUrlError, setHostedUrlError] = useState(null);
   const [skillError, setSkillError] = useState(null);
   const [addSkillButtonDisabled, setAddSkillButtonDisabled] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);      // Submit Button Disabled
+  const [isDisabled, setIsDisabled] = useState(false); // Submit Button Disabled
 
   useEffect(() => {
-    if ((titleError === null) && (descriptionError === null) && (githubError === null) && (hostedUrlError === null) &&
-        (title.length>0) && (description.length>0) && (github.length>0)) {
+    if (
+      titleError === null &&
+      descriptionError === null &&
+      githubError === null &&
+      hostedUrlError === null &&
+      title.length > 0 &&
+      description.length > 0 &&
+      github.length > 0
+    ) {
       setIsDisabled(false);
-    }
-    else {
+    } else {
       setIsDisabled(true);
     }
   }, [titleError, descriptionError, githubError, hostedUrlError]);
 
   useEffect(() => {
-    if (skillError === null)
-      setAddSkillButtonDisabled(false);
-    else
-      setAddSkillButtonDisabled(true);
+    if (skillError === null) setAddSkillButtonDisabled(false);
+    else setAddSkillButtonDisabled(true);
   }, [skillError]);
 
   const onChange = (e) => {
-    const found = tags.find(el => el.toUpperCase() === e.target.value.toUpperCase());
+    const found = tags.find(
+      (el) => el.toUpperCase() === e.target.value.toUpperCase()
+    );
     if (e.target.value.trim().length < 1 && e.target.value.length > 0) {
-      setSkillError("This field is required.");
+      setSkillError('This field is required.');
       return;
     }
     if (found !== undefined) {
-      setSkillError("This skill is already present.");
-    }
-    else
-      setSkillError(null);
+      setSkillError('This skill is already present.');
+    } else setSkillError(null);
     setTag(e.target.value);
   };
-
 
   const removeTag = (indexToRemove) => {
     setTags([...tags.filter((element, index) => index !== indexToRemove)]);
@@ -58,8 +61,7 @@ const FormOsp = () => {
     e.preventDefault();
     // eslint-disable-next-line
     console.log(title, description, github, tags, hostedUrl);
-    
-  }
+  };
 
   return (
     <div>
@@ -67,32 +69,56 @@ const FormOsp = () => {
         <div className={styles.flexingin}>
           <div className={styles.qns}>
             <div style={{ color: 'blue' }}>
-              <p>Title<sup> * </sup></p>
+              <p>
+                Title<sup> * </sup>
+              </p>
             </div>
             <input
-              className={`${styles.input} ${titleError !== null ? styles.invalid : ''} `}
+              className={`${styles.input} ${
+                titleError !== null ? styles.invalid : ''
+              } `}
               placeholder="Title of the project"
               style={{ borderBottomColor: 'blue' }}
               onChange={(e) => {
                 setTitle(e.currentTarget.value);
-                setTitleError(FormValidation.checkLengthLimit((e.currentTarget.value.trim()).length, 50, 1));
+                setTitleError(
+                  FormValidation.checkLengthLimit(
+                    e.currentTarget.value.trim().length,
+                    50,
+                    1
+                  )
+                );
               }}
             />
-            <p id='titleError' className='input-field-error'>{titleError}</p>
+            <p id="titleError" className="input-field-error">
+              {titleError}
+            </p>
             <div style={{ color: '#00CACA' }}>
-              <p>Description<sup> * </sup></p>
+              <p>
+                Description<sup> * </sup>
+              </p>
             </div>
             <textarea
-              className={`${styles.inputArea} ${descriptionError !== null ? styles.invalid : ''} `}
+              className={`${styles.inputArea} ${
+                descriptionError !== null ? styles.invalid : ''
+              } `}
               placeholder="About your project"
               style={{ borderBottomColor: '#00CACA' }}
               rows="4"
               onChange={(e) => {
                 setDescription(e.currentTarget.value);
-                setDescriptionError(FormValidation.checkLengthLimit((e.currentTarget.value.trim()).length, 250, 25));
+                setDescriptionError(
+                  FormValidation.checkLengthLimit(
+                    e.currentTarget.value.trim().length,
+                    250,
+                    25
+                  )
+                );
               }}
             />
-            <p id='descriptionError' className='input-field-error'>{descriptionError}</p>
+            <p id="descriptionError" className="input-field-error">
+              {descriptionError}
+            </p>
             <div style={{ color: '#0BA293' }}>
               <p>Skills</p>
             </div>
@@ -106,16 +132,25 @@ const FormOsp = () => {
               }}>
               <input
                 required
-                className={`${styles.input} ${skillError !== null ? styles.invalid : ''} `}
+                className={`${styles.input} ${
+                  skillError !== null ? styles.invalid : ''
+                } `}
                 id="myInput"
                 placeholder="Enter the skills"
                 style={{ borderBottomColor: '#0BA293' }}
                 autoComplete="off"
                 onKeyUp={(e) => onChange(e)}
               />
-              <input type="submit" className={styles.addButton} disabled={addSkillButtonDisabled} value="+" />
+              <input
+                type="submit"
+                className={styles.addButton}
+                disabled={addSkillButtonDisabled}
+                value="+"
+              />
             </form>
-            <p id='skillError' className='input-field-error'>{skillError}</p>
+            <p id="skillError" className="input-field-error">
+              {skillError}
+            </p>
             <ul className={styles.skillList}>
               {tags.map((Tag, index) => (
                 // eslint-disable-next-line react/no-array-index-key
@@ -136,7 +171,9 @@ const FormOsp = () => {
             <div style={{ color: 'black' }}>
               <div className={styles.flex}>
                 <div>
-                  <p>Github<sup> * </sup></p>
+                  <p>
+                    Github<sup> * </sup>
+                  </p>
                 </div>
                 <div>
                   <img src="SVG/git.svg" alt="git" />
@@ -144,11 +181,13 @@ const FormOsp = () => {
               </div>
             </div>
             <input
-              className={`${styles.input} ${githubError !== null ? styles.invalid : ''} `}
+              className={`${styles.input} ${
+                githubError !== null ? styles.invalid : ''
+              } `}
               placeholder="www.github.com/username"
               style={{ borderBottomColor: 'black' }}
               onChange={(e) => {
-                if ((e.currentTarget.value.trim()).length === 0) {
+                if (e.currentTarget.value.trim().length === 0) {
                   setGithubError('This field is required.');
                   return;
                 }
@@ -156,7 +195,9 @@ const FormOsp = () => {
                 setGithubError(FormValidation.checkUrl(e.currentTarget.value));
               }}
             />
-            <p id='githubError' className='input-field-error'>{githubError}</p>
+            <p id="githubError" className="input-field-error">
+              {githubError}
+            </p>
             <div style={{ color: '#9F0BDD' }}>
               <div className={styles.flex}>
                 <div>
@@ -168,15 +209,21 @@ const FormOsp = () => {
               </div>
             </div>
             <input
-              className={`${styles.input} ${hostedUrlError !== null ? styles.invalid : ''} `}
+              className={`${styles.input} ${
+                hostedUrlError !== null ? styles.invalid : ''
+              } `}
               placeholder="Hosting URL of the project"
               style={{ borderBottomColor: '#9F0BDD' }}
               onChange={(e) => {
                 setHostedUrl(e.currentTarget.value);
-                setHostedUrlError(FormValidation.checkUrl(e.currentTarget.value));
+                setHostedUrlError(
+                  FormValidation.checkUrl(e.currentTarget.value)
+                );
               }}
             />
-            <p id='hostedUrlError' className='input-field-error'>{hostedUrlError}</p>
+            <p id="hostedUrlError" className="input-field-error">
+              {hostedUrlError}
+            </p>
             <p>Upload Your Project Here</p>
 
             <label htmlFor="file">
@@ -195,7 +242,11 @@ const FormOsp = () => {
           </div>
         </div>
         <div>
-          <button type="button" onClick={handleFormSubmit} disabled={isDisabled} className={styles['enter-button']}>
+          <button
+            type="button"
+            onClick={handleFormSubmit}
+            disabled={isDisabled}
+            className={styles['enter-button']}>
             Submit
           </button>
         </div>

@@ -24,15 +24,12 @@ const SettingsFinal = () => {
       const result = await storedUserData(User.uid);
       if (result !== null) {
         setLoggedInUser(result);
-      }
-      else
-      {
+      } else {
         toast.error('Some error Occurred ! Please try again later.');
       }
       setPageLoading(false);
     }
-    if (User)
-      getBasicInfo();
+    if (User) getBasicInfo();
   }, [User]);
 
   const basic = () => {
@@ -53,12 +50,10 @@ const SettingsFinal = () => {
     setShowSocial(true);
     setCount(3);
   };
-  if(PageLoading) return <Spinner />
+  if (PageLoading) return <Spinner />;
 
   return (
-
     <div style={{ width: '95%', margin: '20px auto' }}>
-
       <div className={styles['flexing-first']}>
         <div className={styles.boxes}>
           <div className={styles.flexing}>
@@ -79,7 +74,6 @@ const SettingsFinal = () => {
                 color: showBasic ? 'white' : 'black'
               }}
               className={styles.options}>
-
               Basic Information
             </button>
             <button
@@ -91,7 +85,6 @@ const SettingsFinal = () => {
                 color: showAbout ? 'white' : 'black'
               }}
               className={styles.options}>
-
               About You
             </button>
             <button
@@ -103,7 +96,6 @@ const SettingsFinal = () => {
                 color: showSocial ? 'white' : 'black'
               }}
               className={styles.options}>
-
               Socials
             </button>
           </div>
@@ -111,19 +103,16 @@ const SettingsFinal = () => {
 
         <div
           className={styles.boxes2}
-
           style={{ display: showBasic ? 'block' : 'none' }}>
           <Basicinfo UserData={LoggedInUser} />
         </div>
         <div
           className={styles.boxes2}
-
           style={{ display: showAbout ? 'block' : 'none' }}>
           <Aboutus UserData={LoggedInUser} />
         </div>
         <div
           className={styles.boxes2}
-
           style={{ display: showSocial ? 'block' : 'none' }}>
           <Social UserData={LoggedInUser} />
         </div>

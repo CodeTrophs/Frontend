@@ -1,8 +1,8 @@
 @import 'variables';
 
-
-.big-box {                    // Unsaved Repo Card
-  @include padding-all(3rem,1.5rem,1.5rem,1.5rem);
+.big-box {
+  // Unsaved Repo Card
+  @include padding-all(3rem, 1.5rem, 1.5rem, 1.5rem);
   box-shadow: $box-shadow-dark;
   border-radius: 1rem;
   margin-left: 3rem;
@@ -10,14 +10,15 @@
   margin-bottom: 2.5rem;
 }
 
-.savedRepo {            // Saved Repo Card
-   @include padding-all(3rem,1.5rem,1.5rem,1.5rem);
+.savedRepo {
+  // Saved Repo Card
+  @include padding-all(3rem, 1.5rem, 1.5rem, 1.5rem);
   box-shadow: $box-shadow-dark;
   border-radius: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
   margin-bottom: 2.5rem;
-  background-color: #EAF0F1;
+  background-color: #eaf0f1;
 }
 
 .flex {
@@ -42,8 +43,8 @@
   margin-left: auto;
   margin-right: auto;
   img {
-    height:35px;
-    width:35px;
+    height: 35px;
+    width: 35px;
   }
 }
 .langButton {
@@ -74,7 +75,7 @@
   margin-right: 0.625rem;
 }
 
-.smallbox-below > .flex{
+.smallbox-below > .flex {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -106,43 +107,40 @@
 }
 
 @media only screen and (max-width: 1150px) {
-  .flex{
+  .flex {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
   .big-box {
-  box-shadow: $box-shadow-dark;
-  border-radius: 1rem;
-  margin:3rem 15px;
-  padding : 0;
-  padding-top: 3rem;
- 
-}
+    box-shadow: $box-shadow-dark;
+    border-radius: 1rem;
+    margin: 3rem 15px;
+    padding: 0;
+    padding-top: 3rem;
+  }
 
-.savedRepo {            // Saved Repo Card
-  box-shadow: $box-shadow-dark;
-  border-radius: 1rem;
-  margin: 3rem 15px;
-  padding: 0;
-  padding-top: 3rem;
-  background-color: #EAF0F1;
-}
+  .savedRepo {
+    // Saved Repo Card
+    box-shadow: $box-shadow-dark;
+    border-radius: 1rem;
+    margin: 3rem 15px;
+    padding: 0;
+    padding-top: 3rem;
+    background-color: #eaf0f1;
+  }
 
-.middle{
-  width: 100%;
-  padding: 0 15px;
-  text-align: center;
-}
+  .middle {
+    width: 100%;
+    padding: 0 15px;
+    text-align: center;
+  }
 
-.smallbox-below {
-  margin: 1rem 0;
-  
+  .smallbox-below {
+    margin: 1rem 0;
+  }
 }
-
-}
-
 
 .repoOwnerImage {
   height: 100px !important;
@@ -156,7 +154,7 @@
   margin-right: 0.5rem;
 }
 
-.savedButton {  
+.savedButton {
   width: fit-content;
   padding-top: 0.3125rem;
   padding-bottom: 1.5rem;
