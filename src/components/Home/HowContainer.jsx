@@ -26,8 +26,7 @@ export default function HowContainer() {
             />
           </div>
           <p>
-            We can do this and that In this way so as contain our knowledge and
-            have a goodnights sleep
+             Easy Login with Google/GitHub credentials.
           </p>
         </div>
         <div className={styles['how-card']}>
@@ -38,8 +37,7 @@ export default function HowContainer() {
             />
           </div>
           <p>
-            We can do this and that In this way so as contain our knowledge and
-            have a goodnights sleep
+              Choose your area of knowledge and expertise along with group discussions.
           </p>
         </div>
         <div className={styles['how-card']}>
@@ -51,8 +49,7 @@ export default function HowContainer() {
           </div>
           
           <p>
-            We can do this and that In this way so as contain our knowledge and
-            have a goodnights sleep
+              Easy code navigate and begin your contributions.
           </p>
         </div>
       </div>
