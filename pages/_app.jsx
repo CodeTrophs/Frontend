@@ -59,6 +59,10 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
         <title>OpenSourceCode</title>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        />
       </Head>
 
       <UserContext.Provider

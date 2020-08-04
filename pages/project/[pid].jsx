@@ -1,6 +1,7 @@
 import Router from 'next/router';
 import React, { useEffect, useState } from 'react';
 
+import AdDisplay from '../../src/components/AdComponent';
 import Discussion from '../../src/components/Feed/Discussion';
 import ProjectInfo from '../../src/components/Feed/ProjectInfo';
 import Header from '../../src/components/Header';
@@ -58,6 +59,7 @@ const project = () => {
   return (
     <div>
       <Header />
+      <AdDisplay />
       <div className={styles.container}>
         <div className={styles['left-col']}>
           <div className={styles.tabs}>

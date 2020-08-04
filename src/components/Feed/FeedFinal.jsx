@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 
 import { getRepos, getLanguageList, getSavedRepoList,setSavedRepoList, getOrganisationList } from '../../firestore/feedData';
 import styles from '../../scss/feed.module.scss';
+import AdDisplay from '../AdComponent';
 import Card from '../FeedCard';
 import LinearLoader from '../LinearLoader';
 import SearchBar from '../SearchBar';
@@ -178,6 +179,7 @@ async function getOrganisations() {
   return (
     <div>
       <FeedIntroduction />
+      <AdDisplay />
       <div className={styles.search}>
         <SearchBar
           page="feed"
