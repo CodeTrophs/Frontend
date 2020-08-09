@@ -31,7 +31,7 @@ const SearchBar = ({ page, searchFilter }) => {
             backgroundColor: 'black',
             fontSize: '18px',
             fontWeight: '300',
-            width: '300px',
+            width: '100%',
             marginLeft: '20px',
             outline: 'none'
           }}
