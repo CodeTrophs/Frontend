@@ -44,6 +44,7 @@
   margin-top: 20px ;
   height:30px;
   vertical-align: center;
+  padding: 5px;
 }
 
 .bottom > img {
@@ -56,5 +57,14 @@
   .container {
     width: 80%;
     margin: 20px auto;
+  }
+
+  .bottom > textarea {
+    height: 35px;
+    padding: 8px;
+  }
+  .bottom > img {
+    width: 17px;
+    margin: 15px;
   }
 }
