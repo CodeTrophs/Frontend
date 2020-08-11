@@ -23,14 +23,16 @@ export default function Footer() {
               <img src="/SVG/Github.svg" alt="github" />
               Github
             </a>
-            <a href="https://opencollective.com/opensourcecode">
+            </div>
+          
+          
+          <div className={styles.badges}>
+              <a href="https://opencollective.com/opensourcecode">
               <img src="/SVG/open_collective.svg" alt="github" />
               Open Collective
             </a>
-          </div>
-          <div className={styles.badges}>
             <a href="https://discord.gg/urV8vGk">
-              <img src="/SVG/forum.svg" alt="forum" />
+              <img src="/SVG/Discord.svg" alt="discord" />
               Discord
             </a>
           </div>
