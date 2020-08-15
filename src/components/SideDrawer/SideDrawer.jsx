@@ -127,7 +127,7 @@ const SideDrawer = ({ handleClose, router }) => {
             />
           )}
         </div>
-        <div className={styles.link}>
+        {/* <div className={styles.link}>
           <Link href="/organizations">
             <p>Organizations</p>
           </Link>
@@ -140,7 +140,7 @@ const SideDrawer = ({ handleClose, router }) => {
               }}
             />
           )}
-        </div>
+        </div> */}
         <div className={styles.link}>
           <Link href="/saved">
             <p>Saved Repositories</p>
