@@ -54,27 +54,60 @@ const SideDrawer = ({ handleClose, router }) => {
         {profileDD && (
           <div className={styles.dropdown}>
             <div className={styles['top-row']}>
-              <div className={styles['top-right-col']}>
+              {/* <div className={styles['top-right-col']}>
                 <Link href="/setting">
                   <div>
                     <img src="/icons/computer.png" alt="Settings" />
                   </div>
                 </Link>
-              </div>
+              </div> */}
             </div>
             <div className={styles['bottom-row']}>
               <Link href="/profile">
-                <div className={styles['dd-button']}>My Profile</div>
+                <div
+                  className={styles['dd-button']}
+                  style={{ backgroundColor: '#029843' }}
+                >
+                  My Profile
+                    </div>
               </Link>
-              <Link href="/createproject">
-                <div className={styles['dd-button']}>Create OSP</div>
+
+              <Link href="/setting">
+                <div className={styles['dd-button']}
+                  style={{
+                    backgroundColor: '#fff',
+                    border: '1px solid #333',
+                    color: '#000'
+                  }}
+                >
+                  Settings
+                    </div>
               </Link>
+
+              {/* <Link href="/createproject">
+                    <div className={styles['dd-button']}
+                      style={{
+                        backgroundColor: '#fff',
+                        border: '1px solid #333',
+                        color: '#000'
+                      }}
+                    >
+                      Create OSP
+                    </div>
+                </Link> */}
+
               <button
-                onClick={handleLogout}
                 type="button"
-                className={styles['dd-button']}>
+                onClick={handleLogout}
+                className={styles['dd-button']}
+                style={{
+                  backgroundColor: '#fe5e44',
+                  border: 'none',
+                  color: '#fff'
+                }}
+              >
                 Logout
-              </button>
+                </button>
             </div>
           </div>
         )}
@@ -94,7 +127,7 @@ const SideDrawer = ({ handleClose, router }) => {
             />
           )}
         </div>
-        <div className={styles.link}>
+        {/* <div className={styles.link}>
           <Link href="/organizations">
             <p>Organizations</p>
           </Link>
@@ -107,7 +140,7 @@ const SideDrawer = ({ handleClose, router }) => {
               }}
             />
           )}
-        </div>
+        </div> */}
         <div className={styles.link}>
           <Link href="/saved">
             <p>Saved Repositories</p>

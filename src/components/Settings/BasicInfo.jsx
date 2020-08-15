@@ -95,7 +95,7 @@ const Basicinfo = ({ UserData }) => {
   return (
     <div>
       <div className={styles['basic-head']}>
-        <h4 style={{ fontWeight: '500' }}>Let &apos s Get Started</h4>
+        <h4 style={{ fontWeight: '500' }}>Let&apos;s Get Started</h4>
       </div>
       <form onSubmit={handleFormSubmit}>
         <div className={styles.qns}>
