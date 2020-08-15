@@ -45,16 +45,13 @@ export async function checkUserName(userName, uid) {
   {
     return limitCheck;
     }
-  if ((userName.match(userNamePattern) === null) && limitCheck === null) {                // Pattern validation to include only Alphabets , Numbers and underscore(_)
+  if ((userName.match(userNamePattern) === null)) {                // Pattern validation to include only Alphabets , Numbers and underscore(_)
     return "Username can only contain alphabets, numbers and underscore(_).";
   }
-  if (limitCheck === null) {
-    
+  
     const uniqueStatus = await checkUnique('usernames','userName', userName, uid);
     if(uniqueStatus === false)
       return "This username is already taken.";
     return null;
-  }
-  
-  return limitCheck;
+
 }
