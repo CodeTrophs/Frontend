@@ -9,7 +9,7 @@
   align-items: center;
 }
 .left-col {
-  width: 40%;
+  width: 100%;
   display: flex;
 }
 
@@ -108,6 +108,6 @@
 
   .left-col input {
     font-size: 14px !important;
-    width: 200px !important;
+    width: 100% !important;
   }
 }

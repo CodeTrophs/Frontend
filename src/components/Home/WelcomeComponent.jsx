@@ -22,7 +22,11 @@ export default function WelcomeComponent({ setLoading }) {
     setLoading(true);
     e.preventDefault();
     const newUser = await FirebaseAuth.GoogleSignIn();
-    if (newUser.code === undefined) {
+    if (newUser.user === undefined) {
+      await FirebaseAuth.logout();
+      Router.replace('/');
+      toast.error('An error occurred while logging in.');
+    } else if (newUser.code === undefined) {
       changeUser(
         newUser.user.displayName,
         newUser.user.email,
@@ -51,7 +55,11 @@ export default function WelcomeComponent({ setLoading }) {
     setLoading(true);
     e.preventDefault();
     const newUser = await FirebaseAuth.GithubSignIn();
-    if (newUser.code === undefined) {
+    if (newUser.user === undefined) {
+      await FirebaseAuth.logout();
+      Router.replace('/');
+      toast.error('An error occurred while logging in.');
+    } else if (newUser.code === undefined) {
       changeUser(
         newUser.user.displayName,
         newUser.user.email,
