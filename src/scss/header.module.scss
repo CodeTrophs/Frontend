@@ -47,11 +47,14 @@
   position: absolute;
   top: 60px;
   border-radius: 20px;
-  right: 0;
+  right: 15px;
   margin: 10px;
   background-color: #f7f7f7;
   padding: 10px 20px;
-  width: 400px;
+  min-width: 200px;
+  z-index: 50;
+  border: 0.1rem solid rgb(180, 179, 179);
+  border-top: none;
   box-shadow: 5px 5px 5px rgb(223, 223, 223);
 }
 
@@ -90,6 +93,7 @@
 .bottom-row {
   margin: 20px 0px;
   display: flex;
+  flex-direction: column;
   color: white;
   font-size: 14px;
   width: 100%;
@@ -97,26 +101,18 @@
 }
 
 .dd-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px 10px;
   border-radius: 8px;
-  width: 30%;
+  width: 100%;
+  margin:0.5rem 0;
+  font-weight: 500;
+  font-size: 1rem;
   box-shadow: 5px 5px 5px rgb(223, 223, 223);
   text-align: center;
   cursor: pointer;
-}
-
-.dd-button:nth-child(1) {
-  background-color: #029843;
-}
-.dd-button:nth-child(2) {
-  background-color: white;
-  border: 1px solid #333;
-  color: black;
-}
-.dd-button:nth-child(3) {
-  color: white;
-  border: none;
-  background-color: #fe5e44;
 }
 
 @media only screen and (max-width: 800px) {

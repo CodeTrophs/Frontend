@@ -11,6 +11,7 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+  z-index: 50;
 }
 .close-button {
   margin: 23px 30px;
@@ -34,8 +35,6 @@
 
 .dropdown {
   border-radius: 20px;
-
-  margin: 10px;
   background-color: #f7f7f7;
   padding: 10px 20px;
   width: 100%;
@@ -74,26 +73,13 @@
 .dd-button {
   padding: 5px 10px;
   border-radius: 8px;
-  width: 80%;
+  width: 100%;
   margin: 5px;
   box-shadow: $box-shadow-thin-light;
   text-align: center;
   cursor: pointer;
 }
 
-.dd-button:nth-child(1) {
-  background-color: #029843;
-}
-.dd-button:nth-child(2) {
-  background-color: white;
-  border: 1px solid #333;
-  color: black;
-}
-.dd-button:nth-child(3) {
-  background-color: #fe5e44;
-  border: none;
-  color: white;
-}
 .links {
   display: flex;
   height: 30vh;
