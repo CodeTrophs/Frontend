@@ -57,8 +57,7 @@ const project = () => {
 
   return (
     <div>
-      <Discussion className={styles['right-col']} />
-      {/* <Header />
+      <Header />
       <AdDisplay />
       <div className={styles.container}>
         <div className={styles['left-col']}>
@@ -84,7 +83,7 @@ const project = () => {
               }
               onClick={() => changeTab('pull-requests')}>
               PULL REQUESTS
-            </div> */}
+            </div>
             {/* <div
               tabIndex={0}
               role="button"
@@ -97,13 +96,12 @@ const project = () => {
               onClick={() => changeTab('contribution')}>
               CONTRIBUTION
             </div> */}
-          {/* </div>
+          </div>
           <ProjectInfo page={Tab} data={dataList} url={repoUrl} />
         </div>
         <Discussion className={styles['right-col']} />
-      </div> */}
+      </div>
     </div>
   );
 };
-
 export default project;

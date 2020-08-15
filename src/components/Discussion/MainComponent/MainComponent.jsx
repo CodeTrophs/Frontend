@@ -2,15 +2,16 @@ import React from 'react';
 
 
 import styles from '../../../scss/maincomponent.module.scss';
-const maincomponent = props => (
+
+const maincomponent = () => (
     <div className={styles['grid-container']}>
-        <div className={styles.sidedrawer}>
+        {/* <div className={styles.sidedrawer}>
             <div className={styles.tabs}>
                     <p>ISSUES</p>
                     <p>PULL REQUEST</p>
                     <p>DISCUSSION FORUM</p>
             </div>
-        </div>
+        </div> */}
         
     <div className={styles.discussion}>
         <div className={styles.discussion_title}>
@@ -26,7 +27,7 @@ const maincomponent = props => (
         </div>
     </div>
     <div className={styles.forumguide}>
-        <h2>Forum Guidelines          > </h2>
+        <h2>Forum Guidelines           </h2>
     </div>
     <div className={styles.adsection}>
         <div className={styles.box}>
@@ -35,7 +36,7 @@ const maincomponent = props => (
     </div>
     <div className={styles.sortby}>
         <div className={styles.sort_title}>
-            <p><strong>Sort by: </strong>Latest ></p>
+            <p><strong>Sort by: </strong>Latest </p>
             <div className={styles.button}>New Thread</div>
         </div>
     </div>

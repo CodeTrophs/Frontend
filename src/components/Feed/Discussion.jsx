@@ -24,41 +24,41 @@
 // export default Discussion;
 
 
-import React, {Component} from 'react';
-import styles from '../../scss/discussion.module.scss';
+import React from 'react';
+// import styles from '../../scss/discussion.module.scss';
 
-import Toolbar from '../Discussion/Toolbar/Toolbar';
-import SideDrawer from '../Discussion/SideDrawer/SideDrawer';
-import Backdrop from '../Discussion/Backdrop/Backdrop';
+// import Toolbar from '../Discussion/Toolbar/Toolbar';
+// import SideDrawer from '../Discussion/SideDrawer/SideDrawer';
+// import Backdrop from '../Discussion/Backdrop/Backdrop';
 import MainComponent from '../Discussion/MainComponent/MainComponent';
 
-class discussion extends Component   {
-  state = {
-    sideDrawerOpen: false
-  };
+const discussion = () =>    {
+  // state = {
+  //   sideDrawerOpen: false
+  // };
 
-  drawerToggleClickHandler = () => {
-    this.setState((prevState) => {
-      return {sideDrawerOpen: !prevState.sideDrawerOpen};
-    });
-  };
+  // drawerToggleClickHandler = () => {
+  //   this.setState((prevState) => {
+  //     return {sideDrawerOpen: !prevState.sideDrawerOpen};
+  //   });
+  // };
 
-  backdropClickHandler = () => {
-    this.setState({sideDrawerOpen: false});
-  };
+  // backdropClickHandler = () => {
+  //   this.setState({sideDrawerOpen: false});
+  // };
 
-  render() {
+  // // render() {
 
-    let backdrop;
+  //   let backdrop;
 
-    if (this.state.sideDrawerOpen) {
-      backdrop = <Backdrop click={this.backdropClickHandler} />
-    }
+  //   if (this.state.sideDrawerOpen) {
+  //     backdrop = <Backdrop click={this.backdropClickHandler} />
+    // }
     return (
       <div style={{height: '100%'}}>
-        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-        <SideDrawer show={this.state.sideDrawerOpen} />
-        {backdrop}
+        {/* <Toolbar drawerClickHandler={this.drawerToggleClickHandler} /> */}
+        {/* <SideDrawer show={this.state.sideDrawerOpen} /> */}
+        {/* {backdrop} */}
         <main style={{marginTop: '64px'}}>
           <MainComponent />
         </main>
@@ -66,6 +66,6 @@ class discussion extends Component   {
       </div>
     );
   }
-}
+// }
 
 export default discussion;

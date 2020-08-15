@@ -1,13 +1,13 @@
 .grid-container {
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns:  1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1px 1px;
-    grid-template-areas: "sidedrawer discussion discussion description"
-                         "sidedrawer sortby sortby forumguide" 
-                          "sidedrawer sortby sortby adsection"
-                          "sidedrawer sortby sortby .";
+    grid-template-areas: " discussion discussion description"
+                         " sortby sortby forumguide" 
+                          " sortby sortby adsection"
+                          " sortby sortby .";
   }
   
 .sidedrawer {
