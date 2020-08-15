@@ -1,0 +1,160 @@
+.grid-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "sidedrawer discussion discussion description"
+                         "sidedrawer sortby sortby forumguide" 
+                          "sidedrawer sortby sortby adsection"
+                          "sidedrawer sortby sortby .";
+  }
+  
+.sidedrawer {
+    grid-area: sidedrawer; 
+    display: flex;
+    justify-content: flex-end;
+    }
+
+.tabs {
+    height: 100%;
+    width: 80%;
+    border-radius: 2%;
+    background-color: #f5f5f5;
+    text-align: center;
+   }
+
+.tabs > p {
+    margin: 0;
+    padding: 10px;
+   }
+
+.sortby { 
+    grid-area: sortby;
+    display: flex;
+   }
+
+  .sortby > .sort_title {
+     margin: 3rem;
+     width: 100%;
+     height: 50px;
+     display: flex;
+     justify-content: space-between;
+     border-bottom:1px solid gray;
+   }
+   .sort_title >.button{
+     margin-left: auto;
+     border:1px solid blue;
+     height: 90%;
+     width: 10rem;
+     padding: 10px;
+     color: blue;
+     text-align: center;
+   }
+  
+  .discussion { grid-area: discussion; }
+
+  .discussion_title {
+     margin-left: 2rem;
+     width: 85%;
+     padding: 3px;
+   }
+  .description { 
+     grid-area: description;
+     display: flex;
+     align-items: center;
+   }
+   .box {
+      width: 80%;
+      padding: 3px;
+      border: 1.2px solid gray;
+      box-shadow:  0.3em 0.3em 2em rgba(0,0,0,0.3); 
+   }
+   .box > p {
+       line-height: 2rem;
+      
+   }
+   
+   .forumguide {
+      grid-area: forumguide;
+      display: flex;
+      align-items: center;
+   }
+
+.forumguide > h2 {
+   border: 1px solid black;
+   padding: 1.2rem;   
+   width: 80%;  
+  }
+
+  
+  
+  .adsection { 
+     grid-area: adsection;
+     display: flex;
+   }
+  
+  .adsection > .box {
+     height: 200px;
+     display: flex;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+  /* For presentation only, no need to copy the code below */
+  .grid-container * { 
+//   border: 1px solid red; 
+   position: relative;
+  }
+  
+  .grid-container *:after { 
+   /* content:attr(class); */
+   position: absolute;
+   top: 0;
+   left: 0;
+  }
+  
+  
+
+  @media (max-width: 768px) {
+   .sidedrawer{
+      display: none;
+   }
+   .forumguide{
+      display: none;
+   }
+   .grid-container {
+      grid-template-columns: auto;
+      grid-template-rows: 1fr 1fr 0.5fr minmax(1fr,auto);
+      grid-template-areas: "discussion"
+                            "description" 
+                            "adsection"
+                            "sortby";
+       }
+   .description {
+      justify-content: center;
+   }
+   .adsection{
+      margin-top: 1rem;
+      justify-content: center;
+      
+   }
+   .adsection > .box{
+      height: 50px;
+      
+   }
+   .discussion {
+     display: flex;
+     justify-content: center;
+   }
+   
+}
+ 
+
+
+
+
+
+
+
+
