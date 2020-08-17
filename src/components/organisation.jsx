@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import Modal from './modal';
+import Modal from './Modal';
 
 const organisation = ({ org }) => {
   const [ModalShow, setModalShow] = useState(false);
