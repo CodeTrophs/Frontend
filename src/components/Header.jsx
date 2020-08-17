@@ -167,7 +167,7 @@ export default function Header() {
                         color: '#000'
                       }}
                     >
-                      Settings  <img src="/icons/computer.png" alt="Settings" style={{marginLeft:"1rem", width: "25px" }}/>
+                      Settings
                     </div>
                 </Link>
                 
