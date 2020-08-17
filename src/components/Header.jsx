@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useState, useContext, useEffect } from 'react';
 
 import styles from '../scss/header.module.scss';
-import * as FirebaseAuth from './FirebaseAuth';
+import * as FirebaseAuth from './firebaseAuth';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Spinner from './Spinner';

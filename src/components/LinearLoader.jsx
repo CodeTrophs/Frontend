@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../scss/LinearLoader.module.scss';
+import styles from '../scss/linearLoader.module.scss';
 
 const LinearLoader = () => {
   return (
