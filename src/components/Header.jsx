@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useState, useContext, useEffect } from 'react';
 
 import styles from '../scss/header.module.scss';
-import * as FirebaseAuth from './FirebaseAuth';
+import * as FirebaseAuth from './firebaseAuth';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Spinner from './Spinner';
@@ -167,7 +167,7 @@ export default function Header() {
                         color: '#000'
                       }}
                     >
-                      Settings  <img src="/icons/computer.png" alt="Settings" style={{marginLeft:"1rem", width: "25px" }}/>
+                      Settings
                     </div>
                 </Link>
                 

@@ -164,7 +164,7 @@ ProjectInfo.defaultProps = {
 ProjectInfo.propTypes = {
   page: PropTypes.string.isRequired,
   url: PropTypes.string,
-  data: PropTypes.shape({
+  data: PropTypes.exact({
     issues: PropTypes.array,
     pulls: PropTypes.array
   })

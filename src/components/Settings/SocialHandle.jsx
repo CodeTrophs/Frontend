@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import { setSocialHandles } from '../../firestore/profileSettings';
-import * as FormValidation from '../../FormValidation';
+import * as FormValidation from '../../formValidation';
 import styles from '../../scss/settings.module.scss';
 import LinearLoader from '../LinearLoader';
 

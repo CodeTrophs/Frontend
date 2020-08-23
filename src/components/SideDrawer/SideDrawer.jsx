@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState, useContext } from 'react';
 
 import styles from '../../scss/sideDrawer.module.scss';
-import * as FirebaseAuth from '../FirebaseAuth';
+import * as FirebaseAuth from '../firebaseAuth';
 import UserContext from '../UserContext';
 import DrawerToggleButton from './DrawerToggleButton';
 

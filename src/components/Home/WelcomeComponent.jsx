@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import styles from '../../scss/home.module.scss';
-import * as FirebaseAuth from '../FirebaseAuth';
+import * as FirebaseAuth from '../firebaseAuth';
 import UserContext from '../UserContext';
 
 export default function WelcomeComponent({ setLoading }) {

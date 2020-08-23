@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
-import * as FirebaseAuth from '../src/components/FirebaseAuth';
+import * as FirebaseAuth from '../src/components/firebaseAuth';
 import { initGA, logPageView } from '../src/components/googleAnalytics';
 import '../src/scss/style.scss';
 import Spinner from '../src/components/Spinner';

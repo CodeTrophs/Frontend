@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import * as FormValidation from '../../FormValidation';
+import * as FormValidation from '../../formValidation';
 import styles from '../../scss/osp.module.scss';
 
 const FormOsp = () => {

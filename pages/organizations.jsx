@@ -3,7 +3,7 @@ import React from 'react';
 import AdDisplay from '../src/components/AdComponent';
 import Header from '../src/components/Header';
 import LandingContainer from '../src/components/LandingContainer';
-import Organisation from '../src/components/organisation';
+import Organisation from '../src/components/Organisation';
 import SearchBar from '../src/components/SearchBar';
 import styles from '../src/scss/organisations.module.scss';
 

@@ -5,38 +5,67 @@ import styles from '../scss/footer.module.scss';
 export default function Footer() {
   return (
     <div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
-        <path
-          fill="#f7f7f7"
-          fillOpacity="1"
-          d="M0,64L48,106.7C96,149,192,235,288,224C384,213,480,107,576,85.3C672,64,768,128,864,144C960,160,1056,128,1152,106.7C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        />
-      </svg>
+      {/* =========================================================================================== 
+                        Subscribe to Mailing List Div
+          =========================================================================================== */}
+
+      <div className={styles['subscribe-container']}>
+        <img src="SVG/subscribe-top.svg" alt="" />
+        <div className={styles['subscribe-inner']}>
+          <img src='SVG/subscribe-top-girl.svg' alt=''/>
+          <h2> Stay updated to our Newsletter</h2>
+          <div className={styles['subscribe-input']}>
+            <input type="email" placeholder="Enter your email" />
+            <button type="button" className={styles['subscribe-button']}>
+              SUBSCRIBE
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* =========================================================================================== 
+                        Footer Links
+          =========================================================================================== */}
+
       <footer className={styles.footer}>
+        <h1 className={styles.heading}>
+          {' '}
+          Contact Us
+          <hr />
+        </h1>
         <div className={styles['footer-content']}>
           <div className={styles.badges}>
-            <a href="/">
-              <img src="/SVG/twitter.svg" alt="twitter" />
-              @OPENSRCDESIGN
+            {/* Dev.to */}
+            <a href="https://dev.to/_opensourcecode">
+              <img src="/SVG/dev_to.svg" alt="Dev.to" />
+              Dev.to
             </a>
-            <a href="https://github.com/OpenSouceCode">
-              <img src="/SVG/Github.svg" alt="github" />
-              Github
-            </a>
-            </div>
-          
-          
-          <div className={styles.badges}>
-              <a href="https://opencollective.com/opensourcecode">
-              <img src="/SVG/open_collective.svg" alt="github" />
-              Open Collective
-            </a>
+            {/* Discord */}
             <a href="https://discord.gg/urV8vGk">
-              <img src="/SVG/Discord.svg" alt="discord" />
+              <img src="/SVG/footer-discord.svg" alt="Discord" />
               Discord
             </a>
-          </div>
-          <div className={styles['bottom-row']}>
+            {/* Twitter */}
+            <a href="https://twitter.com/_opensourcecode">
+              <img src="/SVG/footer-twitter.svg" alt="Twitter" />
+              Twitter
+            </a>
+            {/* Github */}
+            <a href="https://github.com/OpenSouceCode">
+              <img src="/SVG/footer-github.svg" alt="Github" />
+              Github
+            </a>
+            {/* LinkedIn */}
+            <a href="https://www.linkedin.com/company/opensourcecode">
+              <img src="/SVG/footer-linkedin.svg" alt="LinkedIn" />
+              LinkedIn
+            </a>
+            {/* Slack */}
+            <a href="https://join.slack.com/t/opensourcecode/shared_invite/zt-f0frpe9g-8fGLNGPA6HUQR~XuCoAJmg">
+              <img src="/SVG/footer-slack.svg" alt="Slack" />
+              Slack
+            </a>
+
             <a href="https://github.com/OpenSouceCode/Frontend/tree/master/src/components">
               <img src="/SVG/pencil.svg" alt="pencil" />
               Edit this page
@@ -46,6 +75,9 @@ export default function Footer() {
               View Source Code
             </a>
           </div>
+        </div>
+        <div className={styles['partner-logo']}>
+          <img src="SVG/footer-partner-logo.svg" alt="Powered by InCampus" />
         </div>
       </footer>
     </div>
