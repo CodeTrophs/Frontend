@@ -1,47 +1,63 @@
-
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import styles from '../scss/carousel.module.scss';
 import sponsors from './sponsors.json';
 
-export default function Carousel({data}) {
+const ANIMATION_DURATION = 500;
 
+export default function Carousel({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [activeQuote, setActiveQuote] = useState(data[0]);
-        // Previous Item Function
 
+  // Previous Item Function
   function goToPrevious() {
-    let newIndex;
-    if (activeIndex === 0) {
-      newIndex = data.length - 1;
-    }
-    else
-    newIndex = activeIndex-1;
-    setActiveIndex(newIndex);
-    setActiveQuote(data[newIndex]);
+    setIsAnimating(true);
+    setTimeout(() => {
+      let newIndex;
+      if (activeIndex === 0) {
+        newIndex = data.length - 1;
+      } else newIndex = activeIndex - 1;
+      setActiveIndex(newIndex);
+      setActiveQuote(data[newIndex]);
+    }, ANIMATION_DURATION / 2);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, ANIMATION_DURATION);
   }
-              // Next Item Function
+
+  // Next Item Function
   function goToNext() {
-    let newIndex;
-    if (activeIndex === data.length - 1) {
-      newIndex = 0;
-    } else newIndex = activeIndex + 1;
-    setActiveIndex(newIndex);
-    setActiveQuote(data[newIndex]);
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      let newIndex;
+      if (activeIndex === data.length - 1) {
+        newIndex = 0;
+      } else newIndex = activeIndex + 1;
+      setActiveIndex(newIndex);
+      setActiveQuote(data[newIndex]);
+    }, ANIMATION_DURATION / 2);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, ANIMATION_DURATION);
   }
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
     }, 8000);
     return () => clearInterval(interval);
   }, [activeIndex]);
-  
 
   return (
     <div className={styles['carousel-outer']}>
-      <h1 className={styles.heading}>Our Past <span>Sponsors</span> and <span>Partners</span> </h1>
+      <h1 className={styles.heading}>
+        Our Past <span>Sponsors</span> and <span>Partners</span>{' '}
+      </h1>
       <div className={styles['sponsors-div']}>
         {sponsors.map((sponsor) => {
           // console.log(sponsor);
@@ -56,7 +72,12 @@ export default function Carousel({data}) {
           );
         })}
       </div>
-      <div className={styles['carousel-container']}>
+      <div
+        className={
+          isAnimating
+            ? `${styles['carousel-container']} ${styles['carousel-animate']}`
+            : styles['carousel-container']
+        }>
         <h1 className={styles.heading}>Testimonials</h1>
         <button
           type="button"
@@ -98,25 +119,25 @@ export default function Carousel({data}) {
   );
 }
 
-
 Carousel.defaultProps = {
   data: [
-      {
-        comment:
-          'Comment by John Doe',
-        profileImage: 'icons/young-man.png',
-        name: 'John Doe',
-        Designation: 'Software Engineer'
+    {
+      comment: 'Comment by John Doe',
+      profileImage: 'icons/young-man.png',
+      name: 'John Doe',
+      Designation: 'Software Engineer'
     }
   ]
 };
 
-
 Carousel.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.exact({
-    comment: PropTypes.string,
-    profileImage: PropTypes.string,
-    name: PropTypes.string,
-    Designation:PropTypes.string
-  }))
+  data: PropTypes.arrayOf(
+    PropTypes.exact({
+      comment: PropTypes.string,
+      profileImage: PropTypes.string,
+      name: PropTypes.string,
+      Designation: PropTypes.string
+    })
+  )
 };
+
