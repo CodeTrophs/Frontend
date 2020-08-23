@@ -72,12 +72,7 @@ export default function Carousel({ data }) {
           );
         })}
       </div>
-      <div
-        className={
-          isAnimating
-            ? `${styles['carousel-container']} ${styles['carousel-animate']}`
-            : styles['carousel-container']
-        }>
+      <div className={styles['carousel-container']}>
         <h1 className={styles.heading}>Testimonials</h1>
         <button
           type="button"
@@ -92,7 +87,12 @@ export default function Carousel({ data }) {
             alt="Open Quote"
             style={{ position: 'absolute', top: '0', left: '0' }}
           />
-          <div className={styles['carousel-data']}>
+          <div
+            className={
+              isAnimating
+                ? `${styles['carousel-data']} ${styles['carousel-animate']}`
+                : styles['carousel-data']}
+          >
             <p>{activeQuote.comment}</p>
 
             <div className={styles['data-bottom-row']}>

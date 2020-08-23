@@ -45,11 +45,6 @@
   background-color: #fff;
   position: relative;
   padding: 2rem 0 1rem;
-
-  &.carousel-animate {
-    animation-name: fadeInOut;
-    animation-duration: 0.5s;
-  }
 }
 
 .heading {
@@ -90,6 +85,10 @@
     display: flex;
     align-items: center;
     height: 70%;
+  }
+  &.carousel-animate {
+    animation-name: fadeInOut;
+    animation-duration: 0.5s;
   }
 }
 
