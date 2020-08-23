@@ -1,24 +1,112 @@
 @import 'variables';
 
+.subscribe-container {
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  img {
+    display: block;
+    max-width: 500px;
+    max-height: 300px;
+    margin: auto;
+  }
+
+  background-image: url('/SVG/footer-bg.svg');
+}
+
+.subscribe-inner {
+  display: block;
+  position: relative;
+  padding:2rem 1rem;
+  background-color: #5356A5;
+  width: 75%;
+  border-radius: 2rem;
+  margin: auto;
+  text-align: center;
+
+  h2{
+    color: #fafafa;
+    margin: 1rem 0;
+  } 
+
+  
+  img {
+    max-height: 70% !important;
+    position: absolute;
+    left:5%;
+    top: -50%;
+    
+  }
+}
+
+.subscribe-input{
+      display: flex;
+      flex-direction: row;
+      margin: auto;
+      margin-bottom: 1rem;
+      width: 50%;
+      align-items: center;
+
+  input {
+    flex-grow:2;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 2rem 0 0 2rem;
+  }
+
+  .subscribe-button{
+     border-radius: 0 2rem 2rem 0;
+      color: #fafafa;
+      background-color: #55C2B4;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      border: none;
+    }
+    .subscribe-button:hover{
+    cursor: pointer;
+    background-color: #42A598;
+  }
+}
+
 .footer {
   width: 100%;
-  background-color: #f7f7f7;
-  margin-top: -10px;
+  background-color: #98eae080;
   padding: 0 50px;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding-left: 2.5rem;
+
+  hr{
+    width: 2em;
+    height: 0.5rem;
+    background-color: #000;
+    border-radius: 1rem;
+  }
 }
 
 .footer-content {
   width: 100%;
   position: relative;
   margin: auto;
+  display: flex;
+  justify-content: center;
   padding-top: 1rem;
 }
 
 .badges {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  width: auto;
+  max-width: 75%;
 }
 .badges img {
   width: 1.3rem;
@@ -29,6 +117,7 @@
 .badges > a {
   display: flex;
   justify-content: center;
+  background-color: #fff;
   align-items: center;
   width: fit-content;
   font-size: 1rem;
@@ -42,41 +131,52 @@
   color: #000;
 }
 
-.bottom-row {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  padding-bottom: 0;
-  a {
-    text-decoration: none;
-    color: #000;
-    padding: 1rem;
-    text-align: center;
-    display: inline-flex;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-  }
-
-  img {
-    width: 25px;
-    height: 25px;
-    margin-right: 5px;
+.partner-logo {
+  display: block;
+  margin:auto;
+  text-align: center;
+  padding:25px 0 ;
+  img{
+    max-width: 250px;
+    max-height: 250px;
   }
 }
 
+
+@media only screen and (max-width:1100px) {
+  .subscribe-inner {
+    .subscribe-input {
+      width: 75%;
+    }
+  }
+}
+
+
 @media only screen and (max-width: 800px) {
+
+  .subscribe-container{
+    img {
+      max-width: 400px;
+      max-height: 300px;
+    }
+  }
+
+
   .footer {
     padding: 0 15px;
+  }
+
+  .footer-content {
+    width: 100%;
   }
 
   .badges > a {
     padding: 2px 5px;
     margin: 8px 3px;
     cursor: pointer;
-    border: 3px solid #000;
+    border: 2px solid #000;
     justify-content: space-between;
-    font-weight: 400;
+    font-weight: 600;
   }
 
   .bottom-row {
@@ -94,8 +194,41 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
+
+  .subscribe-container {
+    img {
+      max-width: 200px;
+      max-height: 300px;
+    }
+    .subscribe-inner {
+      width: 90%;
+      padding: 2rem 0.25rem;
+    }
+
+    .subscribe-input{
+      width: 100%;
+    }
+  }
+
   .footer {
     background-position: center;
+  }
+}
+
+@media only screen and (max-width:400px) {
+  .subscribe-inner {
+    img {
+      max-width: 50%;
+      top: -35%;
+    }
+  }
+  .subscribe-input {
+    input {
+      font-size: 1rem;
+    }
+    .subscribe-button{
+      font-size: 1rem;
+    }
   }
 }
