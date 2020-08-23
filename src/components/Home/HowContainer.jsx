@@ -20,7 +20,7 @@ export default function HowContainer() {
           <img alt="how-right-SVG.png" src="/images/how-right-svg.svg" />
         </div>
       </div>
-      <div className={styles['how-bottom-row']}>
+      {/* <div className={styles['how-bottom-row']}>
         <div className={styles['how-card']}>
           <div
             className={styles['how-card-img-container']}
@@ -61,7 +61,7 @@ export default function HowContainer() {
               Easy code navigate and begin your contributions.
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
