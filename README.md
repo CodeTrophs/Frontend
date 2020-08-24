@@ -14,7 +14,7 @@ Contributing to open source can be a rewarding way to learn, teach, and build ex
 [![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com)
 
 # Support Channels
-[![Gitter](https://badges.gitter.im/opensourcecode2020/community.svg)](https://gitter.im/opensourcecode2020/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+//[![Gitter](https://badges.gitter.im/opensourcecode2020/community.svg)](https://gitter.im/opensourcecode2020/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/OpenSouceCode/Frontend) 
 
 
