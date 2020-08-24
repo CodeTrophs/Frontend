@@ -45,6 +45,9 @@
   background-color: #fff;
   position: relative;
   padding: 2rem 0 1rem;
+  -webkit-box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
+-moz-box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
+box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
 }
 
 .heading {
