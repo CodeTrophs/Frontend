@@ -40,9 +40,12 @@ const SearchBar = ({ page, searchFilter }) => {
     </div>
   );
 };
+SearchBar.defaultProps = {
+  searchFilter: () => {}
+};
 
 SearchBar.propTypes = {
   page: PropTypes.string.isRequired,
-  searchFilter: PropTypes.func.isRequired
+  searchFilter: PropTypes.func
 };
 export default SearchBar;

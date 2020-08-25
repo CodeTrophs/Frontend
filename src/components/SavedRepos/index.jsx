@@ -7,9 +7,9 @@ import { toast } from 'react-toastify';
 import UserContext from '../../context/UserContext';
 import styles from '../../scss/savedRepos.module.scss';
 import {
-    getSavedRepoList,
-    setSavedRepoList,
-    getSavedRepoData
+  getSavedRepoList,
+  setSavedRepoList,
+  getSavedRepoData
 } from '../../utils/Firestore/feedData';
 import Card from '../Feed/FeedCard';
 import LinearLoader from '../LinearLoader';
@@ -37,7 +37,7 @@ export default function SavedRepos() {
         setRepoList([...repoList, res].flat());
         setStartIndex(repoList.length + res.length);
       }
-      if (res.length === 0) {
+      if (res && res.length === 0) {
         setReachedEnd(true);
       }
       setPageLoading(false);
