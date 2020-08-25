@@ -3,47 +3,24 @@ import React, { useEffect, useState } from 'react';
 
 import AdDisplay from '../../src/components/AdComponent';
 import Discussion from '../../src/components/Feed/Discussion';
-import ProjectInfo from '../../src/components/Feed/ProjectInfo';
+import Issues from '../../src/components/Feed/Issues';
+import PullRequests from '../../src/components/Feed/Pull-requests';
 import Header from '../../src/components/Header';
 import Spinner from '../../src/components/Spinner';
-import { getIssues, getPulls, getRepo } from '../../src/firestore/projectData';
+import { getRepo } from '../../src/firestore/projectData';
 import styles from '../../src/scss/project.module.scss';
 
 const project = () => {
-  const [issueList, setIssueList] = useState([]);
-  const [pullsList, setPullsList] = useState([]);
-  const [dataList, setDataList] = useState(null);
   const [repoUrl, setRepoUrl] = useState(null);
   const [pageLoading, setPageLoading] = useState(true);
 
-  async function getIssuesForRepo() {
-    getIssues(Router.query.pid).then((res) => {
-      setIssueList(res);
-    });
-  }
-
-  async function getPullsforRepo() {
-    getPulls(Router.query.pid).then((res) => {
-      setPullsList(res);
-      setPageLoading(false);
-    });
-  }
-
-  useEffect(() => {
-    const data = {
-      issues: issueList,
-      pulls: pullsList
-    };
-    setDataList(data);
-  }, [issueList, pullsList]);
 
   useEffect(() => {
     if (Router.query.pid) {
-      getIssuesForRepo();
-      getPullsforRepo();
       getRepo(Router.query.pid).then((res) => {
         setRepoUrl(res);
       });
+      setPageLoading(false);
     }
   }, []);
 
@@ -84,22 +61,23 @@ const project = () => {
               onClick={() => changeTab('pull-requests')}>
               PULL REQUESTS
             </div>
-            {/* <div
+            <div
               tabIndex={0}
               role="button"
               onKeyDown={() => {
-                changeTab('contribution');
+                changeTab('discussion');
               }}
               className={
-                Tab === 'contribution' ? styles['active-tab'] : styles.tab
+                Tab === 'discussion' ? styles['active-tab'] : styles.tab
               }
-              onClick={() => changeTab('contribution')}>
-              CONTRIBUTION
-            </div> */}
+              onClick={() => changeTab('discussion')}>
+              DISCUSSION
+            </div>
           </div>
-          <ProjectInfo page={Tab} data={dataList} url={repoUrl} />
+          { Tab === 'issues' && <Issues url={repoUrl} /> }
+          { Tab === 'pull-requests' && <PullRequests url={repoUrl} /> }
+          {Tab === 'discussion' && <Discussion className={styles['right-col']} /> }
         </div>
-        <Discussion className={styles['right-col']} />
       </div>
     </div>
   );
