@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
-import * as FirebaseAuth from '../src/components/firebaseAuth';
-import { initGA, logPageView } from '../src/components/googleAnalytics';
-import '../src/scss/style.scss';
 import Spinner from '../src/components/Spinner';
-import UserContext from '../src/components/UserContext';
+import UserContext from '../src/context/UserContext';
+import * as FirebaseAuth from '../src/utils/Firebase/firebaseAuth';
+import { initGA, logPageView } from '../src/utils/googleAnalytics';
+import '../src/scss/style.scss';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {

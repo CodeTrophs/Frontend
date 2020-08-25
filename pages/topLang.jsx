@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Header from '../src/components/Header';
-import TopLanguage from '../src/components/TopLanguages';
+import Header from '../src/views/Header';
+import TopLanguage from '../src/views/TopLanguages';
 
 const lang = () => (
   <div>
@@ -9,6 +9,5 @@ const lang = () => (
     <TopLanguage />
   </div>
 );
-
 
 export default lang;

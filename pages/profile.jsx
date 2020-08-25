@@ -1,15 +1,15 @@
 import React from 'react';
 
-import AdDisplay from '../src/components/AdComponent';
+import Adsense from '../src/components/Adsense';
 
-import Header from '../src/components/Header';
 import BoxProfile from '../src/components/Profile/ProfileBox';
+import Header from '../src/views/Header';
 
 function Profile() {
   return (
     <div>
       <Header />
-      <AdDisplay />
+      <Adsense />
       <BoxProfile />
     </div>
   );

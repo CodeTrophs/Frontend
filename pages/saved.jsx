@@ -1,14 +1,14 @@
 import React from 'react';
 
-import AdDisplay from '../src/components/AdComponent';
-import Header from '../src/components/Header';
-import SavedRepos from '../src/components/SavedRepos';
+import Adsense from '../src/components/Adsense';
+import Header from '../src/views/Header';
+import SavedRepos from '../src/views/SavedRepos';
 
 function SavedPage() {
   return (
     <div>
       <Header />
-      <AdDisplay />
+      <Adsense />
       <SavedRepos />
     </div>
   );

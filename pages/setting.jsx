@@ -1,14 +1,14 @@
 import React from 'react';
 
-import AdDisplay from '../src/components/AdComponent';
+import Adsense from '../src/components/Adsense';
 
-import Header from '../src/components/Header';
-import Settings from '../src/components/Settings/Options';
+import Header from '../src/views/Header';
+import Settings from '../src/views/Settings/Options';
 
 const setting = () => (
   <div>
     <Header />
-    <AdDisplay />
+    <Adsense />
     <Settings />
   </div>
 );

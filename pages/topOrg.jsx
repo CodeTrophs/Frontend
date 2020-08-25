@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Header from '../src/components/Header';
-import TopOrganisation from '../src/components/TopOrganisations';
+import Header from '../src/views/Header';
+import TopOrganization from '../src/views/TopOrganizations';
 
 const org = () => (
   <div>
     <Header />
-    <TopOrganisation />
+    <TopOrganization />
   </div>
 );
 

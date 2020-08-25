@@ -1,13 +1,17 @@
 import Router from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import AdDisplay from '../../src/components/AdComponent';
+import Adsense from '../../src/components/Adsense';
 import Discussion from '../../src/components/Feed/Discussion';
 import ProjectInfo from '../../src/components/Feed/ProjectInfo';
-import Header from '../../src/components/Header';
 import Spinner from '../../src/components/Spinner';
-import { getIssues, getPulls, getRepo } from '../../src/firestore/projectData';
 import styles from '../../src/scss/project.module.scss';
+import {
+  getIssues,
+  getPulls,
+  getRepo
+} from '../../src/utils/Firestore/projectData';
+import Header from '../../src/views/Header';
 
 const project = () => {
   const [issueList, setIssueList] = useState([]);
@@ -58,7 +62,7 @@ const project = () => {
   return (
     <div>
       <Header />
-      <AdDisplay />
+      <Adsense />
       <div className={styles.container}>
         <div className={styles['left-col']}>
           <div className={styles.tabs}>

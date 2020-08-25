@@ -1,13 +1,13 @@
 import React from 'react';
 
-import FeedFinal from '../src/components/Feed/FeedFinal';
-import Header from '../src/components/Header';
+import Feed from '../src/views/Feed';
+import Header from '../src/views/Header';
 
 
 const feed = () => (
   <div>
     <Header />
-    <FeedFinal />
+    <Feed />
   </div>
 );
 

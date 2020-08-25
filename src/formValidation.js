@@ -1,4 +1,4 @@
-import { checkUnique } from './firestore/profileSettings';
+import { checkUnique } from './utils/Firestore/profileSettings';
 
 
 export function checkLengthLimit(length, allowedLength, minLength = 0) {

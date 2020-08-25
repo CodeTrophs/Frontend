@@ -1,15 +1,15 @@
 import React from 'react';
 
-import AdDisplay from '../src/components/AdComponent';
-import Header from '../src/components/Header';
-import FormOsp from '../src/components/Osp/OspForm';
-import HeadOsp from '../src/components/Osp/OspHead';
+import Adsense from '../src/components/Adsense';
+import HeadOsp from '../src/components/OspHead';
+import Header from '../src/views/Header';
+import FormOsp from '../src/views/OspForm';
 
 const createproject = () => (
   <div>
     <Header />
     <HeadOsp />
-    <AdDisplay />
+    <Adsense />
     <FormOsp />
   </div>
 );
