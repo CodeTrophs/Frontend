@@ -27,17 +27,17 @@ export default function SavedRepos() {
 
   async function getNextRepos() {
     getSavedRepoData(User.uid, startIndex).then((res) => {
-      if (res === null) {
+      if (!res) {
         toast.error('Some Error Occurred! Please Refresh the Page.');
         setReachedEnd(true);
-      } else if (res.length > 0) {
-        if (res.length < 10) {
+      } else if (res && res.length > 0) {
+        if (res && res.length < 10) {
           setReachedEnd(true);
         } else setReachedEnd(false);
         setRepoList([...repoList, res].flat());
         setStartIndex(repoList.length + res.length);
       }
-      if (res.length === 0) {
+      if (res && res.length === 0) {
         setReachedEnd(true);
       }
       setPageLoading(false);
