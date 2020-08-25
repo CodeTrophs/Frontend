@@ -31,7 +31,7 @@ export default function SavedRepos() {
         toast.error('Some Error Occurred! Please Refresh the Page.');
         setReachedEnd(true);
       } else if (res && res.length > 0) {
-        if (res && res.length < 10) {
+        if (res.length < 10) {
           setReachedEnd(true);
         } else setReachedEnd(false);
         setRepoList([...repoList, res].flat());
