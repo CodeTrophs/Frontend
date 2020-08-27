@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react'
 
 import { getIssues } from '../../firestore/projectData';
 import styles from '../../scss/projectInfo.module.scss';
-import Spinner from '../Spinner';
+import LinearLoader from '../LinearLoader';
 
 
 const Issues = ({url}) => {
@@ -25,11 +25,17 @@ const Issues = ({url}) => {
   }, [])
 
   if (loading) {
-    return <Spinner />
+    return <LinearLoader />
   }
 
   return (
     <div className={styles.container}>
+      <h1>
+        Issues
+      </h1>
+      <h4>
+        Get help and discuss with the community
+      </h4>
       <div className={styles.data}>
         {issues != null &&
         issues &&

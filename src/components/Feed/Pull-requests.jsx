@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react'
 
 import { getPulls } from '../../firestore/projectData';
 import styles from '../../scss/projectInfo.module.scss';
-import Spinner from '../Spinner';
+import LinearLoader from '../LinearLoader';
 
 
 const PullRequests = ({url}) => {
@@ -25,11 +25,17 @@ const PullRequests = ({url}) => {
   }, [])
 
   if (loading) {
-    return <Spinner />
+    return <LinearLoader />
   }
 
   return (
     <div className={styles.container}>
+      <h1>
+        Pull Requests
+      </h1>
+      <h4>
+        Get help and discuss with the community
+      </h4>
       <div className={styles.data}>
         {pulls != null &&
         pulls &&
@@ -64,7 +70,7 @@ const PullRequests = ({url}) => {
           );
         })}
         {pulls != null && pulls.length === 0 && (
-          <div className={styles['not-found']}> No Issues Found ! </div>
+          <div className={styles['not-found']}> No Pull Requests Found ! </div>
         )}
         <div className={styles['all-button']}>
           <a href={`${url}/issues`} target="_blank" rel="noopener noreferrer">

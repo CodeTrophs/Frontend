@@ -25,7 +25,7 @@
 .bottom {
   display: flex;
   //justify-content: space-between;
-  height: 100px;
+  //height: 100px;
 }
 
 .bottom > textarea {
@@ -46,7 +46,6 @@
 
 @media (max-width: 800px) {
   .container {
-    width: 80%;
     margin: 20px auto;
   }
 }

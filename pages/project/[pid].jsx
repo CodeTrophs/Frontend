@@ -1,7 +1,6 @@
 import Router from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import AdDisplay from '../../src/components/AdComponent';
 import Discussion from '../../src/components/Feed/Discussion';
 import Issues from '../../src/components/Feed/Issues';
 import PullRequests from '../../src/components/Feed/Pull-requests';
@@ -30,53 +29,56 @@ const project = () => {
     setTab(tab);
   };
 
-  if (pageLoading) return <Spinner />;
+  if (pageLoading) return <Spinner/>;
 
   return (
     <div>
-      <Header />
-      <AdDisplay />
+      <Header/>
       <div className={styles.container}>
         <div className={styles['left-col']}>
-          <div className={styles.tabs}>
-            <div
-              tabIndex={0}
-              role="button"
-              onKeyDown={() => {
-                changeTab('issues');
-              }}
-              className={Tab === 'issues' ? styles['active-tab'] : styles.tab}
-              onClick={() => changeTab('issues')}>
-              ISSUES
-            </div>
-            <div
-              tabIndex={0}
-              role="button"
-              onKeyDown={() => {
-                changeTab('pull-requests');
-              }}
-              className={
-                Tab === 'pull-requests' ? styles['active-tab'] : styles.tab
-              }
-              onClick={() => changeTab('pull-requests')}>
-              PULL REQUESTS
-            </div>
-            <div
-              tabIndex={0}
-              role="button"
-              onKeyDown={() => {
-                changeTab('discussion');
-              }}
-              className={
-                Tab === 'discussion' ? styles['active-tab'] : styles.tab
-              }
-              onClick={() => changeTab('discussion')}>
-              DISCUSSION
+          <div className={styles.sidenav}>
+            <div className={styles.tabs}>
+              <div
+                tabIndex={0}
+                role="button"
+                onKeyDown={() => {
+                  changeTab('issues');
+                }}
+                className={Tab === 'issues' ? styles['active-tab'] : styles.tab}
+                onClick={() => changeTab('issues')}>
+                ISSUES
+              </div>
+              <div
+                tabIndex={0}
+                role="button"
+                onKeyDown={() => {
+                  changeTab('pull-requests');
+                }}
+                className={
+                  Tab === 'pull-requests' ? styles['active-tab'] : styles.tab
+                }
+                onClick={() => changeTab('pull-requests')}>
+                PULL REQUESTS
+              </div>
+              <div
+                tabIndex={0}
+                role="button"
+                onKeyDown={() => {
+                  changeTab('discussion');
+                }}
+                className={
+                  Tab === 'discussion' ? styles['active-tab'] : styles.tab
+                }
+                onClick={() => changeTab('discussion')}>
+                DISCUSSION
+              </div>
             </div>
           </div>
-          { Tab === 'issues' && <Issues url={repoUrl} /> }
-          { Tab === 'pull-requests' && <PullRequests url={repoUrl} /> }
-          {Tab === 'discussion' && <Discussion className={styles['right-col']} /> }
+          <div className={styles.content}>
+            {Tab === 'issues' && <Issues url={repoUrl}/>}
+            {Tab === 'pull-requests' && <PullRequests url={repoUrl}/>}
+            {Tab === 'discussion' && <Discussion className={styles['right-col']}/>}
+          </div>
         </div>
       </div>
     </div>

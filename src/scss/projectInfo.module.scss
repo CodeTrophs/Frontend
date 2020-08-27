@@ -1,10 +1,10 @@
 .container {
-  background-color: #f7f7f7;
+  //background-color: #f7f7f7;
   border-radius: 10px;
   padding: 10px 30px;
   margin-top: 20px;
   height: 70vh;
-  overflow-y: scroll;
+  //overflow-y: scroll;
 }
 
 .top-row {
@@ -120,11 +120,15 @@
 
 .data {
   margin: 30px;
+  border: 1px solid #1d1d1d;
+  border-radius: 10px;
+  padding: 5%;
 }
 
 .data-item {
   padding: 10px 20px;
   width: 100%;
+  border-radius: 10px;
   justify-content: space-between;
   background-color: white;
   border-bottom: 0.3px solid rgb(192, 192, 192);
