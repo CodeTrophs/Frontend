@@ -1,0 +1,31 @@
+[
+  {
+    "comment": 
+    "If you're new to Open Source and are looking for some good-first-issues to begin with, or you're an experienced developer looking for collaboration with various open source organisations, or you're a research enthusiast and on a lookout for public repositories that can help you out in your publication, then this ( OpenSourceCode) is definitely a go-to project.",
+    "name": "Dishebh Bhayana",
+    "profileImage": "testimonialImages/Dishbesh.jpg",
+    "Designation": "Software Developer"
+  },
+
+  {
+    "comment": "OSC is a go to project for beginners and intermediate developers to find a repository in which they can contribute and grow their developer skills. It's a platform which encourages developers to work on open source project and learn new skills.",
+    "name": "Md Irshad Ansari",
+    "profileImage": "testimonialImages/Irshad.jpeg",
+    "Designation": "Project Head"
+  },
+
+  {
+    "comment": "OSCP is an amazing platform for absolute beginners where they can showcase and sharpen their skills with contributing to various open source projects and have a great learning experience.",
+    "name": "Anukul Sharma",
+    "profileImage": "testimonialImages/Anukul.jpeg",
+    "Designation": "UI/UX Designer"
+  },
+
+  {
+    "comment":"OSCP is a platform where developers experienced or beginners can find Open Source projects matching their skill level to contirubute to.",
+    "name": "Vipul Sharma",
+    "profileImage": "testimonialImages/Vipul.png",
+    "Designation": "Web Developer"
+  }
+  
+]
