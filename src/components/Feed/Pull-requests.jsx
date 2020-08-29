@@ -1,13 +1,13 @@
 import Router from 'next/router';
 import PropTypes from 'prop-types';
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 
 import { getPulls } from '../../firestore/projectData';
 import styles from '../../scss/projectInfo.module.scss';
 import LinearLoader from '../LinearLoader';
 
 
-const PullRequests = ({url}) => {
+const PullRequests = ({ url }) => {
   const [pulls, setPulls] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,20 +22,22 @@ const PullRequests = ({url}) => {
     if (Router.query.pid) {
       getPullsForRepo();
     }
-  }, [])
+  }, []);
 
   if (loading) {
-    return <LinearLoader />
+    return <LinearLoader/>;
   }
 
   return (
     <div className={styles.container}>
-      <h1>
-        Pull Requests
-      </h1>
-      <h4>
-        Get help and discuss with the community
-      </h4>
+      <div className={styles.heading}>
+        <h1>
+          Pull Requests
+        </h1>
+        <h4>
+          Get help and discuss with the community
+        </h4>
+      </div>
       <div className={styles.data}>
         {pulls != null &&
         pulls &&
@@ -81,11 +83,11 @@ const PullRequests = ({url}) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 PullRequests.propTypes = {
-  url: PropTypes.string.isRequired,
-}
+  url: PropTypes.string.isRequired
+};
 
 export default PullRequests;

@@ -7,6 +7,14 @@
   //overflow-y: scroll;
 }
 
+.heading {
+  margin-left: 30px;
+
+  h4 {
+    font-weight: 500;
+  }
+}
+
 .top-row {
   margin: 20px 30px;
   display: flex;
@@ -215,6 +223,11 @@
   .labels,
   .milestones {
     margin-bottom: 20px;
+  }
+
+  .heading {
+    margin-left: 0;
+    text-align: center;
   }
 
   .labels,

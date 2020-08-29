@@ -77,13 +77,14 @@
   }
 
   .left-col {
-    width: 95%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
   }
 
   .content {
     margin: 0;
+    padding: 5px;
   }
 
   .tabs {
@@ -93,6 +94,7 @@
 
   .tab,
   .active-tab {
+    border: 1px solid #1d1d1d;
     font-size: 0.7rem;
     background-color: white;
     border-radius: 15px;

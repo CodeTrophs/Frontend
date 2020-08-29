@@ -30,12 +30,14 @@ const Issues = ({url}) => {
 
   return (
     <div className={styles.container}>
-      <h1>
-        Issues
-      </h1>
-      <h4>
-        Get help and discuss with the community
-      </h4>
+      <div className={styles.heading}>
+        <h1>
+          Issues
+        </h1>
+        <h4>
+          Get help and discuss with the community
+        </h4>
+      </div>
       <div className={styles.data}>
         {issues != null &&
         issues &&
