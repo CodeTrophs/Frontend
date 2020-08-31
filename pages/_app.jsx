@@ -50,7 +50,6 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   if (Loading) return <Spinner />;
-  if (!Loading)
   return (
     <>
       <Head>

@@ -47,12 +47,24 @@ export async function updateProfile(updateData) {
 
 // Update Social Links of the User
 
-export async function updateSocials(data) {
+export async function updateSocials(receivedData) {
 
   const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('osc-app-token'));
   if (verificationResult === null) {
     return { status: 401, data: { message: 'Token Verification Failed. Please login again !' } };
   }
+  const data = receivedData;
+  if (data.website === '')
+    delete data.website;
+
+  if (data.github === '')
+    delete data.github;
+
+  if (data.linkedin === '')
+    delete data.linkedin;
+
+  if (data.twitter === '')
+    delete data.twitter;
 
   return Axios.patch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/user/socials`, data, {
     headers: {
