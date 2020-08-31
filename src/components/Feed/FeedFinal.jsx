@@ -97,9 +97,7 @@ export default function FeedFinal() {
   // Detect and Change sortOrder, search Bar text, sort Method, language filter
 
   useEffect(() => {
-    if (sortOrder === 'asc') {
-      setPageNo(1);
-    } else setPageNo(1);
+    setPageNo(1);
     setRepoList([]);
     setReposLoading(true);
     if (searchRepoQuery !== '' && sortMethod === 'full_name') {
