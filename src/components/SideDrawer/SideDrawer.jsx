@@ -2,8 +2,8 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React, { useState, useContext } from 'react';
 
+import * as authFunctions from '../../api/authFunctions';
 import styles from '../../scss/sideDrawer.module.scss';
-import * as FirebaseAuth from '../firebaseAuth';
 import UserContext from '../UserContext';
 import DrawerToggleButton from './DrawerToggleButton';
 
@@ -13,7 +13,7 @@ const SideDrawer = ({ handleClose, router }) => {
 
   async function handleLogout(e) {
     e.preventDefault();
-    await FirebaseAuth.logout();
+    authFunctions.logout();
     setUser(null);
     router.push('/');
   }
@@ -141,7 +141,7 @@ const SideDrawer = ({ handleClose, router }) => {
             />
           )}
         </div> */}
-        <div className={styles.link}>
+        {/* <div className={styles.link}>
           <Link href="/saved">
             <p>Saved Repositories</p>
           </Link>
@@ -154,7 +154,7 @@ const SideDrawer = ({ handleClose, router }) => {
               }}
             />
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

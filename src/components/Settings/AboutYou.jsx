@@ -1,47 +1,42 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect, useContext } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import { setAboutInfo } from '../../firestore/profileSettings';
+import { updateProfile } from '../../api/profileFunctions';
 import * as FormValidation from '../../formValidation';
 import styles from '../../scss/settings.module.scss';
 import LinearLoader from '../LinearLoader';
 
-import UserContext from '../UserContext';
-
-const Aboutus = ({ UserData }) => {
+const AboutYou = ({ UserData }) => {
+  const [fullName, setFullName] = useState('');
   const [tag, setTag] = useState('');
   const [tags, setTags] = useState([]);
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [Loading, setLoading] = useState(false);
+  const [fullNameError, setFullNameError] = useState(null);
   const [titleError, setTitleError] = useState(null);
   const [aboutError, setAboutError] = useState(null);
   const [skillError, setSkillError] = useState(null);
   const [addSkillButtonDisabled, setAddSkillButtonDisabled] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const { User } = useContext(UserContext);
-
   useEffect(() => {
-    async function getBasicInfo() {
-      if (UserData !== undefined) {
-        if (UserData.skills !== undefined) setTags(UserData.skills);
-        if (UserData.title !== undefined) setTitle(UserData.title);
-        if (UserData.about !== undefined) setAbout(UserData.about);
-      }
+    if (UserData !== null) {
+      setFullName(UserData.name);
+      UserData.title ? setTitle(UserData.title) : setTitle('');
+      UserData.about ? setAbout(UserData.about) : setAbout('');
+      UserData.skills ? setTags(UserData.skills) : setTags([]);
     }
-    if (User) getBasicInfo();
-  }, [User]);
+  }, [UserData]);
 
   useEffect(() => {
-    if (aboutError === null && titleError === null) {
+    if (aboutError === null && titleError === null && fullNameError === null) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
-  }, [titleError, aboutError]);
+  }, [titleError, aboutError, fullNameError]);
 
   useEffect(() => {
     if (skillError === null) setAddSkillButtonDisabled(false);
@@ -51,29 +46,32 @@ const Aboutus = ({ UserData }) => {
   async function handleFormSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    const { uid } = User;
-    const formData = {
+    const data = {
+      name: fullName.trim(),
       title: title.trim(),
       about: about.trim(),
-      skills: tags,
-      uid
+      skills: tags
     };
 
-    const response = await setAboutInfo(formData);
-    if (response.status === 'success')
+    const response = await updateProfile(data);
+    if (response.status === 200)
       toast.success(
         <div>
           <img src="/icons/save-icon.svg" alt="save" /> About Information
           Updated Successfully{' '}
         </div>
       );
-    if (response.status === 'error')
+    if (response.status === 400) {
+      response.data.errors.name ? setFullNameError(response.data.errors.name) : setFullNameError(null);
+      response.data.errors.title ? setTitleError(response.data.errors.title) : setTitleError(null);
+      response.data.errors.about ? setAboutError(response.data.errors.about) :  setAboutError(null);
+      response.data.errors.skills ? setSkillError(response.data.errors.skills) : setSkillError(null);
       toast.error(
         <div>
-          <img src="/icons/error-icon.svg" alt="error" /> Some Error Occurred!
-          Please try again later.{' '}
+          <img src="/icons/error-icon.svg" alt="error" /> {response.data.message}
         </div>
       );
+    }
 
     setLoading(false);
   }
@@ -101,9 +99,30 @@ const Aboutus = ({ UserData }) => {
   return (
     <div>
       <div className={styles['basic-head']}>
-        <h4 style={{ fontWeight: '500' }}>What do you do?</h4>
+        <h4 style={{ fontWeight: '500' }}>Let&apos;s get Started !</h4>
       </div>
       <div className={styles.qns}>
+        <p> Full Name <sup>*</sup></p>
+        <input
+          className={`${styles.input} ${fullNameError !== null ? styles.invalid : ''
+            } `}
+          value={fullName}
+          type="text"
+          placeholder="Full Name"
+          onChange={(e) => {
+            setFullName(e.currentTarget.value);
+            setFullNameError(
+              FormValidation.checkLengthLimit(
+                e.currentTarget.value.trim().length,
+                50,
+                1
+              )
+            );
+          }}
+        />
+        <p id="fullNameError" className="input-field-error">
+          {fullNameError}
+        </p>
         <p>Title</p>
         <input
           className={`${styles.input} ${
@@ -202,12 +221,13 @@ const Aboutus = ({ UserData }) => {
   );
 };
 
-Aboutus.propTypes = {
+AboutYou.propTypes = {
   UserData: PropTypes.shape({
+    name: PropTypes.string.isRequired,
     title: PropTypes.string,
     about: PropTypes.string,
     skills: PropTypes.arrayOf(PropTypes.string)
   }).isRequired
 };
 
-export default Aboutus;
+export default AboutYou;

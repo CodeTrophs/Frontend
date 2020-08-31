@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from '../scss/card.module.scss';
-import LinearLoader from './LinearLoader';
-
+// import LinearLoader from './LinearLoader';
+// eslint-disable-next-line
 export default function Card({ repo, isSaved, changeSaveOption }) {
-  const [saving, setSaving] = useState(false);
+  // const [saving, setSaving] = useState(false);
   return (
     <div>
       <div className={isSaved ? styles.savedRepo : styles['big-box']}>
@@ -25,7 +25,7 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
           <div className={styles.middle}>
             <Link
               href={{ pathname: `/project/[pid]` }}
-              as={`/project/${repo.node_id}`}>
+              as={`/project/${`${repo.full_name.split('/')[0]  } ${  repo.full_name.split('/')[1]}`}`}>
               <div className={styles.heading}>
                 <p>{repo.full_name.split('/')[1]}</p>
               </div>
@@ -37,7 +37,7 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
                   <em style={{ color: 'green' }}>
                     {repo.full_name.split('/')[0]}
                   </em>{' '}
-                  | {repo.pushed_at.slice(0, 10)}
+                  | Updated : {repo.updated_at && repo.updated_at.slice(0, 10)}
                 </p>
               </div>
               <p>{repo.description}</p>
@@ -68,7 +68,7 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
                 </div>
               </div>
             </div>
-            {saving === true && <LinearLoader />}
+            {/* {saving === true && <LinearLoader />}
             {saving === false && (
               <button
                 type="button"
@@ -88,7 +88,7 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
                 }}>
                 {isSaved ? 'Saved' : 'Save'}
               </button>
-            )}
+            )} */}
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
 Card.propTypes = {
   repo: PropTypes.shape({
     full_name: PropTypes.string,
-    pushed_at: PropTypes.string,
+    updated_at: PropTypes.string,
     description: PropTypes.string,
     language: PropTypes.string,
     open_issues: PropTypes.number,

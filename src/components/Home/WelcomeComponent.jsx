@@ -1,85 +1,17 @@
 import Router from 'next/router';
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
-import { toast } from 'react-toastify';
+import React from 'react';
 
 import styles from '../../scss/home.module.scss';
-import * as FirebaseAuth from '../firebaseAuth';
-import UserContext from '../UserContext';
 
 export default function WelcomeComponent({ setLoading }) {
-  const { setUser } = useContext(UserContext);
-  function changeUser(name, email, uid, profileImageUrl) {
-    setUser({
-      name,
-      email,
-      uid,
-      profileImageUrl
-    });
-  }
-
-  async function handleGoogleSignIn(e) {
-    setLoading(true);
-    e.preventDefault();
-    const newUser = await FirebaseAuth.GoogleSignIn();
-    if (newUser.user === undefined) {
-      await FirebaseAuth.logout();
-      Router.replace('/');
-      toast.error('An error occurred while logging in.');
-    } else if (newUser.code === undefined) {
-      changeUser(
-        newUser.user.displayName,
-        newUser.user.email,
-        newUser.user.uid,
-        newUser.user.photoURL
-      );
-      // if (newUser.additionalUserInfo.isNewUser) {
-      // Router.replace('/toporg');
-      // } else {
-      Router.replace('/feed');
-      // }
-    } else if (newUser.code !== 'auth/popup-closed-by-user') {
-      if (newUser.code === 'auth/network-request-failed')
-        toast.error(
-          'Could not connect to the server. Please check your internet connection.'
-        );
-      else if (newUser.code === 'auth/user-disabled')
-        toast.error('This account has been disabled by the administrator.');
-      else toast.error('An error occurred while logging in.');
-    }
-    setLoading(false);
-    return null;
-  }
 
   async function handleGithubSignIn(e) {
     setLoading(true);
     e.preventDefault();
-    const newUser = await FirebaseAuth.GithubSignIn();
-    if (newUser.user === undefined) {
-      await FirebaseAuth.logout();
-      Router.replace('/');
-      toast.error('An error occurred while logging in.');
-    } else if (newUser.code === undefined) {
-      changeUser(
-        newUser.user.displayName,
-        newUser.user.email,
-        newUser.user.uid,
-        newUser.user.photoURL
-      );
-      if (newUser.additionalUserInfo.isNewUser) {
-        Router.replace('/toporg');
-      } else {
-        Router.replace('/feed');
-      }
-    } else if (newUser.code !== 'auth/popup-closed-by-user') {
-      if (newUser.code === 'auth/network-request-failed')
-        toast.error(
-          'Could not connect to the server. Please check your internet connection.'
-        );
-      else if (newUser.code === 'auth/user-disabled')
-        toast.error('This account has been disabled by the administrator.');
-      else toast.error('An error occurred while logging in.');
-    }
+    Router.replace(
+      `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/auth/github`
+    );
     setLoading(false);
     return null;
   }
@@ -110,14 +42,6 @@ export default function WelcomeComponent({ setLoading }) {
             <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
           </button>
 
-          <button
-            className={styles['google-button']}
-            type="submit"
-            onClick={handleGoogleSignIn}>
-            <img alt="Icon-simple-google" src="/images/google.svg" />
-            <p>Sign in with Google</p>
-            <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
-          </button>
         </div>
       </div>
 

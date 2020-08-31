@@ -23,11 +23,16 @@
 }
 
 .sponsors-div {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-block;
+  width: 50%;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
   margin-bottom: 2.5rem;
+  marquee {
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
 .partner-image {
   margin: 0;
@@ -217,6 +222,9 @@ box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
   }
   .carousel-container {
     height: 75rem;
+  }
+  .sponsors-div {
+    width: 90%;
   }
 }
 

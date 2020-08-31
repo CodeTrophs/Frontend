@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 
+import {logout} from '../api/authFunctions';
 import styles from '../scss/header.module.scss';
-import * as FirebaseAuth from './firebaseAuth';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
-import Spinner from './Spinner';
 import ToTop from './ToTop';
 import UserContext from './UserContext';
 
@@ -15,18 +14,6 @@ export default function Header() {
   const { User, setUser } = useContext(UserContext);
   const [profileDD, setProfileDD] = useState(false);
   const [sideDrawer, setSideDrawer] = useState(false);
-  const [Loading, setLoading] = useState(true);
-
-  // const [MissingData, setMissingData] = useState(false);
-
-  useEffect(() => {
-    if (User) {
-      setUser(User);
-    }
-    setLoading(false);
-  }, [User]);
-
-  if (Loading) return <Spinner />;
 
   const toggleDD = () => {
     // eslint-disable-next-line no-unused-expressions
@@ -39,7 +26,7 @@ export default function Header() {
 
   async function handleLogout(e) {
     e.preventDefault();
-    await FirebaseAuth.logout();
+    logout();
     setUser(null);
     router.push('/');
   }
@@ -92,7 +79,7 @@ export default function Header() {
             )}
           </div>
           */}
-          <div className={styles.link}>
+          {/* <div className={styles.link}>
             <Link href="/saved">
               <p>Saved Repositories</p>
             </Link>
@@ -106,7 +93,7 @@ export default function Header() {
                 }}
               />
             )}
-          </div>
+          </div> */}
         </div>
       ) : null}
       <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>
