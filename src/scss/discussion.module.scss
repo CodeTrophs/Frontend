@@ -1,7 +1,7 @@
 .container {
   background-color: #f7f7f7;
   border-radius: 10px;
-  width: 20%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,12 +24,12 @@
 
 .bottom {
   display: flex;
-  justify-content: space-between;
-  height: 100px;
+  //justify-content: space-between;
+  //height: 100px;
 }
 
 .bottom > textarea {
-  width: 70%;
+  width: 100%;
   border-radius: 10px;
   border: none;
   margin: 10px 5px;
@@ -40,13 +40,12 @@
 
 .bottom > img {
   width: 20px;
-  margin: 10px;
+  margin: 20px;
   cursor: pointer;
 }
 
 @media (max-width: 800px) {
   .container {
-    width: 80%;
     margin: 20px auto;
   }
 }
