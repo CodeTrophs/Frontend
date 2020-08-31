@@ -41,7 +41,7 @@ export default function Footer() {
               Dev.to
             </a>
             {/* Discord */}
-            <a href="https://discord.gg/urV8vGk">
+            <a href="https://discord.gg/HYPt5RX">
               <img src="/SVG/footer-discord.svg" alt="Discord" />
               Discord
             </a>
