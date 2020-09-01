@@ -1,5 +1,3 @@
-import { checkUnique } from './firestore/profileSettings';
-
 
 export function checkLengthLimit(length, allowedLength, minLength = 0) {
   if (minLength === 1 && length < minLength) {
@@ -37,7 +35,7 @@ export function checkEmail(email) {
   return  'Please enter a valid email address.';
 }
 
-export async function checkUserName(userName, uid) {
+export async function checkUserName(userName) {
 
   const limitCheck = checkLengthLimit(userName.length, 50, 1);
   const userNamePattern = new RegExp(/^[a-z0-9_]{1,50}$/);
@@ -49,9 +47,9 @@ export async function checkUserName(userName, uid) {
     return "Username can only contain alphabets, numbers and underscore(_).";
   }
   
-    const uniqueStatus = await checkUnique('usernames','userName', userName, uid);
-    if(uniqueStatus === false)
-      return "This username is already taken.";
+    // const uniqueStatus = await checkUnique('usernames','userName', userName, uid);
+    // if(uniqueStatus === false)
+    //   return "This username is already taken.";
     return null;
 
 }

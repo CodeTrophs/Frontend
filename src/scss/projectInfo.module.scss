@@ -1,10 +1,6 @@
 .container {
   //background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 10px 30px;
-  margin-top: 20px;
-  height: 70vh;
-  //overflow-y: scroll;
 }
 
 .heading {
@@ -127,24 +123,31 @@
 /* list */
 
 .data {
-  margin: 30px;
+  margin: 30px 15px 0 30px;
   border: 1px solid #1d1d1d;
   border-radius: 10px;
-  padding: 5%;
+  padding:5px 10px 15px;
+  height: 65vh;
+  overflow-y: auto;
 }
 
 .data-item {
-  padding: 10px 20px;
+  padding: 10px 10px 0;
   width: 100%;
   border-radius: 10px;
+  margin-top: 0.5rem;
   justify-content: space-between;
   background-color: white;
-  border-bottom: 0.3px solid rgb(192, 192, 192);
+  border: 0.3px solid rgb(192, 192, 192);
   align-items: center;
   a {
     text-decoration: none;
     color: inherit;
   }
+}
+
+.data-item:nth-child(odd) {
+  background-color: #f7f7f7;
 }
 
 .data-item:last-child {
@@ -273,5 +276,6 @@
 
   .data {
     margin: 10px;
+    padding: 10px 0;
   }
 }

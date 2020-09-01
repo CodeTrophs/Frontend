@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
-import * as FirebaseAuth from '../src/components/firebaseAuth';
+import * as authFunctions from '../src/api/authFunctions';
 import { initGA, logPageView } from '../src/components/googleAnalytics';
 import '../src/scss/style.scss';
 import Spinner from '../src/components/Spinner';
@@ -22,14 +22,14 @@ function MyApp({ Component, pageProps }) {
     }
     logPageView();
 
-    const token = localStorage.getItem('osc-app-token');
-    async function updation() {
-      const verificationResult = await FirebaseAuth.verifySecuredToken(token);
+    const token = localStorage.getItem('user');
+    function updation() {
+      const verificationResult = authFunctions.verifySecuredToken(token);
 
       if (verificationResult !== null) {
         setUser({
           name: verificationResult.name,
-          email: verificationResult.email,
+          token: verificationResult.token,
           uid: verificationResult.uid,
           profileImageUrl: verificationResult.profileImageUrl
         });
@@ -50,7 +50,6 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   if (Loading) return <Spinner />;
-
   return (
     <>
       <Head>

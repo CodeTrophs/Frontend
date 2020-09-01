@@ -20,6 +20,7 @@ export default function HelpUs() {
           </p>
           <button
             className={styles.donateButton}
+            disabled
             type="submit"
           >
             Donate Us

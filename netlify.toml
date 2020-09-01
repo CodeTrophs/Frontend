@@ -1,0 +1,6 @@
+[build]
+publish = "out"
+command = "npm ci && npm run deploy"
+
+[context.production.environment]
+NPM_VERSION = "6.14.4"

@@ -59,6 +59,8 @@ export default function Carousel({ data }) {
         Our Past <span>Sponsors</span> and <span>Partners</span>{' '}
       </h1>
       <div className={styles['sponsors-div']}>
+        {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
+        <marquee behavior="scroll" direction="left">
         {sponsors.map((sponsor) => {
           // console.log(sponsor);
           return (
@@ -71,6 +73,7 @@ export default function Carousel({ data }) {
             />
           );
         })}
+        </marquee>
       </div>
       <div className={styles['carousel-container']}>
         <h1 className={styles.heading}>Testimonials</h1>

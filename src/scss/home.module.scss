@@ -310,6 +310,10 @@
  background:#5fcfc0 ;
 }
 
+.donateButton:disabled{
+    background-color: #6d6d6d;
+    cursor: initial;
+  }
 /* Adding media querries */
 @media screen and (max-width: 560px) {
   .welcome-right {
