@@ -9,6 +9,7 @@ import HelpUs from '../src/components/Home/HelpUs';
 import HowContainer from '../src/components/Home/HowContainer';
 import WelcomeComponent from '../src/components/Home/WelcomeComponent';
 import Spinner from '../src/components/Spinner';
+import Subscribe from '../src/components/subscribe';
 import testimonials from '../src/components/testimonialsData.json';
 
 function Home() {
@@ -28,6 +29,7 @@ function Home() {
       <HowContainer />
       <HelpUs />
       <Carousel data={testimonials} />
+      <Subscribe />
       <Footer />
     </div>
   );
