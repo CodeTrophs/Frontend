@@ -11,7 +11,8 @@ export function secureToken(token) {
 }
 
 export function logout() {
-  localStorage.removeItem('osc-app-token');
+  localStorage.removeItem('user');
+  localStorage.removeItem('token');
   Router.replace('/');
 }
 

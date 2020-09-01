@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
     }
     logPageView();
 
-    const token = localStorage.getItem('osc-app-token');
+    const token = localStorage.getItem('user');
     function updation() {
       const verificationResult = authFunctions.verifySecuredToken(token);
 

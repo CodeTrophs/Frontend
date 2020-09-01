@@ -6,7 +6,7 @@ import * as authFunctions from './authFunctions';
 
 export async function getProfile() {
   
-  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('osc-app-token'));
+  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('user'));
   if (verificationResult === null) {
     return {status: 401,message:'Token Verification Failed. Please login again !'};
   }
@@ -15,7 +15,7 @@ export async function getProfile() {
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/user/profile`,
     {
       headers: {
-        Authorization: `Bearer ${  verificationResult.token}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     }
   ).then((res) => {
@@ -29,14 +29,14 @@ export async function getProfile() {
 
 export async function updateProfile(updateData) {
 
-  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('osc-app-token'));
+  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('user'));
   if (verificationResult === null) {
     return { status: 401, data: { message: 'Token Verification Failed. Please login again !' } };
   }
 
   return Axios.patch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/user/profile`, updateData, {
     headers: {
-      Authorization: `Bearer ${  verificationResult.token}`
+      Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   }).then(() => {
     return { status: 200 }; 
@@ -49,7 +49,7 @@ export async function updateProfile(updateData) {
 
 export async function updateSocials(receivedData) {
 
-  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('osc-app-token'));
+  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('user'));
   if (verificationResult === null) {
     return { status: 401, data: { message: 'Token Verification Failed. Please login again !' } };
   }
@@ -68,7 +68,7 @@ export async function updateSocials(receivedData) {
 
   return Axios.patch(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/user/socials`, data, {
     headers: {
-      Authorization: `Bearer ${  verificationResult.token}`
+      Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   }).then(() => {
     return { status: 200 };

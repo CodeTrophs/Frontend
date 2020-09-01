@@ -31,15 +31,16 @@ export default function loginMiddleWare() {
       ).then((res) => {
 
                       // store the data in the local Storage
-        const resultData = {
+        const user = {
           // eslint disable-next-line
           uid: res.data.data._id,
           name: res.data.data.name,
           profileImageUrl: res.data.data.profileImage,
-          token: Router.query.token
         };
+        console.log(Router.query.token);
+        localStorage.setItem('token', Router.query.token);
 
-        localStorage.setItem('osc-app-token', authFunctions.secureToken(resultData));
+        localStorage.setItem('user', authFunctions.secureToken(user));
                       // Set the USer Context for the New User here
                       // eslint disable-next-line
         setUser({

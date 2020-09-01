@@ -16,7 +16,7 @@ export async function getRepos(
   sortMethod,
   sortOrder) {
 
-  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('osc-app-token'));
+  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('user'));
   if (verificationResult === null) {
     return { status: 401, message: 'Authentication Failed. Please login again !' };
   }
@@ -57,7 +57,7 @@ export async function getRepos(
     query,
     {
       headers: {
-        Authorization: `Bearer ${verificationResult.token}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     }
   ).then((res) => {
@@ -87,7 +87,7 @@ export async function getOrganisationList() {
 
 
 export async function getIssues(name) {
-  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('osc-app-token'));
+  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('user'));
   if (verificationResult === null) {
     return { status: 401, message: 'Authentication Failed. Please login again !' };
   }
@@ -97,7 +97,7 @@ export async function getIssues(name) {
     query,
     {
       headers: {
-        Authorization: `Bearer ${verificationResult.token}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     }
   ).then((res) => {
@@ -111,7 +111,7 @@ export async function getIssues(name) {
 
 
 export async function getPulls(name) {
-  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('osc-app-token'));
+  const verificationResult = authFunctions.verifySecuredToken(localStorage.getItem('user'));
   if (verificationResult === null) {
     return { status: 401, message: 'Authentication Failed. Please login again !' };
   }
@@ -121,7 +121,7 @@ export async function getPulls(name) {
     query,
     {
       headers: {
-        Authorization: `Bearer ${verificationResult.token}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     }
   ).then((res) => {
