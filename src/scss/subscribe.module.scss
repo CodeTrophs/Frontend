@@ -71,3 +71,57 @@
     background-color: #42A598;
   }
 }
+
+@media only screen and (max-width:1100px) {
+  .subscribe-inner {
+    .subscribe-input {
+      width: 75%;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
+  .subscribe-container {
+    img {
+      max-width: 400px;
+      max-height: 300px;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+
+  .subscribe-container {
+    img {
+      max-width: 200px;
+      max-height: 300px;
+    }
+
+    .subscribe-inner {
+      width: 90%;
+      padding: 2rem 0.25rem;
+    }
+
+    .subscribe-input {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width:400px) {
+  .subscribe-inner {
+    img {
+      max-width: 50%;
+      top: -35%;
+    }
+  }
+  .subscribe-input {
+    input {
+      font-size: 1rem;
+    }
+    .subscribe-button{
+      font-size: 1rem;
+    }
+  }
+}
