@@ -2,30 +2,32 @@ import React, { useContext, useEffect, useState } from 'react';
 
 import { toast } from 'react-toastify';
 
-import * as profileFunctions from '../../api/profileFunctions';
 import styles from '../../scss/profile.module.scss';
+import * as userService from '../../services/user';
 import Spinner from '../Spinner';
 import UserContext from '../UserContext';
-
 
 export default function BoxProfile() {
   const { User } = useContext(UserContext);
   const [Loading, setLoading] = useState(true);
   const [UserData, setUserData] = useState({});
- 
+
   useEffect(() => {
-    if (User)
-    profileFunctions.getProfile().then(res => {
-      if (res.status === 200) {
-        setUserData(res.data);
+    async function getData() {
+      try {
+        const res = await userService.getProfile();
+        if (res.status === 200) {
+          setUserData(res.data.data);
+          setLoading(false);
+        }
+      } catch (res) {
+        toast.error(
+          `${res.status && res.status} : ${res.message && res.message}`
+        );
         setLoading(false);
       }
-      else
-      {
-        toast.error(`${res.status} : ${res.message}`);
-      }
-    });
-
+    }
+    if (User) getData();
   }, [User]);
 
   if (Loading) return <Spinner />;
@@ -60,7 +62,10 @@ export default function BoxProfile() {
               </p>
 
               <p className={styles['username-skill']}>
-                {UserData.title !==null && UserData.title !== undefined ? UserData.title : 'User'}</p>
+                {UserData.title !== null && UserData.title !== undefined
+                  ? UserData.title
+                  : 'User'}
+              </p>
               <div className={styles.langsecSkill}>
                 {UserData.skills ? (
                   UserData.skills.map((skill) => {
@@ -78,45 +83,45 @@ export default function BoxProfile() {
           </div>
 
           <div className={styles.links}>
-            {UserData.socials.website && (
+            {UserData.socials && UserData.socials.website && (
               <div>
                 <a
                   href={UserData.socials.website}
                   target="_blank"
-                  title='Website'
+                  title="Website"
                   rel="noopener noreferrer">
                   <img src="SVG/link.png" alt="link" />
                 </a>
               </div>
             )}
-            {UserData.socials.github && (
+            {UserData.socials && UserData.socials.github && (
               <div>
                 <a
                   href={UserData.socials.github}
                   target="_blank"
-                  title='Github'
+                  title="Github"
                   rel="noopener noreferrer">
                   <img src="SVG/Github.svg" alt="github" />
                 </a>
               </div>
             )}
-            {UserData.socials.linkedin && (
+            {UserData.socials && UserData.socials.linkedin && (
               <div>
                 <a
                   href={UserData.socials.linkedin}
                   target="_blank"
-                  title='LinkedIn'
+                  title="LinkedIn"
                   rel="noopener noreferrer">
                   <img src="SVG/Linkedin.svg" alt="linkedin" />
                 </a>
               </div>
             )}
-            {UserData.socials.twitter && (
+            {UserData.socials && UserData.socials.twitter && (
               <div>
                 <a
                   href={UserData.socials.twitter}
                   target="_blank"
-                  title='Twitter'
+                  title="Twitter"
                   rel="noopener noreferrer">
                   <img src="SVG/twitter.svg" alt="twitter" />
                 </a>

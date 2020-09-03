@@ -3,28 +3,25 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import { getPulls } from '../../api/feedFunctions';
 import styles from '../../scss/projectInfo.module.scss';
+import { getPulls } from '../../services/feed';
 import LinearLoader from '../LinearLoader';
-
 
 const PullRequests = ({ url }) => {
   const [pulls, setPulls] = useState([]);
   const [loading, setLoading] = useState(true);
 
   async function getPullsForRepo() {
-    getPulls(Router.query.pid).then((res) => {
-      if (res.status !== 200) {
-        toast.error(`${res.status} : ${res.message}`);
-        setLoading(false);
-      }
-      else {
-        setPulls(res.data);
-        setLoading(false);
-      }
-    });
+    try {
+      const res = await getPulls(Router.query.pid);
+      res.data && res.data.data && setPulls(res.data.data);
+    } catch (res) {
+      toast.error(
+        `${res.status && res.status} : ${res.message && res.message}`
+      );
+    }
+    setLoading(false);
   }
-
 
   useEffect(() => {
     if (Router.query.pid) {
@@ -39,12 +36,8 @@ const PullRequests = ({ url }) => {
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
-        <h1>
-          Pull Requests
-        </h1>
-        <h4>
-          Get help and discuss with the community
-        </h4>
+        <h1>Pull Requests</h1>
+        <h4>Get help and discuss with the community</h4>
       </div>
       <div className={styles.data}>
         {pulls != null &&
@@ -59,8 +52,9 @@ const PullRequests = ({ url }) => {
                   <div className={styles['data-left-col']}>
                     <h3 className={styles['issue-name']}>{pull.title}</h3>
                     <p>
-                      <span style={{ color: 'olive' }}>#{pull.number}</span> Opened on{' '}
-                      {pull.created_at.slice(0, 10)} by<span style={{ color: 'olive' }}> {pull.user.login}</span>
+                      <span style={{ color: 'olive' }}>#{pull.number}</span>{' '}
+                      Opened on {pull.created_at.slice(0, 10)} by
+                      <span style={{ color: 'olive' }}> {pull.user.login}</span>
                     </p>
                   </div>
                 </a>

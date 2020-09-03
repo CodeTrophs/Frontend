@@ -1,9 +1,9 @@
 import Router from 'next/router';
 import React, { useState, useEffect } from 'react';
 
-import { getLanguages } from '../api/feedFunctions';
-
 import styles from '../scss/org.module.scss';
+import { getLanguages } from '../services/feed';
+
 import Spinner from './Spinner';
 // import UserContext from './UserContext';
 
@@ -31,7 +31,6 @@ export default function TopOrganisation() {
   // SUBMITTING ORGANISATIONS
 
   const submitLanguages = () => {
-    
     Router.replace('/feed');
   };
 

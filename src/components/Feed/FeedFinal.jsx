@@ -3,9 +3,9 @@ import React, { useState, useEffect, useContext, useRef } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { toast } from 'react-toastify';
 
-import * as feedFunctions from '../../api/feedFunctions';
 import styles from '../../scss/feed.module.scss';
-import AdDisplay from '../AdComponent';
+import * as feedService from '../../services/feed';
+// import AdDisplay from '../AdComponent';
 import Card from '../FeedCard';
 import LinearLoader from '../LinearLoader';
 import SearchBar from '../SearchBar';
@@ -47,43 +47,51 @@ export default function FeedFinal() {
   // Fetch the Repositories
 
   async function getNextRepos() {
-    feedFunctions.getRepos(
-      pageNo,
-      searchRepoQuery,
-      appliedLanguagesList,
-      selectedOrganisation,
-      sortMethod,
-      sortOrder
-    ).then((resp) => {
-      if (resp.status === 200) {
-        setRepoList([...repoList, resp.data].flat());
-        if (resp.hasNextPage === false) {
-          setReachedEnd(true);
-        }
-        setPageNo(pageNo + 1);
-      }
-      else {
-        toast.error(`${resp.status} : ${resp.message}`);
+    try {
+      const res = await feedService.getRepos(
+        pageNo,
+        searchRepoQuery,
+        appliedLanguagesList,
+        selectedOrganisation,
+        sortMethod,
+        sortOrder
+      );
+      if (res.status === 200)
+        res.data &&
+          res.data.data &&
+          res.data.data.items &&
+          setRepoList([...repoList, res.data.data.items].flat());
+      if (res.data.hasNextPage === false) {
         setReachedEnd(true);
       }
-      setPageLoading(false);
-      setReposLoading(false);
-    });
+      setPageNo(pageNo + 1);
+    } catch (res) {
+      toast.error(`${res.status} : ${res.message}`);
+      setReachedEnd(true);
+    }
+    setPageLoading(false);
+    setReposLoading(false);
   }
 
   // Get Available Languages
 
   async function getLanguages() {
-    feedFunctions.getLanguages().then((res) => {
+    try {
+      const res = await feedService.getLanguages();
       setLanguageList(res);
-    });
+    } catch (res) {
+      setLanguageList([]);
+    }
   }
 
   // Get Available Organisations
   async function getOrganisations() {
-    feedFunctions.getOrganisationList().then((res) => {
+    try {
+      const res = await feedService.getOrganisationList();
       setOrganisationList(res);
-    });
+    } catch (res) {
+      setOrganisationList([]);
+    }
   }
   // Initial Rendering
   useEffect(() => {
@@ -118,8 +126,7 @@ export default function FeedFinal() {
   }, [selectedLanguagesList]);
 
   useEffect(() => {
-    if(paramsChanged !== null)
-    getNextRepos();
+    if (paramsChanged !== null) getNextRepos();
     if (firstResult.current) {
       window.scrollTo({
         top: firstResult.current.offsetTop,
@@ -158,7 +165,7 @@ export default function FeedFinal() {
   return (
     <div>
       <FeedIntroduction />
-      <AdDisplay />
+      {/* <AdDisplay /> */}
       <div className={styles.search}>
         <SearchBar
           page="feed"
@@ -354,9 +361,7 @@ export default function FeedFinal() {
               {/* Languages */}
               <h3> Languages </h3>
               {applyLangFilterDisabled === true && (
-                <span style={{ color: `#ff0000` }}>
-                  Select Max. 1 language
-                </span>
+                <span style={{ color: `#ff0000` }}>Select Max. 1 language</span>
               )}
               <div
                 id="languages"

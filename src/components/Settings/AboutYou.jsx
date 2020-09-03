@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import { updateProfile } from '../../api/profileFunctions';
 import * as FormValidation from '../../formValidation';
 import styles from '../../scss/settings.module.scss';
+import { updateProfile } from '../../services/user';
 import LinearLoader from '../LinearLoader';
 
 const AboutYou = ({ UserData }) => {
@@ -52,28 +52,40 @@ const AboutYou = ({ UserData }) => {
       about: about.trim(),
       skills: tags
     };
+    try {
+      const response = await updateProfile(data);
+      if (response.status === 200)
+        toast.success(
+          <div>
+            <img src="/icons/save-icon.svg" alt="save" /> About Information
+            Updated Successfully{' '}
+          </div>
+        );
+      setLoading(false);
+    } catch (response) {
+      if (response.status === 400) {
+        response.data && response.data.name
+          ? setFullNameError(response.data.name)
+          : setFullNameError(null);
+        response.data && response.data.title
+          ? setTitleError(response.data.title)
+          : setTitleError(null);
+        response.data && response.data.about
+          ? setAboutError(response.data.about)
+          : setAboutError(null);
+        response.data && response.data.skills
+          ? setSkillError(response.data.skills)
+          : setSkillError(null);
+        toast.error(
+          <div>
+            <img src="/icons/error-icon.svg" alt="error" />{' '}
+            {response.message && response.message}
+          </div>
+        );
+      }
 
-    const response = await updateProfile(data);
-    if (response.status === 200)
-      toast.success(
-        <div>
-          <img src="/icons/save-icon.svg" alt="save" /> About Information
-          Updated Successfully{' '}
-        </div>
-      );
-    if (response.status === 400) {
-      response.data.errors.name ? setFullNameError(response.data.errors.name) : setFullNameError(null);
-      response.data.errors.title ? setTitleError(response.data.errors.title) : setTitleError(null);
-      response.data.errors.about ? setAboutError(response.data.errors.about) :  setAboutError(null);
-      response.data.errors.skills ? setSkillError(response.data.errors.skills) : setSkillError(null);
-      toast.error(
-        <div>
-          <img src="/icons/error-icon.svg" alt="error" /> {response.data.message}
-        </div>
-      );
+      setLoading(false);
     }
-
-    setLoading(false);
   }
 
   const onChange = (e) => {
@@ -102,10 +114,14 @@ const AboutYou = ({ UserData }) => {
         <h4 style={{ fontWeight: '500' }}>Let&apos;s get Started !</h4>
       </div>
       <div className={styles.qns}>
-        <p> Full Name <sup>*</sup></p>
+        <p>
+          {' '}
+          Full Name <sup>*</sup>
+        </p>
         <input
-          className={`${styles.input} ${fullNameError !== null ? styles.invalid : ''
-            } `}
+          className={`${styles.input} ${
+            fullNameError !== null ? styles.invalid : ''
+          } `}
           value={fullName}
           type="text"
           placeholder="Full Name"

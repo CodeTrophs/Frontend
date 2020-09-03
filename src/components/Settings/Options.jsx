@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import { getProfile } from '../../api/profileFunctions';
 import styles from '../../scss/settings.module.scss';
+import { getProfile } from '../../services/user';
 import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 import AboutYou from './AboutYou';
@@ -18,10 +18,12 @@ const SettingsFinal = () => {
 
   useEffect(() => {
     async function getBasicInfo() {
-      const result = await getProfile();
-      if (result.status === 200) {
-        setLoggedInUser(result.data);
-      } else {
+      try {
+        const result = await getProfile();
+        if (result.status === 200) {
+          setLoggedInUser(result.data.data);
+        }
+      } catch (result) {
         toast.error(`${result.status} : ${result.message}`);
       }
       setPageLoading(false);

@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 
 import { toast } from 'react-toastify';
 
-import { updateSocials } from '../../api/profileFunctions';
 import * as FormValidation from '../../formValidation';
 import styles from '../../scss/settings.module.scss';
+import { updateSocials } from '../../services/user';
 import LinearLoader from '../LinearLoader';
 
 const Social = ({ UserData }) => {
@@ -20,13 +20,20 @@ const Social = ({ UserData }) => {
   const [twitterError, setTwitterError] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
 
-
   useEffect(() => {
     if (UserData !== null) {
-      UserData.socials.website && setWebsite(UserData.socials.website);
-      UserData.socials.github && setGithub(UserData.socials.github);
-      UserData.socials.linkedin && setLinkedIn(UserData.socials.linkedin);
-      UserData.socials.twitter && setTwitter(UserData.socials.twitter);
+      UserData.socials &&
+        UserData.socials.website &&
+        setWebsite(UserData.socials.website);
+      UserData.socials &&
+        UserData.socials.github &&
+        setGithub(UserData.socials.github);
+      UserData.socials &&
+        UserData.socials.linkedin &&
+        setLinkedIn(UserData.socials.linkedin);
+      UserData.socials &&
+        UserData.socials.twitter &&
+        setTwitter(UserData.socials.twitter);
     }
   }, []);
 
@@ -49,30 +56,39 @@ const Social = ({ UserData }) => {
     const data = {
       website,
       github,
-      linkedin : linkedIn,
+      linkedin: linkedIn,
       twitter
     };
 
-    const response = await updateSocials(data);
-    if (response.status === 200)
-      toast.success(
-        <div>
-          <img src="/icons/save-icon.svg" alt="save" /> Social Handles Updated
-          Successfully{' '}
-        </div>
-      );
-    else
-      if (response.status === 400) {
-        response.data.errors.website && setWebsiteError(response.data.errors.website);
-        response.data.errors.github && setGithubError(response.data.errors.github);
-        response.data.errors.linkedin && setLinkedInError(response.data.errors.linkedin);
-        response.data.errors.twitter && setTwitterError(response.data.errors.twitter);
-        toast.error(
+    try {
+      const response = await updateSocials(data);
+      if (response.status === 200)
+        toast.success(
           <div>
-            <img src="/icons/error-icon.svg" alt="error" />  {response.data.message} {' '}
+            <img src="/icons/save-icon.svg" alt="save" /> Social Handles Updated
+            Successfully{' '}
           </div>
         );
-      }
+    } catch (response) {
+      response.data &&
+        response.data.website &&
+        setWebsiteError(response.data.website);
+      response.data &&
+        response.data.github &&
+        setGithubError(response.data.github);
+      response.data &&
+        response.data.linkedin &&
+        setLinkedInError(response.data.linkedin);
+      response.data &&
+        response.data.twitter &&
+        setTwitterError(response.data.twitter);
+      toast.error(
+        <div>
+          <img src="/icons/error-icon.svg" alt="error" />{' '}
+          {response.message ? response.message : 'Some Error Occurred!'}{' '}
+        </div>
+      );
+    }
     setLoading(false);
   }
 
@@ -189,11 +205,11 @@ const Social = ({ UserData }) => {
 
 Social.propTypes = {
   UserData: PropTypes.shape({
-    socials:PropTypes.shape({
-    website: PropTypes.string,
-    github: PropTypes.string,
-    linkedin: PropTypes.string,
-    twitter: PropTypes.string
+    socials: PropTypes.shape({
+      website: PropTypes.string,
+      github: PropTypes.string,
+      linkedin: PropTypes.string,
+      twitter: PropTypes.string
     })
   }).isRequired
 };

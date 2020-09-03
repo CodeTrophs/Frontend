@@ -3,53 +3,44 @@
   If auth is success it will store token in localStorage.
   If auth is failed then it will redirect to homepage.
 */
-import Axios from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect, useContext } from 'react';
 
 import * as authFunctions from '../src/api/authFunctions';
 import Spinner from '../src/components/Spinner';
 import UserContext from '../src/components/UserContext';
+import * as userService from '../src/services/user';
 
 export default function loginMiddleWare() {
   const { setUser } = useContext(UserContext);
   const router = useRouter();
-  useEffect(() => {
-    if (router.query.status === '200') {
-      // Set logged In here
-      // Redirect to feed page
-      console.log(router.query.token);
-      localStorage.setItem('token', router.query.token);
-      Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/user/profile`, {
-        headers: {
-          Authorization: `Bearer ${router.query.token}`
-        }
-      })
-        .then((res) => {
-          // store the data in the local Storage
-          const user = {
-            // eslint disable-next-line
-            uid: res.data.data._id,
-            name: res.data.data.name,
-            profileImageUrl: res.data.data.profileImage
-          };
+  async function loginUser() {
+    try {
+      if (router.query.status === '200') {
+        // Set logged In here
+        // Redirect to feed page
+        console.log(router.query.token);
+        localStorage.setItem('token', router.query.token);
 
-          localStorage.setItem('user', authFunctions.secureToken(user));
-          // Set the USer Context for the New User here
-          // eslint disable-next-line
-          setUser({
-            uid: res.data.data._id,
-            name: res.data.data.name,
-            profileImageUrl: res.data.data.profileImage
-          });
-        })
-        .catch(() => {
-          authFunctions.logout();
+        const res = await userService.getProfile();
+        // Set the USer Context for the New User here
+        // eslint disable-next-line
+        setUser({
+          uid: res.data.data._id,
+          name: res.data.data.name,
+          profileImageUrl: res.data.data.profileImage
         });
-      router.replace('/feed');
-    } else {
+
+        router.replace('/feed');
+      } else {
+        authFunctions.logout();
+      }
+    } catch (errors) {
       authFunctions.logout();
     }
+  }
+  useEffect(() => {
+    loginUser();
   }, []);
   return <Spinner />;
 }

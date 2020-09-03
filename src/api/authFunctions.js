@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import Router from 'next/router';
 
 export function secureToken(token) {
-
   const newSecureToken = jwt.sign(
     token,
     process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY
