@@ -251,7 +251,7 @@ export default function FeedFinal() {
               return (
                 <div key={lang}>
                   <input
-                    type="checkbox"
+                    type="radio"
                     value={lang}
                     name="language"
                     onChange={(e) => {
