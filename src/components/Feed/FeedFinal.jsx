@@ -537,7 +537,7 @@ export default function FeedFinal() {
                   isStarred={
                     savedRepos.find((id) => id === repo.node_id) !== undefined
                   }
-                  changeStarOption={async (method) => {
+                  changeSaveOption={async (method) => {
                     return changeSavedList(repo.node_id, method);
                   }}
                 />
