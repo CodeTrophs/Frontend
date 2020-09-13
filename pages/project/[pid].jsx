@@ -6,7 +6,6 @@ import Issues from '../../src/components/Feed/Issues';
 import PullRequests from '../../src/components/Feed/Pull-requests';
 import Header from '../../src/components/Header';
 import Spinner from '../../src/components/Spinner';
-import { getRepo } from '../../src/firestore/projectData';
 import styles from '../../src/scss/project.module.scss';
 
 const project = () => {
@@ -16,9 +15,7 @@ const project = () => {
 
   useEffect(() => {
     if (Router.query.pid) {
-      getRepo(Router.query.pid).then((res) => {
-        setRepoUrl(res);
-      });
+      setRepoUrl(`https://github.com/${Router.query.pid.split(" ")[0]}/${Router.query.pid.split(" ")[1]}`);
       setPageLoading(false);
     }
   }, []);
@@ -29,11 +26,11 @@ const project = () => {
     setTab(tab);
   };
 
-  if (pageLoading) return <Spinner/>;
+  if (pageLoading) return <Spinner />;
 
   return (
     <div>
-      <Header/>
+      <Header />
       <div className={styles.container}>
         <div className={styles['left-col']}>
           <div className={styles.sidenav}>
@@ -60,7 +57,7 @@ const project = () => {
                 onClick={() => changeTab('pull-requests')}>
                 PULL REQUESTS
               </div>
-              <div
+              {/* <div
                 tabIndex={0}
                 role="button"
                 onKeyDown={() => {
@@ -71,13 +68,13 @@ const project = () => {
                 }
                 onClick={() => changeTab('discussion')}>
                 DISCUSSION
-              </div>
+              </div> */}
             </div>
           </div>
           <div className={styles.content}>
-            {Tab === 'issues' && <Issues url={repoUrl}/>}
-            {Tab === 'pull-requests' && <PullRequests url={repoUrl}/>}
-            {Tab === 'discussion' && <Discussion className={styles['right-col']}/>}
+            {Tab === 'issues' && <Issues url={repoUrl} />}
+            {Tab === 'pull-requests' && <PullRequests url={repoUrl} />}
+            {Tab === 'discussion' && <Discussion className={styles['right-col']} />}
           </div>
         </div>
       </div>

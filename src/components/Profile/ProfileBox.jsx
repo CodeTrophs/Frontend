@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import { db } from '../../firebase';
+import { toast } from 'react-toastify';
+
 import styles from '../../scss/profile.module.scss';
+import * as userService from '../../services/user';
 import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 
@@ -9,36 +11,29 @@ export default function BoxProfile() {
   const { User } = useContext(UserContext);
   const [Loading, setLoading] = useState(true);
   const [UserData, setUserData] = useState({});
-  // const [follows, setFollows] = useState(0);
-  // const [MissingData, setMissingData] = useState(false);
 
   useEffect(() => {
-    if (User)
-      db.collection('users')
-        .doc(User.uid)
-        .get()
-        .then((data) => {
-          setUserData(data.data());
-          // let totalFollows = 0;
-          // if (data.data().followingLanguages !== undefined) {
-          //   totalFollows += data.data().followingLanguages.length;
-          // }
-
-          // if (data.data().followingOrganisations !== undefined) {
-          //   totalFollows += data.data().followingOrganisations.length;
-          // }
-          // setFollows(totalFollows);
+    async function getData() {
+      try {
+        const res = await userService.getProfile();
+        if (res.status === 200) {
+          setUserData(res.data.data);
           setLoading(false);
-        });
+        }
+      } catch (res) {
+        toast.error(
+          `${res.status && res.status} : ${res.message && res.message}`
+        );
+        setLoading(false);
+      }
+    }
+    if (User) getData();
   }, [User]);
 
   if (Loading) return <Spinner />;
 
   return (
     <div>
-      {/* {MissingData ? (
-          <div className={styles.alert}>Update your profile...</div>
-        ) : null} */}
       <div className={styles['usernamebox-profile']}>
         <div className={styles['user-flex']}>
           <div className={styles['top-left-col']}>
@@ -46,9 +41,9 @@ export default function BoxProfile() {
               <img
                 className={styles.imgabsolute}
                 src={
-                  UserData.profileImageUrl !== null &&
-                  UserData.profileImageUrl !== undefined
-                    ? UserData.profileImageUrl
+                  UserData.profileImage !== null &&
+                  UserData.profileImage !== undefined
+                    ? UserData.profileImage
                     : '/SVG/user.svg'
                 }
                 alt="Profile pic"
@@ -56,8 +51,7 @@ export default function BoxProfile() {
             </div>
             <div className={styles.boxcontent}>
               <h2 className={styles['usersname-user']}>
-                {UserData.firstName && UserData.firstName}{' '}
-                {UserData.lastName && UserData.lastName}
+                {UserData.name && UserData.name}
               </h2>
               <hr
                 className={styles.hr}
@@ -67,7 +61,11 @@ export default function BoxProfile() {
                 {UserData.userName && `@${UserData.userName}`}
               </p>
 
-              <p className={styles['username-skill']}>{UserData.title}</p>
+              <p className={styles['username-skill']}>
+                {UserData.title !== null && UserData.title !== undefined
+                  ? UserData.title
+                  : 'User'}
+              </p>
               <div className={styles.langsecSkill}>
                 {UserData.skills ? (
                   UserData.skills.map((skill) => {
@@ -85,41 +83,45 @@ export default function BoxProfile() {
           </div>
 
           <div className={styles.links}>
-            {UserData.website && (
+            {UserData.socials && UserData.socials.website && (
               <div>
                 <a
-                  href={UserData.website}
+                  href={UserData.socials.website}
                   target="_blank"
+                  title="Website"
                   rel="noopener noreferrer">
                   <img src="SVG/link.png" alt="link" />
                 </a>
               </div>
             )}
-            {UserData.github && (
+            {UserData.socials && UserData.socials.github && (
               <div>
                 <a
-                  href={UserData.github}
+                  href={UserData.socials.github}
                   target="_blank"
+                  title="Github"
                   rel="noopener noreferrer">
                   <img src="SVG/Github.svg" alt="github" />
                 </a>
               </div>
             )}
-            {UserData.linkedIn && (
+            {UserData.socials && UserData.socials.linkedin && (
               <div>
                 <a
-                  href={UserData.linkedIn}
+                  href={UserData.socials.linkedin}
                   target="_blank"
+                  title="LinkedIn"
                   rel="noopener noreferrer">
                   <img src="SVG/Linkedin.svg" alt="linkedin" />
                 </a>
               </div>
             )}
-            {UserData.twitter && (
+            {UserData.socials && UserData.socials.twitter && (
               <div>
                 <a
-                  href={UserData.twitter}
+                  href={UserData.socials.twitter}
                   target="_blank"
+                  title="Twitter"
                   rel="noopener noreferrer">
                   <img src="SVG/twitter.svg" alt="twitter" />
                 </a>

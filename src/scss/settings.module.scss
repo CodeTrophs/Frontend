@@ -121,11 +121,11 @@
   width: 90%;
   border: none;
   font-size: medium;
-  font-weight: 200;
   padding-top: 0.5rem;
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
-  border-bottom: $border-bstyle;
+  border-bottom:medium solid rgb(0, 202, 202);
+  //border-bottom: $border-bstyle;
 }
 
 #about-info-count {

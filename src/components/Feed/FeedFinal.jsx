@@ -1,19 +1,11 @@
 import Router from 'next/router';
 import React, { useState, useEffect, useContext, useRef } from 'react';
-
 import InfiniteScroll from 'react-infinite-scroll-component';
-
 import { toast } from 'react-toastify';
 
-import {
-  getRepos,
-  getLanguageList,
-  getSavedRepoList,
-  setSavedRepoList,
-  getOrganisationList
-} from '../../firestore/feedData';
 import styles from '../../scss/feed.module.scss';
-import AdDisplay from '../AdComponent';
+import * as feedService from '../../services/feed';
+// import AdDisplay from '../AdComponent';
 import Card from '../FeedCard';
 import LinearLoader from '../LinearLoader';
 import SearchBar from '../SearchBar';
@@ -25,16 +17,15 @@ import FeedIntroduction from './FeedIntro';
 export default function FeedFinal() {
   const { User } = useContext(UserContext);
   const [pageLoading, setPageLoading] = useState(true);
-  const [currentLastNodeId, setCurrentLastNodeId] = useState(null); // Node id to start after
+  const [pageNo, setPageNo] = useState(1); // Node id to start after
   const [repoList, setRepoList] = useState([]); // All Repositories List
   const [reachedEnd, setReachedEnd] = useState(false); // Infinite Scrolling : End Reached
   const [searchRepoQuery, setSearchRepoQuery] = useState('');
   const [paramsChanged, setParamsChanged] = useState(false); // To call getNextRepos() after state has been changed when filters are set
   const [reposLoading, setReposLoading] = useState(false);
   const [languageList, setLanguageList] = useState([]); // Language List
-  const [sortMethod, setSortMethod] = useState('node_id'); // Sort Method
+  const [sortMethod, setSortMethod] = useState(''); // Sort Method
   const [sortOrder, setSortOrder] = useState('asc'); // Sort Order
-  const [savedRepos, setSavedRepos] = useState([]); // Saved Repos List
   const [organisationList, setOrganisationList] = useState([]); // Organisation List
   const [selectedOrganisation, setSelectedOrganisation] = useState('All'); // Selected Organisation
   const [selectedSortMethod, setSelectedSortMethod] = useState('Best Match'); // Selected Sort Method
@@ -44,82 +35,68 @@ export default function FeedFinal() {
   const firstResult = useRef(null); // For scrolling to the first repo on initial render and applying filters
   const [showFilters, setShowFilters] = useState(false);
   const sortList = [
-    { actual: 'node_id', display: 'Best Match', order: 'asc' },
-    { actual: 'full_name', display: 'Full Name (A to Z)', order: 'asc' },
-    { actual: 'full_name', display: 'Full Name (Z to A)', order: 'desc' },
+    { actual: '', display: 'Best Match', order: 'asc' },
     { actual: 'forks', display: 'Least Forks', order: 'asc' },
     { actual: 'forks', display: 'Most Forks', order: 'desc' },
-    { actual: 'open_issues', display: 'Least Open Issues', order: 'asc' },
-    { actual: 'open_issues', display: 'Most Open Issues', order: 'desc' },
-    { actual: 'watchers', display: 'Least Stars', order: 'asc' },
-    { actual: 'watchers', display: 'Most Stars', order: 'desc' },
-    { actual: 'pushed_at', display: 'Least Recently Created', order: 'asc' },
-    { actual: 'pushed_at', display: 'Recently Created', order: 'desc' }
+    { actual: 'stars', display: 'Least Stars', order: 'asc' },
+    { actual: 'stars', display: 'Most Stars', order: 'desc' },
+    { actual: 'updated', display: 'Least Recently Updated', order: 'asc' },
+    { actual: 'updated', display: 'Recently Updated', order: 'desc' }
   ];
   // Fetch the Repositories
 
   async function getNextRepos() {
-    getRepos(
-      currentLastNodeId,
-      searchRepoQuery,
-      appliedLanguagesList,
-      selectedOrganisation,
-      sortMethod,
-      sortOrder
-    ).then((resp) => {
-      const res = [];
-      let lastDoc = null;
-      if (resp === null) {
-        toast.error('Some Error Occurred! Please Refresh the Page.');
+    try {
+      const res = await feedService.getRepos(
+        pageNo,
+        searchRepoQuery,
+        appliedLanguagesList,
+        selectedOrganisation,
+        sortMethod,
+        sortOrder
+      );
+      if (res.status === 200)
+        res.data &&
+          res.data.data &&
+          res.data.data.items &&
+          setRepoList([...repoList, res.data.data.items].flat());
+      if (res.data.hasNextPage === false) {
         setReachedEnd(true);
-      } else {
-        resp.docs.forEach((doc) => {
-          res.push(doc.data());
-          lastDoc = doc;
-        });
-        if (res.length > 0) {
-          if (res.length < 20) {
-            setReachedEnd(true);
-          } else setReachedEnd(false);
-          setRepoList([...repoList, res].flat());
-          setCurrentLastNodeId(lastDoc);
-        }
-        if (res.length === 0) {
-          setReachedEnd(true);
-        }
       }
-      setPageLoading(false);
-      setReposLoading(false);
-    });
+      setPageNo(pageNo + 1);
+    } catch (res) {
+      toast.error(`${res.status} : ${res.message}`);
+      setReachedEnd(true);
+    }
+    setPageLoading(false);
+    setReposLoading(false);
   }
 
   // Get Available Languages
 
   async function getLanguages() {
-    getLanguageList().then((res) => {
+    try {
+      const res = await feedService.getLanguages();
       setLanguageList(res);
-    });
+    } catch (res) {
+      setLanguageList([]);
+    }
   }
 
   // Get Available Organisations
   async function getOrganisations() {
-    getOrganisationList().then((res) => {
+    try {
+      const res = await feedService.getOrganisationList();
       setOrganisationList(res);
-    });
-  }
-  // Call Required functions
-  async function InitialLoad() {
-    getSavedRepoList(User.uid).then((res) => {
-      setSavedRepos(res);
-      getNextRepos();
-      getLanguages();
-      getOrganisations();
-    });
+    } catch (res) {
+      setOrganisationList([]);
+    }
   }
   // Initial Rendering
   useEffect(() => {
     if (User) {
-      InitialLoad();
+      getLanguages();
+      getOrganisations();
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [User]);
@@ -127,13 +104,11 @@ export default function FeedFinal() {
   // Detect and Change sortOrder, search Bar text, sort Method, language filter
 
   useEffect(() => {
-    if (sortOrder === 'asc') {
-      setCurrentLastNodeId(null);
-    } else setCurrentLastNodeId({});
+    setPageNo(1);
     setRepoList([]);
     setReposLoading(true);
     if (searchRepoQuery !== '' && sortMethod === 'full_name') {
-      setSortMethod('node_id');
+      setSortMethod('');
     }
     setParamsChanged(!paramsChanged);
   }, [
@@ -145,12 +120,12 @@ export default function FeedFinal() {
   ]);
 
   useEffect(() => {
-    if (selectedLanguagesList.length > 5) setApplyLangFilterDisabled(true);
+    if (selectedLanguagesList.length > 1) setApplyLangFilterDisabled(true);
     else setApplyLangFilterDisabled(false);
   }, [selectedLanguagesList]);
 
   useEffect(() => {
-    getNextRepos();
+    if (paramsChanged !== null) getNextRepos();
     if (firstResult.current) {
       window.scrollTo({
         top: firstResult.current.offsetTop,
@@ -159,24 +134,11 @@ export default function FeedFinal() {
     }
   }, [paramsChanged]);
 
-  // Change Saved Repo List depending on method either to remove or to add
-  const changeSavedList = async (nodeId, method) => {
-    if (User) {
-      if (method === 'remove')
-        setSavedRepos([...savedRepos.filter((id) => id !== nodeId)]);
-      else setSavedRepos([...savedRepos, nodeId]);
-
-      return setSavedRepoList(User.uid, method, nodeId).then(() => {
-        return 'complete';
-      });
-    }
-    return 'complete';
-  };
   // Apply Langauges Filter
   const applyLanguagesFilter = () => {
-    if (selectedLanguagesList.length > 5) {
-      return;
-    }
+    // if (selectedLanguagesList.length > 1) {
+    //   return;
+    // }
     setAppliedLanguagesList(selectedLanguagesList);
   };
   // Clear All Filters
@@ -189,7 +151,7 @@ export default function FeedFinal() {
   return (
     <div>
       <FeedIntroduction />
-      <AdDisplay />
+      {/* <AdDisplay /> */}
       <div className={styles.search}>
         <SearchBar
           page="feed"
@@ -232,7 +194,7 @@ export default function FeedFinal() {
         </div>
         {(selectedOrganisation !== 'All' ||
           selectedLanguagesList.length !== 0 ||
-          sortMethod !== 'node_id') && (
+          sortMethod !== '') && (
           <button
             onClick={clearAllFilters}
             className={styles['clear-button']}
@@ -264,36 +226,68 @@ export default function FeedFinal() {
             )}
           </h3>
           {applyLangFilterDisabled === true && (
-            <span style={{ color: `#ff0000` }}>Select Max. 5 languages</span>
+            <span style={{ color: `#ff0000` }}>Select Max. 1 language</span>
           )}
           <div
             id="languages"
             className={`${styles['data-list']} ${
               applyLangFilterDisabled ? styles['error-list'] : ''
             } `}>
+            <div key='all'>
+            <input
+                    type="radio"
+                    value='All'
+                    name="language"
+                    defaultChecked
+                    onChange={() => {
+                      // if (
+                      //   selectedLanguagesList.find(
+                      //     (el) => el === e.target.value
+                      //   ) !== undefined
+                      // ) {
+                      //   setSelectedLanguagesList([
+                      //     ...selectedLanguagesList.filter(
+                      //       (el) => el !== e.target.value
+                      //     )
+                      //   ]);
+                      // } else
+                      //   setSelectedLanguagesList([
+                      //     ...selectedLanguagesList,
+                      //     e.target.value
+                      //   ]);
+                      const sel = [];
+                      setSelectedLanguagesList(sel);
+                    setAppliedLanguagesList(sel);
+                    }}
+                  />
+                  All
+                </div>
             {languageList.map((lang) => {
               return (
                 <div key={lang}>
                   <input
-                    type="checkbox"
+                    type="radio"
                     value={lang}
                     name="language"
                     onChange={(e) => {
-                      if (
-                        selectedLanguagesList.find(
-                          (el) => el === e.target.value
-                        ) !== undefined
-                      ) {
-                        setSelectedLanguagesList([
-                          ...selectedLanguagesList.filter(
-                            (el) => el !== e.target.value
-                          )
-                        ]);
-                      } else
-                        setSelectedLanguagesList([
-                          ...selectedLanguagesList,
-                          e.target.value
-                        ]);
+                      // if (
+                      //   selectedLanguagesList.find(
+                      //     (el) => el === e.target.value
+                      //   ) !== undefined
+                      // ) {
+                      //   setSelectedLanguagesList([
+                      //     ...selectedLanguagesList.filter(
+                      //       (el) => el !== e.target.value
+                      //     )
+                      //   ]);
+                      // } else
+                      //   setSelectedLanguagesList([
+                      //     ...selectedLanguagesList,
+                      //     e.target.value
+                      //   ]);
+                      const sel = [e.target.value];
+                      setSelectedLanguagesList(sel);
+                    setAppliedLanguagesList(sel);
                     }}
                   />
                   {'  '} {lang}
@@ -342,7 +336,7 @@ export default function FeedFinal() {
                 <div key={method.display}>
                   <input
                     type="radio"
-                    defaultChecked={method.actual === 'node_id'}
+                    defaultChecked={method.actual === ''}
                     id={method.display}
                     value={[method.actual, method.order]}
                     name="sortMethod"
@@ -385,9 +379,7 @@ export default function FeedFinal() {
               {/* Languages */}
               <h3> Languages </h3>
               {applyLangFilterDisabled === true && (
-                <span style={{ color: `#ff0000` }}>
-                  Select Max. 5 languages
-                </span>
+                <span style={{ color: `#ff0000` }}>Select Max. 1 language</span>
               )}
               <div
                 id="languages"
@@ -474,7 +466,7 @@ export default function FeedFinal() {
                     <div key={method.display}>
                       <input
                         type="radio"
-                        defaultChecked={method.actual === 'node_id'}
+                        defaultChecked={method.actual === ''}
                         id={method.display}
                         value={[method.actual, method.order]}
                         name="sortMethod"
@@ -521,18 +513,7 @@ export default function FeedFinal() {
               </p>
             }>
             {repoList.map((repo) => {
-              return (
-                <Card
-                  key={repo.id}
-                  repo={repo}
-                  isSaved={
-                    savedRepos.find((id) => id === repo.node_id) !== undefined
-                  }
-                  changeSaveOption={async (method) => {
-                    return changeSavedList(repo.node_id, method);
-                  }}
-                />
-              );
+              return <Card key={repo.id} repo={repo} isStarredProp={false} />;
             })}
           </InfiniteScroll>
         )}

@@ -1,21 +1,21 @@
 import Router from 'next/router';
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { db } from '../firebase';
-import { getLanguageList } from '../firestore/feedData';
 import styles from '../scss/org.module.scss';
+import { getLanguages } from '../services/feed';
+
 import Spinner from './Spinner';
-import UserContext from './UserContext';
+// import UserContext from './UserContext';
 
 export default function TopOrganisation() {
-  const { User } = useContext(UserContext);
+  // const { User } = useContext(UserContext);
   const [searchInput, setSearchInput] = useState('');
   const [langs, setLangs] = useState([]);
   const [list, setList] = useState([]);
   const [followed, setFollowed] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
-  async function getLanguages() {
-    getLanguageList().then((res) => {
+  async function getLangs() {
+    getLanguages().then((res) => {
       if (res != null) {
         setLangs(res);
         setList(res);
@@ -25,15 +25,12 @@ export default function TopOrganisation() {
   }
 
   useEffect(() => {
-    getLanguages();
+    getLangs();
   }, []);
 
   // SUBMITTING ORGANISATIONS
 
   const submitLanguages = () => {
-    db.collection('users').doc(User.uid).update({
-      followingLanguages: followed
-    });
     Router.replace('/feed');
   };
 

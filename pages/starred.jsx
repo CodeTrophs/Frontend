@@ -1,18 +1,17 @@
 import React from 'react';
 
 // import AdDisplay from '../src/components/AdComponent';
-
 import Header from '../src/components/Header';
-import BoxProfile from '../src/components/Profile/ProfileBox';
+import StarredRepos from '../src/components/StarredRepos';
 
-function Profile() {
+function StarredPage() {
   return (
     <div>
       <Header />
       {/* <AdDisplay /> */}
-      <BoxProfile />
+      <StarredRepos />
     </div>
   );
 }
 
-export default Profile;
+export default StarredPage;

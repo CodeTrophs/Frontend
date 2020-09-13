@@ -27,6 +27,12 @@
         "groups": ["builtin", "external", ["parent", "sibling", "index"]],
         "newlines-between": "always-and-inside-groups"
       }
+    ],
+    "no-underscore-dangle": "off",
+    "no-async-promise-executor": "off",
+    "no-unused-expressions": [
+      2,
+      { "allowShortCircuit": true, "allowTernary": true }
     ]
   }
 }

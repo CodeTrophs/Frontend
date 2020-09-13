@@ -1,7 +1,7 @@
 @import 'variables';
 
 .big-box {
-  // Unsaved Repo Card
+  // Unstarred Repo Card
   @include padding-all(3rem, 1.5rem, 1.5rem, 1.5rem);
   box-shadow: $box-shadow-dark;
   border-radius: 1rem;
@@ -10,8 +10,8 @@
   margin-bottom: 2.5rem;
 }
 
-.savedRepo {
-  // Saved Repo Card
+.starredRepo {
+  // Starred Repo Card
   @include padding-all(3rem, 1.5rem, 1.5rem, 1.5rem);
   box-shadow: $box-shadow-dark;
   border-radius: 1rem;
@@ -121,8 +121,8 @@
     padding-top: 3rem;
   }
 
-  .savedRepo {
-    // Saved Repo Card
+  .starredRepo {
+    // Starred Repo Card
     box-shadow: $box-shadow-dark;
     border-radius: 1rem;
     margin: 3rem 15px;
@@ -154,7 +154,7 @@
   margin-right: 0.5rem;
 }
 
-.savedButton {
+.starredButton {
   width: fit-content;
   padding-top: 0.3125rem;
   padding-bottom: 1.5rem;
@@ -171,7 +171,7 @@
   margin: 1rem auto;
 }
 
-.unSavedButton {
+.unStarredButton {
   width: fit-content;
   padding-top: 0.3125rem;
   padding-bottom: 1.5rem;

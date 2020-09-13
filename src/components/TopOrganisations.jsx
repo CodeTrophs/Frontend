@@ -1,12 +1,11 @@
 import Router from 'next/router';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { db } from '../firebase';
 import styles from '../scss/org.module.scss';
-import UserContext from './UserContext';
+// import UserContext from './UserContext';
 
 export default function TopOrganisation() {
-  const { User } = useContext(UserContext);
+  // const { User } = useContext(UserContext);
   const [searchInput, setSearchInput] = useState('');
   const [Orgs, setOrgs] = useState([]);
   const [list, setList] = useState([]);
@@ -15,9 +14,6 @@ export default function TopOrganisation() {
   // SUBMITTING ORGANISATIONS
 
   const submitOrganisations = () => {
-    db.collection('users').doc(User.uid).update({
-      followingOrganisations: followed
-    });
     Router.replace('/toplang');
   };
 
