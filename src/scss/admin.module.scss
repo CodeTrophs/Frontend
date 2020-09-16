@@ -1,0 +1,297 @@
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.skillHead {
+  font-size: 40px;
+  color: rgb(0, 202, 202);
+  font-weight: 600;
+}
+
+.sidenav {
+  background-color: #5356A5;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  width: 200px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.leftBanner {
+  width: 100%;
+  padding: 5% 0;
+}
+
+.rightBanner {
+  width: 100%;
+  padding: 5%;
+}
+
+.createBanner {
+  width: 100%;
+  margin: 5%;
+}
+
+.createForm {
+  display: flex;
+  flex-direction: column;
+  margin: 5% 0;
+}
+
+.field {
+  width: 40%;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #e1e1e1;
+  margin: 2% 0;
+}
+
+.reportTable {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.reportHeading {
+  padding: .625em;
+  text-align: center;
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.reportRow {
+  text-align: center;
+  //background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+
+.sidenavProfilePicture {
+  width: 100%;
+  padding: 25%;
+}
+
+.username {
+  text-align: center;
+  color: white;
+  font-size: 22px;
+}
+
+.content {
+  margin-left: 200px;
+  padding: 1px 26px;
+}
+
+.right-col {
+  border-radius: 10px;
+  margin: 0 20px;
+}
+
+.tabs {
+  margin-top: 15%;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab {
+  background: rgb(250, 250, 250);
+}
+
+.tab,
+.active-tab {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  margin: 10px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.active-tab {
+  color: white;
+  background: rgb(0, 202, 202);
+  //background: linear-gradient(90deg, rgba(0,202,202,1) 10%, rgba(255,255,255,1) 10%);
+}
+
+.tab:hover,
+.active-tab:hover {
+  /* background-color: #fafafa; */
+  //box-shadow: 0 8px 10px #ececec;
+  transition-duration: 0.2s;
+}
+
+.cardContainer {
+  max-width: 100%;
+  display: flex;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url("../../public/images/html.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  margin: 5%;
+  width: 300px;
+  height: 150px;
+  border: 1px solid #e1e1e1;
+}
+
+.cardBody {
+  padding: 2%;
+}
+
+.cardOverlay {
+  position: absolute;
+  background-color: white;
+  opacity: 0.4;
+  height: 100%;
+  width: 100%;
+}
+
+.cardBtn {
+  background-color: #029843;
+  color: white;
+  width: 60%;
+  padding: 1% 3%;
+  border-radius: 5px;
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  width: 60%;
+  border-radius: 10px;
+  border: 2px solid #1d1d1d;
+  text-align: left;
+}
+
+.spacer {
+  margin: 2%;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 3% 0;
+}
+
+.submitBtn {
+  color: white;
+  border-radius: 10px;
+  background-color: #029843;
+  padding: 1% 2%;
+  margin-right: 2%;
+}
+
+.cancelBtn {
+  color: white;
+  border-radius: 10px;
+  background-color: #ce0707;
+  padding: 1% 2%;
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    margin: 20px 10px;
+  }
+
+  .sidenav {
+    background-color: white;
+    border-radius: 0;
+    width: 100%;
+    position: relative;
+    height: 20%;
+    overflow: auto;
+  }
+
+  .sidenavProfilePicture {
+    display: none;
+  }
+
+  .reportHeading {
+    padding: .425em;
+    font-size: .55em;
+    letter-spacing: .05em;
+  }
+
+  .reportRow {
+    padding: .25em;
+  }
+
+  .left-col {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .content {
+    margin: 0;
+    padding: 5px;
+  }
+
+  .username {
+    display: none;
+  }
+
+  .tabs {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .tab,
+  .active-tab {
+    border: 1px solid #1d1d1d;
+    font-size: 0.7rem;
+    background-color: white;
+    border-radius: 15px;
+    width: fit-content;
+    box-shadow: 0 2px 8px #ececec;
+  }
+  .active-tab {
+    color: white;
+    background: rgba(0, 202, 202, 1);
+    background: linear-gradient(90deg, rgba(0, 202, 202, 1) 10%, rgba(0, 201, 202, 1) 10%);
+  }
+
+  .field {
+    width: 90%;
+  }
+
+  .addForm {
+    width: 90%;
+    border-radius: 10px;
+    border: 2px solid #1d1d1d;
+    text-align: left;
+  }
+}
