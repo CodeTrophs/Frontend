@@ -8,18 +8,22 @@ function AddSkill() {
   const { User } = useContext(UserContext);
   const skills = [
     {
+      id: '1',
       title: 'HTML',
       imageURL: '/images/html.png'
     },
     {
+      id: '2',
       title: 'HTML',
       imageURL: '/images/html.png'
     },
     {
+      id: '3',
       title: 'HTML',
       imageURL: '/images/html.png'
     },
     {
+      id: '4',
       title: 'HTML',
       imageURL: '/images/html.png'
     }
@@ -45,16 +49,16 @@ function AddSkill() {
         <h1 className={style.cardBody}><u>Skills</u> Currently Onboard</h1>
       </div>
       <div className={style.container}>
-        {skills.map(skill => <SkillCard skill={skill} /> )}
+        {skills.map(skill => <SkillCard key={skill.id} skill={skill} /> )}
       </div>
       <div className={style.container}>
-        {skills.map(skill => <SkillCard skill={skill} /> )}
+        {skills.map(skill => <SkillCard key={skill.id} skill={skill} /> )}
       </div>
       <div className={style.container}>
-        {skills.map(skill => <SkillCard skill={skill} /> )}
+        {skills.map(skill => <SkillCard key={skill.id} skill={skill} /> )}
       </div>
       <div className={style.container}>
-        {skills.map(skill => <SkillCard skill={skill} /> )}
+        {skills.map(skill => <SkillCard key={skill.id} skill={skill} /> )}
       </div>
     </div>
   );
