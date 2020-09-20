@@ -1,19 +1,41 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
+
+import { toast } from 'react-toastify';
 
 import styles from '../scss/card.module.scss';
-// import LinearLoader from './LinearLoader';
+import { starRepo, unStarRepo } from '../services/feed';
+import LinearLoader from './LinearLoader';
+
 // eslint-disable-next-line
-export default function Card({ repo, isSaved, changeSaveOption }) {
-  // const [saving, setSaving] = useState(false);
+export default function Card({ repo, isStarredProp }) {
+  const [isStarred, setIsStarred] = useState(isStarredProp);
+  const [starring, setStarring] = useState(false);
+  const changeStar = async (method, name) => {
+    if (method === 'remove') {
+      try {
+        await unStarRepo(name);
+      } catch (res) {
+        toast.error(`${res.status} : ${res.message}`);
+      }
+    } else {
+      try {
+        await starRepo(name);
+      } catch (res) {
+        toast.error(`${res.status} : ${res.message}`);
+      }
+    }
+    setIsStarred(!isStarred);
+    setStarring(false);
+  };
   return (
     <div>
-      <div className={isSaved ? styles.savedRepo : styles['big-box']}>
+      <div className={isStarred ? styles.starredRepo : styles['big-box']}>
         <div className={styles.flex}>
           <div className={styles['left-col']}>
             <img
-              src={repo.owner.avatar_url}
+              src={repo.owner && repo.owner.avatar_url && repo.owner.avatar_url}
               className={styles.repoOwnerImage}
               alt="Organisation Logo"
             />
@@ -25,7 +47,9 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
           <div className={styles.middle}>
             <Link
               href={{ pathname: `/project/[pid]` }}
-              as={`/project/${`${repo.full_name.split('/')[0]  } ${  repo.full_name.split('/')[1]}`}`}>
+              as={`/project/${`${repo.full_name.split('/')[0]} ${
+                repo.full_name.split('/')[1]
+              }`}`}>
               <div className={styles.heading}>
                 <p>{repo.full_name.split('/')[1]}</p>
               </div>
@@ -68,27 +92,26 @@ export default function Card({ repo, isSaved, changeSaveOption }) {
                 </div>
               </div>
             </div>
-            {/* {saving === true && <LinearLoader />}
-            {saving === false && (
+            {starring === false && (
               <button
                 type="button"
                 className={
-                  isSaved === true ? styles.savedButton : styles.unSavedButton
+                  isStarred === true
+                    ? styles.starredButton
+                    : styles.unStarredButton
                 }
                 onClick={() => {
-                  setSaving(true);
-                  if (isSaved === true) {
-                    changeSaveOption('remove').then(() => {
-                      setSaving(false);
-                    });
-                  } else
-                    changeSaveOption('add').then(() => {
-                      setSaving(false);
-                    });
+                  setStarring(true);
+                  if (isStarred === true) {
+                    changeStar('remove', repo.full_name);
+                  } else {
+                    changeStar('add', repo.full_name);
+                  }
                 }}>
-                {isSaved ? 'Saved' : 'Save'}
+                {isStarred ? 'UnStar' : 'Star'}
               </button>
-            )} */}
+            )}
+            {starring && <LinearLoader />}
           </div>
         </div>
       </div>
@@ -113,6 +136,5 @@ Card.propTypes = {
       avatar_url: PropTypes.string
     })
   }).isRequired,
-  isSaved: PropTypes.bool.isRequired,
-  changeSaveOption: PropTypes.func.isRequired
+  isStarredProp: PropTypes.bool.isRequired
 };

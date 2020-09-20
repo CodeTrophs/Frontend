@@ -215,3 +215,36 @@ export const getOrganisationList = async () => {
     }
   });
 };
+
+export const getStarredRepos = async (pageNo) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await http.get(`${baseURL}/starred?page=${pageNo}`);
+      if (res.status === 200) resolve(res);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+export const starRepo = async (name) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await http.put(`${baseURL}/starred/${name}`);
+      if (res.status === 200) resolve(res);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+export const unStarRepo = async (name) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await http.delete(`${baseURL}/starred/${name}`);
+      if (res.status === 200) resolve(res);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};

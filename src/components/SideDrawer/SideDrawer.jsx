@@ -66,22 +66,21 @@ const SideDrawer = ({ handleClose, router }) => {
               <Link href="/profile">
                 <div
                   className={styles['dd-button']}
-                  style={{ backgroundColor: '#029843' }}
-                >
+                  style={{ backgroundColor: '#029843' }}>
                   My Profile
-                    </div>
+                </div>
               </Link>
 
               <Link href="/setting">
-                <div className={styles['dd-button']}
+                <div
+                  className={styles['dd-button']}
                   style={{
                     backgroundColor: '#fff',
                     border: '1px solid #333',
                     color: '#000'
-                  }}
-                >
+                  }}>
                   Settings
-                    </div>
+                </div>
               </Link>
 
               {/* <Link href="/createproject">
@@ -104,10 +103,9 @@ const SideDrawer = ({ handleClose, router }) => {
                   backgroundColor: '#fe5e44',
                   border: 'none',
                   color: '#fff'
-                }}
-              >
+                }}>
                 Logout
-                </button>
+              </button>
             </div>
           </div>
         )}
@@ -141,11 +139,11 @@ const SideDrawer = ({ handleClose, router }) => {
             />
           )}
         </div> */}
-        {/* <div className={styles.link}>
-          <Link href="/saved">
-            <p>Saved Repositories</p>
+        <div className={styles.link}>
+          <Link href="/starred">
+            <p>Starred Repositories</p>
           </Link>
-          {router.pathname === '/saved' && (
+          {router.pathname === '/starred' && (
             <hr
               style={{
                 height: '3px',
@@ -154,7 +152,7 @@ const SideDrawer = ({ handleClose, router }) => {
               }}
             />
           )}
-        </div> */}
+        </div>
       </div>
     </div>
   );

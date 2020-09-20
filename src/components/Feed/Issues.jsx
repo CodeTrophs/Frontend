@@ -10,11 +10,19 @@ import LinearLoader from '../LinearLoader';
 const Issues = ({ url }) => {
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [noIssues, setNoIssues] = useState(true);
 
   async function getIssuesForRepo() {
     try {
       const res = await getIssues(Router.query.pid);
       res.data && res.data.data && setIssues(res.data.data);
+      noIssues &&
+        res.data &&
+        res.data.data &&
+        res.data.data.map((issue) => {
+          if (issue.pull_request === undefined) setNoIssues(false)
+          return noIssues;
+        }) 
     } catch (res) {
       toast.error(
         `${res.status && res.status} : ${res.message && res.message}`
@@ -79,7 +87,7 @@ const Issues = ({ url }) => {
             }
             return null;
           })}
-        {issues != null && issues.length === 0 && (
+        {noIssues && (
           <div className={styles['not-found']}> No Issues Found ! </div>
         )}
         <div className={styles['all-button']}>

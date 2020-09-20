@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useContext } from 'react';
 
-import {logout} from '../api/authFunctions';
+import { logout } from '../api/authFunctions';
 import styles from '../scss/header.module.scss';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
@@ -79,11 +79,11 @@ export default function Header() {
             )}
           </div>
           */}
-          {/* <div className={styles.link}>
-            <Link href="/saved">
-              <p>Saved Repositories</p>
+          <div className={styles.link}>
+            <Link href="/starred">
+              <p>Starred Repositories</p>
             </Link>
-            {router.pathname === '/saved' && (
+            {router.pathname === '/starred' && (
               <hr
                 style={{
                   width: '30%',
@@ -93,7 +93,7 @@ export default function Header() {
                 }}
               />
             )}
-          </div> */}
+          </div>
         </div>
       ) : null}
       <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>
@@ -135,29 +135,27 @@ export default function Header() {
 
           {profileDD && (
             <div className={styles.dropdown}>
-              
-                <div className={styles['bottom-row']}>
+              <div className={styles['bottom-row']}>
                 <Link href="/profile">
-                    <div
-                      className={styles['dd-button']}
-                      style={{ backgroundColor: '#029843' }}
-                    >
-                      My Profile
-                    </div>
+                  <div
+                    className={styles['dd-button']}
+                    style={{ backgroundColor: '#029843' }}>
+                    My Profile
+                  </div>
                 </Link>
-                
+
                 <Link href="/setting">
-                    <div className={styles['dd-button']}
-                      style={{
-                        backgroundColor: '#fff',
-                        border:'1px solid #333',
-                        color: '#000'
-                      }}
-                    >
-                      Settings
-                    </div>
+                  <div
+                    className={styles['dd-button']}
+                    style={{
+                      backgroundColor: '#fff',
+                      border: '1px solid #333',
+                      color: '#000'
+                    }}>
+                    Settings
+                  </div>
                 </Link>
-                
+
                 {/* <Link href="/createproject">
                     <div className={styles['dd-button']}
                       style={{
@@ -169,7 +167,7 @@ export default function Header() {
                       Create OSP
                     </div>
                 </Link> */}
-               
+
                 <button
                   type="button"
                   onClick={handleLogout}
@@ -178,8 +176,7 @@ export default function Header() {
                     backgroundColor: '#fe5e44',
                     border: 'none',
                     color: '#fff'
-                  }}
-                >
+                  }}>
                   Logout
                 </button>
               </div>
