@@ -3,6 +3,11 @@ import React from 'react';
 import styles from '../../scss/home.module.scss';
 
 export default function HelpUs() {
+  const donateClick = (e) => {
+    e.preventDefault();
+    window.open('https://paytm.me/q5ZP-KI', '_blank');
+    return null;
+  };
   return (
     <div className={styles['help-us-outer']}>
       <div className={styles['help-us-container']}>
@@ -15,14 +20,13 @@ export default function HelpUs() {
           </h1>
 
           <p>
-            Let&apos;s help the society with free Education.
-            We are on a mission of teaching 1 Lakh students for free.
+            Let&apos;s help the society with free Education. We are on a mission
+            of teaching 1 Lakh students for free.
           </p>
           <button
             className={styles.donateButton}
-            disabled
-            type="submit"
-          >
+            onClick={donateClick}
+            type="submit">
             Donate Us
           </button>
         </div>
