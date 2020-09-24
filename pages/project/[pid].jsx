@@ -83,13 +83,15 @@ const project = () => {
                 </button>
               </a>
               <a
-                href={repoData.gitPodUrl && repoData.gitPodUrl}
+                href={
+                  repoData.html_url && `https://gitpod.io/#${repoData.html_url}`
+                }
                 target="_blank"
                 rel="noreferrer">
                 <button
                   type="button"
                   className={styles['gitpod-icon']}
-                  disabled={!repoData.gitPodUrl}>
+                  disabled={!repoData.html_url}>
                   <img src="/icons/gitPod-icon.png" alt="Gitpod-icon" />
                   <p>Gitpod</p>
                 </button>

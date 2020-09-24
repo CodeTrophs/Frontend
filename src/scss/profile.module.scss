@@ -1,328 +1,332 @@
 @import 'variables';
-// .usernamebox {
-//     max-width: 90%;
-//     margin: 0px auto;
-//     border-radius: 20px;
-//     box-shadow: 0 5px 10px #cccccc;
-//     padding: 20px 30px;
-// }
-// .padding-below {
-//     margin-left: 10.9375rem;
-// }
-// .usernamebox-profile {
-//     width: 80%;
-//     margin: 50px auto;
-//     border-radius: 20px;
-//     box-shadow: 0 0 12px #d6d6d6;
-// }
-// .imgabsolute-lower {
-//     width: 20%;
-// }
-// .card-left-col {
-//     flex-direction: column;
-//     display: flex;
-// }
-// .imgabsolute-lowerheart {
-//     margin-left: 3.125rem;
-//     margin-top: 11.25rem;
-//     position: absolute;
-// }
-// .follow {
-//     margin-top: 0.4375rem;
-// }
-// .heart {
-//     margin-top: 0.6875rem;
-// }
-// .smallbox {
-//     font-weight: 600;
-//     border-radius: 1.25rem;
-//     @include padding-all(0.25rem, 0.25rem, 0.2rem, 0.25rem);
-//     margin-top: 2rem;
-//     box-shadow: $box-shadow-dark;
-//     width: 6.875rem;
-//     margin-bottom: 30px;
-// }
-// .card-top-row {
-//     display: flex;
-//     justify-content: space-between;
-// }
-// .disp-flex:first-child {
-//     width: 50%;
-// }
-// .smallbox-below {
-//     font-weight: 600;
-//     border-radius: 1.25rem;
-//     @include padding-all(0.2125rem, 0.5rem, 0.3125rem, 0.5rem);
-//     box-shadow: $box-shadow-dark;
-//     height: 1.875rem;
-//     margin-right: 0.625rem;
-// }
-// .smallboxwriting {
-//     margin: 5px auto;
-// }
-// .user-flex {
-//     display: flex;
-//     justify-content: space-between;
-//     background-image: linear-gradient( 160deg, rgb(129, 247, 247), rgb(197, 255, 195));
-//     padding: 20px 30px;
-//     border-top-right-radius: 20px;
-//     border-top-left-radius: 20px;
-// }
-// .card-lengsec {
-//     width: 30%;
-//     display: flex;
-//     flex-direction: column;
-// }
-// .usersname {
-//     font-size: 30px;
-//     font-weight: 550;
-//     margin: 10px 20px;
-//     width: 40%;
-// }
-// .usersname-user {
-//     font-size: 42px;
-//     font-weight: 450;
-//     /* margin-bottom: 0.625rem; */
-// }
-// .usercontent {
-//     color: #747474;
-//     margin: 30px auto;
-//     font-weight: 400;
-//     font-size: 1.1rem;
-//     margin-bottom: 10px;
-//     padding: 20px 30px;
-//     width: 80%;
-// }
-// .userskills {
-//     font-size: 1.5625rem;
-//     font-weight: 450;
-//     margin-top: 0.625rem;
-//     margin-left: 1.5rem;
-// }
-// .skill {
-//     border-radius: 20px;
-//     background-color: #ffffff;
-//     color: rgb(0, 169, 221);
-//     padding: 5px 10px;
-//     margin: 5px 5px;
-//     font-size: 0.8rem;
-// }
-// .skill:first-of-type {
-//     margin-left: 0;
-// }
-// .boxcontent {
-//     width: 70%;
-//     margin-left: 30px;
-// }
-// .top-left-col {
-//     width: 70%;
-//     display: flex;
-// }
-// .langsec {
-//     display: flex;
-//     flex-wrap: wrap;
-//     margin: 10px auto;
-// }
-// .langsecSkill {
-//     display: flex;
-//     flex-wrap: wrap;
-//     width: 100%;
-//     margin: 10px auto;
-// }
-// .links {
-//     width: fit-content;
-//     margin-bottom: 50px;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-// }
-// .langsec-centre {
-//     display: flex;
-//     justify-content: space-evenly;
-// }
-// .links img {
-//     cursor: pointer;
-//     margin: 10px 5px;
-//     width: 50px;
-// }
-// .langButtonJS {
-//     margin-left: 1.25rem;
-//     margin-right: 1.25rem;
-//     width: fit-content;
-//     padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-//     @include button-fontstyle;
-//     border: 1px solid red;
-//     height: 2.1875rem;
-//     margin-top: 0.625rem;
-// }
-// .langButtonJSnew {
-//     margin-left: 1.25rem;
-//     margin-right: 1.25rem;
-//     width: fit-content;
-//     padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-//     @include button-fontstyle;
-//     border: none;
-//     height: 2.1875rem;
-//     margin-top: 1.3rem;
-// }
-// .project-heading {
-//     font-weight: 700;
-//     font-size: 3.5rem;
-//     margin-left: 9rem;
-//     margin-top: 4rem;
-// }
-// .savebutton-align {
-//     display: flex;
-//     justify-content: flex-end;
-// }
-// .savebutton {
-//     /* margin-left: 71.875rem; */
-//     width: fit-content;
-//     padding-top: 0.3125rem;
-//     padding-right: 1.25rem;
-//     padding-left: 1.25rem;
-//     @include button-fontstyle;
-//     border-radius: 1.25rem;
-//     cursor: pointer;
-//     border: none;
-//     height: 2.1875rem;
-//     color: white;
-//     background-color: black;
-// }
-// .date {
-//     font-weight: 400;
-// }
-// .contentuser {
-//     margin-top: 1.25rem;
-//     font-weight: 300;
-// }
-// .count {
-//     font-size: 1.1rem;
-//     line-height: 1.5rem;
-//     margin: 5px 10px;
-// }
-// .langButtonCSS {
-//     margin-top: 0.625rem;
-//     width: fit-content;
-//     padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-//     @include button-fontstyle;
-//     border: 1px solid #e7e722;
-//     height: 2.1875rem;
-// }
-// .langButtonCSS-below {
-//     margin-top: 1.3rem;
-//     width: fit-content;
-//     padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
-//     @include button-fontstyle;
-//     border: none;
-//     height: 2.1875rem;
-//     margin-left: 1.25rem;
-// }
-// .imgabsolute {
-//     width: 150px;
-//     height: 150px;
-//     position: relative;
-//     margin: auto;
-//     border-radius: 500px;
-// }
-// .imgabsolute-border {
-//     background-image: linear-gradient(rgb(49, 226, 152), rgb(117, 238, 238));
-//     border-radius: 50%;
-//     padding: 10px;
-//     height: 170px;
-//     width: 170px;
-// }
-// .username-skill {
-//     font-size: 1.2rem;
-//     font-weight: 400;
-//     color: #333;
-// }
-// @media (max-width: 1000px) {
-//     .usernamebox-profile {
-//         width: 90%;
-//     }
-// }
-// @media (max-width: 800px) {
-//     .links {
-//         width: 50%;
-//     }
-// }
-// @media (max-width: 700px) {
-//     .user-flex {
-//         flex-direction: column;
-//     }
-//     .usercontent {
-//         width: 95%;
-//     }
-//     .boxcontent {
-//         width: 70%;
-//     }
-//     .top-left-col {
-//         width: 100%;
-//         height: fit-content;
-//     }
-//     .imgabsolute {
-//         position: unset;
-//         margin-top: unset;
-//     }
-//     .usernamebox-profile {
-//         margin-top: 50px;
-//         margin-bottom: 0px;
-//     }
-//     .links {
-//         margin-left: 20px;
-//         margin-top: 20px;
-//     }
-// }
-// @media (max-width: 500px) {
-//     .top-left-col {
-//         flex-direction: column;
-//     }
-//     .usernamebox-profile {
-//         width: 100%;
-//         margin-top: 0;
-//         box-shadow: none;
-//         border-radius: 0;
-//         background-color: #f7f7f7;
-//         padding-bottom: 50px;
-//     }
-//     .imgabsolute-border {
-//         margin: 10px auto;
-//         height: 110px;
-//         width: 110px;
-//         padding: 5px;
-//     }
-//     .imgabsolute {
-//         height: 100px;
-//         width: 100px;
-//     }
-//     .hr {
-//         display: none;
-//     }
-//     .usercontent {
-//         padding: 10px 5px;
-//     }
-//     .boxcontent {
-//         text-align: center;
-//         margin-right: auto;
-//         margin-left: auto;
-//     }
-//     .links {
-//         margin: 20px auto;
-//         width: 80%;
-//         justify-content: space-around;
-//     }
-//     .langsecSkill {
-//         width: 100%;
-//         justify-content: center;
-//     }
-//     .langsec-centre {
-//         flex-wrap: wrap;
-//         justify-content: center;
-//         margin: 30px 10px;
-//         grid-gap: 30px 60px;
-//     }
-//     .smallbox {
-//         margin: 10px;
-//     }
-// }
+.usernamebox {
+  max-width: 90%;
+  margin: 0px auto;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #cccccc;
+  padding: 20px 30px;
+}
+.padding-below {
+  margin-left: 10.9375rem;
+}
+.usernamebox-profile {
+  width: 80%;
+  margin: 50px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 12px #d6d6d6;
+}
+.imgabsolute-lower {
+  width: 20%;
+}
+.card-left-col {
+  flex-direction: column;
+  display: flex;
+}
+.imgabsolute-lowerheart {
+  margin-left: 3.125rem;
+  margin-top: 11.25rem;
+  position: absolute;
+}
+.follow {
+  margin-top: 0.4375rem;
+}
+.heart {
+  margin-top: 0.6875rem;
+}
+.smallbox {
+  font-weight: 600;
+  border-radius: 1.25rem;
+  @include padding-all(0.25rem, 0.25rem, 0.2rem, 0.25rem);
+  margin-top: 2rem;
+  box-shadow: $box-shadow-dark;
+  width: 6.875rem;
+  margin-bottom: 30px;
+}
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+}
+.disp-flex:first-child {
+  width: 50%;
+}
+.smallbox-below {
+  font-weight: 600;
+  border-radius: 1.25rem;
+  @include padding-all(0.2125rem, 0.5rem, 0.3125rem, 0.5rem);
+  box-shadow: $box-shadow-dark;
+  height: 1.875rem;
+  margin-right: 0.625rem;
+}
+.smallboxwriting {
+  margin: 5px auto;
+}
+.user-flex {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(
+    160deg,
+    rgb(129, 247, 247),
+    rgb(197, 255, 195)
+  );
+  padding: 20px 30px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.card-lengsec {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.usersname {
+  font-size: 30px;
+  font-weight: 550;
+  margin: 10px 20px;
+  width: 40%;
+}
+.usersname-user {
+  font-size: 42px;
+  font-weight: 450;
+  /* margin-bottom: 0.625rem; */
+}
+.usercontent {
+  color: #747474;
+  margin: 30px auto;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  padding: 20px 30px;
+  width: 80%;
+}
+.userskills {
+  font-size: 1.5625rem;
+  font-weight: 450;
+  margin-top: 0.625rem;
+  margin-left: 1.5rem;
+}
+.skill {
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: rgb(0, 169, 221);
+  padding: 5px 10px;
+  margin: 5px 5px;
+  font-size: 0.8rem;
+}
+.skill:first-of-type {
+  margin-left: 0;
+}
+.boxcontent {
+  width: 70%;
+  margin-left: 30px;
+}
+.top-left-col {
+  width: 70%;
+  display: flex;
+}
+.langsec {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+.langsecSkill {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10px auto;
+}
+.links {
+  width: fit-content;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.langsec-centre {
+  display: flex;
+  justify-content: space-evenly;
+}
+.links img {
+  cursor: pointer;
+  margin: 10px 5px;
+  width: 50px;
+}
+.langButtonJS {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  width: fit-content;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  @include button-fontstyle;
+  border: 1px solid red;
+  height: 2.1875rem;
+  margin-top: 0.625rem;
+}
+.langButtonJSnew {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  width: fit-content;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  @include button-fontstyle;
+  border: none;
+  height: 2.1875rem;
+  margin-top: 1.3rem;
+}
+.project-heading {
+  font-weight: 700;
+  font-size: 3.5rem;
+  margin-left: 9rem;
+  margin-top: 4rem;
+}
+.savebutton-align {
+  display: flex;
+  justify-content: flex-end;
+}
+.savebutton {
+  /* margin-left: 71.875rem; */
+  width: fit-content;
+  padding-top: 0.3125rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  @include button-fontstyle;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  border: none;
+  height: 2.1875rem;
+  color: white;
+  background-color: black;
+}
+.date {
+  font-weight: 400;
+}
+.contentuser {
+  margin-top: 1.25rem;
+  font-weight: 300;
+}
+.count {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  margin: 5px 10px;
+}
+.langButtonCSS {
+  margin-top: 0.625rem;
+  width: fit-content;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  @include button-fontstyle;
+  border: 1px solid #e7e722;
+  height: 2.1875rem;
+}
+.langButtonCSS-below {
+  margin-top: 1.3rem;
+  width: fit-content;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  @include button-fontstyle;
+  border: none;
+  height: 2.1875rem;
+  margin-left: 1.25rem;
+}
+.imgabsolute {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin: auto;
+  border-radius: 500px;
+}
+.imgabsolute-border {
+  background-image: linear-gradient(rgb(49, 226, 152), rgb(117, 238, 238));
+  border-radius: 50%;
+  padding: 10px;
+  height: 170px;
+  width: 170px;
+}
+.username-skill {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #333;
+}
+@media (max-width: 1000px) {
+  .usernamebox-profile {
+    width: 90%;
+  }
+}
+@media (max-width: 800px) {
+  .links {
+    width: 50%;
+  }
+}
+@media (max-width: 700px) {
+  .user-flex {
+    flex-direction: column;
+  }
+  .usercontent {
+    width: 95%;
+  }
+  .boxcontent {
+    width: 70%;
+  }
+  .top-left-col {
+    width: 100%;
+    height: fit-content;
+  }
+  .imgabsolute {
+    position: unset;
+    margin-top: unset;
+  }
+  .usernamebox-profile {
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+  .links {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .top-left-col {
+    flex-direction: column;
+  }
+  .usernamebox-profile {
+    width: 100%;
+    margin-top: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: #f7f7f7;
+    padding-bottom: 50px;
+  }
+  .imgabsolute-border {
+    margin: 10px auto;
+    height: 110px;
+    width: 110px;
+    padding: 5px;
+  }
+  .imgabsolute {
+    height: 100px;
+    width: 100px;
+  }
+  .hr {
+    display: none;
+  }
+  .usercontent {
+    padding: 10px 5px;
+  }
+  .boxcontent {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .links {
+    margin: 20px auto;
+    width: 80%;
+    justify-content: space-around;
+  }
+  .langsecSkill {
+    width: 100%;
+    justify-content: center;
+  }
+  .langsec-centre {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 10px;
+    grid-gap: 30px 60px;
+  }
+  .smallbox {
+    margin: 10px;
+  }
+}
