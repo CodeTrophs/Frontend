@@ -44,15 +44,14 @@
 
 .carousel-container {
   width: 60%;
-  height: 42rem;
-  display: block;
+  display: inline-block;
   border: solid #707070 0.1rem;
   background-color: #fff;
   position: relative;
   padding: 2rem 0 1rem;
-  -webkit-box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
--moz-box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
-box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
+  -webkit-box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
+  -moz-box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
+  box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
 }
 
 .heading {
@@ -169,12 +168,6 @@ box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
   background-color: #42a598;
 }
 
-@media only screen and (max-width: 1000px) {
-  .carousel-container {
-    height: 50rem;
-  }
-}
-
 @media only screen and (max-width: 900px) {
   .carousel-outer {
     margin-top: -7.5px;
@@ -182,12 +175,10 @@ box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
 
   .carousel-container {
     width: 90%;
-    height: 55rem;
   }
 
   .carousel-data {
     height: 90%;
-    margin-top: 4rem;
     p {
       justify-content: center;
       text-align: center;
@@ -220,11 +211,8 @@ box-shadow: 10px 10px 10px 1px rgba(189,185,189,0.73);
   .carousel-data {
     padding: 0;
   }
-  .carousel-container {
-    height: 75rem;
-  }
+
   .sponsors-div {
     width: 90%;
   }
 }
-
