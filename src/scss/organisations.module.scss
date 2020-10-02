@@ -117,3 +117,9 @@
     margin: auto;
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .heading {
+    font-size: 1.25rem;
+  }
+}

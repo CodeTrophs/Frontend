@@ -1,27 +1,17 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
-import styles from '../scss/organisations.module.scss';
-import Modal from './Modal';
+import styles from '../../scss/organisations.module.scss';
 
-const organisation = ({ org, tech, topics }) => {
-  const [ModalShow, setModalShow] = useState(false);
-
-  const showModal = () => {
-    if (ModalShow) {
-      setModalShow(false);
-    } else {
-      setModalShow(true);
-    }
-  };
+const organisation = ({ org, tech, showModal }) => {
   return (
     <div className={styles['card-outer']}>
       <div className={styles['top-row']}>
         <h1 className={styles.heading}>{org.name}</h1>
         <button
           type="button"
-          onKeyDown={showModal}
-          onClick={showModal}
+          onKeyDown={() => showModal(org)}
+          onClick={() => showModal(org)}
           className={styles['show-modal-button']}>
           <img src="/SVG/org-view.svg" alt="view" style={{ width: '30px' }} />
         </button>
@@ -32,7 +22,7 @@ const organisation = ({ org, tech, topics }) => {
         <div className={styles.tags}>
           {tech.map((tag) => (
             <div className={styles.tag} key={tag}>
-              {tag}
+              {tag.toUpperCase()}
             </div>
           ))}
         </div>
@@ -53,9 +43,6 @@ const organisation = ({ org, tech, topics }) => {
           </a>
         </div>
       </div>
-      {ModalShow && (
-        <Modal org={org} hideModal={showModal} topics={topics} tech={tech} />
-      )}
     </div>
   );
 };
@@ -73,7 +60,6 @@ organisation.propTypes = {
     slack: PropTypes.string,
     bgurl: PropTypes.string
   }).isRequired,
-  topics: PropTypes.arrayOf(PropTypes.string).isRequired,
   tech: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
