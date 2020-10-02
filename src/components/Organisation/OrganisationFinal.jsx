@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // import AdDisplay from '../src/components/AdComponent';
 import styles from '../../scss/organisations.module.scss';
@@ -10,7 +10,28 @@ import Organisation from './Organisation';
 
 const OrganisationFinal = () => {
   const [showModal, setShowModal] = useState(false);
+  const [allOrgs, setAllOrgs] = useState([]);
+  const [filterOrgs, setFilterOrgs] = useState([]);
+  const [searchFilter, setSearchFilter] = useState('');
   const [orgData, setOrgData] = useState(null);
+
+  useEffect(() => {
+    setAllOrgs(Organisations.data);
+    setFilterOrgs(Organisations.data);
+  }, []);
+
+  useEffect(() => {
+    if (searchFilter === '') setFilterOrgs(Organisations.data);
+    else {
+      setFilterOrgs(
+        allOrgs.filter(
+          (obj) =>
+            obj.name.toLowerCase().search(searchFilter.toLowerCase()) !== -1
+        )
+      );
+    }
+  }, [searchFilter]);
+
   const toggleModal = (org) => {
     if (org !== null) {
       setOrgData(org);
@@ -31,9 +52,13 @@ const OrganisationFinal = () => {
         imgsrc="/SVG/organisation-imgsrc.png"
       />
       {/* <AdDisplay /> */}
-      <SearchBar page="organizations" />
+      <SearchBar
+        page="organizations"
+        searchFilter={(text) => setSearchFilter(text)}
+        method="onChange"
+      />
       <div className={styles['organisations-grid']}>
-        {Organisations.data.map((organisation) => (
+        {filterOrgs.map((organisation) => (
           <Organisation
             className={styles.card}
             key={organisation.name + organisation.topics}
@@ -44,6 +69,9 @@ const OrganisationFinal = () => {
           />
         ))}
       </div>
+      {filterOrgs.length === 0 && (
+        <h2 className={styles['not-found']}>No Organisations Found</h2>
+      )}
       {showModal && (
         <Modal
           org={orgData}

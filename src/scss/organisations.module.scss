@@ -99,6 +99,14 @@
   }
 }
 
+.not-found {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  color: rgb(199, 42, 42);
+}
+
 @media only screen and (max-width: 1200px) {
   .organisations-grid {
     grid-template-columns: 45% 45%;
