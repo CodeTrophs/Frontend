@@ -10,7 +10,7 @@ export default function FeedIntroduction() {
         <img src="SVG/feedline (2).svg" alt="line" />
         <div className={styles.content}>
           <p>Find a project to contribute to</p>
-          <p>Cant Find the project you are searching for?</p>
+          <p>Could not find the project you are searching for?</p>
           <p>Search below and narrow down your results</p>
         </div>
       </div>
