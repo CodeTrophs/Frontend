@@ -47,7 +47,7 @@ const OrganisationFinal = () => {
       <LandingContainer
         title="Organizations"
         line1="Find an organization to contribute to."
-        line2="Can't find the organization you are searching for?"
+        line2="Can&apos;t find the organization you are searching for?"
         line3="Search below to narrow down your results."
         imgsrc="/SVG/organisation-imgsrc.png"
       />
