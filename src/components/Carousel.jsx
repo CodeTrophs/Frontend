@@ -61,18 +61,18 @@ export default function Carousel({ data }) {
       <div className={styles['sponsors-div']}>
         {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
         <marquee behavior="scroll" direction="left">
-        {sponsors.map((sponsor) => {
-          // console.log(sponsor);
-          return (
-            <img
-              key={sponsor.name}
-              className={styles['partner-image']}
-              src={sponsor.url}
-              alt={sponsor.name}
-              title={sponsor.name}
-            />
-          );
-        })}
+          {sponsors.map((sponsor) => {
+            // console.log(sponsor);
+            return (
+              <img
+                key={sponsor.name}
+                className={styles['partner-image']}
+                src={sponsor.url}
+                alt={sponsor.name}
+                title={sponsor.name}
+              />
+            );
+          })}
         </marquee>
       </div>
       <div className={styles['carousel-container']}>
@@ -85,17 +85,17 @@ export default function Carousel({ data }) {
         </button>
 
         <div className={styles['carousel-inner']}>
-          <img
+          {/* <img
             src="SVG/opening-quote.svg"
             alt="Open Quote"
             style={{ position: 'absolute', top: '0', left: '0' }}
-          />
+          /> */}
           <div
             className={
               isAnimating
                 ? `${styles['carousel-data']} ${styles['carousel-animate']}`
-                : styles['carousel-data']}
-          >
+                : styles['carousel-data']
+            }>
             <p>{activeQuote.comment}</p>
 
             <div className={styles['data-bottom-row']}>
@@ -104,11 +104,11 @@ export default function Carousel({ data }) {
               <h4> {activeQuote.Designation}</h4>
             </div>
           </div>
-          <img
+          {/* <img
             src="SVG/closing-quote.svg"
             alt="Close Quote"
             style={{ position: 'absolute', right: '0', bottom: '5px' }}
-          />
+          /> */}
         </div>
 
         <button
@@ -143,4 +143,3 @@ Carousel.propTypes = {
     })
   )
 };
-
