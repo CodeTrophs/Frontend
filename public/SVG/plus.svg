@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="29.25" height="29.25" viewBox="0 0 29.25 29.25">
-  <path id="Icon_ionic-ios-add-circle" data-name="Icon ionic-ios-add-circle" d="M18,3.375A14.625,14.625,0,1,0,32.625,18,14.623,14.623,0,0,0,18,3.375Zm6.363,15.75H19.125v5.238a1.125,1.125,0,0,1-2.25,0V19.125H11.637a1.125,1.125,0,0,1,0-2.25h5.238V11.637a1.125,1.125,0,0,1,2.25,0v5.238h5.238a1.125,1.125,0,0,1,0,2.25Z" transform="translate(-3.375 -3.375)" fill="#02d898"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="29.25" height="29.25" viewBox="0 0 29.25 29.25"><path id="Icon_ionic-ios-add-circle" fill="#02d898" d="M18,3.375A14.625,14.625,0,1,0,32.625,18,14.623,14.623,0,0,0,18,3.375Zm6.363,15.75H19.125v5.238a1.125,1.125,0,0,1-2.25,0V19.125H11.637a1.125,1.125,0,0,1,0-2.25h5.238V11.637a1.125,1.125,0,0,1,2.25,0v5.238h5.238a1.125,1.125,0,0,1,0,2.25Z" data-name="Icon ionic-ios-add-circle" transform="translate(-3.375 -3.375)"/></svg>

@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="419" height="113" viewBox="0 0 419 113">
-  <defs>
-    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 2461 664">
-      <image width="2461" height="664" xlink:href="osc-logo-navbar-image.png"/>
-    </pattern>
-  </defs>
-  <rect id="osc_logo.pngdasdas" data-name="osc logo.pngdasdas" width="419" height="113" fill="url(#pattern)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="419" height="113" viewBox="0 0 419 113"><defs><pattern id="pattern" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 2461 664"><image width="2461" height="664" xlink:href="osc-logo-navbar-image.png"/></pattern></defs><rect id="osc_logo.pngdasdas" width="419" height="113" fill="url(#pattern)" data-name="osc logo.pngdasdas"/></svg>
