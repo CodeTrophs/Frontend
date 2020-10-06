@@ -116,7 +116,6 @@
   .big-box {
     box-shadow: $box-shadow-dark;
     border-radius: 1rem;
-    margin: 3rem 15px;
     padding: 0;
     padding-top: 3rem;
   }
@@ -130,7 +129,7 @@
     padding-top: 3rem;
     background-color: #eaf0f1;
   }
-
+  
   .middle {
     width: 100%;
     padding: 0 15px;
@@ -154,6 +153,11 @@
   margin-right: 3rem;
 }
 
+@media only screen and (max-width: 1150px) {
+  .left-col {
+    margin-right: 0;
+  }
+}
 .starredButton {
   width: fit-content;
   padding-top: 0.3125rem;
