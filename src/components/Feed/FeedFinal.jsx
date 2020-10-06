@@ -501,7 +501,7 @@ export default function FeedFinal() {
             next={getNextRepos}
             hasMore={!reachedEnd}
             scrollThreshold="95%"
-            style={{ paddingTop: '1rem' }}
+            style={{ paddingTop: '2rem' }}
             loader={<LinearLoader />}
             endMessage={
               <p style={{ textAlign: 'center' }}>

@@ -53,12 +53,14 @@ const Issues = ({ url }) => {
                     <div className={styles['data-left-col']}>
                       <h3 className={styles['issue-name']}>{issue.title}</h3>
                       <p>
-                        <span style={{ color: 'olive' }}>#{issue.number}</span>{' '}
-                        Opened on {issue.created_at.slice(0, 10)} by
-                        <span style={{ color: 'olive' }}>
-                          {' '}
-                          {issue.user.login}
-                        </span>
+                        <small><span  style={{ color: 'olive' }}>#{issue.number}</span>{' '}
+                          Opened on {issue.created_at.slice(0, 10)} 
+                          by
+                          <span style={{ color: 'olive' }}>
+                            {' '}
+                            {issue.user.login}
+                          </span>
+                        </small>
                       </p>
                     </div>
                   </a>

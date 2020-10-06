@@ -1,9 +1,10 @@
 .organisations-grid {
   display: grid;
-  grid-template-columns: 32% 32% 32%;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: auto;
   justify-content: center;
-  grid-gap: 1rem;
+  grid-gap: 3rem;
+  padding: 0 3rem;
 }
 
 .card-outer {
@@ -13,7 +14,7 @@
   padding-top: 20px;
   overflow: hidden;
   position: relative;
-  box-shadow: 5px 5px 10px rgb(202, 202, 202);
+  box-shadow: 0 0 20px rgba(0,0,0, .2);
 
   &:nth-child(3n + 0) {
     background: url('/SVG/org-bg1.png');
