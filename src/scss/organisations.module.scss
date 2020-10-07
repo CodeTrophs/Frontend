@@ -107,7 +107,11 @@
   text-align: center;
   color: rgb(199, 42, 42);
 }
-
+@media only screen and (max-width: 1245px){
+  .organisations-grid{
+    grid-gap:2rem;
+  }
+}
 @media only screen and (max-width: 1200px) {
   .organisations-grid {
     grid-template-columns: 1fr 1fr;
