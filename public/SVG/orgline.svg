@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="127" height="10" viewBox="0 0 127 10">
-  <line id="orgline" x2="127" transform="translate(0 5)" fill="none" stroke="#1a1a1a" stroke-width="10"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="127" height="10" viewBox="0 0 127 10"><line id="orgline" x2="127" fill="none" stroke="#1a1a1a" stroke-width="10" transform="translate(0 5)"/></svg>

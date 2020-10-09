@@ -20,7 +20,7 @@ Contributing to open source can be a rewarding way to learn, teach, and build ex
 
 ## 🚀 Quick start
 
-### **Here is our quickstart guide.
+### Here is our quickstart guide.
 
 **Fork & Clone the repo**
 

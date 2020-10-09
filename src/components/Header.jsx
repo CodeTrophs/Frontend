@@ -62,7 +62,7 @@ export default function Header() {
               />
             )}
           </div>
-          {/*
+
           <div className={styles.link}>
             <Link href="/organizations">
               <p>Organizations</p>
@@ -78,7 +78,7 @@ export default function Header() {
               />
             )}
           </div>
-          */}
+
           <div className={styles.link}>
             <Link href="/starred">
               <p>Starred Repositories</p>
