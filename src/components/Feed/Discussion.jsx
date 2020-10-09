@@ -1,22 +1,149 @@
-import React from 'react';
+import Router from 'next/router';
+import React ,{useState,useEffect}from 'react';
+
+import { toast } from 'react-toastify';
 
 import styles from '../../scss/discussion.module.scss';
+import { getDiscussion , postDiscussion } from '../../services/discussion';
+import LinearLoader from '../LinearLoader';
+// import { event } from 'react-ga';
 
-const Discussion = () => {
-  return (
-    <div className={styles.container}>
-      <div className={styles.top}>
-        <h2>Discussion</h2>
-      </div>
-      <div className={styles.middle}>No discussions yet</div>
-      <div className={styles.bottom}>
-        <textarea name="discussion" id="discussion" />
-        <img src="/SVG/attachment.svg" alt="attachment" />
+const discussion = ({repoData}) =>    {
+  const [discussions, setdiscussions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [discussionForm,setDiscussionForm]  = useState(false);
+  const [question,setQuestion] = useState("")
+  const [postDetail,setPostDetail] = useState({})
 
-        <img src="/SVG/send.svg" alt=">" />
-      </div>
-    </div>
-  );
-};
+  
+  async function getDiscussForRepo() {
+    try {
+      const res = await getDiscussion(repoData.node_id);
+      res.data && res.data.data && setdiscussions(res.data);
+    } catch (res) {
+      toast.error(
+        `${res.status && res.status} : ${res.message && res.message}`
+      );
+    }
+    setLoading(false);
+  }
 
-export default Discussion;
+  async function postDiscussForRepo() {
+    try {
+      const res = await postDiscussion(repoData.node_id,question);
+      res.data && res.data.data && setPostDetail(res.data);
+    } catch (res) {
+      toast.error(
+        `${res.status && res.status} : ${res.message && res.message}`
+      );
+    }
+    setLoading(false);
+  }
+
+  function handleSubmit(){
+    postDiscussForRepo();
+    setQuestion("");
+    setDiscussionForm(false);
+  }
+
+  function displayForm() {
+    setDiscussionForm(!discussionForm);
+  }
+
+  useEffect(() => {
+    if (Router.query.pid) {
+      getDiscussForRepo();
+    }
+    }, [postDetail]);
+    if (loading) {
+      return <LinearLoader />;
+    }
+
+   function handleChange(e){
+     setQuestion(e.target.value);
+   }
+   
+
+
+
+    return (
+      <div style={{height: '100%'}}>
+        <div className={styles['grid-container']}>
+        
+        <div className={styles.discussion}>
+            <div className={styles.discussion_title}>
+                <h1>Discussion Forum</h1>
+                <p>Get help and discuss with the community</p>
+            </div>
+        </div>
+            
+        <div className={styles.description}>
+           <div className={styles.box}>
+                <h2>Description</h2>
+                <p>Welcome to the discussion forums! Ask questions, debate ideas, and find mates who share your goal</p>
+            </div>
+        </div>
+        <div className={styles.forumguide}>
+            <h2>Forum Guidelines         </h2>
+        </div>
+        <div className={styles.adsection}>
+            <div className={styles.box}>
+                <h1>AD SECTION</h1>
+            </div>
+        </div>
+        <div className={styles.sortby}>
+            <div className={styles.sort_title}>
+                <p><strong>Sort by: </strong>Latest </p>
+                {/* <div className={styles.button}>New Thread</div> */}
+                <button type="button" className={styles.button} onClick={displayForm}>New Thread</button>
+                
+            </div>
+        </div>
+
+        <div className={styles.data}>
+            {discussions != null &&
+              discussions &&
+              discussions.data.reverse().map((discuss) => {
+                if (discuss.question) {
+                  return (
+                    <div className={styles['data-item']} key={discuss._id}>
+                      <div className={styles['data-left-col']}>
+                          <h3>{discuss.question}</h3>
+                        </div>
+                    </div>
+                  );
+                }
+                return null;
+              })}
+            {discussions != null && discussions.length === 0 && (
+              <div className={styles['not-found']}> No Discussion Found ! </div>
+            )}
+            <div className={styles['all-button']}>
+                <button type="button" >
+                  Discussion
+                </button>
+              
+            </div>
+          </div>
+          <div className={styles.popupwrapper} style={{display: discussionForm ? "block":"none"}} >
+          <div className={styles.container} >
+            <div className={styles.top}>
+            <button type="button" className={styles.popup_close} onClick={displayForm}>x</button>
+              <h2>Discussion</h2>
+              
+            </div>
+            <div className={styles.middle}>No discussions yet</div>
+            <div className={styles.bottom}>
+              <textarea name="discussion" id="discussion"  value ={question} onChange={handleChange} />
+              <img src="/SVG/attachment.svg" alt="attachment" />
+              <button type="submit" onClick={handleSubmit}><img src="/SVG/send.svg" alt=">" /></button>
+          </div>
+          </div>
+          </div>
+         </div>
+        </div>
+      );
+  }
+
+
+export default discussion;

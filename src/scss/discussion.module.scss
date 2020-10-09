@@ -8,6 +8,9 @@
   height: 60vh;
   border: 1px #333 solid;
   box-shadow: 0 0 10px #e4e4e4;
+  max-width: 300px;
+  margin: 10% auto;
+  position: relative;
 }
 
 .top {
@@ -49,3 +52,288 @@
     margin: 20px auto;
   }
 }
+
+
+.grid-container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns:   1fr 1fr 1fr;
+  grid-template-rows:  1fr  1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: " discussion discussion description"
+                       " sortby sortby description"
+                       " data  data forumguide" 
+                        " data data adsection"
+                        " data  data .";
+}
+
+.sidedrawer {
+  grid-area: sidedrawer; 
+  display: flex;
+  justify-content: flex-end;
+  }
+
+.tabs {
+  height: 100%;
+  width: 80%;
+  border-radius: 2%;
+  background-color: #f5f5f5;
+  text-align: center;
+ }
+
+.tabs > p {
+  margin: 0;
+  padding: 10px;
+ }
+
+.sortby { 
+  grid-area: sortby;
+  display: flex;
+ }
+
+.sortby > .sort_title {
+   font-size: 1.2rem;
+   margin: 1.5rem;
+   width: 100%;
+   height: 50px;
+   display: flex;
+   justify-content: space-between;
+   border-bottom:1px solid gray;
+ }
+  .button{
+ //   margin-left: auto;
+ //   border:1px solid blue;
+    height: 80%;
+ //   width: 10rem;
+   padding: 1.1rem;
+ //   color: blue;
+ //text-align: center;
+ background-color: white;
+ color: #3a74a5;
+ border: 2px solid #3a74a5; /* Blue */
+ display: inline-flex;
+ align-items: center;
+ 
+ }
+
+ .data { grid-area: data; }
+.discussion { grid-area: discussion; }
+
+ 
+.discussion_title {
+   margin-left: 2rem;
+   width: 85%;
+   padding: 3px;
+ }
+.description { 
+   grid-area: description;
+   display: flex;
+   align-items: stretch;
+  
+ }
+ .box {
+    align-self: flex-start;
+    width: 90%;
+    padding: 1.8rem;
+    border: 1.2px solid gray;
+    box-shadow:  0.3em 0.3em 2em rgba(0,0,0,0.3); 
+    min-width: 300px;
+ }
+ .box > p {
+     line-height: 2rem;
+    
+ }
+ 
+ .forumguide {
+    grid-area: forumguide;
+    display: flex;
+    align-self: flex-start;
+    margin-top: 20px;
+    
+    
+ }
+
+.forumguide > h2 {
+ border: 1px solid black;
+ padding: .5rem;   
+ width: 90%;  
+ margin-top: 5px;
+ font-size: 1.2rem;
+ 
+
+}
+
+
+
+.adsection { 
+   grid-area: adsection;
+   display: flex;
+ }
+
+.adsection > .box {
+   height: 200px;
+   display: flex;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+/* For presentation only, no need to copy the code below */
+.grid-container * { 
+//   border: 1px solid red; 
+ position: relative;
+}
+
+.grid-container *:after { 
+ /* content:attr(class); */
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+
+
+.data {
+ margin: 30px 15px 0 30px;
+ border: 1px solid #1d1d1d;
+ border-radius: 10px;
+ padding:5px 10px 15px;
+ height: 65vh;
+ overflow-y: auto;
+}
+
+.data-item {
+ padding: 10px 10px 0;
+ width: 100%;
+ border-radius: 10px;
+ margin-top: 0.5rem;
+ justify-content: space-between;
+ background-color: white;
+ border: 0.3px solid rgb(192, 192, 192);
+ align-items: center;
+ a {
+   text-decoration: none;
+   color: inherit;
+ }
+}
+
+.data-item:nth-child(odd) {
+ background-color: #f7f7f7;
+}
+
+.data-item:last-child {
+ border-bottom: none;
+}
+
+.data-right-col {
+ display: flex;
+ width: 100%;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: flex-start;
+ align-items: center;
+ margin-top: 1rem;
+}
+
+.tags {
+ border-radius: 99px;
+ text-align: center;
+ border: solid 0.1rem #000;
+ padding: 2.5px 7.5px;
+ min-width: 5rem;
+ margin: 5px;
+ font-weight: 600;
+ font-size: 0.9rem;
+ filter: brightness(170%);
+}
+
+.not-found {
+ display: block;
+ margin: auto;
+ text-align: center;
+ font-size: 1.5rem;
+ font-weight: 600;
+ color: rgb(238, 28, 28);
+}
+
+.all-button {
+ display: block;
+ margin: auto;
+ text-align: center;
+ button {
+   padding: 0.5rem 1rem;
+   border: none;
+   border-radius: 1rem;
+   font-weight: 600;
+   font-size: 1.2rem;
+   margin-top: 1rem;
+   cursor: pointer;
+   background-color: #731280;
+   color: #f7f7f7;
+ }
+}
+
+@media (max-width: 1100px) {
+ .sidedrawer{
+    display: none;
+ }
+ .forumguide{
+    display: none;
+ }
+ .grid-container {
+    grid-template-columns: auto;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1fr;
+    grid-template-areas: "discussion"
+                          "description" 
+                          "adsection"
+                          "sortby"
+                          "data";
+     }
+ .description {
+    justify-content: center;
+ }
+ .adsection{
+    margin-top: 1rem;
+    justify-content: center;
+    
+ }
+ .adsection > .box{
+    height: 50px;
+    
+ }
+ .discussion {
+   display: flex;
+   justify-content: center;
+ }
+ 
+}
+
+.popupwrapper {
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.popup{
+  
+  text-align: center;
+  width:100%;
+  
+  margin: 10% auto;
+  padding: 20px;
+  background:white;
+  position: relative;
+  
+}
+
+.popup_close {
+  position: absolute;
+  right: 3px;
+  cursor: pointer;
+}
+
+
+
+

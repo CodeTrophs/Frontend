@@ -144,7 +144,7 @@ const project = () => {
                 onClick={() => changeTab('pull-requests')}>
                 PULL REQUESTS
               </div>
-              {/* <div
+              <div
                 tabIndex={0}
                 role="button"
                 onKeyDown={() => {
@@ -155,14 +155,14 @@ const project = () => {
                 }
                 onClick={() => changeTab('discussion')}>
                 DISCUSSION
-              </div> */}
+              </div>
             </div>
           </div>
           <div className={styles.content}>
             {Tab === 'issues' && <Issues url={repoUrl} />}
             {Tab === 'pull-requests' && <PullRequests url={repoUrl} />}
             {Tab === 'discussion' && (
-              <Discussion className={styles['right-col']} />
+              <Discussion repoData={repoData}  className={styles['right-col']} />
             )}
           </div>
         </div>
