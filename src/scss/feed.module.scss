@@ -197,11 +197,10 @@
 
 .filterbox {
   margin: 2rem 0 0 2rem;
-  @include padding-all(1rem, 1rem, 1rem, 1rem);
+  @include padding-all(1rem, 2rem, 1rem, 2rem);
   width: 20rem;
   height: min-content;
-  background-color: hsl(0, 5%, 92%);
-  border-right: 0.1rem solid rgb(82, 69, 69);
+  box-shadow: $box-shadow-dark;
   h1 {
     text-align: center;
   }
@@ -232,7 +231,7 @@
 .filter-tag {
   width: fit-content;
   padding: 2px 10px;
-  background-color: #cecccc;
+  background-color: #fafafa;
   border-radius: 10px;
   margin: 5px;
   color: black;
