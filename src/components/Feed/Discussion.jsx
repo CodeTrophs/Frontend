@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import styles from '../../scss/discussion.module.scss';
 import { getDiscussion , postDiscussion } from '../../services/discussion';
 import LinearLoader from '../LinearLoader';
+import Dropdown from './Dropdown';
 // import { event } from 'react-ga';
 
 const discussion = ({repoData}) =>    {
@@ -14,12 +15,21 @@ const discussion = ({repoData}) =>    {
   const [discussionForm,setDiscussionForm]  = useState(false);
   const [question,setQuestion] = useState("")
   const [postDetail,setPostDetail] = useState({})
-
+  const items = [
+    {
+      id: 1,
+      value: 'Latest',
+    },
+    {
+      id: 2,
+      value: 'Most Relevent',
+    },
+  ];
   
   async function getDiscussForRepo() {
     try {
       const res = await getDiscussion(repoData.node_id);
-      res.data && res.data.data && setdiscussions(res.data);
+      res.data && res.data.data && setdiscussions(res.data.data.reverse());
     } catch (res) {
       toast.error(
         `${res.status && res.status} : ${res.message && res.message}`
@@ -62,14 +72,10 @@ const discussion = ({repoData}) =>    {
    function handleChange(e){
      setQuestion(e.target.value);
    }
-   
-
-
 
     return (
       <div style={{height: '100%'}}>
         <div className={styles['grid-container']}>
-        
         <div className={styles.discussion}>
             <div className={styles.discussion_title}>
                 <h1>Discussion Forum</h1>
@@ -93,24 +99,44 @@ const discussion = ({repoData}) =>    {
         </div>
         <div className={styles.sortby}>
             <div className={styles.sort_title}>
-                <p><strong>Sort by: </strong>Latest </p>
-                {/* <div className={styles.button}>New Thread</div> */}
+              <div style={{display:'flex'}}>
+                <p><strong>Sort by: </strong> </p>
+                <Dropdown title="" items={items}  />
+              </div>
                 <button type="button" className={styles.button} onClick={displayForm}>New Thread</button>
-                
-            </div>
+              </div>
         </div>
+
+        <div className={styles.bottom} style={{display: discussionForm ? "flex":"none"}}>
+              <textarea name="discussion" id="discussion"  value ={question} onChange={handleChange} />
+              <img src="/SVG/attachment.svg" alt="attachment" />
+              <button type="submit" onClick={handleSubmit}><img src="/SVG/send.svg" alt=">" /></button>
+          </div>
 
         <div className={styles.data}>
             {discussions != null &&
               discussions &&
-              discussions.data.reverse().map((discuss) => {
+              discussions.map((discuss ,i) => {
                 if (discuss.question) {
                   return (
                     <div className={styles['data-item']} key={discuss._id}>
                       <div className={styles['data-left-col']}>
-                          <h3>{discuss.question}</h3>
-                        </div>
+                      <div className={styles.name}>
+                            <p>{discuss.userId.name[0]}</p>
+                          </div>
+                        <div className={styles['discussion-info']}>
+                          <h3>Thread #{i+1}</h3>
+                          <p style={{fontSize:'0.8rem',color:'blue'}}>{discuss.userId.name}</p>
+                          <p>{discuss.question}</p>
+                          <div style={{display:"flex",marginTop:'1rem',fontSize:'0.7rem'}}>
+                          <img src="https://img.icons8.com/fluent-systems-filled/24/000000/reply-arrow.png" width="20px" height="20px" alt="fluent system"/> 
+                          <p>Reply</p>
+                          <p style={{marginLeft:'1rem'}}>Follow this discussion</p>
+                          </div>
+                          </div>
+                        </div>      
                     </div>
+                    
                   );
                 }
                 return null;
@@ -118,14 +144,8 @@ const discussion = ({repoData}) =>    {
             {discussions != null && discussions.length === 0 && (
               <div className={styles['not-found']}> No Discussion Found ! </div>
             )}
-            <div className={styles['all-button']}>
-                <button type="button" >
-                  Discussion
-                </button>
-              
-            </div>
           </div>
-          <div className={styles.popupwrapper} style={{display: discussionForm ? "block":"none"}} >
+          {/* <div className={styles.popupwrapper} style={{display: discussionForm ? "block":"none"}} >
           <div className={styles.container} >
             <div className={styles.top}>
             <button type="button" className={styles.popup_close} onClick={displayForm}>x</button>
@@ -139,7 +159,7 @@ const discussion = ({repoData}) =>    {
               <button type="submit" onClick={handleSubmit}><img src="/SVG/send.svg" alt=">" /></button>
           </div>
           </div>
-          </div>
+          </div> */}
          </div>
         </div>
       );

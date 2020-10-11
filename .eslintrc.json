@@ -33,6 +33,13 @@
     "no-unused-expressions": [
       2,
       { "allowShortCircuit": true, "allowTernary": true }
-    ]
+    ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}]
+ 
   }
+
+  
+  
 }
+
+
