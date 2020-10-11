@@ -13,7 +13,6 @@
 .starredRepo {
   // Starred Repo Card
   @include padding-all(3rem, 1.5rem, 1.5rem, 1.5rem);
-  box-shadow: $box-shadow-dark;
   border-radius: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
@@ -82,7 +81,7 @@
   align-items: center;
 }
 .smallbox-below > .flex > img {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 .save {
   display: flex;
@@ -129,7 +128,7 @@
     padding-top: 3rem;
     background-color: #eaf0f1;
   }
-  
+
   .middle {
     width: 100%;
     padding: 0 15px;
@@ -193,7 +192,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .left-col{
-    margin-right:0;
+  .left-col {
+    margin-right: 0;
   }
 }
