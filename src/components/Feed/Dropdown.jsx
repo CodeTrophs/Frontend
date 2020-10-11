@@ -40,8 +40,8 @@ const  Dropdown  = ({ title, items, multiSelect = false }) => {
         tabIndex={0}
         className={styles["dd-header"]}
         role="button"
-        onKeyPress={() => toggle(!open)}
-        onClick={() => toggle(!open)}
+        onKeyPress={() => toggle()}
+        onClick={() => toggle()}
       >
         <div className={styles["dd-header__title"]}>
           <p className={styles["dd-header__title--bold"]}>{title}</p>
