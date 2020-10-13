@@ -101,16 +101,16 @@ const discussion = ({repoData}) =>    {
             <div className={styles.sort_title}>
               <div style={{display:'flex'}}>
                 <p><strong>Sort by: </strong> </p>
-                <Dropdown title="" items={items}  />
+                <Dropdown  items={items}  />
               </div>
                 <button type="button" className={styles.button} onClick={displayForm}>New Thread</button>
               </div>
         </div>
 
         <div className={styles.bottom} style={{display: discussionForm ? "flex":"none"}}>
-              <textarea name="discussion" id="discussion"  value ={question} onChange={handleChange} />
+              <textarea name="discussion" id="discussion"  value ={question} onChange={handleChange} rows="3"/>
               <img src="/SVG/attachment.svg" alt="attachment" />
-              <button type="submit" onClick={handleSubmit}><img src="/SVG/send.svg" alt=">" /></button>
+              <button type="submit" onClick={handleSubmit} disabled={!question} style={{backgroundColor:"transparent"}}><img src="/SVG/send.svg" alt=">" /></button>
           </div>
 
         <div className={styles.data}>

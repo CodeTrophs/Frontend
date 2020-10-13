@@ -1,20 +1,23 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+// import { useEffect } from 'react';
 import onClickOutside from 'react-onclickoutside';
 
 import styles from '../../scss/dropdown.module.scss';
 
 
-const  Dropdown  = ({ title, items, multiSelect = false }) => {
+const  Dropdown  = ({ items, multiSelect = false }) => {
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
+  const [title,setTitle] = useState("Latest")
   const toggle = () => setOpen(!open);
   Dropdown.handleClickOutside = () => setOpen(false);
-
+  
   function handleOnClick(item) {
     if (!selection.some(current => current.id === item.id)) {
       if (!multiSelect) {
         setSelection([item]);
+        setTitle(item.value);
       } else if (multiSelect) {
         setSelection([...selection, item]);
       }
@@ -33,7 +36,7 @@ const  Dropdown  = ({ title, items, multiSelect = false }) => {
     }
     return false;
   }
-
+  
   return (
     <div className={styles["dd-wrapper"]}>
       <div
@@ -72,7 +75,7 @@ const clickOutsideConfig = {
 };
 
 Dropdown.propTypes = {
-    title: PropTypes.string.isRequired,
+    
     items: PropTypes.string.isRequired,
     multiSelect: PropTypes.bool.isRequired,
   };
