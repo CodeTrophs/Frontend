@@ -31,6 +31,7 @@
     width: 12rem;
     height: 0.8rem;
     margin-left:1rem ;
+    z-index: 100;
      .dd-header {
        @include styling();
        display: flex;
@@ -94,4 +95,9 @@
     width: 20px;
     margin-top: 0.3rem;
     margin-left: 0.2rem;
+  }
+  @media (max-width: 1200px) {
+   .dd-wrapper{
+     width: 9rem;
+   } 
   }

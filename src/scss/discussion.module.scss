@@ -94,12 +94,17 @@
 .sortby { 
   grid-area: sortby;
   display: flex;
+  justify-content: space-between;
+ }
+ .sort{
+   display: flex;
+   
  }
 
 .sortby > .sort_title {
    font-size: 1.2rem;
    margin: 1.5rem;
-   width: 100%;
+   width: 90%;
    height: 50px;
    display: flex;
    justify-content: space-between;
@@ -162,12 +167,12 @@
 }
 
 .forumguide > h2 {
- border: 1px solid black;
- padding: .5rem;   
- width: 90%;  
- margin-top: 5px;
- font-size: 1.2rem;
- }
+    border: 1px solid black;
+    padding: .5rem;   
+    width: 90%;  
+    margin-top: 5px;
+    font-size: 1.2rem;
+}
 
 .adsection { 
    grid-area: adsection;
@@ -195,7 +200,7 @@
 
 
 .data {
- margin: 30px 15px 0 30px;
+ margin: 30px 15px 0 15px;
 //  border: 1px solid #1d1d1d;
  padding:5px 10px 15px;
  height: 65vh;
@@ -299,8 +304,20 @@
    color: #f7f7f7;
  }
 }
-
+@media (max-width: 1200px) {
+    .sortby > .sort_title{
+      font-size: 0.9em;
+    }
+}
 @media (max-width: 1100px) {
+ .discussion{
+   padding: 1.5rem;
+   
+   }
+ .discussion_title{
+   position: relative;
+   left: -40px;
+ }
  .sidedrawer{
     display: none;
  }
@@ -335,6 +352,10 @@
  }
  .bottom{
    margin-left: 2.5rem;
+ }
+ .sortby > .sort_title{
+   font-size: 15px;
+  //  width: 90%;
  }
 }
 

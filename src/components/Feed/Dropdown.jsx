@@ -76,7 +76,7 @@ const clickOutsideConfig = {
 
 Dropdown.propTypes = {
     
-    items: PropTypes.string.isRequired,
+    items: PropTypes.instanceOf(Array).isRequired,
     multiSelect: PropTypes.bool.isRequired,
   };
 

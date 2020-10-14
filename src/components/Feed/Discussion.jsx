@@ -90,7 +90,7 @@ const discussion = ({repoData}) =>    {
             </div>
         </div>
         <div className={styles.forumguide}>
-            <h2>Forum Guidelines         </h2>
+            <h2>Forum Guidelines</h2>
         </div>
         <div className={styles.adsection}>
             <div className={styles.box}>
@@ -99,9 +99,9 @@ const discussion = ({repoData}) =>    {
         </div>
         <div className={styles.sortby}>
             <div className={styles.sort_title}>
-              <div style={{display:'flex'}}>
+              <div className={styles.sort}>
                 <p><strong>Sort by: </strong> </p>
-                <Dropdown  items={items}  />
+                <Dropdown  items={items} multiSelect={false} />
               </div>
                 <button type="button" className={styles.button} onClick={displayForm}>New Thread</button>
               </div>
