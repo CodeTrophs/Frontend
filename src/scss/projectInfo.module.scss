@@ -123,19 +123,15 @@
 /* list */
 
 .data {
-  margin: 30px 15px 0 30px;
   border: 1px solid #1d1d1d;
   border-radius: 10px;
-  padding:5px 10px 15px;
   height: 65vh;
   overflow-y: auto;
 }
 
 .data-item {
-  padding: 10px 10px 0;
+  padding: 15px 0 0 30px;
   width: 100%;
-  border-radius: 10px;
-  margin-top: 0.5rem;
   justify-content: space-between;
   background-color: white;
   border: 0.3px solid rgb(192, 192, 192);
@@ -146,8 +142,8 @@
   }
 }
 
-.data-item:nth-child(odd) {
-  background-color: #f7f7f7;
+.data-item:hover {
+  background-color: #efefef;
 }
 
 .data-item:last-child {
@@ -167,7 +163,7 @@
 }
 
 .issue-name {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1.2rem;
 }
 
@@ -194,7 +190,7 @@
     border-radius: 1rem;
     font-weight: 600;
     font-size: 1.2rem;
-    margin-top: 1rem;
+    margin: 1rem auto;
     cursor: pointer;
     background-color: #731280;
     color: #f7f7f7;
