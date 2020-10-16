@@ -52,9 +52,11 @@ const PullRequests = ({ url }) => {
                   <div className={styles['data-left-col']}>
                     <h3 className={styles['issue-name']}>{pull.title}</h3>
                     <p>
-                      <span style={{ color: 'olive' }}>#{pull.number}</span>{' '}
-                      Opened on {pull.created_at.slice(0, 10)} by
-                      <span style={{ color: 'olive' }}> {pull.user.login}</span>
+                      <small>
+                        <span style={{ color: 'olive' }}>#{pull.number}</span>{' '}
+                        Opened on {pull.created_at.slice(0, 10)} by
+                        <span style={{ color: 'olive' }}> {pull.user.login}</span>
+                      </small>
                     </p>
                   </div>
                 </a>

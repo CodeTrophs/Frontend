@@ -13,7 +13,6 @@
 .starredRepo {
   // Starred Repo Card
   @include padding-all(3rem, 1.5rem, 1.5rem, 1.5rem);
-  box-shadow: $box-shadow-dark;
   border-radius: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
@@ -71,7 +70,7 @@
   font-weight: 600;
   border-radius: 1.25rem;
   box-shadow: $box-shadow-dark;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 1.5rem;
   margin-right: 0.625rem;
 }
 
@@ -82,7 +81,7 @@
   align-items: center;
 }
 .smallbox-below > .flex > img {
-  margin-right: 0.2rem;
+  margin-right: 0.5rem;
 }
 .save {
   display: flex;
@@ -116,7 +115,6 @@
   .big-box {
     box-shadow: $box-shadow-dark;
     border-radius: 1rem;
-    margin: 3rem 15px;
     padding: 0;
     padding-top: 3rem;
   }
@@ -151,9 +149,14 @@
 .left-col {
   justify-content: center;
   align-items: center;
-  margin-right: 0.5rem;
+  margin-right: 3rem;
 }
 
+@media only screen and (max-width: 1150px) {
+  .left-col {
+    margin-right: 0;
+  }
+}
 .starredButton {
   width: fit-content;
   padding-top: 0.3125rem;
@@ -186,4 +189,10 @@
   color: white;
   background-color: black;
   margin: 1rem auto;
+}
+
+@media only screen and (max-width: 500px) {
+  .left-col {
+    margin-right: 0;
+  }
 }
