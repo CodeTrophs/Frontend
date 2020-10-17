@@ -18,7 +18,7 @@
     "@types/react-transition-group": "^4.4.0",
     "axios": "^0.20.0",
     "jsonwebtoken": "^8.5.1",
-    "next": "^9.5.4",
+    "next": "^9.3.6",
     "npm-upgrade": "^2.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
