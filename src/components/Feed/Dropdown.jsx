@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-// import { useEffect } from 'react';
-import onClickOutside from 'react-onclickoutside';
+import React, { useState ,useRef, useEffect } from 'react';
+
+// import onClickOutside from 'react-onclickoutside';
 
 import styles from '../../scss/dropdown.module.scss';
 
@@ -12,7 +12,31 @@ const  Dropdown  = ({ items, multiSelect = false }) => {
   const [title,setTitle] = useState("Latest")
   const toggle = () => setOpen(!open);
   Dropdown.handleClickOutside = () => setOpen(false);
-  
+  const node = useRef();
+
+  const handleClick = e => {
+    if (node.current.contains(e.target)) {
+      // inside click
+      return;
+    }
+    // outside click
+    setOpen(false);
+  };
+
+  // const handleChange = selectedValue => {
+  //   onChange(selectedValue);
+  //   setOpen(false);
+  // };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
+
   function handleOnClick(item) {
     if (!selection.some(current => current.id === item.id)) {
       if (!multiSelect) {
@@ -30,15 +54,16 @@ const  Dropdown  = ({ items, multiSelect = false }) => {
     }
   }
 
-  function isItemInSelection(item) {
-    if (selection.some(current => current.id === item.id)) {
-      return true;
-    }
-    return false;
-  }
-  
+  // function isItemInSelection(item) {
+  //   if (selection.some(current => current.id === item.id)) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
+   
+
   return (
-    <div className={styles["dd-wrapper"]}>
+    <div ref={node} className={styles["dd-wrapper"]}>
       <div
         tabIndex={0}
         className={styles["dd-header"]}
@@ -60,7 +85,7 @@ const  Dropdown  = ({ items, multiSelect = false }) => {
             <li className={styles["dd-list-item"]} key={item.id}>
               <button type="button" onClick={() => handleOnClick(item)}>
                 <span>{item.value}</span>
-                <span>{isItemInSelection(item) && 'Selected'}</span>
+                {/* <span>{isItemInSelection(item) && 'Selected'}</span> */}
               </button>
             </li>
           ))}
@@ -70,9 +95,9 @@ const  Dropdown  = ({ items, multiSelect = false }) => {
   );
 }
 
-const clickOutsideConfig = {
-  handleClickOutside: () => Dropdown.handleClickOutside,
-};
+// const clickOutsideConfig = {
+//   handleClickOutside: () => Dropdown.handleClickOutside,
+// };
 
 Dropdown.propTypes = {
     
@@ -80,4 +105,4 @@ Dropdown.propTypes = {
     multiSelect: PropTypes.bool.isRequired,
   };
 
-export default onClickOutside(Dropdown, clickOutsideConfig);
+export default Dropdown;

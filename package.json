@@ -43,8 +43,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.3",
     "node-sass": "^4.14.1",
-    "prettier": "^2.0.5",
-    "react-onclickoutside": "^6.9.0"
+    "prettier": "^2.0.5"
   },
   "husky": {
     "hooks": {
