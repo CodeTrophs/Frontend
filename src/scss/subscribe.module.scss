@@ -18,29 +18,27 @@
 .subscribe-inner {
   display: block;
   position: relative;
-  padding:2rem 1rem;
-  background-color: #5356A5;
+  padding: 2rem 1rem;
+  background-color: #5356a5;
   width: 75%;
   border-radius: 2rem;
   margin: auto;
   text-align: center;
 
-  h2{
+  h2 {
     color: #fafafa;
     margin: 1rem 0;
   }
 
-
   img {
     max-height: 70% !important;
     position: absolute;
-    left:5%;
+    left: 5%;
     top: -50%;
-
   }
 }
 
-.subscribe-input{
+.subscribe-input {
   display: flex;
   flex-direction: row;
   margin: auto;
@@ -49,7 +47,7 @@
   align-items: center;
 
   input {
-    flex-grow:2;
+    flex-grow: 2;
     border: none;
     background-color: #fff;
     color: #000;
@@ -58,21 +56,21 @@
     border-radius: 2rem 0 0 2rem;
   }
 
-  .subscribe-button{
+  .subscribe-button {
     border-radius: 0 2rem 2rem 0;
     color: #fafafa;
-    background-color: #55C2B4;
+    background-color: #55c2b4;
     padding: 0.5rem;
     font-size: 1.2rem;
     border: none;
   }
-  .subscribe-button:hover{
+  .subscribe-button:hover {
     cursor: pointer;
-    background-color: #42A598;
+    background-color: #42a598;
   }
 }
 
-@media only screen and (max-width:1100px) {
+@media only screen and (max-width: 1100px) {
   .subscribe-inner {
     .subscribe-input {
       width: 75%;
@@ -81,17 +79,18 @@
 }
 
 @media only screen and (max-width: 800px) {
-
   .subscribe-container {
     img {
       max-width: 400px;
       max-height: 300px;
     }
+    .subscribe-input {
+      width: 90%;
+    }
   }
 }
 
 @media only screen and (max-width: 650px) {
-
   .subscribe-container {
     img {
       max-width: 200px;
@@ -109,19 +108,29 @@
   }
 }
 
-@media only screen and (max-width:400px) {
+@media only screen and (max-width: 480px) {
   .subscribe-inner {
     img {
       max-width: 50%;
-      top: -35%;
+      top: -45%;
     }
   }
   .subscribe-input {
     input {
       font-size: 1rem;
+      width: 70% !important;
     }
-    .subscribe-button{
+    .subscribe-button {
       font-size: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .subscribe-inner {
+    img {
+      max-width: 50%;
+      top: -35%;
     }
   }
 }

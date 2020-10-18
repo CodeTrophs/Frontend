@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import styles from '../scss/searchBar.module.scss';
 
-const SearchBar = ({ page, searchFilter }) => {
+const SearchBar = ({ page, searchFilter, method }) => {
   const [searchValue, setSearchValue] = useState('');
   return (
     <div className={styles['search-bar']}>
@@ -19,7 +19,10 @@ const SearchBar = ({ page, searchFilter }) => {
           id=""
           placeholder={`Search for ${page}`}
           value={searchValue}
-          onChange={(e) => setSearchValue(e.currentTarget.value)}
+          onChange={(e) => {
+            setSearchValue(e.currentTarget.value);
+            method === 'onChange' && searchFilter(e.currentTarget.value);
+          }}
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
               searchFilter(e.currentTarget.value);
@@ -41,8 +44,13 @@ const SearchBar = ({ page, searchFilter }) => {
   );
 };
 
+SearchBar.defaultProps = {
+  method: ''
+};
+
 SearchBar.propTypes = {
   page: PropTypes.string.isRequired,
-  searchFilter: PropTypes.func.isRequired
+  searchFilter: PropTypes.func.isRequired,
+  method: PropTypes.string
 };
 export default SearchBar;

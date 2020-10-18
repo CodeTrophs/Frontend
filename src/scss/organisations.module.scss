@@ -1,28 +1,140 @@
 .organisations-grid {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 10%;
-  margin: 20px 150px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: auto;
+  justify-content: center;
+  grid-gap: 3rem;
+  padding: 0 3rem;
+}
+
+.card-outer {
+  margin: 10px 0px;
+  height: 350px;
+  border-radius: 20px;
+  padding-top: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,0,0, .2);
+
+  &:nth-child(3n + 0) {
+    background: url('/SVG/org-bg1.png');
+  }
+  &:nth-child(3n + 1) {
+    background: url('/SVG/org-bg2.png');
+  }
+
+  &:nth-child(3n + 2) {
+    background: url('/SVG/org-bg3.png');
+    background-size: 110%;
+  }
+}
+
+.top-row {
+  display: flex;
+  padding: 0 1rem;
+}
+.show-modal-button {
+  background-color: transparent;
+  border: none;
+  float: right;
+  width: 10%;
+  cursor: pointer;
+}
+
+.heading {
+  color: white;
+  width: 90%;
+  font-size: 1.5rem;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 10px;
+  position: absolute;
+  height: 250px;
+  bottom: 0;
+  padding: 1rem;
+
+  p {
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+}
+
+.urls {
+  img {
+    width: 30px;
+    height: 30px;
+    margin: 0 0.5rem;
+  }
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .tag {
+    width: auto;
+    padding: 0.25rem;
+    border: 0.1rem solid rgb(207, 36, 36);
+    border-radius: 0.25rem;
+    margin: 0.1rem 0.25rem;
+    &:nth-child(3n + 0) {
+      border-color: rgb(240, 225, 18);
+    }
+
+    &:nth-child(3n + 2) {
+      border-color: rgb(18, 18, 184);
+    }
+  }
+}
+
+.not-found {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  color: rgb(199, 42, 42);
+}
+@media only screen and (max-width: 1245px){
+  .organisations-grid{
+    grid-gap:2rem;
+  }
 }
 @media only screen and (max-width: 1200px) {
   .organisations-grid {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media only screen and (max-width: 800px) {
   .organisations-grid {
-    grid-template-columns: auto;
-    width: 70%;
-    margin: auto;
-    grid-gap: 5%;
+    grid-template-columns: 1fr;
   }
 }
 
 @media only screen and (max-width: 680px) {
   .organisations-grid {
-    grid-template-columns: auto;
-    width: 90%;
+    grid-template-columns: 1fr;
+    width: 100%;
     margin: auto;
-    grid-gap: 5%;
+    grid-gap: 1rem;
+    padding: 0 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .heading {
+    font-size: 1.25rem;
   }
 }

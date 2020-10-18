@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="22.5" height="25.5" viewBox="0 0 22.5 25.5">
-  <path id="Icon_material-flag" data-name="Icon material-flag" d="M21.6,9,21,6H7.5V31.5h3V21h8.4l.6,3H30V9Z" transform="translate(-7.5 -6)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="22.5" height="25.5" viewBox="0 0 22.5 25.5"><path id="Icon_material-flag" d="M21.6,9,21,6H7.5V31.5h3V21h8.4l.6,3H30V9Z" data-name="Icon material-flag" transform="translate(-7.5 -6)"/></svg>

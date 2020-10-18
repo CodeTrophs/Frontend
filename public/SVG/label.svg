@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="28.5" height="21" viewBox="0 0 28.5 21">
-  <path id="Icon_material-label" data-name="Icon material-label" d="M26.445,8.76A2.991,2.991,0,0,0,24,7.5L7.5,7.515a3,3,0,0,0-3,2.985v15a3,3,0,0,0,3,2.985L24,28.5a2.991,2.991,0,0,0,2.445-1.26L33,18Z" transform="translate(-4.5 -7.5)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="28.5" height="21" viewBox="0 0 28.5 21"><path id="Icon_material-label" d="M26.445,8.76A2.991,2.991,0,0,0,24,7.5L7.5,7.515a3,3,0,0,0-3,2.985v15a3,3,0,0,0,3,2.985L24,28.5a2.991,2.991,0,0,0,2.445-1.26L33,18Z" data-name="Icon material-label" transform="translate(-4.5 -7.5)"/></svg>

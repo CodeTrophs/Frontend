@@ -20,13 +20,13 @@ export default function WelcomeComponent({ setLoading }) {
     <div className={styles['welcome-container']}>
       <div className={styles['welcome-left']}>
         <h1 className={styles['welcome-title']}>
-          Welcome To <br />
-          Open Source Code Platform
+          A one spot Destination for your <br />
+          Open Source Contribution Journey
         </h1>
         <p className={styles['landing-text']}>
-          Search and Contribute to Some of the Best
+          Now Explore from 120000+ Top
           <br />
-          Open Source Projects
+          Open Source Projects at One Place
         </p>
 
         <div className={styles['sign-in-buttons']}>
