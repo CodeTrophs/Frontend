@@ -7,8 +7,8 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useContext } from 'react';
 
 import * as authFunctions from '../src/api/authFunctions';
-import Spinner from '../src/components/Spinner';
-import UserContext from '../src/components/UserContext';
+import {Spinner , UserContext} from '../src/components';
+
 import * as userService from '../src/services/user';
 
 export default function loginMiddleWare() {
