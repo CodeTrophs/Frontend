@@ -60,7 +60,8 @@
 .bottom > img {
   width: 20px;
   margin: 0.75rem;
-  cursor: pointer;
+  // cursor: pointer;
+  opacity: 0.25;
 }
 
 @media (max-width: 800px) {
@@ -371,59 +372,59 @@
     font-size: 15px;
     //  width: 90%;
   }
-  .bottom{
+  .bottom {
     margin: 0;
   }
 }
 
 @media (max-width: 450px) {
-  .discussion{
+  .discussion {
     margin: 0;
     text-align: center;
   }
-  .discussion_title{
+  .discussion_title {
     width: 100%;
     margin-left: 3.5rem;
     text-align: center;
     padding: 0;
   }
-  .discussion_title >h1{
+  .discussion_title > h1 {
     font-size: 1.81em;
-    margin:0 auto;
-  // text-align: center;
-}  
-  .bottom{
+    margin: 0 auto;
+    // text-align: center;
+  }
+  .bottom {
     margin: 0;
-}
-  .data{
+  }
+  .data {
     margin: 0;
-}
-  .sortby{
+  }
+  .sortby {
     width: 100%;
     margin: 0;
     padding: 1rem 0;
   }
-  .sortby > .sort_title{
+  .sortby > .sort_title {
     font-size: 1em;
     width: 100%;
     margin: 0;
-}
-  .sort{
+  }
+  .sort {
     padding-right: 0.5rem;
-}
-  .box{
+  }
+  .box {
     min-width: 100px;
-}
+  }
 }
 
-@media (max-width: 364px){
-  .sort > p{
-    font-size: .9em;
+@media (max-width: 364px) {
+  .sort > p {
+    font-size: 0.9em;
     width: 50px;
-}
-  .discussion_title >h1{
+  }
+  .discussion_title > h1 {
     font-size: 1.42em;
-    margin:0;
+    margin: 0;
     // text-align: center;
-}  
+  }
 }

@@ -87,19 +87,19 @@ const discussion = ({ repoData }) => {
           <div className={styles.box}>
             <h2>Description</h2>
             <p>
-              Welcome to the discussion forums! Ask questions, debate ideas, and
+              Welcome to the discussion forum! Ask questions, debate ideas, and
               find mates who share your goal.
             </p>
           </div>
         </div>
-        <div className={styles.forumguide}>
+        {/* <div className={styles.forumguide}>
           <h2>Forum Guidelines</h2>
-        </div>
-        <div className={styles.adsection}>
+        </div> */}
+        {/* <div className={styles.adsection}>
           <div className={styles.box}>
             <h1>AD SECTION</h1>
           </div>
-        </div>
+        </div> */}
         <div className={styles.sortby}>
           <div className={styles.sort_title}>
             <div className={styles.sort}>
@@ -127,9 +127,13 @@ const discussion = ({ repoData }) => {
             onChange={handleChange}
             rows="3"
           />
-          <img src="/SVG/attachment.svg" alt="Attach" />
+          <img
+            src="/SVG/attachment.svg"
+            alt="Attach"
+            title="Feature is in Development"
+          />
           <button type="submit" onClick={handleSubmit} disabled={!question}>
-            <img src="/SVG/send.svg" alt="Send" />
+            <img src="/SVG/send.svg" alt="Send" title="Send" />
           </button>
         </div>
 
