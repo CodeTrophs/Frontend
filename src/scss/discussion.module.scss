@@ -28,26 +28,38 @@
 .bottom {
   display: flex;
   grid-area: bottom;
-  //justify-content: space-between;
-  //height: 100px;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
+  padding: 0.5rem;
+
+  button {
+    background: none;
+    border: none;
+
+    img {
+      width: 1.5rem;
+    }
+  }
 }
 
 .bottom > textarea {
   width: 75%;
-  padding: 0.3rem;
-  border: 1px solid black;
-  margin: 10px 5px;
-  height: 30px;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: 2px solid rgb(0, 0, 0);
   color: #333;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  resize: none;
+
+  &:focus {
+    border: 2px solid rgb(20, 221, 228);
+  }
 }
 
 .bottom > img {
   width: 20px;
-  margin: 20px;
+  margin: 0.75rem;
   cursor: pointer;
 }
 
@@ -57,26 +69,25 @@
   }
 }
 
-
 .grid-container {
   height: 100vh;
   display: grid;
-  grid-template-columns:   1fr 1fr 1fr;
-  grid-template-rows:  1fr  0.5fr  0.5fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr 0.5fr 1fr 1fr;
   gap: 1px 1px;
-  grid-template-areas: " discussion discussion description"
-                       " sortby sortby description"
-                       " bottom  bottom forumguide" 
-                        " data data adsection"
-                        " data  data ."
-                        ;
+  grid-template-areas:
+    ' discussion discussion description'
+    ' sortby sortby description'
+    ' bottom  bottom forumguide'
+    ' data data adsection'
+    ' data  data .';
 }
 
 .sidedrawer {
-  grid-area: sidedrawer; 
+  grid-area: sidedrawer;
   display: flex;
   justify-content: flex-end;
-  }
+}
 
 .tabs {
   height: 100%;
@@ -84,147 +95,154 @@
   border-radius: 2%;
   background-color: #f5f5f5;
   text-align: center;
- }
+}
 
 .tabs > p {
   margin: 0;
   padding: 10px;
- }
+}
 
-.sortby { 
+.sortby {
   grid-area: sortby;
   display: flex;
   justify-content: space-between;
- }
- .sort{
-   display: flex;
-   
- }
+}
+.sort {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
 .sortby > .sort_title {
-   font-size: 1.2rem;
-   margin: 1.5rem;
-   width: 90%;
-   height: 50px;
-   display: flex;
-   justify-content: space-between;
-   border-bottom:1px solid gray;
- }
-  .button{
- //   margin-left: auto;
- //   border:1px solid blue;
+  font-size: 1.2rem;
+  margin: 1.5rem;
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+.button {
+  //   margin-left: auto;
+  //   border:1px solid blue;
   height: 80%;
- //   width: 10rem;
+  //   width: 10rem;
   padding: 1.1rem;
- //   color: blue;
- //text-align: center;
+  //   color: blue;
+  //text-align: center;
   background-color: white;
   color: #3a74a5;
   border: 2px solid #3a74a5; /* Blue */
   display: inline-flex;
   align-items: center;
-  
- }
+  cursor: pointer;
+}
 
-.data { grid-area: data; }
- 
-.discussion { grid-area: discussion; }
+.data {
+  grid-area: data;
+}
 
- 
+.discussion {
+  grid-area: discussion;
+}
+
 .discussion_title {
-   margin-left: 2rem;
-   width: 85%;
-   padding: 3px;
- }
-.description { 
-   grid-area: description;
-   display: flex;
-   align-items: stretch;
-  
- }
- .box {
-    align-self: flex-start;
-    width: 90%;
-    padding: 1.8rem;
-    border: 1.2px solid gray;
-    box-shadow:  0.3em 0.3em 2em rgba(0,0,0,0.3); 
-    min-width: 300px;
- }
- .box > p {
-     line-height: 2rem;
- }
- .dropdownImg{
-   height: 20px;
-   width: 20px;
-   margin-top: 0.3rem;
-   margin-left: 0.2rem;
- }
- .forumguide {
-    grid-area: forumguide;
-    display: flex;
-    align-self: flex-start;
-    margin-top: 20px;
+  margin-left: 2rem;
+  width: 85%;
+  padding: 3px;
+}
+.description {
+  grid-area: description;
+  display: flex;
+  align-items: stretch;
+}
+.box {
+  align-self: flex-start;
+  width: 90%;
+  padding: 1.8rem;
+  border: 1.2px solid gray;
+  box-shadow: 0.3em 0.3em 2em rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  border-radius: 0.5rem;
+
+  h2 {
+    text-align: center;
+  }
+}
+.box > p {
+  line-height: 2rem;
+  text-align: justify;
+}
+.dropdownImg {
+  height: 20px;
+  width: 20px;
+  margin-top: 0.3rem;
+  margin-left: 0.2rem;
+}
+.forumguide {
+  grid-area: forumguide;
+  display: flex;
+  align-self: flex-start;
+  margin-top: 20px;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  padding: 0.5rem;
 }
 
 .forumguide > h2 {
-    border: 1px solid black;
-    padding: .5rem;   
-    width: 90%;  
-    margin-top: 5px;
-    font-size: 1.2rem;
+  margin: auto;
+  font-size: 1.2rem;
 }
 
-.adsection { 
-   grid-area: adsection;
-   display: flex;
- }
+.adsection {
+  grid-area: adsection;
+  display: flex;
+}
 
 .adsection > .box {
-   height: 200px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* For presentation only, no need to copy the code below */
-.grid-container * { 
-  // border: 1px solid red; 
- position: relative;
+.grid-container * {
+  // border: 1px solid red;
+  position: relative;
 }
 
-.grid-container *:after { 
- /* content:attr(class); */
- position: absolute;
- top: 0;
- left: 0;
+.grid-container *:after {
+  /* content:attr(class); */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-
 
 .data {
- margin: 30px 15px 0 15px;
-//  border: 1px solid #1d1d1d;
- padding:5px 10px 15px;
- height: 65vh;
- overflow-y: auto;
+  margin: 0 0.5rem;
+  //  border: 1px solid #1d1d1d;
+  padding: 5px 10px 15px;
+  height: 65vh;
+  overflow-y: auto;
 }
 
 .data-item {
- padding: 20px 20px 10px;
- width: 100%;
- margin-top: 0.5rem;
- justify-content: space-between;
- background-color: white;
-//  border: 3px solid #d9d9d9;
- box-shadow:  0.1em 0.1em 0.8em rgba(0,0,0,0.3);
- align-items: center;
- a {
-   text-decoration: none;
-   color: inherit;
- }
-
- 
+  padding: 20px 20px 10px;
+  width: 100%;
+  margin-top: 0.5rem;
+  justify-content: space-between;
+  background-color: white;
+  //  border: 3px solid #d9d9d9;
+  box-shadow: 0.1em 0.1em 0.8em rgba(0, 0, 0, 0.3);
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
-.name{
+.name {
   display: flex;
   justify-content: space-around;
   color: white;
@@ -234,8 +252,7 @@
   height: 2rem;
   text-align: center;
 }
-.name > p{
-  
+.name > p {
   width: 100%;
   margin: auto;
 }
@@ -248,117 +265,165 @@
 // }
 
 .data-right-col {
- display: flex;
- width: 100%;
- flex-direction: row;
- flex-wrap: wrap;
- justify-content: flex-start;
- align-items: center;
- margin-top: 1rem;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-.data-left-col{
+.data-left-col {
   display: flex;
-  
 }
-.discussion-info{
-  margin-left: 0.5rem ;
+.discussion-info {
+  margin-left: 0.5rem;
 }
-.username{
+.username {
   font-size: 0.1rem;
 }
 .tags {
- border-radius: 99px;
- text-align: center;
- border: solid 0.1rem #000;
- padding: 2.5px 7.5px;
- min-width: 5rem;
- margin: 5px;
- font-weight: 600;
- font-size: 0.9rem;
- filter: brightness(170%);
+  border-radius: 99px;
+  text-align: center;
+  border: solid 0.1rem #000;
+  padding: 2.5px 7.5px;
+  min-width: 5rem;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  filter: brightness(170%);
 }
 
 .not-found {
- display: block;
- margin: auto;
- text-align: center;
- font-size: 1.5rem;
- font-weight: 600;
- color: rgb(238, 28, 28);
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(238, 28, 28);
 }
 
 .all-button {
- display: block;
- margin: auto;
- text-align: center;
- button {
-   padding: 0.5rem 1rem;
-   border: none;
-   border-radius: 1rem;
-   font-weight: 600;
-   font-size: 1.2rem;
-   margin-top: 1rem;
-   cursor: pointer;
-   background-color: #731280;
-   color: #f7f7f7;
- }
+  display: block;
+  margin: auto;
+  text-align: center;
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: #731280;
+    color: #f7f7f7;
+  }
 }
 @media (max-width: 1200px) {
-    .sortby > .sort_title{
-      font-size: 0.9em;
-    }
+  .sortby > .sort_title {
+    font-size: 0.9em;
+  }
 }
 @media (max-width: 1100px) {
- .discussion{
-   padding: 1.5rem;
-   
-   }
- .discussion_title{
-   position: relative;
-   left: -40px;
- }
- .sidedrawer{
+  .discussion {
+    padding: 1.5rem;
+  }
+  .discussion_title {
+    position: relative;
+    left: -40px;
+  }
+  .sidedrawer {
     display: none;
- }
- .forumguide{
+  }
+  .forumguide {
     display: none;
- }
- .grid-container {
+  }
+  .grid-container {
     grid-template-columns: auto;
     grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr;
-    grid-template-areas: "discussion"
-                          "description" 
-                          "adsection"
-                          "sortby"
-                          "bottom"
-                          "data";
-     }
- .description {
+    grid-template-areas:
+      'discussion'
+      'description'
+      'adsection'
+      'sortby'
+      'bottom'
+      'data';
+  }
+  .description {
     justify-content: center;
- }
- .adsection{
+  }
+  .adsection {
     margin-top: 1rem;
     justify-content: center;
-    
- }
- .adsection > .box{
+  }
+  .adsection > .box {
     height: 50px;
-    
- }
- .discussion {
-   display: flex;
-   justify-content: center;
- }
- .bottom{
-   margin-left: 2.5rem;
- }
- .sortby > .sort_title{
-   font-size: 15px;
-  //  width: 90%;
- }
+  }
+  .discussion {
+    display: flex;
+    justify-content: center;
+  }
+  .bottom {
+    margin-left: 2.5rem;
+  }
+  .sortby > .sort_title {
+    font-size: 15px;
+    //  width: 90%;
+  }
+  .bottom{
+    margin: 0;
+  }
 }
 
+@media (max-width: 450px) {
+  .discussion{
+    margin: 0;
+    text-align: center;
+  }
+  .discussion_title{
+    width: 100%;
+    margin-left: 3.5rem;
+    text-align: center;
+    padding: 0;
+  }
+  .discussion_title >h1{
+    font-size: 1.81em;
+    margin:0 auto;
+  // text-align: center;
+}  
+  .bottom{
+    margin: 0;
+}
+  .data{
+    margin: 0;
+}
+  .sortby{
+    width: 100%;
+    margin: 0;
+    padding: 1rem 0;
+  }
+  .sortby > .sort_title{
+    font-size: 1em;
+    width: 100%;
+    margin: 0;
+}
+  .sort{
+    padding-right: 0.5rem;
+}
+  .box{
+    min-width: 100px;
+}
+}
 
-
-
+@media (max-width: 364px){
+  .sort > p{
+    font-size: .9em;
+    width: 50px;
+}
+  .discussion_title >h1{
+    font-size: 1.42em;
+    margin:0;
+    // text-align: center;
+}  
+}
