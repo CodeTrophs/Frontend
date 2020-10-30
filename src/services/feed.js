@@ -248,3 +248,14 @@ export const unStarRepo = async (name) => {
     }
   });
 };
+
+export const getRepo = async (owner, name) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await http.get(`${baseURL}/repositories/${owner}/${name}`);
+      if (res.status === 200) resolve(res);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
