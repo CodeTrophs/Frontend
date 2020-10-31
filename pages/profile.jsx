@@ -10,6 +10,7 @@ function Profile() {
     <div>
       <Header />
       {/* <AdDisplay /> */}
+      {/*<nav></nav> */}
       <BoxProfile />
     </div>
   );
