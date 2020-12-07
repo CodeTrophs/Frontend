@@ -10,8 +10,10 @@ import '../src/scss/style.scss';
 import Spinner from '../src/components/Spinner';
 import UserContext from '../src/components/UserContext';
 
+
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
+  const [Theme, setTheme] = useState('light');
   const [User, setUser] = useState(null);
   const [Loading, setLoading] = useState(true);
 
@@ -64,10 +66,13 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
 
+
       <UserContext.Provider
         value={{
           User,
-          setUser
+          setUser,
+          Theme,
+          setTheme
         }}>
         <ToastContainer
           position="top-right"

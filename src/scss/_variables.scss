@@ -8,6 +8,12 @@ $box-shadow-light: 0 0px 8px #e4e4e4;
 $box-shadow-pale: 0 0 5px #e6e6e6;
 $border-bstyle: 0.7px solid #c4c4c4;
 
+/*Dark-theme variables*/
+$color-black: rgb(0,0,0);
+$color-white: yellow;
+$color-gray-light: rgba($color-white, .15);
+$color-gray-dark: rgba($color-black, .15);
+
 @mixin padding-all($pad-up, $pad-right, $pad-down, $pad-left) {
   padding-top: $pad-up;
   padding-right: $pad-right;
