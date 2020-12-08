@@ -1,7 +1,7 @@
 @import 'variables';
 
 .subscribe-container {
-  margin-top: 2rem;
+  //margin-top: 2rem;
   padding-bottom: 2rem;
   position: relative;
   width: 100%;
@@ -11,7 +11,7 @@
     max-height: 300px;
     margin: auto;
   }
-
+  background-color: var(--theme-background-darker);
   background-image: url('/SVG/footer-bg.svg');
 }
 

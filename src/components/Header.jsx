@@ -8,10 +8,10 @@ import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Button from "./ThemeBtn";
 import ToTop from './ToTop';
-import UserContext from './UserContext';
+import {ThemeContext, UserContext} from './UserContext';
 
 export default function Header() {
-  const { Theme } = useContext(UserContext);
+  const { Theme } = useContext(ThemeContext);
   const router = useRouter();
   const { User, setUser } = useContext(UserContext);
   const [profileDD, setProfileDD] = useState(false);
@@ -44,9 +44,10 @@ export default function Header() {
             alt=""
           />
         </Link>
-     {/* Theme Button  */}
-        <Button/> 
       </div>
+      
+     {/* Theme Button  */}
+     <Button/> 
       {router.pathname !== '/' &&
       router.pathname !== '/toporg' &&
       router.pathname !== '/toplang' ? (

@@ -1,9 +1,11 @@
 import React, {useContext} from 'react';
 
-import UserContext from "./UserContext";
+import style from '../scss/themebtn.module.scss';
+import {ThemeContext} from "./UserContext";
 
 const Button = () => {
-  const { Theme, setTheme } = useContext(UserContext);
+  const { Theme, setTheme } = useContext(ThemeContext);
+  const value = (Theme === 'dark')? `${Theme} 🌙`: `${Theme} 🌞`;
 
   function onClick() {
     if (Theme === 'light') {
@@ -12,7 +14,7 @@ const Button = () => {
       setTheme('light');
     }
   }
-  return <button onClick={onClick} type="button">Change Theme</button>;
+return <button id="theme-toggler" className={style.themeButton} onClick={onClick} type="button">{value}</button>;
 };
 
 export default Button;

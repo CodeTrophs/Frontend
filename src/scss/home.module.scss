@@ -35,6 +35,8 @@
   // background-image: url('/images/welcome-container-bg.png');
   background-size: cover;
   background-position-y: center;
+  background-color: var(--theme-background-darker);
+  color: var(--theme-color-diff);
 }
 
 .welcome-left {
@@ -44,7 +46,6 @@
 .welcome-title {
   font-weight: 650;
   font-size: 2.80rem;
-  color: black;
   text-align: left;
 }
 
@@ -145,7 +146,8 @@
   padding: 60px 20px;
   display: flex;
   background-color: #5356a5;
-  color: #fff;
+  color: var(--theme-color);
+  
 }
 
 .about-left-col {
@@ -180,7 +182,7 @@
   margin-top: -5px;
   padding: 10vh 50px 5vh 50px;
   background: #5356a5;
-  color: #fff;
+  color: var(--theme-color);
   text-align: justify;
 }
 
@@ -256,7 +258,7 @@
 /* Help Us Section  */
 .help-us-outer {
   padding: 0;
-  background-color: #f5f5f5;
+  background-color: var(--theme-background-darker);
 }
 .help-us-container {
   padding: 60px 20px;
@@ -264,7 +266,7 @@
   background-color: #5356a5;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
-  color: #fff;
+  color: var(--theme-color);
 }
 
 .help-us-left-col {
