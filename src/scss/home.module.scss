@@ -46,6 +46,7 @@
 .welcome-title {
   font-weight: 650;
   font-size: 2.80rem;
+  color: black;
   text-align: left;
 }
 
@@ -402,6 +403,7 @@
   .sign-in-buttons {
     flex-direction: column;
     padding-left: 0;
+    margin-bottom:30px;
   }
 
   .email-section {

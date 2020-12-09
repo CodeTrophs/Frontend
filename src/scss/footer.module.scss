@@ -1,9 +1,18 @@
 @import 'variables';
 
 .footer {
-  width: 100%;
   background-color: #98eae080;
-  padding: 0 50px;
+  padding: {
+    right: 15px;
+    left: 15px;
+  }
+
+  @media only screen and (min-width: 800px) {
+    padding: {
+      right: 50px;
+      left: 50px;
+    }
+  }
 }
 
 .heading {
@@ -11,7 +20,7 @@
   font-weight: 700;
   padding-left: 2.5rem;
 
-  hr{
+  hr {
     width: 2em;
     height: 0.5rem;
     background-color: #000;
@@ -19,95 +28,64 @@
   }
 }
 
-.footer-content {
-  width: 100%;
-  position: relative;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  padding-top: 1rem;
-}
-
 .badges {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  max-width: 75%;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  padding-top: 1rem;
+  list-style-type: none;
+
+  @media only screen and (min-width: 800px) {
+    width: 75%;
+  }
 }
+
 .badges img {
   width: 1.3rem;
   margin-right: 8px;
   height: 25px;
 }
 
-.badges > a {
+.badges a {
   display: flex;
-  justify-content: center;
   background-color: #fff;
   align-items: center;
-  width: fit-content;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 10px;
-  padding: 2px 10px;
-  margin: 8px 20px;
-  cursor: pointer;
-  border: 3px solid #000;
+  padding: 2px 5px;
+  margin: 8px 3px;
+  border: 2px solid #000;
   text-decoration: none;
   color: #000;
+
+  @media only screen and (min-width: 800px) {
+    margin: {
+      right: 20px;
+      left: 20px;
+    }
+    padding: {
+      right: 10px;
+      left: 10px;
+    }
+    font-weight: 500;
+    border-width: 3px;
+  }
 }
 
 .partner-logo {
   display: block;
-  margin:auto;
+  margin: auto;
   text-align: center;
-  padding:25px 0 ;
-  img{
+  padding: 25px 0;
+
+  img {
     max-width: 250px;
     max-height: 250px;
-  }
-}
-
-
-@media only screen and (max-width: 800px) {
-
-  .footer {
-    padding: 0 15px;
-  }
-
-  .footer-content {
-    width: 100%;
-  }
-
-  .badges > a {
-    padding: 2px 5px;
-    margin: 8px 3px;
-    cursor: pointer;
-    border: 2px solid #000;
-    justify-content: space-between;
-    font-weight: 600;
-  }
-
-  .bottom-row {
-    padding: 20px 0;
-  }
-
-  .bottom-row img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .bottom-row a {
-    padding: 0.3rem;
-    font-weight: 400;
-  }
-}
-
-@media only screen and (max-width: 650px) {
-
-  .footer {
-    background-position: center;
   }
 }

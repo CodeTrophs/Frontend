@@ -21,7 +21,7 @@ export default function WelcomeComponent({ setLoading }) {
       <div className={styles['welcome-left']}>
         <h1 className={styles['welcome-title']}>
           A one spot Destination for your <br />
-          CodeTrophs Contribution Journey
+          Open Source Contribution Journey
         </h1>
         <p className={styles['landing-text']}>
           Now Explore from 120000+ Top

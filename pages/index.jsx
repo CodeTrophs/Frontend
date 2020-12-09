@@ -1,15 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 
-import Carousel from '../src/components/Carousel';
-
-import Footer from '../src/components/Footer';
-import Header from '../src/components/Header';
-import AboutUs from '../src/components/Home/AboutUs';
-import HelpUs from '../src/components/Home/HelpUs';
-import HowContainer from '../src/components/Home/HowContainer';
-import WelcomeComponent from '../src/components/Home/WelcomeComponent';
-import Spinner from '../src/components/Spinner';
-import Subscribe from '../src/components/subscribe';
+import {Carousel, Footer,Header, AboutUs, HelpUs, HowContainer, WelcomeComponent, Spinner, Subscribe} from '../src/components';
 import testimonials from '../src/components/testimonialsData.json';
 import ThemeContext from '../src/components/ThemeContext';
 

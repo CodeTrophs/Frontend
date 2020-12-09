@@ -19,7 +19,7 @@ export default function loginMiddleWare() {
       if (router.query.status === '200') {
         // Set logged In here
         // Redirect to feed page
-        console.log(router.query.token);
+        // console.log(router.query.token);
         localStorage.setItem('token', router.query.token);
 
         const res = await userService.getProfile();
