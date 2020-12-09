@@ -8,8 +8,8 @@ import * as authFunctions from '../src/api/authFunctions';
 import { initGA, logPageView } from '../src/components/googleAnalytics';
 import '../src/scss/style.scss';
 import Spinner from '../src/components/Spinner';
-import {UserContext, ThemeContext} from '../src/components/UserContext';
-
+import ThemeContext from '../src/components/ThemeContext';
+import UserContext from '../src/components/UserContext';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
@@ -66,29 +66,30 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
 
-<ThemeContext.Provider  value={{
+      <ThemeContext.Provider
+        value={{
           Theme,
           setTheme
         }}>
-      <UserContext.Provider
-        value={{
-          User,
-          setUser
-        }}>
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable={false}
-          pauseOnHover
-        />
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component {...pageProps} />
-      </UserContext.Provider>
+        <UserContext.Provider
+          value={{
+            User,
+            setUser
+          }}>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable={false}
+            pauseOnHover
+          />
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <Component {...pageProps} />
+        </UserContext.Provider>
       </ThemeContext.Provider>
     </>
   );

@@ -4,7 +4,7 @@ import React, { useState, useContext } from 'react';
 
 import * as authFunctions from '../../api/authFunctions';
 import styles from '../../scss/sideDrawer.module.scss';
-import {UserContext} from '../UserContext';
+import UserContext from '../UserContext';
 import DrawerToggleButton from './DrawerToggleButton';
 
 const SideDrawer = ({ handleClose, router }) => {

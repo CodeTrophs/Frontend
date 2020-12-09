@@ -11,7 +11,7 @@ import WelcomeComponent from '../src/components/Home/WelcomeComponent';
 import Spinner from '../src/components/Spinner';
 import Subscribe from '../src/components/subscribe';
 import testimonials from '../src/components/testimonialsData.json';
-import {ThemeContext} from '../src/components/UserContext';
+import ThemeContext from '../src/components/ThemeContext';
 
 function Home() {
   const { Theme } = useContext(ThemeContext);
@@ -22,7 +22,12 @@ function Home() {
   }, []);
 
   if (loading) {
-    return (<div><Header /><Spinner /></div>)
+    return (
+      <div>
+        <Header />
+        <Spinner />
+      </div>
+    );
   }
   return (
     <div className={`Home ${Theme}`}>
