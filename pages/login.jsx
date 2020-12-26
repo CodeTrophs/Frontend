@@ -41,6 +41,6 @@ export default function loginMiddleWare() {
   }
   useEffect(() => {
     loginUser();
-  }, []);
+  }, [router]);
   return <Spinner />;
 }
