@@ -1,0 +1,21 @@
+#UserCard {
+    border: 1px solid gray;
+    width: fit-content;
+    padding: 15px;
+    text-align: center;
+    margin: 10px;
+    float: left;
+    box-shadow: 5px 5px 17px 0px rgba(0,0,0,0.26);
+    -webkit-box-shadow: 5px 5px 17px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: 5px 5px 17px 0px rgba(0,0,0,0.26);
+}
+
+#UserCardAvatar {
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    background-color: black;
+    color: black;
+    margin: 0 auto 0 auto;
+}

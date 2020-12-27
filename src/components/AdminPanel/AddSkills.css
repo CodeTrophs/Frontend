@@ -1,0 +1,45 @@
+#welcomeName {
+    color: #5DC5B8;
+}
+
+hr {
+    width: 50px;
+    height: 5px;
+    background-color: black;
+}
+
+#addNewSkill {
+    background-color: #5dc5b92c;
+    height: 130px;
+    width: 230px;
+    margin-top: 40px;
+    margin-right: 20px;
+    color: white;
+    text-align: center;
+    font-size: 80px;
+    float: left;
+}
+
+#leftOfDesignImg {
+    float: left;
+    width: 70%;
+}
+
+#designImg {
+    float: left;
+    height: 300px;
+    width: 300px;
+    width: 30%;
+}
+
+@media only screen and (max-width: 709px) {
+    #leftOfDesignImg {
+        float: left;
+    }
+    
+    #designImg {
+        float: left;
+        height: 300px;
+        width: 300px;
+    }
+}
