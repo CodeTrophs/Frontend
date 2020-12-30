@@ -27,6 +27,7 @@ export default function FeedFinal() {
   const [sortMethod, setSortMethod] = useState(''); // Sort Method
   const [sortOrder, setSortOrder] = useState('asc'); // Sort Order
   const [organisationList, setOrganisationList] = useState([]); // Organisation List
+  const [selectedBasicFilter, setSelectedBasicFilter] = useState(''); // Selected basic filter
   const [selectedOrganisation, setSelectedOrganisation] = useState('All'); // Selected Organisation
   const [selectedSortMethod, setSelectedSortMethod] = useState('Best Match'); // Selected Sort Method
   const [selectedLanguagesList, setSelectedLanguagesList] = useState([]);
@@ -34,6 +35,15 @@ export default function FeedFinal() {
   const [applyLangFilterDisabled, setApplyLangFilterDisabled] = useState(false); // Apply Language filter button (Disabled ?)
   const firstResult = useRef(null); // For scrolling to the first repo on initial render and applying filters
   const [showFilters, setShowFilters] = useState(false);
+  const [filterType, setFilterType] = useState('basic');
+
+  const toggleBasic = () => {
+    setFilterType('basic');
+  };
+  const toggleAdvanced = () => {
+    setFilterType('advanced');
+  };
+
   const sortList = [
     { actual: '', display: 'Best Match', order: 'asc' },
     { actual: 'forks', display: 'Least Forks', order: 'asc' },
@@ -50,6 +60,7 @@ export default function FeedFinal() {
       const res = await feedService.getRepos(
         pageNo,
         searchRepoQuery,
+        selectedBasicFilter,
         appliedLanguagesList,
         selectedOrganisation,
         sortMethod,
@@ -113,6 +124,7 @@ export default function FeedFinal() {
     setParamsChanged(!paramsChanged);
   }, [
     appliedLanguagesList,
+    selectedBasicFilter,
     searchRepoQuery,
     sortMethod,
     sortOrder,
@@ -209,34 +221,149 @@ export default function FeedFinal() {
         {/* Display the filters here  */}
         <div className={styles.filterbox}>
           <h1> Filters </h1>
-          {/* Languages */}
-          <h3>
-            {' '}
-            Languages
-            {JSON.stringify(selectedLanguagesList) !==
-              JSON.stringify(appliedLanguagesList) && (
-              <button
-                type="button"
-                className={styles['apply-filter-button']}
-                onClick={applyLanguagesFilter}
-                disabled={applyLangFilterDisabled}>
-                {' '}
-                Apply filter
-              </button>
-            )}
-          </h3>
-          {applyLangFilterDisabled === true && (
-            <span style={{ color: `#ff0000` }}>Select Max. 1 language</span>
+          <div className={styles.filterOptions}>
+            <div
+              tabIndex={0}
+              role="button"
+              style={{
+                color: filterType === 'basic' && 'rgb(79, 187, 230)'
+              }}
+              className={styles.filterBtn}
+              onKeyDown={toggleBasic}
+              onClick={toggleBasic}>
+              Basic
+            </div>
+            <div
+              tabIndex={0}
+              role="button"
+              style={{
+                color: filterType === 'advanced' && 'rgb(79, 187, 230)'
+              }}
+              className={styles.filterBtn}
+              onClick={toggleAdvanced}
+              onKeyDown={toggleAdvanced}>
+              Advanced
+            </div>
+          </div>
+          {filterType === 'basic' && (
+            <div className={styles.basicFilter}>
+              <div
+                className={styles.btnStyles}
+                tabIndex={0}
+                role="button"
+                onClick={() => setSelectedBasicFilter('React')}
+                onKeyDown={() => setSelectedBasicFilter('React')}>
+                <p>React</p>
+                <img
+                  src="/icons/react-icon.png"
+                  alt="React_logo"
+                  className={styles.devIcons}
+                />
+              </div>
+
+              <div
+                className={styles.btnStyles}
+                tabIndex={0}
+                key="Vue"
+                role="button"
+                onClick={() => setSelectedBasicFilter('Vue')}
+                onKeyDown={() => setSelectedBasicFilter('Vue')}>
+                <p>Vue</p>
+                <img
+                  src="/icons/vuejs-icon.png"
+                  alt="Vuejs_logo"
+                  className={styles.devIcons}
+                />
+              </div>
+              <div
+                className={styles.btnStyles}
+                tabIndex={0}
+                key="Angular"
+                role="button"
+                onClick={() => setSelectedBasicFilter('Angular')}
+                onKeyDown={() => setSelectedBasicFilter('Angular')}>
+                <p>Angular</p>
+                <img
+                  src="/icons/angularjs-icon.png"
+                  alt="Angular_logo"
+                  className={styles.devIcons}
+                />
+              </div>
+              <div
+                className={styles.btnStyles}
+                tabIndex={0}
+                key="Machine Learning"
+                role="button"
+                onClick={() => setSelectedBasicFilter('Machine Learning')}
+                onKeyDown={() => setSelectedBasicFilter('Machine Learning')}>
+                <p>ML/AI</p>
+                <img
+                  src="/icons/al-ml-icon.png"
+                  alt="ML_AI_logo"
+                  className={styles.devIcons}
+                />
+              </div>
+              <div
+                className={styles.btnStyles}
+                tabIndex={0}
+                key="Data Science"
+                role="button"
+                onClick={() => setSelectedBasicFilter('Data Science')}
+                onKeyDown={() => setSelectedBasicFilter('Data Science')}>
+                <p>Data Science</p>
+                <img
+                  src="/icons/data-science-icon.png"
+                  alt="data_science_logo"
+                  className={styles.devIcons}
+                />
+              </div>
+              <div
+                className={styles.btnStyles}
+                tabIndex={0}
+                key="Web Development"
+                role="button"
+                onClick={() => setSelectedBasicFilter('Web Development')}
+                onKeyDown={() => setSelectedBasicFilter('Web Development')}>
+                <p>Web Development</p>
+                <img
+                  src="/icons/web-dev-icon.png"
+                  alt="web_dev_logo"
+                  className={styles.devIcons}
+                />
+              </div>
+            </div>
           )}
-          <div
-            id="languages"
-            className={`${styles['data-list']} ${
-              applyLangFilterDisabled ? styles['error-list'] : ''
-            } `}>
-            <div key='all'>
-            <input
+          {/* Languages */}
+          {filterType === 'advanced' && (
+            <div>
+              <h3>
+                {' '}
+                Languages
+                {JSON.stringify(selectedLanguagesList) !==
+                  JSON.stringify(appliedLanguagesList) && (
+                  <button
+                    type="button"
+                    className={styles['apply-filter-button']}
+                    onClick={applyLanguagesFilter}
+                    disabled={applyLangFilterDisabled}>
+                    {' '}
+                    Apply filter
+                  </button>
+                )}
+              </h3>
+
+              {applyLangFilterDisabled === true && (
+                <span style={{ color: `#ff0000` }}>Select Max. 1 language</span>
+              )}
+              <div
+                id="languages"
+                className={`${styles['data-list']} ${
+                  applyLangFilterDisabled ? styles['error-list'] : ''
+                } `}>
+                <div key="all">
+                  <input
                     type="radio"
-                    value='All'
+                    value="All"
                     name="language"
                     defaultChecked
                     onChange={() => {
@@ -257,95 +384,99 @@ export default function FeedFinal() {
                       //   ]);
                       const sel = [];
                       setSelectedLanguagesList(sel);
-                    setAppliedLanguagesList(sel);
+                      setAppliedLanguagesList(sel);
                     }}
                   />
                   All
                 </div>
-            {languageList.map((lang) => {
-              return (
-                <div key={lang}>
+                {languageList.map((lang) => {
+                  return (
+                    <div key={lang}>
+                      <input
+                        type="radio"
+                        value={lang}
+                        name="language"
+                        onChange={(e) => {
+                          // if (
+                          //   selectedLanguagesList.find(
+                          //     (el) => el === e.target.value
+                          //   ) !== undefined
+                          // ) {
+                          //   setSelectedLanguagesList([
+                          //     ...selectedLanguagesList.filter(
+                          //       (el) => el !== e.target.value
+                          //     )
+                          //   ]);
+                          // } else
+                          //   setSelectedLanguagesList([
+                          //     ...selectedLanguagesList,
+                          //     e.target.value
+                          //   ]);
+                          const sel = [e.target.value];
+                          setSelectedLanguagesList(sel);
+                          setAppliedLanguagesList(sel);
+                        }}
+                      />
+                      {'  '} {lang}
+                    </div>
+                  );
+                })}
+              </div>
+              {/* Organisations */}
+
+              <div
+                id="organisations"
+                className={styles['data-list']}
+                onChange={(e) => {
+                  setSelectedOrganisation(e.target.value);
+                }}>
+                <h3>Organisations</h3>
+                <div key="All">
                   <input
                     type="radio"
-                    value={lang}
-                    name="language"
-                    onChange={(e) => {
-                      // if (
-                      //   selectedLanguagesList.find(
-                      //     (el) => el === e.target.value
-                      //   ) !== undefined
-                      // ) {
-                      //   setSelectedLanguagesList([
-                      //     ...selectedLanguagesList.filter(
-                      //       (el) => el !== e.target.value
-                      //     )
-                      //   ]);
-                      // } else
-                      //   setSelectedLanguagesList([
-                      //     ...selectedLanguagesList,
-                      //     e.target.value
-                      //   ]);
-                      const sel = [e.target.value];
-                      setSelectedLanguagesList(sel);
-                    setAppliedLanguagesList(sel);
-                    }}
-                  />
-                  {'  '} {lang}
-                </div>
-              );
-            })}
-          </div>
-          {/* Organisations */}
-          <h3>Organisations</h3>
-          <div
-            id="organisations"
-            className={styles['data-list']}
-            onChange={(e) => {
-              setSelectedOrganisation(e.target.value);
-            }}>
-            <div key="All">
-              <input
-                type="radio"
-                value="All"
-                defaultChecked
-                name="Organisation"
-              />{' '}
-              All
-            </div>
-            {organisationList.map((org) => {
-              return (
-                <div key={org}>
-                  <input type="radio" value={org} name="Organisation" />{' '}
-                  {org[0].toUpperCase() + org.slice(1).toLowerCase()}
-                </div>
-              );
-            })}
-          </div>
-          {/* Sort Methods */}
-          <h3>Sort By</h3>
-          <div
-            id="sortMethods"
-            style={{ margin: '1rem 0' }}
-            onChange={(e) => {
-              setSortMethod(e.target.value.split(',')[0]);
-              setSortOrder(e.target.value.split(',')[1]);
-              setSelectedSortMethod(e.target.id);
-            }}>
-            {sortList.map((method) => {
-              return (
-                <div key={method.display}>
-                  <input
-                    type="radio"
-                    defaultChecked={method.actual === ''}
-                    id={method.display}
-                    value={[method.actual, method.order]}
-                    name="sortMethod"
+                    value="All"
+                    defaultChecked
+                    name="Organisation"
                   />{' '}
-                  {method.display}
+                  All
                 </div>
-              );
-            })}
-          </div>
+                {organisationList.map((org) => {
+                  return (
+                    <div key={org}>
+                      <input type="radio" value={org} name="Organisation" />{' '}
+                      {org[0].toUpperCase() + org.slice(1).toLowerCase()}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Sort Methods */}
+              <div
+                id="sortMethods"
+                style={{ margin: '1rem 0' }}
+                onChange={(e) => {
+                  setSortMethod(e.target.value.split(',')[0]);
+                  setSortOrder(e.target.value.split(',')[1]);
+                  setSelectedSortMethod(e.target.id);
+                }}>
+                <h3>Sort By</h3>
+                {sortList.map((method) => {
+                  return (
+                    <div key={method.display}>
+                      <input
+                        type="radio"
+                        defaultChecked={method.actual === ''}
+                        id={method.display}
+                        value={[method.actual, method.order]}
+                        name="sortMethod"
+                      />{' '}
+                      {method.display}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
         {/* ==================================================================================================================================== */}
         {/* Display Mobile Filters here */}
@@ -358,7 +489,7 @@ export default function FeedFinal() {
                 <button
                   type="button"
                   onClick={() => {
-                    setSelectedLanguagesList(appliedLanguagesList);
+                    // setSelectedLanguagesList(appliedLanguagesList);
                     setShowFilters(false);
                     document.body.style.overflow = 'auto';
                   }}
@@ -376,118 +507,232 @@ export default function FeedFinal() {
                   />
                 </button>
               </h1>
+              <span className={styles.filterOptions}>
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className={styles.filterBtn}
+                  onKeyDown={toggleBasic}
+                  style={{
+                    color: filterType === 'basic' && 'rgb(79, 187, 230)'
+                  }}
+                  onClick={toggleBasic}>
+                  Basic
+                </div>
+                <div
+                  tabIndex={0}
+                  role="button"
+                  style={{
+                    color: filterType === 'advanced' && 'rgb(79, 187, 230)'
+                  }}
+                  className={styles.filterBtn}
+                  onClick={toggleAdvanced}
+                  onKeyDown={toggleAdvanced}>
+                  Advanced
+                </div>
+              </span>
               {/* Languages */}
-              <h3> Languages </h3>
-              {applyLangFilterDisabled === true && (
-                <span style={{ color: `#ff0000` }}>Select Max. 1 language</span>
+              {/* Basic filters */}
+              {filterType === 'basic' && (
+                <div className={styles.MobileBasicFilters}>
+                  <div className={styles.basicFilter}>
+                    <div className={styles.btnStyles}>
+                      <p>React</p>
+                      <img
+                        src="/icons/react-icon.png"
+                        alt="React_logo"
+                        className={styles.devIcons}
+                      />
+                    </div>
+                    <div className={styles.btnStyles}>
+                      <p>Vue</p>
+                      <img
+                        src="/icons/vuejs-icon.png"
+                        alt="Vuejs_logo"
+                        className={styles.devIcons}
+                      />
+                    </div>
+
+                    <div className={styles.btnStyles}>
+                      <p>Angular</p>
+                      <img
+                        src="/icons/angularjs-icon.png"
+                        alt="Angular_logo"
+                        className={styles.devIcons}
+                      />
+                    </div>
+                    <div className={styles.btnStyles}>
+                      <p>ML/AI</p>
+                      <img
+                        src="/icons/al-ml-icon.png"
+                        alt="ML_AI_logo"
+                        className={styles.devIcons}
+                      />
+                    </div>
+                    <div className={styles.btnStyles}>
+                      <p>Data Science</p>
+                      <img
+                        src="/icons/data-science-icon.png"
+                        alt="data_science_logo"
+                        className={styles.devIcons}
+                      />
+                    </div>
+                    <div className={styles.btnStyles}>
+                      <p>Web Development</p>
+                      <img
+                        src="/icons/web-dev-icon.png"
+                        alt="web_dev_logo"
+                        className={styles.devIcons}
+                      />
+                    </div>
+                  </div>
+                </div>
               )}
-              <div
-                id="languages"
-                className={`${styles['data-list']} ${
-                  applyLangFilterDisabled ? styles['error-list'] : ''
-                } `}>
-                {languageList.map((lang) => {
-                  return (
-                    <div key={lang}>
+              {filterType === 'advanced' && (
+                <div className={styles['advanced-mobile-filters']}>
+                  <h3> Languages </h3>
+                  {applyLangFilterDisabled === true && (
+                    <span style={{ color: `#ff0000` }}>
+                      Select Max. 1 language
+                    </span>
+                  )}
+                  <div
+                    id="languages"
+                    className={`${styles['data-list']} ${
+                      applyLangFilterDisabled ? styles['error-list'] : ''
+                    } `}>
+                    <div key="all">
                       <input
-                        type="checkbox"
-                        value={lang}
+                        type="radio"
+                        value="All"
                         name="language"
-                        defaultChecked={
-                          selectedLanguagesList.find((el) => el === lang) !==
-                          undefined
-                        }
-                        onChange={(e) => {
-                          if (
-                            selectedLanguagesList.find(
-                              (el) => el === e.target.value
-                            ) !== undefined
-                          ) {
-                            setSelectedLanguagesList([
-                              ...selectedLanguagesList.filter(
-                                (el) => el !== e.target.value
-                              )
-                            ]);
-                          } else
-                            setSelectedLanguagesList([
-                              ...selectedLanguagesList,
-                              e.target.value
-                            ]);
+                        defaultChecked
+                        onChange={() => {
+                          // if (
+                          //   selectedLanguagesList.find(
+                          //     (el) => el === e.target.value
+                          //   ) !== undefined
+                          // ) {
+                          //   setSelectedLanguagesList([
+                          //     ...selectedLanguagesList.filter(
+                          //       (el) => el !== e.target.value
+                          //     )
+                          //   ]);
+                          // } else
+                          //   setSelectedLanguagesList([
+                          //     ...selectedLanguagesList,
+                          //     e.target.value
+                          //   ]);
+                          const sel = [];
+                          setSelectedLanguagesList(sel);
+                          setAppliedLanguagesList(sel);
                         }}
                       />
-                      {'  '} {lang}
+                      All
                     </div>
-                  );
-                })}
-              </div>
-              {/* Organisations */}
-              <h3>Organisations</h3>
-              <div
-                id="organisations"
-                className={styles['data-list']}
-                onChange={(e) => {
-                  setSelectedOrganisation(e.target.value);
-                }}>
-                <div key="All">
-                  <input
-                    type="radio"
-                    value="All"
-                    defaultChecked={selectedOrganisation === 'All'}
-                    name="Organisation"
-                  />{' '}
-                  All
-                </div>
-                {organisationList.map((org) => {
-                  return (
-                    <div key={org}>
+                    {languageList.map((lang) => {
+                      return (
+                        <div key={lang}>
+                          <input
+                            type="radio"
+                            value={lang}
+                            name="language"
+                            onChange={(e) => {
+                              // if (
+                              //   selectedLanguagesList.find(
+                              //     (el) => el === e.target.value
+                              //   ) !== undefined
+                              // ) {
+                              //   setSelectedLanguagesList([
+                              //     ...selectedLanguagesList.filter(
+                              //       (el) => el !== e.target.value
+                              //     )
+                              //   ]);
+                              // } else
+                              //   setSelectedLanguagesList([
+                              //     ...selectedLanguagesList,
+                              //     e.target.value
+                              //   ]);
+                              const sel = [e.target.value];
+                              setSelectedLanguagesList(sel);
+                              setAppliedLanguagesList(sel);
+                            }}
+                          />
+                          {'  '} {lang}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* Organisations */}
+                  <h3>Organisations</h3>
+                  <div
+                    id="organisations"
+                    className={styles['data-list']}
+                    onChange={(e) => {
+                      setSelectedOrganisation(e.target.value);
+                    }}>
+                    <div key="All">
                       <input
                         type="radio"
-                        value={org}
-                        defaultChecked={selectedOrganisation === org}
+                        value="All"
+                        defaultChecked={selectedOrganisation === 'All'}
                         name="Organisation"
                       />{' '}
-                      {org[0].toUpperCase() + org.slice(1).toLowerCase()}
+                      All
                     </div>
-                  );
-                })}
-              </div>
-              {/* Sort Methods */}
-              <h3>Sort By</h3>
-              <div
-                id="sortMethods"
-                className={styles['data-list']}
-                onChange={(e) => {
-                  setSortMethod(e.target.value.split(',')[0]);
-                  setSortOrder(e.target.value.split(',')[1]);
-                  setSelectedSortMethod(e.target.id);
-                }}>
-                {sortList.map((method) => {
-                  return (
-                    <div key={method.display}>
-                      <input
-                        type="radio"
-                        defaultChecked={method.actual === ''}
-                        id={method.display}
-                        value={[method.actual, method.order]}
-                        name="sortMethod"
-                      />{' '}
-                      {method.display}
-                    </div>
-                  );
-                })}
-              </div>
-              <button
-                type="button"
-                className={styles['apply-filter-button']}
-                onClick={() => {
-                  applyLanguagesFilter();
-                  setShowFilters(false);
-                  document.body.style.overflow = 'auto';
-                }}
-                disabled={applyLangFilterDisabled}>
-                {' '}
-                Apply Filters
-              </button>
+                    {organisationList.map((org) => {
+                      return (
+                        <div key={org}>
+                          <input
+                            type="radio"
+                            value={org}
+                            defaultChecked={selectedOrganisation === org}
+                            name="Organisation"
+                          />{' '}
+                          {org[0].toUpperCase() + org.slice(1).toLowerCase()}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* Sort Methods */}
+                  <h3>Sort By</h3>
+                  <div
+                    id="sortMethods"
+                    className={styles['data-list']}
+                    onChange={(e) => {
+                      setSortMethod(e.target.value.split(',')[0]);
+                      setSortOrder(e.target.value.split(',')[1]);
+                      setSelectedSortMethod(e.target.id);
+                    }}>
+                    {sortList.map((method) => {
+                      return (
+                        <div key={method.display}>
+                          <input
+                            type="radio"
+                            defaultChecked={method.actual === ''}
+                            id={method.display}
+                            value={[method.actual, method.order]}
+                            name="sortMethod"
+                          />{' '}
+                          {method.display}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <button
+                    type="button"
+                    className={styles['apply-filter-button']}
+                    onClick={() => {
+                      applyLanguagesFilter();
+                      setShowFilters(false);
+                      document.body.style.overflow = 'auto';
+                    }}
+                    disabled={applyLangFilterDisabled}>
+                    {' '}
+                    Apply Filters
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -501,7 +746,7 @@ export default function FeedFinal() {
             next={getNextRepos}
             hasMore={!reachedEnd}
             scrollThreshold="95%"
-            style={{ paddingTop: '2rem' }}
+            style={{ paddingTop: '1rem' }}
             loader={<LinearLoader />}
             endMessage={
               <p style={{ textAlign: 'center' }}>
