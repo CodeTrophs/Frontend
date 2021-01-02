@@ -181,38 +181,54 @@ export default function FeedFinal() {
       </div>
       {/* ==================================================================================================================================== */}
       {/** Applied Filters Tags */}
-      <div className={styles['filter-tags']}>
-        {selectedLanguagesList.length !== 0 ? (
-          selectedLanguagesList.sort().map((lang) => {
-            return (
-              <div key={lang} className={styles['filter-tag']}>
-                {' '}
-                {lang}{' '}
-              </div>
-            );
-          })
-        ) : (
-          <div className={styles['filter-tag']}> All Languages </div>
-        )}
-        {selectedOrganisation && (
-          <div className={styles['filter-tag']}>
-            <strong>Organisation :</strong>{' '}
-            {selectedOrganisation[0].toUpperCase() +
-              selectedOrganisation.slice(1).toLowerCase()}{' '}
+      <div>
+        {selectedBasicFilter !== '' ? (
+          <div className={styles['filter-tags']}>
+            <div className={styles['filter-tag']}>
+              <strong>Selected : </strong> {selectedBasicFilter}
+            </div>
+            <button
+              onClick={clearAllFilters}
+              className={styles['clear-button']}
+              type="button">
+              Clear All
+            </button>
           </div>
-        )}
-        <div className={styles['filter-tag']}>
-          <strong>Sort By :</strong> {selectedSortMethod}
-        </div>
-        {(selectedOrganisation !== 'All' ||
-          selectedLanguagesList.length !== 0 ||
-          sortMethod !== '') && (
-          <button
-            onClick={clearAllFilters}
-            className={styles['clear-button']}
-            type="button">
-            Clear All
-          </button>
+        ) : (
+          <div className={styles['filter-tags']}>
+            {selectedLanguagesList.length !== 0 ? (
+              selectedLanguagesList.sort().map((lang) => {
+                return (
+                  <div key={lang} className={styles['filter-tag']}>
+                    {' '}
+                    {lang}{' '}
+                  </div>
+                );
+              })
+            ) : (
+              <div className={styles['filter-tag']}> All Languages </div>
+            )}
+            {selectedOrganisation && (
+              <div className={styles['filter-tag']}>
+                <strong>Organisation :</strong>{' '}
+                {selectedOrganisation[0].toUpperCase() +
+                  selectedOrganisation.slice(1).toLowerCase()}{' '}
+              </div>
+            )}
+            <div className={styles['filter-tag']}>
+              <strong>Sort By :</strong> {selectedSortMethod}
+            </div>
+            {(selectedOrganisation !== 'All' ||
+              selectedLanguagesList.length !== 0 ||
+              sortMethod !== '') && (
+              <button
+                onClick={clearAllFilters}
+                className={styles['clear-button']}
+                type="button">
+                Clear All
+              </button>
+            )}
+          </div>
         )}
       </div>
 
