@@ -13,7 +13,7 @@ const AdminPanel = () => {
 		<div>
 			<Router>
 				<AdminPanelNavbar />
-				<div id="admin-panel-right-part">
+				<div className="admin-panel-right-part">
 					<Switch>
 						<Route path="/addSkills" component={AddSkills} />
 						<Route path="/addSkillCategory" component={AddSkillCategory} />

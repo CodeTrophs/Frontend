@@ -3,7 +3,7 @@ import './AddSkillsCard.css';
 
 function AddSkillsCard(props) {
 	return (
-		<div id="AddSkillsCard">
+		<div className="AddSkillsCard">
 			<div>{props.name}</div>
 			<button>Make Changes</button>
 		</div>

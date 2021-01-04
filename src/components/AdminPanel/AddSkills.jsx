@@ -17,19 +17,19 @@ function AddSkills() {
 	return (
 		<div>
 			<div>
-				<span id="leftOfDesignImg">
-					<h1 id="welcomeName">Welcome John,</h1>
+				<span className="leftOfDesignImg">
+					<h1 className="welcomeName">Welcome John,</h1>
 					<h3>The Dashboard for your analytics.</h3>
 					<br />
 					<br />
 					<h3>Skills Currently Onboard</h3>
 					<hr />
 				</span>
-				<span id="designImg">
+				<span className="designImg">
 					<img src={designImg} alt="img" />
 				</span>
 			</div>
-			<Link to="/addskillcategory" id="addNewSkill">
+			<Link to="/addskillcategory" className="addNewSkill">
 				+
 			</Link>
 			{SkillsCards.map(function createSkillsCard(SkillsCard) {

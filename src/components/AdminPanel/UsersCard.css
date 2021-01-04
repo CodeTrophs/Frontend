@@ -1,4 +1,4 @@
-#UserCard {
+.UserCard {
     border: 1px solid gray;
     width: fit-content;
     padding: 15px;
@@ -10,7 +10,7 @@
     -moz-box-shadow: 5px 5px 17px 0px rgba(0,0,0,0.26);
 }
 
-#UserCardAvatar {
+.UserCardAvatar {
     border-radius: 100%;
     width: 70px;
     height: 70px;

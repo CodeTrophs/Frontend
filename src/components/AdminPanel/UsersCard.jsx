@@ -3,8 +3,8 @@ import './UsersCard.css';
 
 function UsersCard(props) {
 	return (
-		<div id="UserCard">
-			<div id="UserCardAvatar">.</div>
+		<div className="UserCard">
+			<div className="UserCardAvatar">.</div>
 			<br />
 			<div>{props.name}</div>
 			<div>{props.title}</div>

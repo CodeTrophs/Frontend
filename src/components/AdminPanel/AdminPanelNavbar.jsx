@@ -5,9 +5,9 @@ import './AdminPanelNavbar.css';
 function AdminPanelNavbar() {
 	return (
 		<div>
-			<div id="admin-panel-left-part">
-				<div id="avatar">_</div>
-				<div id="name">John Doe</div>
+			<div className="admin-panel-left-part">
+				<div className="avatar">_</div>
+				<div className="name">John Doe</div>
 				<div className="sizedBox" />
 
 				<NavLink to="/addskills" className="admin-panel-link" activeClassName="admin-panel-link-active">

@@ -62,13 +62,13 @@ function Reports() {
 	return (
 		<div>
 			<div>
-				<span id="reportsHeading">Reports</span>
+				<span className="reportsHeading">Reports</span>
 			</div>
-			<hr id="reportsHR" />
+			<hr className="reportsHR" />
 			<br />
 			<div>Here, you are able to see who took your skill test,</div>
 			<div>their results and other details.</div>
-			<div id="reportsTable">
+			<div className="reportsTable">
 				<table>
 					<tr>
 						<th className="reportsTableCell reportsTableCell11">Show 10 entries</th>

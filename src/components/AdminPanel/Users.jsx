@@ -28,7 +28,7 @@ const ActiveUsers = [
 function Users() {
 	return (
 		<div>
-			<h1 id="UserswelcomeName">Welcome John,</h1>
+			<h1 className="UserswelcomeName">Welcome John,</h1>
 			<h3>The Dashboard for your analytics.</h3>
 			<br />
 			<br />

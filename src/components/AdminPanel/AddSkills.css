@@ -1,4 +1,4 @@
-#welcomeName {
+.welcomeName {
     color: #5DC5B8;
 }
 
@@ -8,7 +8,7 @@ hr {
     background-color: black;
 }
 
-#addNewSkill {
+.addNewSkill {
     background-color: #5dc5b92c;
     height: 130px;
     width: 230px;
@@ -20,12 +20,12 @@ hr {
     float: left;
 }
 
-#leftOfDesignImg {
+.leftOfDesignImg {
     float: left;
     width: 70%;
 }
 
-#designImg {
+.designImg {
     float: left;
     height: 300px;
     width: 300px;
@@ -33,11 +33,11 @@ hr {
 }
 
 @media only screen and (max-width: 709px) {
-    #leftOfDesignImg {
+    .leftOfDesignImg {
         float: left;
     }
     
-    #designImg {
+    .designImg {
         float: left;
         height: 300px;
         width: 300px;

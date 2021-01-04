@@ -1,4 +1,4 @@
-#admin-panel-left-part {
+.admin-panel-left-part {
     background-color: #5356A5;
     color: white;
     float: left;
@@ -8,7 +8,7 @@
     border-radius: 0 20px 20px 0;
 }
 
-#avatar {
+.avatar {
     border-radius: 100%;
     width: 50px;
     height: 50px;
@@ -20,7 +20,7 @@
     margin-bottom: 5px;
 }
 
-#name {
+.name {
     color: black;
 }
 
