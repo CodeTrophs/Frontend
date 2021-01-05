@@ -1,4 +1,16 @@
 .admin-panel-right-part {
-    margin-left: 150px;
-    padding: 30px;
+  margin-left: 150px;
+  padding: 30px;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  margin-left: 0;
 }
