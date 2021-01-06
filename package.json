@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/react-transition-group": "^4.4.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "jsonwebtoken": "^8.5.1",
     "next": "^9.5.5",
     "npm-upgrade": "^2.0.4",
