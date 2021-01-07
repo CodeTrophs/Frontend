@@ -27,7 +27,7 @@ export default function FeedFinal() {
   const [sortMethod, setSortMethod] = useState(''); // Sort Method
   const [sortOrder, setSortOrder] = useState('asc'); // Sort Order
   const [organisationList, setOrganisationList] = useState([]); // Organisation List
-  const [selectedBasicFilter, setSelectedBasicFilter] = useState(''); // Selected basic filter
+  const [selectedBasicFilter, setSelectedBasicFilter] = useState('React'); // Selected basic filter
   const [selectedOrganisation, setSelectedOrganisation] = useState('All'); // Selected Organisation
   const [selectedSortMethod, setSelectedSortMethod] = useState('Best Match'); // Selected Sort Method
   const [selectedLanguagesList, setSelectedLanguagesList] = useState([]);
@@ -81,6 +81,23 @@ export default function FeedFinal() {
     }
     setPageLoading(false);
     setReposLoading(false);
+  }
+
+  // Get Basic filter
+  async function getFilter(basicFilter) {
+    // if advanced filters are filled, then return them to default before changing basic filter
+    if (
+      selectedLanguagesList !== [] ||
+      selectedOrganisation !== 'All' ||
+      selectedSortMethod !== 'Best Match'
+    ) {
+      setSelectedBasicFilter(basicFilter);
+      setSelectedLanguagesList([]);
+      setSelectedOrganisation('All');
+      setSelectedSortMethod('Best Match');
+    } else {
+      setSelectedBasicFilter(basicFilter);
+    }
   }
 
   // Get Available Languages
@@ -182,7 +199,7 @@ export default function FeedFinal() {
       {/* ==================================================================================================================================== */}
       {/** Applied Filters Tags */}
       <div>
-        {selectedBasicFilter !== '' ? (
+        {filterType === 'basic' ? (
           <div className={styles['filter-tags']}>
             <div className={styles['filter-tag']}>
               <strong>Selected : </strong> {selectedBasicFilter}
@@ -266,9 +283,14 @@ export default function FeedFinal() {
               <div
                 className={styles.btnStyles}
                 tabIndex={0}
+                style={
+                  selectedBasicFilter === 'React'
+                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    : { backgroundColor: 'transparent' }
+                }
                 role="button"
-                onClick={() => setSelectedBasicFilter('React')}
-                onKeyDown={() => setSelectedBasicFilter('React')}>
+                onClick={() => getFilter('React')}
+                onKeyDown={() => getFilter('React')}>
                 <p>React</p>
                 <img
                   src="/icons/react-icon.png"
@@ -282,8 +304,13 @@ export default function FeedFinal() {
                 tabIndex={0}
                 key="Vue"
                 role="button"
-                onClick={() => setSelectedBasicFilter('Vue')}
-                onKeyDown={() => setSelectedBasicFilter('Vue')}>
+                style={
+                  selectedBasicFilter === 'Vue'
+                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    : { backgroundColor: 'transparent' }
+                }
+                onClick={() => getFilter('Vue')}
+                onKeyDown={() => getFilter('Vue')}>
                 <p>Vue</p>
                 <img
                   src="/icons/vuejs-icon.png"
@@ -296,8 +323,13 @@ export default function FeedFinal() {
                 tabIndex={0}
                 key="Angular"
                 role="button"
-                onClick={() => setSelectedBasicFilter('Angular')}
-                onKeyDown={() => setSelectedBasicFilter('Angular')}>
+                style={
+                  selectedBasicFilter === 'Angular'
+                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    : { backgroundColor: 'transparent' }
+                }
+                onClick={() => getFilter('Angular')}
+                onKeyDown={() => getFilter('Angular')}>
                 <p>Angular</p>
                 <img
                   src="/icons/angularjs-icon.png"
@@ -310,8 +342,13 @@ export default function FeedFinal() {
                 tabIndex={0}
                 key="Machine Learning"
                 role="button"
-                onClick={() => setSelectedBasicFilter('Machine Learning')}
-                onKeyDown={() => setSelectedBasicFilter('Machine Learning')}>
+                style={
+                  selectedBasicFilter === 'Machine Learning'
+                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    : { backgroundColor: 'transparent' }
+                }
+                onClick={() => getFilter('Machine Learning')}
+                onKeyDown={() => getFilter('Machine Learning')}>
                 <p>ML/AI</p>
                 <img
                   src="/icons/al-ml-icon.png"
@@ -324,8 +361,13 @@ export default function FeedFinal() {
                 tabIndex={0}
                 key="Data Science"
                 role="button"
-                onClick={() => setSelectedBasicFilter('Data Science')}
-                onKeyDown={() => setSelectedBasicFilter('Data Science')}>
+                style={
+                  selectedBasicFilter === 'Data Science'
+                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    : { backgroundColor: 'transparent' }
+                }
+                onClick={() => getFilter('Data Science')}
+                onKeyDown={() => getFilter('Data Science')}>
                 <p>Data Science</p>
                 <img
                   src="/icons/data-science-icon.png"
@@ -338,8 +380,13 @@ export default function FeedFinal() {
                 tabIndex={0}
                 key="Web Development"
                 role="button"
-                onClick={() => setSelectedBasicFilter('Web Development')}
-                onKeyDown={() => setSelectedBasicFilter('Web Development')}>
+                style={
+                  selectedBasicFilter === 'Web Development'
+                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    : { backgroundColor: 'transparent' }
+                }
+                onClick={() => getFilter('Web Development')}
+                onKeyDown={() => getFilter('Web Development')}>
                 <p>Web Development</p>
                 <img
                   src="/icons/web-dev-icon.png"
@@ -431,6 +478,7 @@ export default function FeedFinal() {
                           const sel = [e.target.value];
                           setSelectedLanguagesList(sel);
                           setAppliedLanguagesList(sel);
+                          setSelectedBasicFilter('React');
                         }}
                       />
                       {'  '} {lang}
@@ -552,7 +600,17 @@ export default function FeedFinal() {
               {filterType === 'basic' && (
                 <div className={styles.MobileBasicFilters}>
                   <div className={styles.basicFilter}>
-                    <div className={styles.btnStyles}>
+                    <div
+                      className={styles.btnStyles}
+                      tabIndex={0}
+                      style={
+                        selectedBasicFilter === 'React'
+                          ? { backgroundColor: 'rgb(180, 180, 180)' }
+                          : { backgroundColor: 'transparent' }
+                      }
+                      role="button"
+                      onClick={() => getFilter('React')}
+                      onKeyDown={() => getFilter('React')}>
                       <p>React</p>
                       <img
                         src="/icons/react-icon.png"
@@ -560,7 +618,18 @@ export default function FeedFinal() {
                         className={styles.devIcons}
                       />
                     </div>
-                    <div className={styles.btnStyles}>
+                    <div
+                      className={styles.btnStyles}
+                      tabIndex={0}
+                      key="Vue"
+                      role="button"
+                      style={
+                        selectedBasicFilter === 'Vue'
+                          ? { backgroundColor: 'rgb(180, 180, 180)' }
+                          : { backgroundColor: 'transparent' }
+                      }
+                      onClick={() => getFilter('Vue')}
+                      onKeyDown={() => getFilter('Vue')}>
                       <p>Vue</p>
                       <img
                         src="/icons/vuejs-icon.png"
@@ -569,7 +638,18 @@ export default function FeedFinal() {
                       />
                     </div>
 
-                    <div className={styles.btnStyles}>
+                    <div
+                      className={styles.btnStyles}
+                      tabIndex={0}
+                      key="Angular"
+                      role="button"
+                      style={
+                        selectedBasicFilter === 'Angular'
+                          ? { backgroundColor: 'rgb(180, 180, 180)' }
+                          : { backgroundColor: 'transparent' }
+                      }
+                      onClick={() => getFilter('Angular')}
+                      onKeyDown={() => getFilter('Angular')}>
                       <p>Angular</p>
                       <img
                         src="/icons/angularjs-icon.png"
@@ -577,7 +657,18 @@ export default function FeedFinal() {
                         className={styles.devIcons}
                       />
                     </div>
-                    <div className={styles.btnStyles}>
+                    <div
+                      className={styles.btnStyles}
+                      tabIndex={0}
+                      key="Machine Learning"
+                      role="button"
+                      style={
+                        selectedBasicFilter === 'Machine Learning'
+                          ? { backgroundColor: 'rgb(180, 180, 180)' }
+                          : { backgroundColor: 'transparent' }
+                      }
+                      onClick={() => getFilter('Machine Learning')}
+                      onKeyDown={() => getFilter('Machine Learning')}>
                       <p>ML/AI</p>
                       <img
                         src="/icons/al-ml-icon.png"
@@ -585,7 +676,18 @@ export default function FeedFinal() {
                         className={styles.devIcons}
                       />
                     </div>
-                    <div className={styles.btnStyles}>
+                    <div
+                      className={styles.btnStyles}
+                      tabIndex={0}
+                      key="Data Science"
+                      role="button"
+                      style={
+                        selectedBasicFilter === 'Data Science'
+                          ? { backgroundColor: 'rgb(180, 180, 180)' }
+                          : { backgroundColor: 'transparent' }
+                      }
+                      onClick={() => getFilter('Data Science')}
+                      onKeyDown={() => getFilter('Data Science')}>
                       <p>Data Science</p>
                       <img
                         src="/icons/data-science-icon.png"
@@ -593,7 +695,18 @@ export default function FeedFinal() {
                         className={styles.devIcons}
                       />
                     </div>
-                    <div className={styles.btnStyles}>
+                    <div
+                      className={styles.btnStyles}
+                      tabIndex={0}
+                      key="Web Development"
+                      role="button"
+                      style={
+                        selectedBasicFilter === 'Web Development'
+                          ? { backgroundColor: 'rgb(180, 180, 180)' }
+                          : { backgroundColor: 'transparent' }
+                      }
+                      onClick={() => getFilter('Web Development')}
+                      onKeyDown={() => getFilter('Web Development')}>
                       <p>Web Development</p>
                       <img
                         src="/icons/web-dev-icon.png"
