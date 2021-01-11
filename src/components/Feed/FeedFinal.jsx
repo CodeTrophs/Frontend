@@ -27,7 +27,7 @@ export default function FeedFinal() {
   const [sortMethod, setSortMethod] = useState(''); // Sort Method
   const [sortOrder, setSortOrder] = useState('asc'); // Sort Order
   const [organisationList, setOrganisationList] = useState([]); // Organisation List
-  const [selectedBasicFilter, setSelectedBasicFilter] = useState('React'); // Selected basic filter
+  const [selectedBasicFilter, setSelectedBasicFilter] = useState('All'); // Selected basic filter
   const [selectedOrganisation, setSelectedOrganisation] = useState('All'); // Selected Organisation
   const [selectedSortMethod, setSelectedSortMethod] = useState('Best Match'); // Selected Sort Method
   const [selectedLanguagesList, setSelectedLanguagesList] = useState([]);
@@ -84,13 +84,14 @@ export default function FeedFinal() {
   }
 
   // Get Basic filter
-  async function getFilter(basicFilter) {
+  function getFilter(basicFilter) {
     // if advanced filters are filled, then return them to default before changing basic filter
     if (
       selectedLanguagesList !== [] ||
       selectedOrganisation !== 'All' ||
       selectedSortMethod !== 'Best Match'
     ) {
+      setAppliedLanguagesList(selectedLanguagesList);
       setSelectedBasicFilter(basicFilter);
       setSelectedLanguagesList([]);
       setSelectedOrganisation('All');
@@ -168,6 +169,7 @@ export default function FeedFinal() {
     // if (selectedLanguagesList.length > 1) {
     //   return;
     // }
+
     setAppliedLanguagesList(selectedLanguagesList);
   };
   // Clear All Filters
@@ -394,6 +396,20 @@ export default function FeedFinal() {
                   className={styles.devIcons}
                 />
               </div>
+              {JSON.stringify(selectedLanguagesList) !==
+                JSON.stringify(appliedLanguagesList) &&
+                (selectedBasicFilter === 'All' ? (
+                  <button
+                    type="button"
+                    className={styles['apply-filter-button']}
+                    onClick={applyLanguagesFilter}
+                    disabled={applyLangFilterDisabled}>
+                    {' '}
+                    Apply filter
+                  </button>
+                ) : (
+                  getFilter(selectedBasicFilter)
+                ))}
             </div>
           )}
           {/* Languages */}
@@ -403,16 +419,19 @@ export default function FeedFinal() {
                 {' '}
                 Languages
                 {JSON.stringify(selectedLanguagesList) !==
-                  JSON.stringify(appliedLanguagesList) && (
-                  <button
-                    type="button"
-                    className={styles['apply-filter-button']}
-                    onClick={applyLanguagesFilter}
-                    disabled={applyLangFilterDisabled}>
-                    {' '}
-                    Apply filter
-                  </button>
-                )}
+                  JSON.stringify(appliedLanguagesList) &&
+                  (selectedBasicFilter === 'All' ? (
+                    <button
+                      type="button"
+                      className={styles['apply-filter-button']}
+                      onClick={applyLanguagesFilter}
+                      disabled={applyLangFilterDisabled}>
+                      {' '}
+                      Apply filter
+                    </button>
+                  ) : (
+                    getFilter(selectedBasicFilter)
+                  ))}
               </h3>
 
               {applyLangFilterDisabled === true && (
@@ -478,7 +497,7 @@ export default function FeedFinal() {
                           const sel = [e.target.value];
                           setSelectedLanguagesList(sel);
                           setAppliedLanguagesList(sel);
-                          setSelectedBasicFilter('React');
+                          setSelectedBasicFilter('All');
                         }}
                       />
                       {'  '} {lang}
@@ -714,6 +733,20 @@ export default function FeedFinal() {
                         className={styles.devIcons}
                       />
                     </div>
+                    {JSON.stringify(selectedLanguagesList) !==
+                      JSON.stringify(appliedLanguagesList) &&
+                      (selectedBasicFilter === 'All' ? (
+                        <button
+                          type="button"
+                          className={styles['apply-filter-button']}
+                          onClick={applyLanguagesFilter}
+                          disabled={applyLangFilterDisabled}>
+                          {' '}
+                          Apply filter
+                        </button>
+                      ) : (
+                        getFilter(selectedBasicFilter)
+                      ))}
                   </div>
                 </div>
               )}
