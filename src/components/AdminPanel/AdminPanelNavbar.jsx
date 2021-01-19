@@ -1,40 +1,41 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './AdminPanelNavbar.css';
+
+import styles from '../../scss/AdminPanelNavbar.module.scss';
 
 function AdminPanelNavbar() {
   return (
     <div>
-      <div className="admin-panel-left-part">
-        <div className="avatar">_</div>
-        <div className="name">John Doe</div>
-        <div className="sizedBox" />
+      <div className={styles.admin_panel_left_part}>
+        <div className={styles.avatar}>_</div>
+        <div className={styles.name}>John Doe</div>
+        <div className={styles.sizedBox} />
 
         <NavLink
           to="/addskills"
-          className="admin-panel-link"
-          activeClassName="admin-panel-link-active">
+          className={styles.admin_panel_link}
+          activeClassName={styles.admin_panel_link_active}>
           Add Skills
         </NavLink>
 
         <NavLink
           to="/reports"
-          className="admin-panel-link"
-          activeClassName="admin-panel-link-active">
+          className={styles.admin_panel_link}
+          activeClassName={styles.admin_panel_link_active}>
           Reports
         </NavLink>
 
         <NavLink
           to="/feed"
-          className="admin-panel-link"
-          activeClassName="admin-panel-link-active">
+          className={styles.admin_panel_link}
+          activeClassName={styles.admin_panel_link_active}>
           Feed
         </NavLink>
 
         <NavLink
           to="/users"
-          className="admin-panel-link"
-          activeClassName="admin-panel-link-active">
+          className={styles.admin_panel_link}
+          activeClassName={styles.admin_panel_link_active}>
           Users
         </NavLink>
       </div>

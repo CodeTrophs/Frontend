@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import './UsersCard.css';
+
+import styles from '../../scss/UsersCard.module.scss';
 
 function UsersCard({ name, title, joiningDate }) {
   return (
-    <div className="UserCard">
-      <div className="UserCardAvatar">.</div>
+    <div className={styles.UserCard}>
+      <div className={styles.UserCardAvatar}>.</div>
       <br />
       <div>{name}</div>
       <div>{title}</div>

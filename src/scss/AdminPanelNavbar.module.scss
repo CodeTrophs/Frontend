@@ -1,0 +1,47 @@
+.admin_panel_left_part {
+  background-color: #5356a5;
+  color: white;
+  float: left;
+  width: 150px;
+  height: 100vh;
+  text-align: center;
+  border-radius: 0 20px 20px 0;
+}
+
+.avatar {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background-color: white;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.name {
+  color: black;
+}
+
+.sizedBox {
+  height: 30px;
+}
+
+.admin_panel_link {
+  color: black;
+  background-color: white;
+  display: block;
+  margin-top: 15px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.admin_panel_link_active {
+  color: white;
+  background-color: #5dc5b8;
+}
+
+.admin_panel_link_active:hover {
+  color: white;
+}
