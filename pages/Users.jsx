@@ -1,8 +1,7 @@
 import React from 'react';
 
-import styles from '../../scss/Users.module.scss';
-
-import UsersCard from './UsersCard';
+import UsersCard from '../src/components/AdminPanel/UsersCard';
+import styles from '../src/scss/Users.module.scss';
 
 const ActiveUsers = [
   {

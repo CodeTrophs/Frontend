@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../scss/AddSkillCategory.module.scss';
+import styles from '../src/scss/AddSkillCategory.module.scss';
 
 function AddSkillCategory() {
   return (

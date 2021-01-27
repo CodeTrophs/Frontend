@@ -1,5 +1,5 @@
+import { Link } from 'next/link';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import styles from '../../scss/AdminPanelNavbar.module.scss';
 
@@ -11,33 +11,33 @@ function AdminPanelNavbar() {
         <div className={styles.name}>John Doe</div>
         <div className={styles.sizedBox} />
 
-        <NavLink
+        <Link
           to="/addskills"
           className={styles.admin_panel_link}
           activeClassName={styles.admin_panel_link_active}>
           Add Skills
-        </NavLink>
+        </Link>
 
-        <NavLink
+        <Link
           to="/reports"
           className={styles.admin_panel_link}
           activeClassName={styles.admin_panel_link_active}>
           Reports
-        </NavLink>
+        </Link>
 
-        <NavLink
+        <Link
           to="/feed"
           className={styles.admin_panel_link}
           activeClassName={styles.admin_panel_link_active}>
           Feed
-        </NavLink>
+        </Link>
 
-        <NavLink
+        <Link
           to="/users"
           className={styles.admin_panel_link}
           activeClassName={styles.admin_panel_link_active}>
           Users
-        </NavLink>
+        </Link>
       </div>
     </div>
   );

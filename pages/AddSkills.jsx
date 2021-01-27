@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from '../../scss/AddSkills.module.scss';
-import AddSkillsCard from './AddSkillsCard';
+import AddSkillsCard from '../src/components/AdminPanel/AddSkillsCard';
+import styles from '../src/scss/AddSkills.module.scss';
 // import designImg from './images/AddSkillsPageImg.png';
 
 const SkillsCards = [
@@ -14,7 +14,7 @@ const SkillsCards = [
   }
 ];
 
-function AddSkills() {
+const AddSkills = () => {
   return (
     <div>
       <div>
@@ -38,6 +38,6 @@ function AddSkills() {
       })}
     </div>
   );
-}
+};
 
 export default AddSkills;

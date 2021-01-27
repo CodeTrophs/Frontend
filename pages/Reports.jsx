@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../../scss/Reports.module.scss';
+import styles from '../src/scss/Reports.module.scss';
 
 const ReportsDetails = [
   {
