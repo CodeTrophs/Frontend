@@ -1,0 +1,20 @@
+@import 'variables';
+
+.themeButton{
+    margin: 1rem auto;
+    border-radius: 10rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    color: var(--theme-color);
+    background: #55c2b4;
+    float: right;
+  }
+  
+  .themeButton:hover {
+    cursor: pointer;
+    background: #5fcfc0;
+  }
+
+
+

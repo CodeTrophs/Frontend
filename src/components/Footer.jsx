@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 import styles from '../scss/footer.module.scss';
@@ -13,53 +14,82 @@ export default function Footer() {
         <h1 className={styles.heading}>
           {' '}
           Contact Us
-          <hr/>
+          <hr />
         </h1>
-        <div className={styles['footer-content']}>
-          <div className={styles.badges}>
-            {/* Dev.to */}
-            <a href="https://dev.to/codetrophs">
-              <img src="/SVG/dev_to.svg" alt="Dev.to"/>
+        <ul className={styles.badges}>
+          {/* Dev.to */}
+          <li>
+            <a href="https://dev.to/_opensourcecode">
+              <img src="/SVG/dev_to.svg" alt="Dev.to" />
               Dev.to
             </a>
-            {/* Discord */}
+          </li>
+          {/* Discord */}
+          <li>
             <a href="https://discord.gg/HYPt5RX">
-              <img src="/SVG/footer-discord.svg" alt="Discord"/>
+              <img src="/SVG/footer-discord.svg" alt="Discord" />
               Discord
             </a>
-            {/* Twitter */}
-            <a href="https://twitter.com/CodeTrophs">
-              <img src="/SVG/footer-twitter.svg" alt="Twitter"/>
+          </li>
+          {/* Twitter */}
+          <li>
+            <a href="https://twitter.com/_opensourcecode">
+              <img src="/SVG/footer-twitter.svg" alt="Twitter" />
               Twitter
             </a>
-            {/* Github */}
-            <a href="https://github.com/CodeTrophs">
-              <img src="/SVG/footer-github.svg" alt="Github"/>
+          </li>
+          {/* Github */}
+          <li>
+            <a href="https://github.com/OpenSouceCode">
+              <img src="/SVG/footer-github.svg" alt="Github" />
               Github
             </a>
-            {/* LinkedIn */}
-            <a href="https://www.linkedin.com/company/codetrophs">
-              <img src="/SVG/footer-linkedin.svg" alt="LinkedIn"/>
+          </li>
+          {/* LinkedIn */}
+          <li>
+            <a href="https://www.linkedin.com/company/opensourcecode">
+              <img src="/SVG/footer-linkedin.svg" alt="LinkedIn" />
               LinkedIn
             </a>
-            {/* Slack */}
-            <a href="https://join.slack.com/t/codetrophs/shared_invite/zt-jxiadt9c-4vIl~bWsIeECQEiHZ9d9yw">
-              <img src="/SVG/footer-slack.svg" alt="Slack"/>
+          </li>
+          {/* Slack */}
+          <li>
+            <a href="https://join.slack.com/t/opensourcecode/shared_invite/zt-f0frpe9g-8fGLNGPA6HUQR~XuCoAJmg">
+              <img src="/SVG/footer-slack.svg" alt="Slack" />
               Slack
             </a>
-
-            <a href="https://github.com/CodeTrophs/Frontend">
-              <img src="/SVG/pencil.svg" alt="pencil"/>
+          </li>
+          <li>
+            <a href="https://github.com/OpenSouceCode/Frontend/tree/master/src/components">
+              <img src="/SVG/pencil.svg" alt="pencil" />
               Edit this page
             </a>
-            <a href="https://github.com/CodeTrophs">
-              <img src="/SVG/code.svg" alt="</>"/>
+          </li>
+          <li>
+            <a href="https://github.com/OpenSouceCode/Frontend">
+              <img src="/SVG/code.svg" alt="</>" />
               View Source Code
             </a>
-          </div>
+          </li>
+        </ul>
+        <div className="flex justify-content-center mt-l">
+          <Link href="/terms-of-service">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="mr-l">
+              Terms of Service
+            </a>
+          </Link>
+          <Link href="/about">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="mr-l">About Us</a>
+          </Link>
+          <Link href="/privacy-policy">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a>Privacy Policy</a>
+          </Link>
         </div>
         <div className={styles['partner-logo']}>
-          <img src="/logo/logo.png" alt="Powered by CodeTrophs"/>
+          <img src="/logo/logo.png" alt="Powered by CodeTrophs" />
         </div>
       </footer>
     </div>

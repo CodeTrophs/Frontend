@@ -1,5 +1,4 @@
 @import 'variables';
-
 .usernamebox {
   max-width: 90%;
   margin: 0px auto;
@@ -16,7 +15,6 @@
   border-radius: 20px;
   box-shadow: 0 0 12px #d6d6d6;
 }
-
 .imgabsolute-lower {
   width: 20%;
 }
@@ -48,7 +46,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .disp-flex:first-child {
   width: 50%;
 }
@@ -63,7 +60,6 @@
 .smallboxwriting {
   margin: 5px auto;
 }
-
 .user-flex {
   display: flex;
   justify-content: space-between;
@@ -76,7 +72,6 @@
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
-
 .card-lengsec {
   width: 30%;
   display: flex;
@@ -138,7 +133,6 @@
   width: 100%;
   margin: 10px auto;
 }
-
 .links {
   width: fit-content;
   margin-bottom: 50px;
@@ -146,7 +140,6 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .langsec-centre {
   display: flex;
   justify-content: space-evenly;
@@ -156,7 +149,6 @@
   margin: 10px 5px;
   width: 50px;
 }
-
 .langButtonJS {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -165,7 +157,6 @@
   @include button-fontstyle;
   border: 1px solid red;
   height: 2.1875rem;
-
   margin-top: 0.625rem;
 }
 .langButtonJSnew {
@@ -176,7 +167,6 @@
   @include button-fontstyle;
   border: none;
   height: 2.1875rem;
-
   margin-top: 1.3rem;
 }
 .project-heading {
@@ -189,10 +179,8 @@
   display: flex;
   justify-content: flex-end;
 }
-
 .savebutton {
   /* margin-left: 71.875rem; */
-
   width: fit-content;
   padding-top: 0.3125rem;
   padding-right: 1.25rem;
@@ -241,7 +229,6 @@
   margin: auto;
   border-radius: 500px;
 }
-
 .imgabsolute-border {
   background-image: linear-gradient(rgb(49, 226, 152), rgb(117, 238, 238));
   border-radius: 50%;
@@ -249,25 +236,21 @@
   height: 170px;
   width: 170px;
 }
-
 .username-skill {
   font-size: 1.2rem;
   font-weight: 400;
   color: #333;
 }
-
 @media (max-width: 1000px) {
   .usernamebox-profile {
     width: 90%;
   }
 }
-
 @media (max-width: 800px) {
   .links {
     width: 50%;
   }
 }
-
 @media (max-width: 700px) {
   .user-flex {
     flex-direction: column;
@@ -282,7 +265,6 @@
     width: 100%;
     height: fit-content;
   }
-
   .imgabsolute {
     position: unset;
     margin-top: unset;
@@ -296,7 +278,6 @@
     margin-top: 20px;
   }
 }
-
 @media (max-width: 500px) {
   .top-left-col {
     flex-direction: column;
@@ -304,20 +285,17 @@
   .usernamebox-profile {
     width: 100%;
     margin-top: 0;
-
     box-shadow: none;
     border-radius: 0;
     background-color: #f7f7f7;
     padding-bottom: 50px;
   }
-
   .imgabsolute-border {
     margin: 10px auto;
     height: 110px;
     width: 110px;
     padding: 5px;
   }
-
   .imgabsolute {
     height: 100px;
     width: 100px;
@@ -328,7 +306,6 @@
   .usercontent {
     padding: 10px 5px;
   }
-
   .boxcontent {
     text-align: center;
     margin-right: auto;

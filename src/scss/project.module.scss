@@ -1,109 +1,257 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  margin: 30px 15px;
-  justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    margin: 30px 15px;
+    justify-content: space-evenly;
 }
 
 .left-col {
-  width: 700%;
-  border-radius: 10px;
-  margin-right: 20px;
-  float: right;
+    width: 700%;
+    border-radius: 10px;
+    margin-right: 20px;
+    float: right;
 }
 
 .sidenav {
-  background-color: #F7F7F7;
-  border-radius: 10px;
-  width: 300px;
-  position: absolute;
-  height: 80%;
-  overflow: auto;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    width: 300px;
+    position: absolute;
+    height: 80%;
+    overflow: auto;
 }
 
 .content {
-  margin-left: 300px;
-  padding: 1px 26px;
+    margin-left: 300px;
+    padding: 1px 26px;
 }
 
 .right-col {
-  border-radius: 10px;
-  margin: 0 20px;
+    border-radius: 10px;
+    margin: 0 20px;
 }
 
 .tabs {
-  justify-content: space-around;
-  display: flex;
-  flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
 }
 
 .tab,
 .active-tab {
-  font-size: 1.3rem;
-  font-weight: 500;
-  padding: 10px 20px;
-  margin: 10px 0;
-  text-align: center;
-  cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-align: center;
+    cursor: pointer;
 }
 
 .active-tab {
-  color: black;
-  background: rgb(0,202,202);
-  background: linear-gradient(90deg, rgba(0,202,202,1) 10%, rgba(255,255,255,1) 10%);
+    color: black;
+    background: rgb(0, 202, 202);
+    background: linear-gradient( 90deg, rgba(0, 202, 202, 1) 10%, rgba(255, 255, 255, 1) 10%);
 }
 
 .tab:hover,
 .active-tab:hover {
-  /* background-color: #fafafa; */
-  box-shadow: 0 8px 10px #ececec;
-  transition-duration: 0.2s;
+    /* background-color: #fafafa; */
+    box-shadow: 0 8px 10px #ececec;
+    transition-duration: 0.2s;
 }
 
-
 @media (max-width: 800px) {
-  .container {
-    flex-direction: column;
-    margin: 20px 10px;
-  }
+    .container {
+        flex-direction: column;
+        margin: 20px 10px;
+    }
+    .sidenav {
+        background-color: white;
+        border-radius: 0;
+        width: 100%;
+        position: relative;
+        height: 20%;
+        overflow: auto;
+    }
+    .left-col {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .content {
+        margin: 0;
+        padding: 5px;
+    }
+    .tabs {
+        flex-direction: row;
+        align-items: center;
+    }
+    .tab,
+    .active-tab {
+        border: 1px solid #1d1d1d;
+        font-size: 0.7rem;
+        background-color: white;
+        border-radius: 15px;
+        width: fit-content;
+        box-shadow: 0 2px 8px #ececec;
+    }
+    .active-tab {
+        color: white;
+        background: rgba(0, 202, 202, 1);
+        background: linear-gradient( 90deg, rgba(0, 202, 202, 1) 10%, rgba(0, 201, 202, 1) 10%);
+    }
+}
 
-  .sidenav {
-    background-color: white;
-    border-radius: 0;
-    width: 100%;
-    position: relative;
-    height: 20%;
-    overflow: auto;
-  }
+.card-left-column {
+    width: 90%;
+    margin: 0 20px;
+}
 
-  .left-col {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-  }
+.card-left-column>h1 {
+    margin: 10px 0;
+    text-align: center;
+}
 
-  .content {
-    margin: 0;
-    padding: 5px;
-  }
+.org-languages {
+    margin-bottom: 5px;
+}
 
-  .tabs {
-    flex-direction: row;
+.org-lang-1 {
+    border: 2px solid rgb(224, 11, 11);
+    border-radius: 20px;
+    padding: 3px 8px;
+    line-height: 40px;
+}
+
+.org-lang-2 {
+    border: 2px solid yellow;
+    border-radius: 20px;
+    padding: 3px 8px;
+    margin-left: 5px;
+    line-height: 40px;
+}
+
+.git-dev-icons {
+    display: flex;
     align-items: center;
-  }
+    margin-top: 5px;
+    a {
+        text-decoration: none;
+    }
+    button {
+        &:hover {
+            cursor: pointer;
+        }
+        &:disabled {
+            opacity: 0.25;
+            cursor: initial;
+        }
+    }
+}
 
-  .tab,
-  .active-tab {
-    border: 1px solid #1d1d1d;
-    font-size: 0.7rem;
-    background-color: white;
-    border-radius: 15px;
-    width: fit-content;
-    box-shadow: 0 2px 8px #ececec;
-  }
-  .active-tab {
-    color: white;
-    background: rgba(0,202,202,1);
-    background: linear-gradient(90deg, rgba(0,202,202,1) 10%, rgba(0,201,202,1) 10%);
-  }
+.github-icon {
+    display: flex;
+    align-items: center;
+    background-color: rgb(88, 88, 88);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 25px;
+    -webkit-box-shadow: 3px 6px 3px 1px rgba(209, 209, 209, 1);
+    -moz-box-shadow: 3px 6px 3px 1px rgba(209, 209, 209, 1);
+    box-shadow: 3px 6px 3px 1px rgba(209, 209, 209, 1);
+}
+
+.github-icon>img {
+    width: 30px;
+    height: 30px;
+}
+
+.github-icon>p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.gitpod-icon {
+    display: flex;
+    align-items: center;
+    background: linear-gradient( 215deg, rgba(43, 171, 173, 1) 0%, rgba(1, 55, 57, 1) 100%);
+    color: #fff;
+    margin-left: 20px;
+    padding: 3px 10px;
+    border-radius: 25px;
+    -webkit-box-shadow: 3px 6px 3px 1px rgba(209, 209, 209, 1);
+    -moz-box-shadow: 3px 6px 3px 1px rgba(209, 209, 209, 1);
+    box-shadow: 3px 6px 3px 1px rgba(209, 209, 209, 1);
+}
+
+.gitpod-icon>img {
+    width: 30px;
+    height: 30px;
+}
+
+.gitpod-icon>p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-right-column {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin: 20px 0 0 10px;
+}
+
+.forks-and-star {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    padding: 0 5px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.forks-and-star>p {
+    margin: 3px;
+}
+
+.forks-and-star>img {
+    width: 20px;
+    height: 20px;
+}
+
+.total-forks-and-stars {
+    padding: 6px;
+    border-left: 1px solid #000;
+}
+
+@media (min-width: 450px) {
+    .org-languages {
+        display: flex;
+        align-items: baseline;
+    }
+    .org-lang-1,
+    .org-lang-2 {
+        line-height: 20px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .projectProfile {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin: 0 auto;
+        width: 90%;
+    }
+    .card-left-column>h1 {
+        text-align: left;
+    }
+    .card-right-column {
+        justify-content: flex-end;
+    }
+    .git-dev-icons {
+        margin-top: 10px;
+    }
 }

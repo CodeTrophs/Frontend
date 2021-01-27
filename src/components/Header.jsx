@@ -6,10 +6,13 @@ import { logout } from '../api/authFunctions';
 import styles from '../scss/header.module.scss';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
+// import Button from './ThemeBtn';
+import ThemeContext from './ThemeContext';
 import ToTop from './ToTop';
 import UserContext from './UserContext';
 
 export default function Header() {
+  const { Theme } = useContext(ThemeContext);
   const router = useRouter();
   const { User, setUser } = useContext(UserContext);
   const [profileDD, setProfileDD] = useState(false);
@@ -32,17 +35,16 @@ export default function Header() {
   }
 
   return (
-    <div className={styles.header}>
+    <div className={`${styles.header} ${Theme}`}>
       <ToTop />
       <div>
         <Link href={User ? '/feed' : '/'}>
-          <img
-            className={styles['header-logo']}
-            src="/logo/logo.png"
-            alt=""
-          />
+          <img className={styles['header-logo']} src="/logo/logo.png" alt="" />
         </Link>
       </div>
+
+      {/* Theme Button  */}
+      {/* <Button /> */}
       {router.pathname !== '/' &&
       router.pathname !== '/toporg' &&
       router.pathname !== '/toplang' ? (
@@ -118,7 +120,7 @@ export default function Header() {
                   ? User.profileImageUrl
                   : '/SVG/user.svg'
               }
-              onError={(e) => {
+              onError={e => {
                 e.target.onerror = null;
                 e.target.src = '/SVG/user.svg';
               }}

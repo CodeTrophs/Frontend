@@ -1,0 +1,170 @@
+/*
+  ========= Setting the environment =========
+*/
+* {
+  box-sizing: border-box;
+}
+
+/*
+  ========= Flex properties =========
+*/
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+/*
+  ========= Text properties =========
+*/
+
+.text-center {
+  text-align: center;
+}
+
+.text-small {
+  font-size: 0.8rem;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.text-primary {
+  color: $brand-color;
+}
+
+.text-danger {
+  color: $danger-color;
+}
+
+.text-mute {
+  opacity: 0.8;
+}
+
+/*
+  ========= Display classes =========
+*/
+
+.d-none {
+  display: none;
+}
+
+/*
+  ========= Width and height =========
+*/
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+/*
+  ========= Margin and paddings =========
+*/
+
+@each $key, $value in $margin-sizes {
+  .m-#{$key} {
+    margin: $value;
+  }
+
+  .ml-#{$key} {
+    margin-left: $value;
+  }
+
+  .mr-#{$key} {
+    margin-right: $value;
+  }
+
+  .mb-#{$key} {
+    margin-bottom: $value;
+  }
+
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+
+  .my-#{$key} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  .mx-#{$key} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+}
+
+@each $key, $value in $padding-sizes {
+  .p-#{$key} {
+    padding: $value;
+  }
+
+  .pl-#{$key} {
+    padding-left: $value;
+  }
+
+  .pr-#{$key} {
+    padding-right: $value;
+  }
+
+  .pb-#{$key} {
+    padding-bottom: $value;
+  }
+
+  .pt-#{$key} {
+    padding-top: $value;
+  }
+
+  .py-#{$key} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+
+  .px-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+}

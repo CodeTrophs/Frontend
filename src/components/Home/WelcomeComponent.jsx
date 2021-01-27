@@ -17,7 +17,7 @@ export default function WelcomeComponent({ setLoading }) {
   }
 
   return (
-    <div className={styles['welcome-container']}>
+    <div className={styles['welcome-container'] }>
       <div className={styles['welcome-left']}>
         <h1 className={styles['welcome-title']}>
           A one spot Destination for your <br />

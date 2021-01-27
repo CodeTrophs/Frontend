@@ -1,3 +1,22 @@
+@import 'variables';
+@import 'utils';
+
+.dark {
+  --theme-background-darker: #{$bg-dark-grey};
+  --theme-color: #{$font-black};
+  --theme-color-diff: #{$font-white};
+  --theme-background: #{$bg-light-grey};
+}
+
+.light {
+  --theme-background: #{$bg-light};
+  --theme-color: #{$font-white};
+  --theme-color-diff: #{$font-black};
+  --theme-background-darker: #{$font-white};
+}
+
+/*    ****END THEME****    */
+
 * {
   padding: 0;
   margin: 0;
@@ -93,4 +112,8 @@
 // Next Class is for a component of Infinite Loader to override its existing rules.
 .infinite-scroll-component__outerdiv {
   width: 100% !important;
+}
+
+button {
+  cursor: pointer;
 }

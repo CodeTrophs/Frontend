@@ -1,11 +1,11 @@
 import React from 'react';
 
-import styles from '../../scss/profile.module.scss';
+// import styles from '../../scss/profile.module.scss';
 
 export default function ProjectProfile() {
   return (
-    <div>
-      <div className={styles.usernamebox}>
+    <>
+      {/* <div className={styles.usernamebox}>
         <div className={styles['card-top-row']}>
           <div className={styles['card-left-col']}>
             <div className={styles['imgabsolute-lower']}>
@@ -74,7 +74,7 @@ export default function ProjectProfile() {
             <p>Save</p>
           </div>
         </div>
-      </div>
-    </div>
+      </div> */}
+    </>
   );
 }
