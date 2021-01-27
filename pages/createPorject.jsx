@@ -4,13 +4,14 @@ import AdDisplay from '../src/components/AdComponent';
 import Header from '../src/components/Header';
 import FormOsp from '../src/components/Osp/OspForm';
 import HeadOsp from '../src/components/Osp/OspHead';
+import ProtectedRoute from '../src/components/ProtectedRoute';
 
 const createproject = () => (
-  <div>
+  <ProtectedRoute>
     <Header />
     <HeadOsp />
     <AdDisplay />
     <FormOsp />
-  </div>
+  </ProtectedRoute>
 );
 export default createproject;
