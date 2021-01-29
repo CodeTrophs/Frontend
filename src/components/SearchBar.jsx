@@ -8,11 +8,13 @@ const SearchBar = ({ page, searchFilter, method }) => {
   return (
     <div className={styles['search-bar']}>
       <div className={styles['left-col']}>
-        <img
-          src="/SVG/search-icon.svg"
-          alt="search"
-          style={{ width: '20px' }}
-        />
+        <div className={styles['search-bar-icon']}>
+          <img
+            src="/SVG/search-icon.svg"
+            alt="search"
+            style={{ width: '20px', backgroundColor: '#C31A37' }}
+          />
+        </div>
         <input
           type="search"
           name="Search"
@@ -30,13 +32,14 @@ const SearchBar = ({ page, searchFilter, method }) => {
           }}
           style={{
             border: 'none',
-            color: 'white',
-            backgroundColor: 'black',
+            color: 'black',
+            backgroundColor: 'white',
             fontSize: '18px',
-            fontWeight: '300',
+            fontWeight: '500',
             width: '100%',
             marginLeft: '20px',
-            outline: 'none'
+            outline: 'none',
+            borderRadius: '0 100px 100px 0'
           }}
         />
       </div>
