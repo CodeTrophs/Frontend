@@ -2,6 +2,7 @@ import Router from 'next/router';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import config from '../../config';
 import styles from '../../scss/home.module.scss';
 
 export default function WelcomeComponent({ setLoading }) {
@@ -10,7 +11,7 @@ export default function WelcomeComponent({ setLoading }) {
     setLoading(true);
     e.preventDefault();
     Router.replace(
-      `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/auth/github`
+      `${config.BACKEND_URL}/v1/auth/github`
     );
     setLoading(false);
     return null;

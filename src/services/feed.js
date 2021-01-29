@@ -2,9 +2,10 @@
  * This file will contain all the  calls related to feed / repos to the server
  *
  */
+import config from '../config';
 import http from './http';
 
-const baseURL = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/github`;
+const baseURL = `${config.BACKEND_URL}/v1/github`;
 
 export const getRepos = async (
   pageNo,

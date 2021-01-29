@@ -8,6 +8,8 @@ import '../src/scss/style.scss';
 import Spinner from '../src/components/Spinner';
 import ThemeContext from '../src/components/ThemeContext';
 import UserContext from '../src/components/UserContext';
+import config from '../src/config';
+import SEO from '../src/seo';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
@@ -34,11 +36,18 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,100;0,400;0,600;0,800;1,100;1,400;1,600;1,800&display=swap"
           rel="stylesheet"
         />
-        <title>CodeTrophs</title>
         <script
+          data-ad-client={config.ADSENSE_ID}
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         />
+        <title>{SEO.title}</title>
+        <meta name="title" content={SEO.title} />
+        <meta name="description" content={SEO.description} />
+        <meta name="keywords" content={SEO.keywords} />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
       </Head>
 
       <ThemeContext.Provider
