@@ -180,7 +180,7 @@ export default function FeedFinal() {
   if (pageLoading) return <Spinner />;
 
   return (
-    <div>
+    <div className={styles.feedMainDiv}>
       <FeedIntroduction />
       {/* <AdDisplay /> */}
       <div className={styles.search}>
@@ -261,9 +261,10 @@ export default function FeedFinal() {
               tabIndex={0}
               role="button"
               style={{
-                color: filterType === 'basic' && 'rgb(79, 187, 230)'
+                color: filterType === 'basic' && 'rgb(79, 187, 230)',
+                backgroundColor: filterType === 'basic' && '#DCF0EE'
               }}
-              className={styles.filterBtn}
+              className={styles.filterBtnBasic}
               onKeyDown={toggleBasic}
               onClick={toggleBasic}>
               Basic
@@ -272,9 +273,10 @@ export default function FeedFinal() {
               tabIndex={0}
               role="button"
               style={{
-                color: filterType === 'advanced' && 'rgb(79, 187, 230)'
+                color: filterType === 'advanced' && 'rgb(79, 187, 230)',
+                backgroundColor: filterType === 'advanced' && '#DCF0EE'
               }}
-              className={styles.filterBtn}
+              className={styles.filterBtnAdvanced}
               onClick={toggleAdvanced}
               onKeyDown={toggleAdvanced}>
               Advanced

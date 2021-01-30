@@ -11,7 +11,7 @@ const SearchBar = ({ page, searchFilter, method }) => {
         <img
           src="/SVG/search-icon.svg"
           alt="search"
-          style={{ width: '20px' }}
+          style={{ width: '20px', marginRight: '2px' }}
         />
         <input
           type="search"
@@ -30,8 +30,10 @@ const SearchBar = ({ page, searchFilter, method }) => {
           }}
           style={{
             border: 'none',
-            color: 'white',
-            backgroundColor: 'black',
+            borderRadius: '0 100px 100px 0',
+            padding: '0 10px',
+            color: 'black',
+            backgroundColor: 'white',
             fontSize: '18px',
             fontWeight: '300',
             width: '100%',

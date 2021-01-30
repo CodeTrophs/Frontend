@@ -1,16 +1,17 @@
 .search-bar {
   width: 60%;
-  background-color: black;
+  background-color: #c31a37;
   margin: 30px auto 30px auto;
   border-radius: 100px;
-  padding: 10px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0;
 }
 .left-col {
   width: 100%;
   display: flex;
+  margin: 0.2rem;
 }
 
 .left-col img {
