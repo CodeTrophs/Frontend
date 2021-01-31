@@ -596,11 +596,12 @@ export default function FeedFinal() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={styles.filterBtn}
-                  onKeyDown={toggleBasic}
                   style={{
-                    color: filterType === 'basic' && 'rgb(79, 187, 230)'
+                    color: filterType === 'basic' && 'rgb(79, 187, 230)',
+                    backgroundColor: filterType === 'basic' && '#DCF0EE'
                   }}
+                  className={styles.filterBtnBasic}
+                  onKeyDown={toggleBasic}
                   onClick={toggleBasic}>
                   Basic
                 </div>
@@ -608,9 +609,10 @@ export default function FeedFinal() {
                   tabIndex={0}
                   role="button"
                   style={{
-                    color: filterType === 'advanced' && 'rgb(79, 187, 230)'
+                    color: filterType === 'advanced' && 'rgb(79, 187, 230)',
+                    backgroundColor: filterType === 'advanced' && '#DCF0EE'
                   }}
-                  className={styles.filterBtn}
+                  className={styles.filterBtnAdvanced}
                   onClick={toggleAdvanced}
                   onKeyDown={toggleAdvanced}>
                   Advanced
