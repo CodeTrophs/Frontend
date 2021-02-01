@@ -46,7 +46,7 @@ const SideDrawer = ({ handleClose, router }) => {
           />
           <p>{User === null ? '' : User.name}</p>
           <img
-            src="/SVG/Icon awesome-angle-down.svg"
+            src="/SVG/Icon awesome-angle-down-white.svg"
             style={{ paddingLeft: '10px', width: '20px' }}
             alt=" "
           />
