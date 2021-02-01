@@ -39,7 +39,7 @@ export default function Header() {
       <ToTop />
       <div>
         <Link href={User ? '/feed' : '/'}>
-          <img className={styles['header-logo']} src="/logo/logo.png" alt="" />
+          <img className={styles['header-logo']} src="/logo/new_codetrophs_logo.svg" alt="codetrophs" />
         </Link>
       </div>
 
@@ -129,7 +129,7 @@ export default function Header() {
             />
             {User !== null && <p> {User.name} </p>}
             <img
-              src="/SVG/Icon awesome-angle-down.svg"
+              src="/SVG/Icon awesome-angle-down-white.svg"
               style={{ paddingLeft: '10px', width: '20px' }}
               alt=" "
             />
