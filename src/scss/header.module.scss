@@ -2,17 +2,20 @@
 
 .header {
   padding: 0px 30px;
-  background-color: var(--theme-background);
+  // background-color: var(--theme-background);
+  background-color: #0c314a;
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
 .header-logo {
+  margin-top: 10px;
   position: relative;
-  width: 250px;
+  width: 70px;
   cursor: pointer;
 }
 
@@ -109,7 +112,7 @@
   padding: 5px 10px;
   border-radius: 8px;
   width: 100%;
-  margin:0.5rem 0;
+  margin: 0.5rem 0;
   font-weight: 500;
   font-size: 1rem;
   box-shadow: 5px 5px 5px rgb(223, 223, 223);
