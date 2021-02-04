@@ -6,7 +6,6 @@ import config from '../../config';
 import styles from '../../scss/home.module.scss';
 
 export default function WelcomeComponent({ setLoading }) {
-
   async function handleGithubSignIn(e) {
     setLoading(true);
     e.preventDefault();
@@ -18,16 +17,22 @@ export default function WelcomeComponent({ setLoading }) {
   }
 
   return (
-    <div className={styles['welcome-container'] }>
+    <div id="welcome" className={styles['welcome-container']}>
       <div className={styles['welcome-left']}>
-        <h1 className={styles['welcome-title']}>
-          A one spot Destination for your <br />
-          CodeTrophs Contribution Journey
-        </h1>
+        <div className={styles['welcome-title-container']}> 
+          <img
+            src="/images/home/welcome-rectangle.svg"
+            alt="vertical rectangle"
+            className={styles['welcome-title-bar']}
+          />
+          <p className={styles['welcome-title']}>
+            A one spot Destination for your CodeTrophs Contribution Journey🚀
+          </p>
+        </div>
+
         <p className={styles['landing-text']}>
-          Now Explore from 120000+ Top
-          <br />
-          Open Source Projects at One Place
+          Now Explore from <b>120000+ TopOpen Source Projects</b> at One Place. Contributing to open source can be a rewarding way to learn, teach, and build experience in just about any skill you can imagine.{' '}
+          {' '}
         </p>
 
         <div className={styles['sign-in-buttons']}>
@@ -42,12 +47,11 @@ export default function WelcomeComponent({ setLoading }) {
             <p>Sign in with Github</p>
             <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
           </button>
-
         </div>
       </div>
 
       <div className={styles['welcome-right']}>
-        <img alt="how-right-SVG.png" src="/images/welcome-right-svg.svg" />
+        <img alt="welcome page svg" src="/images/home/welcome.svg" />
       </div>
     </div>
   );

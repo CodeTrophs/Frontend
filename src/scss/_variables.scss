@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 $brand-color: #0c314a;
 $danger-color: #c52b2b;
 
@@ -12,11 +15,14 @@ $box-shadow-pale: 0 0 5px #e6e6e6;
 $border-bstyle: 0.7px solid #c4c4c4;
 
 /*Dark-theme variables*/
-$font-black: black;
+$font-black: #0e314a;
 $font-white: white;
 $bg-dark-grey: #111313;
 $bg-light-grey: #252525;
-$bg-light: #f5f5f5;
+$bg-light: white;
+
+// font-awesome variable
+$fa-font-path: '../font';
 
 $margin-sizes: (
   'auto': auto,
