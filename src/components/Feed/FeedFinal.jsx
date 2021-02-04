@@ -289,7 +289,7 @@ export default function FeedFinal() {
                 tabIndex={0}
                 style={
                   selectedBasicFilter === 'React'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 role="button"
@@ -310,7 +310,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Vue'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Vue')}
@@ -329,7 +329,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Angular'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Angular')}
@@ -348,7 +348,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Machine Learning'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Machine Learning')}
@@ -367,7 +367,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Data Science'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Data Science')}
@@ -386,7 +386,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Web Development'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Web Development')}
