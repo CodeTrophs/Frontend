@@ -111,34 +111,9 @@ const AboutYou = ({ UserData }) => {
   return (
     <div>
       <div className={styles['basic-head']}>
-        <h4 style={{ fontWeight: '500' }}>Let&apos;s get Started !</h4>
+        <h4 style={{ fontWeight: 'normal' }}>What do you do?</h4>
       </div>
       <div className={styles.qns}>
-        <p>
-          {' '}
-          Full Name <sup>*</sup>
-        </p>
-        <input
-          className={`${styles.input} ${
-            fullNameError !== null ? styles.invalid : ''
-          } `}
-          value={fullName}
-          type="text"
-          placeholder="Full Name"
-          onChange={(e) => {
-            setFullName(e.currentTarget.value);
-            setFullNameError(
-              FormValidation.checkLengthLimit(
-                e.currentTarget.value.trim().length,
-                50,
-                1
-              )
-            );
-          }}
-        />
-        <p id="fullNameError" className="input-field-error">
-          {fullNameError}
-        </p>
         <p>Title</p>
         <input
           className={`${styles.input} ${
