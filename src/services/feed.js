@@ -2,13 +2,15 @@
  * This file will contain all the  calls related to feed / repos to the server
  *
  */
+import config from '../config';
 import http from './http';
 
-const baseURL = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/github`;
+const baseURL = `${config.BACKEND_URL}/v1/github`;
 
 export const getRepos = async (
   pageNo,
   searchRepo,
+  basicFilter,
   languageList,
   org,
   sortMethod,
@@ -35,6 +37,9 @@ export const getRepos = async (
       else if (searchRepo !== '') query = `${searchRepo} in:name`;
       // When Only Organisation is Not default
       else if (org !== 'All') query = `org:${org}`;
+      // When a basic filter is selected
+      else if (basicFilter !== '')
+        query = `${searchRepo} in:name topic:${basicFilter}`;
 
       let url = `${baseURL}/repositories?page=${pageNo}&per_page=20&sort=${sortMethod}&order=${sortOrder}`;
       if (query !== '')

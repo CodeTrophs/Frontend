@@ -6,7 +6,7 @@ import { logout } from '../api/authFunctions';
 import styles from '../scss/header.module.scss';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
-import Button from './ThemeBtn';
+// import Button from './ThemeBtn';
 import ThemeContext from './ThemeContext';
 import ToTop from './ToTop';
 import UserContext from './UserContext';
@@ -44,8 +44,9 @@ export default function Header() {
       </div>
 
       {/* Theme Button  */}
-      <Button />
-      {router.pathname !== '/' &&
+      {/* <Button /> */}
+      {User &&
+      router.pathname !== '/' &&
       router.pathname !== '/toporg' &&
       router.pathname !== '/toplang' ? (
         <div className={styles.links}>
@@ -99,12 +100,13 @@ export default function Header() {
         </div>
       ) : null}
       <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>
-        {router.pathname !== '/' && (
+        {User && router.pathname !== '/' && (
           <DrawerToggleButton className={styles['toggle-hamburger']} />
         )}
       </div>
       {sideDrawer && <SideDrawer handleClose={toggleSD} router={router} />}
-      {router.pathname !== '/' &&
+      {User &&
+      router.pathname !== '/' &&
       router.pathname !== '/toporg' &&
       router.pathname !== '/toplang' ? (
         <div className={styles.profile}>
@@ -120,7 +122,7 @@ export default function Header() {
                   ? User.profileImageUrl
                   : '/SVG/user.svg'
               }
-              onError={(e) => {
+              onError={e => {
                 e.target.onerror = null;
                 e.target.src = '/SVG/user.svg';
               }}

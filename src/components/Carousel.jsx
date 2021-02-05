@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import styles from '../scss/carousel.module.scss';
-import sponsors from './sponsors.json';
+// import sponsors from './sponsors.json';
 
 const ANIMATION_DURATION = 500;
 
@@ -55,36 +55,9 @@ export default function Carousel({ data }) {
 
   return (
     <div className={styles['carousel-outer']}>
-      <h1 className={styles.heading}>
-        Our Past <span>Sponsors</span> and <span>Partners</span>{' '}
-      </h1>
-      <div className={styles['sponsors-div']}>
-        {/* eslint-disable-next-line jsx-a11y/no-distracting-elements */}
-        <marquee behavior="scroll" direction="left">
-          {sponsors.map((sponsor) => {
-            // console.log(sponsor);
-            return (
-              <img
-                key={sponsor.name}
-                className={styles['partner-image']}
-                src={sponsor.url}
-                alt={sponsor.name}
-                title={sponsor.name}
-              />
-            );
-          })}
-        </marquee>
-      </div>
+      <h1 className={styles.heading}>Testimonials</h1>
       <div className={styles['carousel-container']}>
-        <h1 className={styles.heading}>Testimonials</h1>
-        <button
-          type="button"
-          onClick={goToPrevious}
-          className={styles['left-button']}>
-          <img src="SVG/left-arrow.svg" alt="Prev" />
-        </button>
-
-        <div className={styles['carousel-inner']}>
+        <div className={styles['carousel-inner-left']}>
           {/* <img
             src="SVG/opening-quote.svg"
             alt="Open Quote"
@@ -99,7 +72,6 @@ export default function Carousel({ data }) {
             <p>{activeQuote.comment}</p>
 
             <div className={styles['data-bottom-row']}>
-              <img src={activeQuote.profileImage} alt="Profile" />
               <h2>{activeQuote.name}</h2>
               <h4> {activeQuote.Designation}</h4>
             </div>
@@ -111,12 +83,26 @@ export default function Carousel({ data }) {
           /> */}
         </div>
 
-        <button
-          type="button"
-          onClick={goToNext}
-          className={styles['right-button']}>
-          <img src="SVG/right-arrow.svg" alt="Next" />
-        </button>
+        <div className={styles['carousel-inner-right']}>
+          <div className={styles['arrow-buttons']}>
+            {' '}
+            <button
+              type="button"
+              onClick={goToPrevious}
+              className={styles['left-button']}>
+              <img src="SVG/left-arrow.svg" alt="Prev" />
+            </button>
+            <button
+              type="button"
+              onClick={goToNext}
+              className={styles['right-button']}>
+              <img src="SVG/right-arrow.svg" alt="Next" />
+            </button>
+          </div>
+          <div>
+            <img src={activeQuote.profileImage} alt="Profile" />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -143,3 +129,25 @@ Carousel.propTypes = {
     })
   )
 };
+
+/* <div className={styles['carousel-outer']}>
+    <h1 className={styles.heading}>
+      Our Past <span>Sponsors</span> and <span>Partners</span>{' '}
+    </h1>
+     <div className={styles['sponsors-div']}>
+      // eslint-disable-next-line jsx-a11y/no-distracting-elements
+      <marquee behavior="scroll" direction="left">
+        {sponsors.map((sponsor) => {
+          // console.log(sponsor);
+          return (
+            <img
+              key={sponsor.name}
+              className={styles['partner-image']}
+              src={sponsor.url}
+              alt={sponsor.name}
+              title={sponsor.name}
+            />
+          );
+        })}
+      </marquee>
+    </div> */

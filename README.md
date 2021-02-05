@@ -58,4 +58,4 @@ Open the `codetrophs` directory in your code editor of choice and edit files und
 5: Create a PR taking `development` branch as the `base` branch.
 
 
-## [WORKFLOW](https://github.com/CodeTrophs/Frontend/wiki/Open-Source-Code-Workflow)
+## [WORKFLOW](https://github.com/CodeTrophs/Frontend/wiki)

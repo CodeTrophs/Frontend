@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 
-import {Carousel, Footer,Header, AboutUs, HelpUs, HowContainer, WelcomeComponent, Spinner, Subscribe} from '../src/components';
+import {Carousel, Footer,Header, AboutUs, HelpUs, HowContainer, WelcomeComponent, Spinner} from '../src/components';
 import testimonials from '../src/components/testimonialsData.json';
 import ThemeContext from '../src/components/ThemeContext';
 
@@ -28,7 +28,7 @@ function Home() {
       <HowContainer />
       <HelpUs />
       <Carousel data={testimonials} />
-      <Subscribe />
+      {/* <Subscribe /> */}
       <Footer />
     </div>
   );
