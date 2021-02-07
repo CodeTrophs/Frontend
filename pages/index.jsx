@@ -22,7 +22,7 @@ function Home() {
   }
   return (
     <div className={`Home ${Theme}`}>
-      <Header />
+      {/* <Header /> */}
       <WelcomeComponent setLoading={(e) => setLoading(e)} />
       <AboutUs />
       <HowContainer />

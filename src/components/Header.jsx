@@ -6,7 +6,7 @@ import { logout } from '../api/authFunctions';
 import styles from '../scss/header.module.scss';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
-import Button from './ThemeBtn';
+// import Button from './ThemeBtn';
 import ThemeContext from './ThemeContext';
 import ToTop from './ToTop';
 import UserContext from './UserContext';
@@ -44,7 +44,8 @@ export default function Header() {
       </div>
 
       {/* Theme Button  */}
-      <Button />
+      {/* <Button /> */}
+
       {router.pathname !== '/' &&
       router.pathname !== '/toporg' &&
       router.pathname !== '/toplang' ? (
