@@ -1,21 +1,64 @@
 @import 'variables';
 
 .footer {
-  background-color: #98eae080;
-  padding: {
-    right: 15px;
-    left: 15px;
-  }
+  background: url('/images/home/footer.svg') bottom no-repeat;
+  background-size: cover;
+  background-color: #0c314a;
+  padding: 40px 0 220px 0;
+  display: flex;
+  justify-content: center;
+}
 
-  @media only screen and (min-width: 800px) {
-    padding: {
-      right: 50px;
-      left: 50px;
+.menu {
+  li {
+    margin-bottom: 2%;
+    list-style: none;
+    a {
+      text-decoration: none;
+      color: white;
     }
   }
 }
 
-.heading {
+.contact {
+  li {
+    list-style: none;
+    margin-bottom: 4%;
+    display: flex;
+    a {
+      text-decoration: none;
+      color: white;
+      padding-left: 4%;
+    }
+    span {
+      color: white;
+      padding-left: 4%;
+    }
+  }
+}
+
+.footer-list {
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  // .menu {
+  //   padding-right: 50px;
+  // }
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  a {
+    padding-right: 5%;
+  }
+  // img {
+  //   width: 2.4rem;
+  //   height: 45px;
+  // }
+}
+.socials > .heading {
   font-size: 2.5rem;
   font-weight: 700;
   padding-left: 2.5rem;
@@ -28,64 +71,24 @@
   }
 }
 
-.badges {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin: {
-    right: auto;
-    left: auto;
-  }
-  padding-top: 1rem;
-  list-style-type: none;
-
-  @media only screen and (min-width: 800px) {
-    width: 75%;
+@media only screen and (max-width: 1440px) {
+  .footer-list {
+    min-width: 80vw;
   }
 }
 
-.badges img {
-  width: 1.3rem;
-  margin-right: 8px;
-  height: 25px;
-}
-
-.badges a {
-  display: flex;
-  background-color: #fff;
-  align-items: center;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 2px 5px;
-  margin: 8px 3px;
-  border: 2px solid #000;
-  text-decoration: none;
-  color: #000;
-
-  @media only screen and (min-width: 800px) {
-    margin: {
-      right: 20px;
-      left: 20px;
-    }
-    padding: {
-      right: 10px;
-      left: 10px;
-    }
-    font-weight: 500;
-    border-width: 3px;
+@media only screen and (max-width: 768px) {
+  .footer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    padding-top: 50px;
   }
-}
-
-.partner-logo {
-  display: block;
-  margin: auto;
-  text-align: center;
-  padding: 25px 0;
-
-  img {
-    max-width: 250px;
-    max-height: 250px;
+  .menu {
+    padding-bottom: 20px;
+  }
+  .contact {
+    padding-bottom: 40px;
   }
 }

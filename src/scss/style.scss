@@ -1,16 +1,17 @@
 @import 'variables';
+@import 'utils';
 
 .dark {
   --theme-background-darker: #{$bg-dark-grey};
-  --theme-color: #{$font-black};
-  --theme-color-diff: #{$font-white};
+  --theme-color: #{$font-white};
+  --theme-color-diff: #{$font-black};
   --theme-background: #{$bg-light-grey};
 }
 
-.light{
+.light {
   --theme-background: #{$bg-light};
-  --theme-color: #{$font-white};
-  --theme-color-diff: #{$font-black};
+  --theme-color: #{$font-black};
+  --theme-color-diff: #{$font-white};
   --theme-background-darker: #{$font-white};
 }
 

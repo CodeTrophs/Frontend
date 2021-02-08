@@ -1,0 +1,8 @@
+const config = {
+  BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_BASE_URL,
+  TOKEN_ACCESS_KEY: process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY,
+  ADSENSE_ID: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID,
+  ANALYTICS_ID: process.env.NEXT_PUBLIC_ANALYTICS_ID
+};
+
+export default config;

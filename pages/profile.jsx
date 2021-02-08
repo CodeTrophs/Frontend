@@ -4,14 +4,15 @@ import React from 'react';
 
 import Header from '../src/components/Header';
 import BoxProfile from '../src/components/Profile/ProfileBox';
+import ProtectedRoute from '../src/components/ProtectedRoute';
 
 function Profile() {
   return (
-    <div>
+    <ProtectedRoute>
       <Header />
       {/* <AdDisplay /> */}
       <BoxProfile />
-    </div>
+    </ProtectedRoute>
   );
 }
 

@@ -3,9 +3,10 @@
  * relating to the user.
  */
 import * as authFunctions from '../api/authFunctions';
+import config from '../config';
 import http from './http';
 
-const baseURL = `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/v1/user`;
+const baseURL = `${config.BACKEND_URL}/v1/user`;
 
 export const getProfile = async () => {
   return new Promise(async (resolve, reject) => {

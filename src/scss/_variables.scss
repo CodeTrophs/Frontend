@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+$brand-color: #0c314a;
+$danger-color: #c52b2b;
+
 $box-shadow-dark: 0 0 1rem rgba(0, 0, 0, 0.1);
 $box-shadow-thin-light: 5px 5px 5px rgb(223, 223, 223);
 $box-shadow-thick-light: 10px 10px 10px rgb(223, 223, 223);
@@ -9,11 +15,42 @@ $box-shadow-pale: 0 0 5px #e6e6e6;
 $border-bstyle: 0.7px solid #c4c4c4;
 
 /*Dark-theme variables*/
-$font-black: black;
-$font-white:white;
+$font-black: #0e314a;
+$font-white: white;
 $bg-dark-grey: #111313;
 $bg-light-grey: #252525;
-$bg-light: #f5f5f5;
+$bg-light: white;
+
+// font-awesome variable
+$fa-font-path: '../font';
+
+$margin-sizes: (
+  'auto': auto,
+  '0': 0rem,
+  '2': 0.125rem,
+  '4': 0.25rem,
+  '6': 0.375rem,
+  '8': 0.5rem,
+  '10': 0.625rem,
+  's': 0.75rem,
+  'm': 0.9375rem,
+  'l': 1.25rem,
+  'xl': 1.5625rem
+);
+
+$padding-sizes: (
+  'auto': auto,
+  '0': 0rem,
+  '2': 0.125rem,
+  '4': 0.25rem,
+  '6': 0.375rem,
+  '8': 0.5rem,
+  '10': 0.625rem,
+  's': 0.75rem,
+  'm': 0.9375rem,
+  'l': 1.25rem,
+  'xl': 1.5625rem
+);
 
 @mixin padding-all($pad-up, $pad-right, $pad-down, $pad-left) {
   padding-top: $pad-up;

@@ -1,15 +1,15 @@
 import Head from 'next/head';
-import Router from 'next/router';
 import React, { useState, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
-import * as authFunctions from '../src/api/authFunctions';
 import { initGA, logPageView } from '../src/components/googleAnalytics';
 import '../src/scss/style.scss';
 import Spinner from '../src/components/Spinner';
 import ThemeContext from '../src/components/ThemeContext';
 import UserContext from '../src/components/UserContext';
+import config from '../src/config';
+import SEO from '../src/seo';
 
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
@@ -23,47 +23,31 @@ function MyApp({ Component, pageProps }) {
       window.GA_INITIALIZED = true;
     }
     logPageView();
-
-    const token = localStorage.getItem('user');
-    function updation() {
-      const verificationResult = authFunctions.verifySecuredToken(token);
-
-      if (verificationResult !== null) {
-        setUser({
-          name: verificationResult.name,
-          token: verificationResult.token,
-          uid: verificationResult.uid,
-          profileImageUrl: verificationResult.profileImageUrl
-        });
-        if (Router.pathname === '/') {
-          Router.replace('/feed');
-        }
-      } else {
-        Router.replace('/');
-      }
-    }
-
-    if (token) {
-      updation();
-    } else {
-      Router.replace('/');
-    }
     setLoading(false);
   }, []);
 
   if (Loading) return <Spinner />;
+
   return (
     <>
       <Head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,100;0,400;0,600;0,800;1,100;1,400;1,600;1,800&display=swap"
           rel="stylesheet"
         />
-        <title>CodeTrophs</title>
         <script
+          data-ad-client={config.ADSENSE_ID}
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         />
+        <title>{SEO.title}</title>
+        <meta name="title" content={SEO.title} />
+        <meta name="description" content={SEO.description} />
+        <meta name="keywords" content={SEO.keywords} />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
       </Head>
 
       <ThemeContext.Provider

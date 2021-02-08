@@ -11,88 +11,91 @@
     opacity: 1;
   }
 }
+
+// .sponsors-div {
+//   display: inline-block;
+//   width: 50%;
+//   overflow: hidden;
+//   justify-content: center;
+//   align-items: center;
+//   margin-bottom: 2.5rem;
+//   marquee {
+//     overflow: hidden;
+//     white-space: nowrap;
+//   }
+// }
+// .partner-image {
+//   margin: 0;
+//   max-width: 200px;
+//   max-height: 100px;
+//   padding: 0.5rem 0;
+//   margin: 0.5rem;
+// }
+
 .carousel-outer {
-  width: 100%;
+  // width: 60%;
+  // max-width: 80%;
+  margin: 0 auto 0 auto;
+  // display: inline-block;
+  // border: solid #707070 0.1rem;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  height: 90vh;
+  // padding: 2rem 0 1rem;
+  // -webkit-box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
+  // -moz-box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
+  // box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
+  width: 80%;
+}
+.carousel-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: -7.5px;
-  padding: 15px 15px 40px 15px;
-  background-color: var(--theme-background-darker);
-}
-
-.sponsors-div {
-  display: inline-block;
-  width: 50%;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2.5rem;
-  marquee {
-    overflow: hidden;
-    white-space: nowrap;
-  }
-}
-.partner-image {
-  margin: 0;
-  max-width: 200px;
-  max-height: 100px;
-  padding: 0.5rem 0;
-  margin: 0.5rem;
-}
-
-.carousel-container {
-  width: 60%;
-  display: inline-block;
-  border: solid #707070 0.1rem;
-  background-color: #fff;
-  position: relative;
-  padding: 2rem 0 1rem;
-  -webkit-box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
-  -moz-box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
-  box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
+  // justify-content: center;
+  // flex-direction: column;
+  // margin-top: -7.5px;
+  // padding: 15px 15px 40px 15px;
+  // background-color: var(--theme-background-darker);
 }
 
 .heading {
-  display: block;
-  margin: auto;
-  text-align: center;
-  font-weight: 700;
-  font-size: 2.5rem;
   color: var(--theme-color);
-  span {
-    color: #32318a;
-  }
+  padding-left: 20px;
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  letter-spacing: 0.02em;
 }
-.carousel-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  padding: 30px;
+.carousel-inner-left {
+  max-width: 60%;
+  // display: flex;
+  // justify-content: center;
+  // position: relative;
+  padding-bottom: 30px;
   height: 90%;
   margin: 0 3rem;
   overflow: hidden;
-  img {
-    height: 3rem;
-    width: 3rem;
-  }
+  // img {
+  //   height: 3rem;
+  //   width: 3rem;
+  // }
 }
 
 .carousel-data {
-  display: block;
-  padding: 1rem;
+  // display: block;
+  padding-top: 1rem;
   margin: auto;
   font-size: 1.2rem;
-  height: 100%;
+  // height: 100%;
 
   p {
-    text-align: left;
-    padding: 0 1rem;
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: 0.01em;
+    text-align: justify;
+    // padding: 0 1rem;
     display: flex;
-    align-items: center;
-    height: 70%;
+    // align-items: center;
+    // height: 70%;
   }
   &.carousel-animate {
     animation-name: fadeInOut;
@@ -126,17 +129,47 @@
   }
 }
 
+.carousel-inner-right {
+  // display: flex;
+  justify-content: center;
+  // flex-direction: column;
+  max-width: 40%;
+  // position: relative;
+  height: 70%;
+  margin-top: 5vh;
+  overflow: hidden;
+  img {
+    height: 16rem;
+    width: 16rem;
+  }
+}
+
+.carousel-inner-right > img {
+  // position: absolute;
+  display: block;
+  border: solid #707070 0.1rem;
+  padding: 0;
+  height: 240px;
+  width: 240px;
+}
+
+.arrow-buttons {
+  display: flex;
+  padding-bottom: 20px;
+}
+
 .left-button {
   display: flex;
   justify-content: center;
   align-items: center;
   width: fit-content;
-  background-color: #61dbcb;
+  background-color: #c61937;
   border: none;
-  position: absolute;
-  left: calc(0% - 2.75rem);
-  top: 50%;
-  transform: translateY(-50%);
+  margin-right: 12px;
+  // position: absolute;
+  // left: calc(0% - 2.75rem);
+  // top: 50%;
+  // transform: translateY(-50%);
   img {
     width: 5rem;
     height: 5rem;
@@ -145,19 +178,19 @@
 
 .left-button:hover {
   cursor: pointer;
-  background-color: #42a598;
+  background-color: #a0021d;
 }
 
 .right-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #61dbcb;
+  background-color: #c61937;
   border: none;
-  position: absolute;
-  right: -2.75rem;
-  top: 50%;
-  transform: translateY(-50%);
+  // position: absolute;
+  // right: -2.75rem;
+  // top: 50%;
+  // transform: translateY(-50%);
   img {
     width: 5rem;
     height: 5rem;
@@ -166,54 +199,58 @@
 
 .right-button:hover {
   cursor: pointer;
-  background-color: #42a598;
+  background-color: #a0021d;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   .carousel-outer {
-    margin-top: -7.5px;
+    margin: 0 auto 0 auto;
+    height: auto;
+    width: 90%;
   }
 
   .carousel-container {
-    width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
   }
-
-  .carousel-data {
-    height: 90%;
-    p {
-      justify-content: center;
-      text-align: center;
-      padding: 0 5px;
-    }
+  .carousel-inner-left {
+    max-width: 100%;
+    padding-bottom: 10px;
+    height: 2%;
   }
-  .carousel-inner {
-    padding: 10px 0;
-    height: 93%;
-  }
-
-  .left-button {
-    left: calc(0% - 2rem);
-    img {
-      height: 4rem;
-      width: 4rem;
-    }
-  }
-
-  .right-button {
-    right: -2rem;
-    img {
-      height: 4rem;
-      width: 4rem;
-    }
-  }
-}
-
-@media only screen and (max-width: 449px) {
   .carousel-data {
     padding: 0;
   }
+  .carousel-inner-right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+    padding-bottom: 20px;
+    // position: absolute;
+    height: 30%;
+  }
 
-  .sponsors-div {
-    width: 90%;
+  .arrow-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  // .sponsors-div {
+  //   width: 90%;
+  // }
+}
+
+@media only screen and (max-width: 768px) {
+  .carousel-outer {
+    width: 95%;
+  }
+
+  .carousel-inner-left {
+    margin: 0 1rem;
+  }
+
+  .heading {
+    font-size: 2.5rem;
   }
 }
