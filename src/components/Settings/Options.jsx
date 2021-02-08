@@ -56,26 +56,15 @@ const SettingsFinal = () => {
   return (
     <div className={styles.content}>
       <div className={styles['flexing-first']}>
-        {/* <img /> */}
+        <img src="/SVG/settings_page.svg" alt="settings" />
       </div>
-
-        {/* <div className={styles.boxes}> */}
-        {/* <div className={styles.flexing}>
-            <div className={styles['number-page']}>
-              <p>0{count}</p>
-            </div>
-            <div className={styles['number-page-small']}>
-              <p>/02</p>
-            </div>
-          </div> */}
+      <div style={{ marginRight: '10%' }}>
         <div className={styles['option-flex']}>
           <button
             type="button"
             onClick={info}
             style={{
               borderBottom: showInfo ? '6px solid #FFAA1D' : ''
-
-              // color: showInfo ? 'white' : 'black'
             }}
             className={styles.options}>
             Basic Information
@@ -84,9 +73,7 @@ const SettingsFinal = () => {
             type="button"
             onClick={about}
             style={{
-              borderBottom: showAbout ? '6px solid #FFAA1D': '',
-
-              // color: showAbout ? 'white' : 'black'
+              borderBottom: showAbout ? '6px solid #FFAA1D' : ''
             }}
             className={styles.options}>
             About You
@@ -95,29 +82,28 @@ const SettingsFinal = () => {
             type="button"
             onClick={skill}
             style={{
-              borderBottom: showSocial ? '6px solid #FFAA1D' : '',
-
-              // color: showSocial ? 'white' : 'black'
+              borderBottom: showSocial ? '6px solid #FFAA1D' : ''
             }}
             className={styles.options}>
             Socials
           </button>
         </div>
 
-      <div
-        className={styles.boxes2}
-        style={{ display: showInfo ? 'block' : 'none' }}>
-        <Basicinfo UserData={LoggedInUser} />
-      </div>
-      <div
-        className={styles.boxes2}
-        style={{ display: showAbout ? 'block' : 'none' }}>
-        <AboutYou UserData={LoggedInUser} />
-      </div>
-      <div
-        className={styles.boxes2}
-        style={{ display: showSocial ? 'block' : 'none' }}>
-        <Social UserData={LoggedInUser} />
+        <div
+          className={styles.boxes2}
+          style={{ display: showInfo ? 'block' : 'none' }}>
+          <Basicinfo UserData={LoggedInUser} />
+        </div>
+        <div
+          className={styles.boxes2}
+          style={{ display: showAbout ? 'block' : 'none' }}>
+          <AboutYou UserData={LoggedInUser} />
+        </div>
+        <div
+          className={styles.boxes2}
+          style={{ display: showSocial ? 'block' : 'none' }}>
+          <Social UserData={LoggedInUser} />
+        </div>
       </div>
     </div>
   );

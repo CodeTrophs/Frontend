@@ -1,53 +1,32 @@
 @import 'variables';
-// .boxes {
-//   box-shadow: $box-shadow-light;
-//   margin-top: 4rem;
-//   @include padding-all(3rem, 3rem, 30px, 3rem);
-//   border-radius: 1.4rem;
-//   width: 25%;
-//   display: flex;
-//   flex-direction: column;
-//   height: fit-content;
-// }
+
 .content {
-  width: 70%;
-  // margin: 20px auto;
+  width: 100%;
   float: right;
+  display: flex;
+  justify-content: space-between;
 }
 
-.flexing-first{
+.flexing-first {
   width: 30%;
+  height: 110vh;
+  display: flex;
+  justify-content: left;
 }
 
 .boxes2 {
-  // box-shadow: $box-shadow-light;
-  // margin-left: 2rem;
   margin-top: 2rem;
   @include padding-all(0rem, 0rem, 3rem, 2rem);
-  // border-radius: 2rem;
   height: fit-content;
   margin-bottom: 2rem;
-  // width: 60%;
 }
-// .number-page {
-//   font-size: 7rem;
-//   font-weight: 400;
-// }
-// .number-page-small {
-//   font-size: 2.5rem;
-//   font-weight: 300;
-//   padding-top: 4.3rem;
-// }
+
 .option-flex {
   display: flex;
-  width: 75%;
-  // margin: 10px auto;
-  // flex-direction: column;
-  padding-bottom: 20px;
+  width: 100%;
 }
 
 .options {
-  // border-radius: 0.5rem;
   width: 95%;
   padding: 5px 0px;
   margin-top: 1.5rem;
@@ -58,10 +37,8 @@
   font-size: 1.35rem;
   font-weight: 300;
   cursor: pointer;
-  /* margin-left: 5rem; */
 }
 .options:hover {
-  // box-shadow: $box-shadow-pale;
   border-bottom: 6px solid #ffaa1d !important;
 
   transition-duration: 0.1s;
@@ -75,33 +52,18 @@
   height: 3.7rem;
   margin-top: 1.5rem;
   background-color: white;
-  /* margin-left: 5rem; */
 }
 
 .flexing-links {
   display: flex;
   font-weight: 500;
 }
-// .flexing {
-//   width: 80%;
-//   margin: initial auto;
-//   justify-content: center;
-//   display: flex;
-//   align-items: center;
-// }
 
-// .flexing-first {
-//   display: flex;
-//   max-width: 75%;
-//   justify-content: center;
-// }
 .qns {
   text-align: justify;
-  color: rgba(0, 0, 0, 0.7 );
+  color: rgba(0, 0, 0, 0.7);
   font-size: 1rem;
-  /* margin-left: 4rem; */
-  margin-top: 3.2rem;
-  // font-weight: 700;
+  margin-top: 3rem;
 }
 .qns > p {
   font-size: 1.2rem;
@@ -114,7 +76,7 @@
   min-height: 2.5rem;
   border: none;
   border-radius: 0.2rem;
-  background:#FFAA1D;
+  background: #ffaa1d;
   color: white;
   font-size: 1.35rem;
   font-weight: normal;
@@ -132,7 +94,7 @@
   width: 90%;
   border: none;
   font-size: medium;
-  padding-top: 0.5rem;  
+  padding-top: 0.5rem;
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #707070;
@@ -140,7 +102,7 @@
 }
 
 .input:focus {
-  border-bottom: 0.5px solid #FFAA1D;
+  border-bottom: 0.5px solid #ffaa1d;
 }
 #about-info-count {
   color: #424040;
@@ -173,8 +135,8 @@
   border-radius: 0.5rem;
 }
 
-.input-bio:focus{
-  border-color:  #FFAA1D;
+.input-bio:focus {
+  border-color: #ffaa1d;
 }
 
 .icon-padding {
@@ -193,7 +155,7 @@
 
   margin: 0 20px;
   height: 40px;
-  background-color:#FFAA1D;
+  background-color: #ffaa1d;
   border: none;
   border-radius: 10px;
   color: white;
@@ -239,56 +201,20 @@
   font-weight: 600;
 }
 
-// @media (max-width: 1200px) {
-//   .flexing-first {
-//     display: flex;
-//     flex-direction: column;
-//   }
-//   .boxes2 {
-//     width: 99%;
-//     margin: 30px auto;
-//     padding-right: 0.8rem;
-//   }
-//   // .boxes {
-//   //   width: 99%;
-//   //   margin: 20px auto;
-//   //   flex-direction: column;
-//   //   justify-content: space-evenly;
-//   // }
-//   .options {
-//     border-radius: 0.5rem;
-
-//     margin-left: auto;
-//     margin-right: auto;
-//     height: 3.7rem;
-//     background-color: white;
-//     font-size: 1rem;
-//     font-weight: 450;
-//   }
-//   // .option-flex {
-//   //   width: 90%;
-
-//   //   margin: 10px auto;
-//   // }
-//   .basic-head {
-//     font-size: 46px;
-//   }
-// }
-
 @media (max-width: 800px) {
   .content {
     width: 95%;
   }
-  .flexing-first{
+  .flexing-first {
     display: none;
   }
-  .option-flex{
+  .option-flex {
     width: 95%;
   }
   .basic-head {
     font-size: 40px;
   }
-  
+
   .boxes2 {
     padding: 10px 20px;
   }

@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, useContext } from 'react';
-
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 // import { setBasicInfo } from '../../firestore/profileSettings';
 import * as FormValidation from '../../formValidation';
 import styles from '../../scss/settings.module.scss';
+import { updateProfile } from '../../services/user';
 import LinearLoader from '../LinearLoader';
-
 import UserContext from '../UserContext';
 
 const Basicinfo = ({ UserData }) => {
@@ -65,16 +64,53 @@ const Basicinfo = ({ UserData }) => {
   async function handleFormSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    // const formData = {
-    //   firstName: firstName.trim(),
-    //   lastName: lastName.trim(),
-    //   email,
-    //   userName,
-    //   uid
-    // };
+    const formData = {
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      email,
+      userName,
+      uid
+    };
 
-    // const response = await setBasicInfo(formData);
-    // if (response.status === 'success')
+    try {
+      const response = await updateProfile(formData);
+      if (response.status === 200)
+        toast.success(
+          <div>
+            <img src="/icons/save-icon.svg" alt="save" /> About Information
+            Updated Successfully{' '}
+          </div>
+        );
+      setLoading(false);
+    } catch (response) {
+      if (response.status === 400) {
+        // response.formData && response.formData.name
+        //   ? setFullNameError(response.formData.name)
+        //   : setFullNameError(null);
+        response.formData && response.formData.firstName
+          ? setFirstNameError(response.formData.firstName)
+          : setFirstNameError(null);
+        response.formData && response.formData.lastName
+          ? setLastNameError(response.formData.lastName)
+          : setLastNameError(null);
+        response.formData && response.formData.email
+          ? setEmailError(response.formData.email)
+          : setEmailError(null);
+          response.formData && response.formData.userName
+          ? setUserNameError(response.formData.userName)
+          : setUserNameError(null);
+        toast.error(
+          <div>
+            <img src="/icons/error-icon.svg" alt="error" />{' '}
+            {response.message && response.message}
+          </div>
+        );
+      }
+
+      setLoading(false);
+    }
+    // const response = await updateProfile(formData);
+    // if (response.status === 200)
     //   toast.success(
     //     <div>
     //       <img src="/icons/save-icon.svg" alt="save" /> Basic Information
@@ -89,7 +125,7 @@ const Basicinfo = ({ UserData }) => {
     //     </div>
     //   );
 
-    setLoading(false);
+    // setLoading(false);
   }
 
   return (

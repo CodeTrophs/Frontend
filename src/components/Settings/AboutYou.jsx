@@ -8,13 +8,13 @@ import { updateProfile } from '../../services/user';
 import LinearLoader from '../LinearLoader';
 
 const AboutYou = ({ UserData }) => {
-  const [fullName, setFullName] = useState('');
+  // const [fullName, setFullName] = useState('');
   const [tag, setTag] = useState('');
   const [tags, setTags] = useState([]);
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [Loading, setLoading] = useState(false);
-  const [fullNameError, setFullNameError] = useState(null);
+  // const [fullNameError, setFullNameError] = useState(null);
   const [titleError, setTitleError] = useState(null);
   const [aboutError, setAboutError] = useState(null);
   const [skillError, setSkillError] = useState(null);
@@ -23,7 +23,7 @@ const AboutYou = ({ UserData }) => {
 
   useEffect(() => {
     if (UserData !== null) {
-      setFullName(UserData.name);
+      // setFullName(UserData.name);
       UserData.title ? setTitle(UserData.title) : setTitle('');
       UserData.about ? setAbout(UserData.about) : setAbout('');
       UserData.skills ? setTags(UserData.skills) : setTags([]);
@@ -31,12 +31,12 @@ const AboutYou = ({ UserData }) => {
   }, [UserData]);
 
   useEffect(() => {
-    if (aboutError === null && titleError === null && fullNameError === null) {
+    if (aboutError === null && titleError === null ) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
-  }, [titleError, aboutError, fullNameError]);
+  }, [titleError, aboutError]);
 
   useEffect(() => {
     if (skillError === null) setAddSkillButtonDisabled(false);
@@ -47,7 +47,7 @@ const AboutYou = ({ UserData }) => {
     e.preventDefault();
     setLoading(true);
     const data = {
-      name: fullName.trim(),
+      // name: fullName.trim(),
       title: title.trim(),
       about: about.trim(),
       skills: tags
@@ -64,9 +64,9 @@ const AboutYou = ({ UserData }) => {
       setLoading(false);
     } catch (response) {
       if (response.status === 400) {
-        response.data && response.data.name
-          ? setFullNameError(response.data.name)
-          : setFullNameError(null);
+        // response.data && response.data.name
+        //   ? setFullNameError(response.data.name)
+        //   : setFullNameError(null);
         response.data && response.data.title
           ? setTitleError(response.data.title)
           : setTitleError(null);

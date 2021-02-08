@@ -95,7 +95,7 @@ const Social = ({ UserData }) => {
   return (
     <div>
       <div className={styles['basic-head']}>
-        <h4 style={{ fontWeight: 'normal' }}>Where can others find you online?</h4>
+        <h4 style={{ fontWeight: 'normal' }}>Where can others<br/> find you online?</h4>
       </div>
       <form onSubmit={handleFormSubmit}>
         <div className={styles.qns}>
