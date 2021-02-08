@@ -62,8 +62,14 @@
     transform: rotate(360deg);
   }
 }
+// .header-logo {
+//   width: 200px;
+// }
 .header-logo {
-  width: 200px;
+  margin-top: 2%;
+  position: relative;
+  width: 70px;
+  margin-left: 5%;
 }
 
 .toggle-button {
