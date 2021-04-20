@@ -1,7 +1,7 @@
 {
-  "name": "open-source-code",
+  "name": "CodeTrophs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Contributing to open source can be a rewarding way to learn, teach, and build experience in just about any skill you can imagine.",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -12,7 +12,7 @@
     "format": "prettier --write src/**/* pages/**/*",
     "deploy": "npm run build && npm run export"
   },
-  "author": "",
+  "author": "Arya Soni",
   "license": "ISC",
   "dependencies": {
     "@types/react-transition-group": "^4.4.0",
