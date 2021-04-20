@@ -70,6 +70,8 @@ git clone https://github.com/CodeTrophs/Frontend.git
 cd Frontend
 ```
 
+### 💻 Installation
+
 - Install dependencies.
 
 ```shell
@@ -95,6 +97,22 @@ NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY=<TOKEN>
 ```shell
 npm run dev
 ```
+
+### 🐋 Installation with Docker
+
+- [Pull it from DockerHub](https://hub.docker.com/r/siddhantkhare/codetrophs-frontend)
+
+```shell
+docker pull siddhantkhare/codetrophs-frontend:dev
+```
+
+- Run
+
+```shell
+docker run -p 3001:3000 siddhantkhare/codetrophs-frontend:dev
+```
+
+> _And, Your site is now running at `http://localhost:3001`!_
 
 <hr>
 <br>
@@ -168,7 +186,6 @@ Open the `codetrophs` directory in your code editor of choice and edit files und
 		</td>
 	</tr>
 </table>
-
 
 ## Contributors ✨
 
