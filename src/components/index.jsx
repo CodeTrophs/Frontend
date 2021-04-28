@@ -7,5 +7,6 @@ import HowContainer from './Home/HowContainer';
 import WelcomeComponent from './Home/WelcomeComponent';
 import Spinner from './Spinner';
 import Subscribe from './subscribe';
+import UserContext from './UserContext';
 
-export {Carousel, Footer,Header, AboutUs, HelpUs, HowContainer, WelcomeComponent, Spinner, Subscribe};
+export {Carousel, Footer,Header, AboutUs, HelpUs, HowContainer, WelcomeComponent, Spinner, Subscribe, UserContext};

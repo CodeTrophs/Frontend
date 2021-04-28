@@ -33,7 +33,7 @@
 .welcome-container {
   font-family: 'Montserrat', sans-serif;
   min-height: 100vh;
-  padding: 80px;
+  padding: 40px;
   display: flex;
   flex-direction: row;
   background-color: var(--theme-background-darker);
@@ -53,7 +53,7 @@
 
       .welcome-title {
         font-weight: 800;
-        font-size: 2.8rem;
+        font-size: 2.4rem;
         padding-left: 40px;
       }
     }
@@ -191,7 +191,7 @@
 
 .about-us-container {
   color: var(--theme-color);
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto;
   margin-bottom: 40px;
 
@@ -268,7 +268,7 @@
 
 .how-container {
   color: var(--theme-color);
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
   margin-bottom: 40px;
 
@@ -324,7 +324,7 @@
 
 .help-us-container {
   color: var(--theme-color);
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
   padding: 40px 0;
   margin-bottom: 40px;
@@ -357,6 +357,7 @@
     box-shadow: 1px 1px 3px rgb(90, 90, 90);
     font-weight: 600;
     letter-spacing: 0.02em;
+    
   }
 
   .donateButton:hover {

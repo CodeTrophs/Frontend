@@ -1,6 +1,6 @@
 ---
 name: "[FEATURE]: Feature request \U0001F914"
-about: "Suggest ideas you wish OpenSourceCode had \U0001F680"
+about: "Suggest ideas you wish CodeTrophs had \U0001F680"
 ---
 
 **Is your feature request related to a problem? Please describe.**

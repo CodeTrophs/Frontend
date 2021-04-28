@@ -23,6 +23,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   outline: none;
+  text-align: center;
 }
 
 // SPINNER
@@ -117,4 +118,22 @@
 
 button {
   cursor: pointer;
+}
+
+/* scroll--bar styles */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-left: 9px solid #ffffff;
+  border-right: 9px solid #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(#ffaa1d, #c61937, #0e314a);
+  border-left: 5px solid #ffffff;
+  border-right: 5px solid #ffffff;
+  border-radius: 30px;
 }

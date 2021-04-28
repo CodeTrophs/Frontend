@@ -9,7 +9,7 @@ const SearchBar = ({ page, searchFilter, method }) => {
     <div className={styles['search-bar']}>
       <div className={styles['left-col']}>
         <img
-          src="/SVG/search-icon.svg"
+          src="/SVG/black-search-icon.svg"
           alt="search"
           style={{ width: '20px' }}
         />
@@ -30,10 +30,10 @@ const SearchBar = ({ page, searchFilter, method }) => {
           }}
           style={{
             border: 'none',
-            color: 'white',
-            backgroundColor: 'black',
+            color: 'black',
+            backgroundColor: 'whitesmoke',
             fontSize: '18px',
-            fontWeight: '300',
+            fontWeight: '600',
             width: '100%',
             marginLeft: '20px',
             outline: 'none'

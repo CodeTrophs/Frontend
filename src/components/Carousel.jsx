@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import styles from '../scss/carousel.module.scss';
 // import sponsors from './sponsors.json';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const ANIMATION_DURATION = 500;
 
@@ -69,7 +70,7 @@ export default function Carousel({ data }) {
                 ? `${styles['carousel-data']} ${styles['carousel-animate']}`
                 : styles['carousel-data']
             }>
-            <p>{activeQuote.comment}</p>
+            <p><i className="fas fa-quote-left" />{activeQuote.comment}</p>
 
             <div className={styles['data-bottom-row']}>
               <h2>{activeQuote.name}</h2>
@@ -84,21 +85,6 @@ export default function Carousel({ data }) {
         </div>
 
         <div className={styles['carousel-inner-right']}>
-          <div className={styles['arrow-buttons']}>
-            {' '}
-            <button
-              type="button"
-              onClick={goToPrevious}
-              className={styles['left-button']}>
-              <img src="SVG/left-arrow.svg" alt="Prev" />
-            </button>
-            <button
-              type="button"
-              onClick={goToNext}
-              className={styles['right-button']}>
-              <img src="SVG/right-arrow.svg" alt="Next" />
-            </button>
-          </div>
           <div>
             <img src={activeQuote.profileImage} alt="Profile" />
           </div>

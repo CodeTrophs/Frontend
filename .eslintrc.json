@@ -30,6 +30,7 @@
     ],
     "no-underscore-dangle": "off",
     "no-async-promise-executor": "off",
+    "react/prop-types": "off", 
     "no-unused-expressions": [
       2,
       { "allowShortCircuit": true, "allowTernary": true }

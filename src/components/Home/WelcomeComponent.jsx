@@ -25,15 +25,17 @@ export default function WelcomeComponent({ setLoading }) {
             alt="vertical rectangle"
             className={styles['welcome-title-bar']}
           />
-          <h1 className={styles['welcome-title']}>
-            Explore the World of
-            <br />
-            Open Sourcing
-          </h1>
+          <p className={styles['welcome-title']}>
+            A one spot Destination for your CodeTrophs Contribution Journey<span className="emoji"
+        role="img"
+        aria-label=""
+        aria-hidden="true">🚀</span>
+          </p>
         </div>
 
-        <p className={styles['landing-text']}> &quot;CodeTrophs&quot; is an open source platform targeted solely for
-          beginners to help them contribute to real life projects.{' '}
+        <p className={styles['landing-text']}>
+          Now Explore from <b>120000+ TopOpen Source Projects</b> at One Place. Contributing to open source can be a rewarding way to learn, teach, and build experience in just about any skill you can imagine.{' '}
+          {' '}
         </p>
 
         <div className={styles['sign-in-buttons']}>

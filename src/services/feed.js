@@ -264,3 +264,14 @@ export const getRepo = async (owner, name) => {
     }
   });
 };
+
+export const forkRepo = async (name) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await http.post(`${baseURL}/fork/${name}`);
+      if (res.status === 200) resolve(res);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};

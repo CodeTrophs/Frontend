@@ -28,7 +28,8 @@ export default function loginMiddleWare() {
         setUser({
           uid: res.data.data._id,
           name: res.data.data.name,
-          profileImageUrl: res.data.data.profileImage
+          profileImageUrl: res.data.data.profileImage,
+          userName: res.data.data.oAuth.github.username
         });
 
         router.replace('/feed');

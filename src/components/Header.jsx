@@ -4,6 +4,7 @@ import React, { useState, useContext } from 'react';
 
 import { logout } from '../api/authFunctions';
 import styles from '../scss/header.module.scss';
+import Navbar from './Nav/Navbar';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
 // import Button from './ThemeBtn';
@@ -42,7 +43,7 @@ export default function Header() {
           <img className={styles['header-logo']} src="/logo/new_codetrophs_logo.svg" alt="codetrophs" />
         </Link>
       </div>
-
+      <Navbar/>
       {/* Theme Button  */}
       {/* <Button /> */}
 

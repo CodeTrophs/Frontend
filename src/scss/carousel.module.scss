@@ -40,12 +40,12 @@
   // border: solid #707070 0.1rem;
   font-family: 'Montserrat', sans-serif;
   position: relative;
-  height: 90vh;
+  height: 60vh;
   // padding: 2rem 0 1rem;
   // -webkit-box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
   // -moz-box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
   // box-shadow: 10px 10px 10px 1px rgba(189, 185, 189, 0.73);
-  width: 80%;
+  width: 90%;
 }
 .carousel-container {
   display: flex;
@@ -53,8 +53,11 @@
   // justify-content: center;
   // flex-direction: column;
   // margin-top: -7.5px;
-  // padding: 15px 15px 40px 15px;
   // background-color: var(--theme-background-darker);
+  padding: 18px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 3px 3px #5a5a5a;
+  border-radius: 10px;
 }
 
 .heading {
@@ -67,17 +70,14 @@
 }
 .carousel-inner-left {
   max-width: 60%;
-  // display: flex;
-  // justify-content: center;
-  // position: relative;
   padding-bottom: 30px;
   height: 90%;
   margin: 0 3rem;
   overflow: hidden;
-  // img {
-  //   height: 3rem;
-  //   width: 3rem;
-  // }
+  img {
+    height: 3rem;
+    width: 3rem;
+  }
 }
 
 .carousel-data {
@@ -121,7 +121,6 @@
     padding: 0.25rem;
     height: 75px;
     width: 75px;
-    border-radius: 100px;
   }
 
   h4 {
@@ -141,6 +140,7 @@
   img {
     height: 16rem;
     width: 16rem;
+    border-radius: 50%;
   }
 }
 
@@ -156,6 +156,8 @@
 .arrow-buttons {
   display: flex;
   padding-bottom: 20px;
+  justify-content: space-around;
+  margin-left: 8vh;
 }
 
 .left-button {
@@ -163,8 +165,9 @@
   justify-content: center;
   align-items: center;
   width: fit-content;
-  background-color: #c61937;
-  border: none;
+  background-color: #a0021d;
+  border: 2px solid #8f0219;
+  box-shadow: 1px 1px 3px #690415;
   margin-right: 12px;
   // position: absolute;
   // left: calc(0% - 2.75rem);
@@ -178,19 +181,18 @@
 
 .left-button:hover {
   cursor: pointer;
-  background-color: #a0021d;
+  background-color: #8f031a;
+  border: 2px solid #7c0216;
+  box-shadow: 1px 1px 4px #640112;
 }
 
 .right-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #c61937;
-  border: none;
-  // position: absolute;
-  // right: -2.75rem;
-  // top: 50%;
-  // transform: translateY(-50%);
+  background-color: #a0021d;
+  border: 2px solid #8f0219;
+  box-shadow: 1px 1px 3px #690415;
   img {
     width: 5rem;
     height: 5rem;
@@ -199,7 +201,9 @@
 
 .right-button:hover {
   cursor: pointer;
-  background-color: #a0021d;
+  background-color: #8f031a;
+  border: 2px solid #7c0216;
+  box-shadow: 1px 1px 4px #640112;
 }
 
 @media only screen and (max-width: 1024px) {
