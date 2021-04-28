@@ -13,21 +13,21 @@ export default function Carousel({ data }) {
   const [activeQuote, setActiveQuote] = useState(data[0]);
 
   // Previous Item Function
-  function goToPrevious() {
-    setIsAnimating(true);
-    setTimeout(() => {
-      let newIndex;
-      if (activeIndex === 0) {
-        newIndex = data.length - 1;
-      } else newIndex = activeIndex - 1;
-      setActiveIndex(newIndex);
-      setActiveQuote(data[newIndex]);
-    }, ANIMATION_DURATION / 2);
+  // function goToPrevious() {
+  //   setIsAnimating(true);
+  //   setTimeout(() => {
+  //     let newIndex;
+  //     if (activeIndex === 0) {
+  //       newIndex = data.length - 1;
+  //     } else newIndex = activeIndex - 1;
+  //     setActiveIndex(newIndex);
+  //     setActiveQuote(data[newIndex]);
+  //   }, ANIMATION_DURATION / 2);
 
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, ANIMATION_DURATION);
-  }
+  //   setTimeout(() => {
+  //     setIsAnimating(false);
+  //   }, ANIMATION_DURATION);
+  // }
 
   // Next Item Function
   function goToNext() {

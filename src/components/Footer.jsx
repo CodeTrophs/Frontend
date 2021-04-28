@@ -15,7 +15,7 @@ export default function Footer() {
       <div className={styles.blocks}>
       <div className={styles.links}>
       <i
-          className="fa fa-facebook-square"
+          className="fab fa-facebook-square"
           aria-hidden="true"
           style={{ fontSize: '36px', color: 'white'}}/>
           <a href="https://www.facebook.com/codetrophs">Facebook</a>
@@ -24,7 +24,7 @@ export default function Footer() {
       <div className={styles.blocks}>
       <div className={styles.links}>
       <i
-              className="fa fa-linkedin-square"
+              className="fab fa-linkedin-square"
               aria-hidden="true"
               style={{ fontSize: '36px', color: 'white'}}/>
               <a href="https://www.linkedin.com/company/codetrophs/">LinkedIn</a>
@@ -35,7 +35,7 @@ export default function Footer() {
       <div className={styles.blocks}>
       <div className={styles.links}>
       <i
-              className="fa fa-github-square"
+              className="fab fa-github-square"
               aria-hidden="true"
               style={{ fontSize: '36px', color: 'white'}}/>
               <a href="https://github.com/CodeTrophs">Github</a>
@@ -45,7 +45,7 @@ export default function Footer() {
       <div className={styles.blocks}>
       <div className={styles.links}>
       <i
-              className="fa fa-github-square"
+              className="fab fa-discord"
               aria-hidden="true"
               style={{ fontSize: '36px', color: 'white'}}/>
               <a href="https://discord.gg/urV8vGk">Discord</a>

@@ -32,20 +32,19 @@
   border-radius: 10px;
 }
 .links{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 15px 3px 4px;
-  a {
-    color: white;
-    text-decoration: none;
-    padding: 0px 0px 0px 15px;
-   }
-   a:hover{
-     color:#ffaa1d;
-   }
-}
-
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 3px 15px 3px 4px;
+   a {
+     color: white;
+     text-decoration: none;
+     padding: 0px 0px 0px 15px;
+    }
+    a:hover{
+      color:#ffaa1d;
+    }
+  }  
 @media (max-width: 800px) {
   .desc{
     padding:10px;

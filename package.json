@@ -16,9 +16,9 @@
   "author": "Arya Soni",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@types/react-transition-group": "^4.4.0",
     "axios": "^0.21.1",
-    "font-awesome": "^4.7.0",
     "jsonwebtoken": "^8.5.1",
     "next": "^10.0.8",
     "npm-upgrade": "^3.0.0",
@@ -35,7 +35,6 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
