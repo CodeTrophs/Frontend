@@ -4,6 +4,7 @@ import React, { useState, useContext } from 'react';
 
 import { logout } from '../api/authFunctions';
 import styles from '../scss/header.module.scss';
+import Navbar from './Nav/Navbar';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
 // import Button from './ThemeBtn';
@@ -37,12 +38,7 @@ export default function Header() {
   return (
     <div className={`${styles.header} ${Theme}`}>
       <ToTop />
-      <div>
-        <Link href={User ? '/feed' : '/'}>
-          <img className={styles['header-logo']} src="/logo/codetrophs.png" alt="" />
-        </Link>
-      </div>
-
+      <Navbar/>
       {/* Theme Button  */}
       {/* <Button /> */}
       {User &&

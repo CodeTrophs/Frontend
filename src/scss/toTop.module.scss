@@ -5,24 +5,30 @@
   z-index: 99;
 }
 
-.container > button {
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  background-color: #ffaa1d;
-  color: white;
-  box-shadow: 0 0 10px #a8a8a8;
-  opacity: 0.3;
-  animation: fadeIn 0.2s;
-  transition-duration: 0.2s;
+.top{
+  transform: rotate(-135deg);
 }
 
+.container > button > i{
+  border: solid #fff;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 10px;
+}
+
+.container > button {
+  background-color: #e48e00;
+  border: 1.5px solid #fff ;
+  width: 50px;
+  height:55px;
+  border-radius: 10px;
+  padding-top: 15px;
+}
+
+
 .container > button:hover {
-  opacity: 1;
-  transition-duration: 0.2s;
+  background-color: #b1102b;
+  box-shadow: 0 2px 4px 0 #fff, 0 6px 14px 0 #c2c2c2;
 }
 
 @keyframes fadeIn {

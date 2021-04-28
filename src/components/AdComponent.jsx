@@ -5,7 +5,7 @@ export default function AdDisplay() {
 
   return (
     <AdSense.Google
-      client="ca-pub-3450125087548369"
+      client="ca-pub-4735771565757884"
       slot="4337088929"
       format="auto"
       responsive="true"

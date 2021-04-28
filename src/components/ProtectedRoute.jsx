@@ -24,7 +24,8 @@ const ProtectedRoute = props => {
           name: verificationResult.name,
           token: verificationResult.token,
           uid: verificationResult.uid,
-          profileImageUrl: verificationResult.profileImageUrl
+          profileImageUrl: verificationResult.profileImageUrl,
+          userName : verificationResult.userName
         });
         if (Router.pathname === '/') {
           Router.replace('/feed');

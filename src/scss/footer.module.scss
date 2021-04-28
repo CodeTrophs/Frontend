@@ -4,91 +4,80 @@
   background: url('/images/home/footer.svg') bottom no-repeat;
   background-size: cover;
   background-color: #0c314a;
-  padding: 40px 0 220px 0;
-  display: flex;
+  padding: 10px 0 220px 0;
   justify-content: center;
 }
-
-.menu {
-  li {
-    margin-bottom: 2%;
-    list-style: none;
-    a {
-      text-decoration: none;
-      color: white;
-    }
-  }
+.heading{
+  color: white;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
 }
-
-.contact {
-  li {
-    list-style: none;
-    margin-bottom: 4%;
-    display: flex;
-    a {
-      text-decoration: none;
-      color: white;
-      padding-left: 4%;
-    }
-    span {
-      color: white;
-      padding-left: 4%;
-    }
-  }
+.desc{
+  color: white;
+  padding-top: 5px;
+  text-align: center;
 }
-
-.footer-list {
-  width: 60vw;
+.socials{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  // .menu {
-  //   padding-right: 50px;
-  // }
-}
-.socials {
-  display: flex;
   justify-content: center;
+  margin-top: 15px;
+}
+.blocks{
+  height: 45px;
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 15px 3px 4px;
   a {
     padding-right: 5%;
+  }
+  i:hover {
+    transform: scale(1.05);
   }
   // img {
   //   width: 2.4rem;
   //   height: 45px;
   // }
+    color: white;
+    text-decoration: none;
+    padding: 0px 0px 0px 15px;
+   }
+   a:hover{
+     color:#ffaa1d;
+   }
 }
-.socials > .heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  padding-left: 2.5rem;
 
-  hr {
-    width: 2em;
-    height: 0.5rem;
-    background-color: #000;
-    border-radius: 1rem;
+@media (max-width: 800px) {
+  .desc{
+    padding:10px;
   }
-}
-
-@media only screen and (max-width: 1440px) {
-  .footer-list {
-    min-width: 80vw;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .footer-list {
-    display: flex;
+  .socials {
     flex-direction: column;
-    align-items: flex-start;
-    width: 80%;
-    padding-top: 50px;
   }
-  .menu {
-    padding-bottom: 20px;
+  .blocks{
+    height: 60px;
+    margin: 10px;
+    width: 60%;
+    border: 1px solid white;
+    border-radius: 10px;
   }
-  .contact {
-    padding-bottom: 40px;
-  }
+  .links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 1.2rem;
+     }
+}
 }

@@ -1,17 +1,21 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { toast } from 'react-toastify';
 
 import styles from '../scss/card.module.scss';
-import { starRepo, unStarRepo } from '../services/feed';
+import { starRepo, unStarRepo, forkRepo } from '../services/feed';
 import LinearLoader from './LinearLoader';
+import UserContext from './UserContext';
 
 // eslint-disable-next-line
 export default function Card({ repo, isStarredProp }) {
   const [isStarred, setIsStarred] = useState(isStarredProp);
   const [starring, setStarring] = useState(false);
+  const [forking, setForking] = useState(false);
+  const [isForked, setIsForked] = useState(false);
+  const { User } = useContext(UserContext)
   const changeStar = async (method, name) => {
     if (method === 'remove') {
       try {
@@ -29,6 +33,16 @@ export default function Card({ repo, isStarredProp }) {
     setIsStarred(!isStarred);
     setStarring(false);
   };
+  const fork = async (name) => {
+    try {
+      await forkRepo(name);
+    }
+    catch (res) {
+      toast.error(`${res.status} : ${res.message}`);
+    }
+    setIsForked(true);
+    setForking(false);
+  }
   return (
     <div>
       <div className={isStarred ? styles.starredRepo : styles['big-box']}>
@@ -84,12 +98,21 @@ export default function Card({ repo, isStarredProp }) {
                 </div>
               </div>
               <div>
-                <div className={styles['smallbox-below']}>
-                  <div className={styles.flex}>
-                    <img src="SVG/pr.svg" alt="fork" />
-                    <p>Forks:{repo.forks}</p>
-                  </div>
-                </div>
+                {forking === false && (
+                  <button className={styles['smallbox-below']}
+                    type = "button"
+                    disabled = {isForked || (User && User.userName === repo.full_name.split('/')[0])} 
+                    onClick = {() => {
+                      setForking(true);
+                      fork(repo.full_name)
+                    }}>
+                    <div className={styles.flex}>
+                      <img src="SVG/pr.svg" alt="fork" />
+                      <p>{ isForked ? 'Forked' : 'Fork' }:{repo.forks}</p>
+                    </div>
+                  </button>
+                )}
+                {forking && <LinearLoader/>}
               </div>
             </div>
             {starring === false && (

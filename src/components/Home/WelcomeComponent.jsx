@@ -26,7 +26,10 @@ export default function WelcomeComponent({ setLoading }) {
             className={styles['welcome-title-bar']}
           />
           <p className={styles['welcome-title']}>
-            A one spot Destination for your CodeTrophs Contribution Journey🚀
+            A one spot Destination for your CodeTrophs Contribution Journey<span className="emoji"
+        role="img"
+        aria-label=""
+        aria-hidden="true">🚀</span>
           </p>
         </div>
 

@@ -17,7 +17,8 @@ export const getProfile = async () => {
           // eslint disable-next-line
           uid: res.data.data._id,
           name: res.data.data.name,
-          profileImageUrl: res.data.data.profileImage
+          profileImageUrl: res.data.data.profileImage,
+          userName: res.data.data.oAuth.github.username
         };
         localStorage.setItem('user', authFunctions.secureToken(user));
       }
