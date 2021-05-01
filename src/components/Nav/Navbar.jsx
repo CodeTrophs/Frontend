@@ -1,10 +1,10 @@
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 
 import styles from '../../scss/navbar.module.scss';
 import Burger from './Burger';
 
-const Navbar = () => {
+const NavbarBasic = () => {
   return (
     <div className={styles.stylenavbar}>
       <Link href='/feed'>
@@ -20,4 +20,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default NavbarBasic;
