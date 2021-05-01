@@ -341,6 +341,9 @@
   }
 
   .donateButton {
+    display: flex;
+    position: relative;
+    right: 3%;
     margin: 0.5rem auto;
     margin-top: 20px;
     border-radius: 10rem;
