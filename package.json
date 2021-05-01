@@ -29,13 +29,11 @@
     "react-bootstrap": "^1.5.2",
     "react-dom": "^16.13.1",
     "react-ga": "^3.1.2",
-    "react-icons": "^4.2.0",
     "react-infinite-scroll-component": "^5.0.5",
     "react-responsive-carousel": "^3.2.9",
     "react-router-dom": "^5.2.0",
     "react-toastify": "^6.0.5",
     "react-toasty": "0.0.4",
-    "reactstrap": "^8.9.0",
     "sass": "^1.26.7",
     "styled-components": "^5.2.1"
   },
