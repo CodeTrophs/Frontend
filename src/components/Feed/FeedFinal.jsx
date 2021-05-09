@@ -180,7 +180,7 @@ export default function FeedFinal() {
   if (pageLoading) return <Spinner />;
 
   return (
-    <div>
+    <div className={styles.feedMainDiv}>
       <FeedIntroduction />
       {/* <AdDisplay /> */}
       <div className={styles.search}>
@@ -261,9 +261,10 @@ export default function FeedFinal() {
               tabIndex={0}
               role="button"
               style={{
-                color: filterType === 'basic' && 'rgb(79, 187, 230)'
+                color: filterType === 'basic' && 'rgb(79, 187, 230)',
+                backgroundColor: filterType === 'basic' && '#DCF0EE'
               }}
-              className={styles.filterBtn}
+              className={styles.filterBtnBasic}
               onKeyDown={toggleBasic}
               onClick={toggleBasic}>
               Basic
@@ -272,9 +273,10 @@ export default function FeedFinal() {
               tabIndex={0}
               role="button"
               style={{
-                color: filterType === 'advanced' && 'rgb(79, 187, 230)'
+                color: filterType === 'advanced' && 'rgb(79, 187, 230)',
+                backgroundColor: filterType === 'advanced' && '#DCF0EE'
               }}
-              className={styles.filterBtn}
+              className={styles.filterBtnAdvanced}
               onClick={toggleAdvanced}
               onKeyDown={toggleAdvanced}>
               Advanced
@@ -287,7 +289,7 @@ export default function FeedFinal() {
                 tabIndex={0}
                 style={
                   selectedBasicFilter === 'React'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 role="button"
@@ -308,7 +310,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Vue'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Vue')}
@@ -327,7 +329,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Angular'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Angular')}
@@ -346,7 +348,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Machine Learning'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Machine Learning')}
@@ -365,7 +367,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Data Science'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Data Science')}
@@ -384,7 +386,7 @@ export default function FeedFinal() {
                 role="button"
                 style={
                   selectedBasicFilter === 'Web Development'
-                    ? { backgroundColor: 'rgb(180, 180, 180)' }
+                    ? { backgroundColor: '#DCF0EE' }
                     : { backgroundColor: 'transparent' }
                 }
                 onClick={() => getFilter('Web Development')}
@@ -594,11 +596,12 @@ export default function FeedFinal() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className={styles.filterBtn}
-                  onKeyDown={toggleBasic}
                   style={{
-                    color: filterType === 'basic' && 'rgb(79, 187, 230)'
+                    color: filterType === 'basic' && 'rgb(79, 187, 230)',
+                    backgroundColor: filterType === 'basic' && '#DCF0EE'
                   }}
+                  className={styles.filterBtnBasic}
+                  onKeyDown={toggleBasic}
                   onClick={toggleBasic}>
                   Basic
                 </div>
@@ -606,9 +609,10 @@ export default function FeedFinal() {
                   tabIndex={0}
                   role="button"
                   style={{
-                    color: filterType === 'advanced' && 'rgb(79, 187, 230)'
+                    color: filterType === 'advanced' && 'rgb(79, 187, 230)',
+                    backgroundColor: filterType === 'advanced' && '#DCF0EE'
                   }}
-                  className={styles.filterBtn}
+                  className={styles.filterBtnAdvanced}
                   onClick={toggleAdvanced}
                   onKeyDown={toggleAdvanced}>
                   Advanced
