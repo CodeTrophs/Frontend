@@ -38,9 +38,15 @@ export default function Header() {
   return (
     <div className={`${styles.header} ${Theme}`}>
       <ToTop />
+      <div>
+        <Link href={User ? '/feed' : '/'}>
+          <img className={styles['header-logo']} src="/logo/new_codetrophs_logo.svg" alt="codetrophs" />
+        </Link>
+      </div>
       <Navbar/>
       {/* Theme Button  */}
       {/* <Button /> */}
+
       {User &&
       router.pathname !== '/' &&
       router.pathname !== '/toporg' &&
@@ -127,7 +133,7 @@ export default function Header() {
             />
             {User !== null && <p> {User.name} </p>}
             <img
-              src="/SVG/Icon awesome-angle-down.svg"
+              src="/SVG/Icon awesome-angle-down-white.svg"
               style={{ paddingLeft: '10px', width: '20px' }}
               alt=" "
             />

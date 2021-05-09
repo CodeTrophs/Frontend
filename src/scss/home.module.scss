@@ -17,7 +17,12 @@
   width: 100%;
   margin-bottom: 0;
 }
-
+.header-logo {
+  margin-top: 10px;
+  position: relative;
+  width: 70px;
+  cursor: pointer;
+}
 .landing-container {
   padding-top: 10vh;
   padding-right: 3vw;

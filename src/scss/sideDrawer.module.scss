@@ -2,11 +2,10 @@
 
 .side-drawer {
   height: 100%;
-  width: 40%;
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #f7f7f7;
+  background-color: #0c314a;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: flex-end;
@@ -31,6 +30,7 @@
 
 .profile {
   margin: 50px 20px;
+  width: 80%;
 }
 
 .dropdown {
@@ -78,6 +78,7 @@
   box-shadow: $box-shadow-thin-light;
   text-align: center;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .links {
@@ -85,7 +86,8 @@
   height: 30vh;
   justify-content: space-around;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
+  width: 90%;
 }
 .link {
   padding: 0 30px;
@@ -97,9 +99,9 @@
 
 @media only screen and (max-width: 500px) {
   .side-drawer {
-    width: 50%;
+    width: 100%;
   }
   .link{
-    text-align:right;
+    text-align:left;
   }
 }
