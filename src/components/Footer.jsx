@@ -22,12 +22,7 @@ export default function Footer() {
           <div className="row w-100 mx-auto d-flex justify-content-center">
             <div className="col-xs-3 px-md-4 px-2 d-flex justify-content-center">
               <div
-                style={{
-                  height: '70px',
-                  width: '70px',
-                  border: '2px solid #fff',
-                  borderRadius: '50%'
-                }}>
+                style={styles.socialmediaicons}>
                 <a href="https://www.facebook.com/codetrophs">
                   <i className="fab py-4 py-lg-3 text-white fa-2x fa-facebook-f" />
                 </a>
@@ -35,12 +30,7 @@ export default function Footer() {
             </div>
             <div className="col-xs-3 px-md-4 px-2 d-flex justify-content-center">
               <div
-                style={{
-                  height: '70px',
-                  width: '70px',
-                  border: '2px solid #fff',
-                  borderRadius: '50%'
-                }}>
+                style={styles.socialmediaicons}>
                 <a href="https://discord.com/invite/urV8vGk">
                   <i className="fab py-4 py-lg-3 text-white fa-2x fa-discord" />
                 </a>
@@ -48,12 +38,7 @@ export default function Footer() {
             </div>
             <div className=" col-xs-3 px-md-4 px-2 d-flex justify-content-center">
               <div
-                style={{
-                  height: '70px',
-                  width: '70px',
-                  border: '2px solid #fff',
-                  borderRadius: '50%'
-                }}>
+                style={styles.socialmediaicons}>
                 <a href="https://github.com/CodeTrophs">
                   <i className="fab py-4 py-lg-3 text-white fa-2x fa-github" />
                 </a>
@@ -61,12 +46,7 @@ export default function Footer() {
             </div>
             <div className=" col-xs-3 px-md-4 px-2 d-flex justify-content-center">
               <div
-                style={{
-                  height: '70px',
-                  width: '70px',
-                  border: '2px solid #fff',
-                  borderRadius: '50%'
-                }}>
+                style={styles.socialmediaicons}>
                 <a href="https://www.linkedin.com/company/codetrophs/">
                   <i className="fab py-4 py-lg-3 text-white fa-2x fa-linkedin-in" />
                 </a>
@@ -98,3 +78,14 @@ export default function Footer() {
     </footer>
   );
 }
+const styles={
+  socialmediaicons:{  
+                  height: '70px',
+                  width: '70px',
+                  border: '2px solid #fff',
+                  borderRadius: '50%',
+                  '&:hover':{
+                backgroundColor:'#154477'
+                }
+              }
+};
