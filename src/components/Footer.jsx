@@ -56,16 +56,16 @@ export default function Footer() {
           <div className="row w-75 mx-auto my-4 d-flex justify-content-center">
             <div className="col-md-4">
               <Link href="/about">
-                <p className="btn text-white">About us</p>
+                <p className="btn text-white effect">About us</p>
               </Link>
             </div>
             <div className="col-md-4">
               <Link href="/terms-of-service">
-                <p className="btn text-white">Terms of Services</p>
+                <p className="btn text-white effect">Terms of Services</p>
               </Link>
             </div>
             <div className="col-md-4">
-              <Link href="/privacy-policy">
+              <Link href="/privacy-policy effect">
                 <p className="btn text-white">Privacy Policy</p>
               </Link>
             </div>
